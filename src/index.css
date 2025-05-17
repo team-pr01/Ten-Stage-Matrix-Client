@@ -11,6 +11,8 @@
   --color-primary-20: #190C5B;
   --color-primary-25: #140C3B;
   --color-primary-30: #190c5b99;
+  --color-primary-40: #140B3F;
+  --color-primary-45: #FF7C06;
 
   /* Neutral */
   --color-neutral-10: #0B052B;
@@ -18,6 +20,8 @@
   --color-neutral-20: #151313;
   --color-neutral-25: #ffffff80;
   --color-neutral-30: #d4d4d41a;
+  --color-neutral-35: #BDBDBD;
+  --color-neutral-40: #B5B5B5;
 
   /* Secondary */
   --color-secondary-10: #6EBC94;
