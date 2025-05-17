@@ -1,16 +1,12 @@
 import { useForm } from "react-hook-form";
 import { IMAGES } from "../../assets";
 import { Link } from "react-router-dom";
-import { useState } from "react";
 
 type TFormValues = {
-  userName: string;
-  email: string;
+  privateKey: string;
   password: string;
 };
-const Signup = () => {
-  const [isChecked, setIsChecked] = useState<boolean>(true);
-
+const SignIn = () => {
   const {
     register,
     handleSubmit,
@@ -28,24 +24,24 @@ const Signup = () => {
         <div className="flex items-center justify-between">
           <div className="z-10">
             <img src={IMAGES.logo} alt="logo" className="z-10" />
-            <h1 className="text-neutral-80 text-xl mt-[17px]">Sign Up</h1>
-            <p className="text-neutral-85 mt-[10px]">
-              Create New TEN STAGE MATRIX Account
+            <h1 className="text-neutral-80 text-xl mt-[17px]">Sign in</h1>
+            <p className="text-neutral-85 mt-[10px] max-w-[434px]">
+              Access the TEN STAGE MATRIX Using your username and passcode
             </p>
 
             <form onSubmit={handleSubmit(handleSignup)} className="mt-[42px]">
               <div className="flex flex-col gap-2">
                 <label htmlFor="" className="text-neutral-85">
-                  Referral's Username
+                  Privet Key
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter your username"
-                  {...register("userName", {
+                  placeholder="Enter your private key"
+                  {...register("privateKey", {
                     required: "Name is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.userName ? "border-red-500" : "border-neutral-90"
+                    errors?.privateKey ? "border-red-500" : "border-neutral-90"
                   }`}
                 />
                 {typeof errors === "object" && "message" in errors && (
@@ -54,50 +50,6 @@ const Signup = () => {
                   </span>
                 )}
               </div>
-
-              <div className="flex flex-col gap-2 mt-[17px]">
-                <div className="flex items-center justify-between">
-                  <label htmlFor="" className="text-neutral-85">
-                    Your Email
-                  </label>
-                  <Link
-                    to={"/"}
-                    className="text-primary-55 text-xs hover:underline"
-                  >
-                    Need Help?
-                  </Link>
-                </div>
-                <input
-                  type="text"
-                  placeholder="Your Email Address"
-                  {...register("email", {
-                    required: "Name is required",
-                  })}
-                  className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.email ? "border-red-500" : "border-neutral-90"
-                  }`}
-                />
-                {typeof errors === "object" && "message" in errors && (
-                  <span className="text-red-500 text-sm">
-                    {String(errors.message)}
-                  </span>
-                )}
-              </div>
-
-              <label className="flex items-center gap-3 text-neutral-85 mt-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={() => setIsChecked(!isChecked)}
-                  className="accent-orange-500  w-4 h-4"
-                />
-                <span>
-                  I agree to{" "}
-                  <span className="font-semibold">TEN STAGE MATRIX</span>{" "}
-                  <span className="text-primary-55">Policy</span> &{" "}
-                  <span className="text-primary-55">terms</span>
-                </span>
-              </label>
 
               <div className="flex flex-col gap-2 mt-[17px]">
                 <label htmlFor="" className="text-neutral-85">
@@ -124,28 +76,28 @@ const Signup = () => {
                 type="submit"
                 className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-6"
               >
-                Sign Up
+                Access Dashboard
               </button>
 
-              <div className="flex items-center gap-[9px] mt-[30px]">
+              <div className="flex items-center gap-[9px] mt-[65px]">
                 <div className="h-[1px] w-[171px] bg-neutral-90"></div>
                 <p className="text-neutral-85">or</p>
                 <div className="h-[1px] w-[171px] bg-neutral-90"></div>
               </div>
 
-              <div className="flex flex-col gap-2 mt-[17px]">
+              <div className="flex flex-col gap-2 mt-8">
                 <label htmlFor="" className="text-neutral-85">
-                  Already account on platform?
+                  New on our platform?
                 </label>
                 <Link
-                  to={"/login"}
-                  className="p-2 w-full h-12 rounded-lg bg-primary-60 text-white font-medium text-center cursor-pointer mt-6 flex items-center justify-center"
+                  to={"/signup"}
+                  className="p-2 w-full h-12 rounded-lg bg-primary-60 text-white font-medium text-center cursor-pointer flex items-center justify-center"
                 >
-                  Sign In
+                  Create an account
                 </Link>
               </div>
 
-              <p className="text-neutral-85 mt-8">
+              <p className="text-neutral-85 mt-[90px]">
                 @ 2025 TEN STAGE MATRIX All Rights Reserved
               </p>
             </form>
@@ -157,4 +109,4 @@ const Signup = () => {
   );
 };
 
-export default Signup;
+export default SignIn;
