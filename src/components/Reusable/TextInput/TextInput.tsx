@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 "use client"
 import { forwardRef } from "react";
-import { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
+import type { FieldError, FieldErrorsImpl, Merge } from "react-hook-form";
 
 interface TextInputProps {
   name?: string;
@@ -30,7 +30,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
           defaultValue={defaultValue}
           ref={ref}
           disabled={isDisabled}
-          className={`p-4 rounded-xl bg-primary-50 border focus:outline-none focus:border-primary-15 transition duration-300 ${error ? "border-red-500" : "border-neutral-300"
+          className={`w-full p-4 rounded-[5px] border border-primary-50 bg-primary-50 focus:border focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-55 ${error ? "border-red-500" : "border-primary-10/50"
             }`}
           {...rest}
         />
