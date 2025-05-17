@@ -49,12 +49,12 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-6 z-10">
-              <button className="p-2 w-[126px] h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium">
+              <Link to={"/signin"} className="p-2 w-[126px] h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium text-center">
                 Sign In
-              </button>
-              <button className="p-2 w-[126px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium">
+              </Link>
+              <Link to={"/signup"} className="p-2 w-[126px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center">
                 Sign Up
-              </button>
+              </Link>
             </div>
           </div>
         </Container>

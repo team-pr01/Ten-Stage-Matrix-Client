@@ -5,10 +5,13 @@ import HighPerformance from "../../components/HomePage/HighPerformance/HighPerfo
 import SecurelyBuySell from "../../components/HomePage/SecurelyBuySell/SecurelyBuySell";
 import StepsToGetStarted from "../../components/HomePage/StepsToGetStarted/StepsToGetStarted";
 import WhyChooseUs from "../../components/HomePage/WhyChooseUs/WhyChooseUs";
+import Footer from "../../components/Shared/Footer/Footer";
+import Navbar from "../../components/Shared/Navbar/Navbar";
 
 const Home = () => {
     return (
         <div>
+            <Navbar/>
             {/* <Hero/> */}
             <WhyChooseUs/>
             <SecurelyBuySell/>
@@ -17,6 +20,7 @@ const Home = () => {
             <ADAFeatures/>
             <BecomePartOfCardano/>
             <ContactUs/>
+            <Footer/>
         </div>
     );
 };

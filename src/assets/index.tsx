@@ -11,6 +11,7 @@ import instagram3 from "./images/image3.png";
 import instagram4 from "./images/image4.png";
 import instagram5 from "./images/image5.png";
 import instagram6 from "./images/image6.png";
+import signupSigninImg from "./images/signup-signin-img.png";
 
 
 import strongSecurity from "./icons/strongSecurity.png";
@@ -43,7 +44,8 @@ export const IMAGES = {
     instagram3,
     instagram4,
     instagram5,
-    instagram6
+    instagram6,
+    signupSigninImg,
 };
 
 export const ICONS = {
