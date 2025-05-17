@@ -1,1 +1,44 @@
 @import "tailwindcss";
+
+@theme {
+  /* Fonts */
+  /* --font-Satoshi: Satoshi, sans-serif; */
+
+  /* Colors */
+
+  /* Primary */
+  --color-primary-10: #fe7c0af7;
+  --color-primary-15: #8E51FF;
+
+  /* Neutral */
+  --color-neutral-10: #ffffff1a;
+  --color-neutral-15: #ffffff0d;
+  --color-neutral-20: #ffffff14;
+  --color-neutral-25: #ffffff40;
+  --color-neutral-30: #06050B;
+  --color-neutral-35: #020618;
+  --color-neutral-40: #1D293D;
+  --color-neutral-45: #0F172B;
+  --color-neutral-50: #314158;
+  --color-neutral-55: #243757;
+  --color-neutral-60: #62748E;
+
+/* Gray/White */
+  --color-gray-10: #EDE9FE;
+  --color-gray-15: #ffffffbf;
+  --color-gray-20: #CAD5E2;
+  --color-gray-25: #ffffff80;
+  --color-gray-30: #E2E8F0;
+  --color-gray-35: #90A1B9;
+  --color-gray-40: #5D6B82;
+
+   /* Shadows */
+   --shadow-custom: 0px 4px 28px -4px rgba(0, 0, 0, 0.10);
+   --shadow-custom-joinus: 0px 0px 56px 24px rgba(255, 255, 255, 0.10);
+   --shadow-custom-hero: 0px 4px 250px 16px #A276FA;
+   --shadow-custom-button: 0px -2px 2px 0px rgba(255, 255, 255, 0.05) inset, 0px 12px 45px 0px rgba(137, 81, 246, 0.35);
+
+   /* Gradients */
+   --bg-gradient-primary: linear-gradient(180deg, #8C52FF 0%, #A276FA 100%);
+   --bg-gradient-dark: linear-gradient(180deg, rgba(124, 67, 215, 0.00) 0%, rgba(124, 67, 215, 0.05) 23.44%, rgba(124, 67, 215, 0.05) 100%);
+}
