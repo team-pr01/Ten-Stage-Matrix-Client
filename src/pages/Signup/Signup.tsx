@@ -22,10 +22,10 @@ const Signup = () => {
   }
   return (
     <div className="h-full font-Outfit py-28 relative">
-      <div className="bg-primary-30 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
-      <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute -top-32 right-0"></div>
-      <div className="max-w-[1250px] mx-auto px-5 2xl:px-0 h-screen">
-        <div className="flex items-center justify-between">
+      <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
+      <div className="bg-primary-15 w-[300px] lg:w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute -top-32 right-0"></div>
+      <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
+        <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 items-center justify-between">
           <div className="z-10">
             <img src={IMAGES.logo} alt="logo" className="z-10" />
             <h1 className="text-neutral-80 text-xl mt-[17px]">Sign Up</h1>
@@ -138,7 +138,7 @@ const Signup = () => {
                   Already account on platform?
                 </label>
                 <Link
-                  to={"/login"}
+                  to={"/signin"}
                   className="p-2 w-full h-12 rounded-lg bg-primary-60 text-white font-medium text-center cursor-pointer mt-6 flex items-center justify-center"
                 >
                   Sign In
