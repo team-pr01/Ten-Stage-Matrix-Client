@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import { IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
 
@@ -27,12 +28,12 @@ const Hero = () => {
               //   setKeyword(e.target.value);
               // }}
               type="text"
-              placeholder={`Search course...`}
+              placeholder={`Enter  your email `}
               className="bg-white focus:outline-none pl-4"
             />
-            <button className="bg-primary-10 py-3 px-[10px] rounded-xl mr-[14px] text-white font-medium">
+            <Link to={"/signup"} className="bg-primary-10 py-3 px-[10px] rounded-xl mr-[14px] text-white font-medium">
               Get Started
-            </button>
+            </Link>
           </div>
         </div>
 

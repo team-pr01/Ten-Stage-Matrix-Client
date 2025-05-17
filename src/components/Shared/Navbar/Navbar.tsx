@@ -30,7 +30,8 @@ const Navbar = () => {
           <div className="flex items-center justify-between z-50">
             {/* Logo */}
             <Link to={"/"}>
-            <img src={IMAGES.logo} alt="logo" className="z-10" /></Link>
+              <img src={IMAGES.logo} alt="logo" className="z-10" />
+            </Link>
 
             {/* Navlinks */}
             <div className="flex items-center gap-[42px] z-10">
@@ -50,10 +51,16 @@ const Navbar = () => {
             </div>
 
             <div className="flex items-center gap-6 z-10">
-              <Link to={"/signin"} className="p-2 w-[126px] h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium text-center">
+              <Link
+                to={"/signin"}
+                className="p-2 w-[126px] h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium flex items-center justify-center"
+              >
                 Sign In
               </Link>
-              <Link to={"/signup"} className="p-2 w-[126px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center">
+              <Link
+                to={"/signup"}
+                className="p-2 w-[126px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center"
+              >
                 Sign Up
               </Link>
             </div>
