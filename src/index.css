@@ -9,22 +9,14 @@
 
   /* Primary */
   --color-primary-10: #fe7c0af7;
-  --color-primary-15: #8E51FF;
+  --color-primary-15: #45196C;
+  --color-primary-20: #190C5B;
 
   /* Neutral */
   --color-neutral-10: #0B052B;
   --color-neutral-15: #0B0527;
   --color-neutral-20: #151313;
-  /* --color-neutral-15: #ffffff0d;
-  --color-neutral-20: #ffffff14;
-  --color-neutral-25: #ffffff40;
-  --color-neutral-30: #06050B;
-  --color-neutral-35: #020618;
-  --color-neutral-40: #1D293D;
-  --color-neutral-45: #0F172B;
-  --color-neutral-50: #314158;
-  --color-neutral-55: #243757;
-  --color-neutral-60: #62748E; */
+  /* --color-neutral-25: #45196C; */
 
 /* Gray/White */
   --color-secondary-10: #6EBC94;
