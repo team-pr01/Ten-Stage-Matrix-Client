@@ -1,4 +1,6 @@
 import { ICONS } from "../../../assets";
+import ReferralInfo from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralInfo";
+import TotalWithdrawnAndBalance from "../../../components/Dashboard/DashboardHomePage/TotalWithdrawnAndBalance/TotalWithdrawnAndBalance";
 import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/DashboardDataCard";
 
 const DashboardHome = () => {
@@ -16,23 +18,29 @@ const DashboardHome = () => {
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-[18px]">
         <DashboardDataCard
-        icon={ICONS.totalDonation}
-        title="Total Donation"
-        value="$50,869"
-      />
+          icon={ICONS.totalDonation}
+          title="Total Donation"
+          value="$50,869"
+        />
 
-      <DashboardDataCard
-        icon={ICONS.totalEarn}
-        title="Total Earn"
-        value="$12,869"
-      />
+        <DashboardDataCard
+          icon={ICONS.totalEarn}
+          title="Total Earn"
+          value="$12,869"
+        />
 
-      <DashboardDataCard
-        icon={ICONS.withdraw}
-        title="Total Deposit"
-        value="$35,869"
-      />
+        <DashboardDataCard
+          icon={ICONS.withdraw}
+          title="Total Deposit"
+          value="$35,869"
+        />
       </div>
+
+      {/* Total Withdraw and Current Balance */}
+      <TotalWithdrawnAndBalance/>
+
+      {/* Referral info */}
+      <ReferralInfo/>
     </div>
   );
 };

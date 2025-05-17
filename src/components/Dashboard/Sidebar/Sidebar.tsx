@@ -61,7 +61,7 @@ const Sidebar = () => {
     },
   ];
   return (
-    <div className="w-[323px] bg-neutral-30 border-r border-neutral-25/50 px-10 py-[19px] h-screen overflow-y-auto font-Outfit flex flex-col gap-[30px]">
+    <div className="w-[323px] bg-neutral-30 border-r border-neutral-25/50 px-10 py-[19px] h-screen overflow-y-auto font-Outfit flex flex-col gap-[30px] sticky top-0 left-0">
       {/* Logo */}
       <Link to={"/"}>
         <img src={IMAGES.logo} alt="logo" className="z-10" />
