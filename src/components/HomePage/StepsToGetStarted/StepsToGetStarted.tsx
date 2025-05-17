@@ -35,7 +35,7 @@ const StepsToGetStarted = () => {
     },
   ];
   return (
-    <div className="bg-primary-40 py-20">
+    <div className="bg-primary-40 py-20 z-20 relative">
      <Container>
          <div className="flex items-center justify-between">
         <div>
