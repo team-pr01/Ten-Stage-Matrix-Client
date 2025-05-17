@@ -27,7 +27,8 @@ const Signup = () => {
       <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
         <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 items-center justify-between">
           <div className="z-10">
-            <img src={IMAGES.logo} alt="logo" className="z-10" />
+            <Link to={"/"}>
+            <img src={IMAGES.logo} alt="logo" className="z-10" /></Link>
             <h1 className="text-neutral-80 text-xl mt-[17px]">Sign Up</h1>
             <p className="text-neutral-85 mt-[10px]">
               Create New TEN STAGE MATRIX Account

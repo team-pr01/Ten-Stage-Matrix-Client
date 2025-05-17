@@ -29,7 +29,8 @@ const Navbar = () => {
         <Container>
           <div className="flex items-center justify-between z-50">
             {/* Logo */}
-            <img src={IMAGES.logo} alt="logo" className="z-10" />
+            <Link to={"/"}>
+            <img src={IMAGES.logo} alt="logo" className="z-10" /></Link>
 
             {/* Navlinks */}
             <div className="flex items-center gap-[42px] z-10">
