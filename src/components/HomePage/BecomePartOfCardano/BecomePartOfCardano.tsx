@@ -34,7 +34,7 @@ const BecomePartOfCardano = () => {
 
           <Link
             to={"/signup"}
-            className="p-2 w-[185px] h-[58px] rounded-lg border border-primary-10 bg-primary-10 text-white font-medium mt-3 text-center"
+            className="p-2 w-[185px] h-[58px] rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center"
           >
             Create Now
           </Link>
