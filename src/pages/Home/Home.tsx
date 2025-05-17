@@ -1,4 +1,5 @@
 import ADAFeatures from "../../components/HomePage/ADAFeatures/ADAFeatures";
+import BecomePartOfCardano from "../../components/HomePage/BecomePartOfCardano/BecomePartOfCardano";
 import HighPerformance from "../../components/HomePage/HighPerformance/HighPerformance";
 import SecurelyBuySell from "../../components/HomePage/SecurelyBuySell/SecurelyBuySell";
 import StepsToGetStarted from "../../components/HomePage/StepsToGetStarted/StepsToGetStarted";
@@ -13,6 +14,7 @@ const Home = () => {
             <HighPerformance/>
             <StepsToGetStarted/>
             <ADAFeatures/>
+            <BecomePartOfCardano/>
         </div>
     );
 };

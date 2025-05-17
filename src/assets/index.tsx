@@ -3,6 +3,8 @@ import heroImg from "./images/hero-section.svg";
 import securelyBuySell from "./images/securly-buy-sell.png";
 import dummyVideoImg from "./images/dummy-video.png";
 import adaFeature from "./images/ada-feature-img.png";
+import becomePartOfCardano from "./images/become-part-of-cardano.png";
+import cryptoIcons from "./images/crypto-icons.svg";
 
 
 import strongSecurity from "./icons/strongSecurity.png";
@@ -26,6 +28,8 @@ export const IMAGES = {
     securelyBuySell,
     dummyVideoImg,
     adaFeature,
+    becomePartOfCardano,
+    cryptoIcons,
 };
 
 export const ICONS = {
