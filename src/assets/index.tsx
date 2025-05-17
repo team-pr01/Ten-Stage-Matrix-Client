@@ -13,6 +13,16 @@ import instagram5 from "./images/image5.png";
 import instagram6 from "./images/image6.png";
 import signupSigninImg from "./images/signup-signin-img.png";
 
+import totalDonation from "./icons/total-donation.png";
+import activeReferrals from "./icons/active-referrals.png";
+import currentStage from "./icons/currant-stage.png";
+import networkSize from "./icons/network-size.png";
+import referralCode from "./icons/referral-code.png";
+import currentBalance from "./icons/current-balance.png";
+import withdraw from "./icons/withdraw.png";
+import totalEarn from "./icons/total-earn.png";
+
+
 
 import strongSecurity from "./icons/strongSecurity.png";
 import highLiquidity from "./icons/highLiquidity.png";
@@ -46,6 +56,7 @@ export const IMAGES = {
     instagram5,
     instagram6,
     signupSigninImg,
+    
 };
 
 export const ICONS = {
@@ -64,4 +75,12 @@ export const ICONS = {
     pledge,
     phone,
     email,
+    totalDonation,
+    activeReferrals,
+    currentStage,
+    networkSize,
+    referralCode,
+    currentBalance,
+    withdraw,
+    totalEarn,
 }
