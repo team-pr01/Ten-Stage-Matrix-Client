@@ -1,5 +1,6 @@
 import logo from "./images/logo.png";
 import heroImg from "./images/hero-section.svg";
+import securelyBuySell from "./images/securly-buy-sell.png";
 
 
 import strongSecurity from "./icons/strongSecurity.png";
@@ -11,6 +12,7 @@ import technology from "./icons/technology.png";
 export const IMAGES = {
     logo,
     heroImg,
+    securelyBuySell,
 };
 
 export const ICONS = {
