@@ -5,6 +5,12 @@ import dummyVideoImg from "./images/dummy-video.png";
 import adaFeature from "./images/ada-feature-img.png";
 import becomePartOfCardano from "./images/become-part-of-cardano.png";
 import cryptoIcons from "./images/crypto-icons.svg";
+import instagram1 from "./images/image1.png";
+import instagram2 from "./images/image2.png";
+import instagram3 from "./images/image3.png";
+import instagram4 from "./images/image4.png";
+import instagram5 from "./images/image5.png";
+import instagram6 from "./images/image6.png";
 
 
 import strongSecurity from "./icons/strongSecurity.png";
@@ -20,6 +26,8 @@ import geoDispersed from "./icons/geo-dispersed.png";
 import lowLatency from "./icons/low-latency.png";
 import scalable from "./icons/scalable.png";
 import pledge from "./icons/pledge.png";
+import phone from "./icons/phone.svg";
+import email from "./icons/email.svg";
 
 
 export const IMAGES = {
@@ -30,6 +38,12 @@ export const IMAGES = {
     adaFeature,
     becomePartOfCardano,
     cryptoIcons,
+    instagram1,
+    instagram2,
+    instagram3,
+    instagram4,
+    instagram5,
+    instagram6
 };
 
 export const ICONS = {
@@ -46,4 +60,6 @@ export const ICONS = {
     lowLatency,
     scalable,
     pledge,
+    phone,
+    email,
 }
