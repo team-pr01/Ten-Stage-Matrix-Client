@@ -3,11 +3,9 @@
 
 @theme {
   /* Fonts */
-  --font-Outfit: Outfit, sans-serif;
+  --font-Outfit: 'Outfit', sans-serif;
 
   /* Colors */
-
-  /* Primary */
   --color-primary-10: #fe7c0af7;
   --color-primary-15: #45196C;
   --color-primary-20: #190C5B;
@@ -20,16 +18,16 @@
   --color-neutral-20: #151313;
   /* --color-neutral-25: #45196C; */
 
-/* Gray/White */
+  /* Secondary */
   --color-secondary-10: #6EBC94;
 
-   /* Shadows */
-   --shadow-custom: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);;
-   --shadow-custom-joinus: 0px 0px 56px 24px rgba(255, 255, 255, 0.10);
-   --shadow-custom-hero: 0px 4px 250px 16px #A276FA;
-   --shadow-custom-button: 0px -2px 2px 0px rgba(255, 255, 255, 0.05) inset, 0px 12px 45px 0px rgba(137, 81, 246, 0.35);
+  /* Shadows */
+  --shadow-custom: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
+  --shadow-custom-joinus: 0px 0px 56px 24px rgba(255, 255, 255, 0.10);
+  --shadow-custom-hero: 0px 4px 250px 16px #A276FA;
+  --shadow-custom-button: 0px -2px 2px 0px rgba(255, 255, 255, 0.05) inset, 0px 12px 45px 0px rgba(137, 81, 246, 0.35);
 
-   /* Gradients */
-   --bg-gradient-primary: linear-gradient(180deg, #8C52FF 0%, #A276FA 100%);
-   --bg-gradient-dark: linear-gradient(180deg, rgba(124, 67, 215, 0.00) 0%, rgba(124, 67, 215, 0.05) 23.44%, rgba(124, 67, 215, 0.05) 100%);
+  /* Gradients */
+  --bg-gradient-primary: linear-gradient(180deg, #8C52FF 0%, #A276FA 100%);
+  --bg-gradient-dark: linear-gradient(180deg, rgba(124, 67, 215, 0.00) 0%, rgba(124, 67, 215, 0.05) 23.44%, rgba(124, 67, 215, 0.05) 100%);
 }
