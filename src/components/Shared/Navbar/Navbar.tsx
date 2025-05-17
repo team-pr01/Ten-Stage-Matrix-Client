@@ -20,10 +20,10 @@ const Navbar = () => {
     },
   ];
   return (
-    <div className="relative font-Outfit">
+    <div className="relative font-Outfit overflow-hidden">
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute top-0 left-0"></div>
       <div className="bg-primary-20 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 right-[600px]"></div>
-      <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-0 absolute top-0 right-0 opacity-50"></div>
+      <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-0 absolute top-10 -right-60 opacity-50"></div>
 
       <div className="bg-neutral-10 py-[15px] z-50 relative">
         <Container>

@@ -1,9 +1,10 @@
-import Hero from "../../components/HomePage/Hero/Hero";
+import WhyChooseUs from "../../components/HomePage/WhyChooseUs/WhyChooseUs";
 
 const Home = () => {
     return (
         <div>
             {/* <Hero/> */}
+            <WhyChooseUs/>
         </div>
     );
 };
