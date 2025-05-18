@@ -9,14 +9,9 @@ const TotalWithdrawnAndBalance = () => {
           <h2 className="text-white text-xl font-medium capitalize">
             Total Withdraw
           </h2>
-          <div className="flex items-center justify-between w-full mt-[6px]">
-            <h1 className="text-white text-[34px] font-medium capitalize">
-              $16,869
-            </h1>
-            <div className="text-white text-[10px] font-medium p-[10px] border border-primary-10 rounded-[80px]">
-              Total funds withdrawn.
-            </div>
-          </div>
+          <h1 className="text-white text-[34px] font-medium capitalize">
+            $16,869
+          </h1>
         </div>
       </div>
 
@@ -26,14 +21,9 @@ const TotalWithdrawnAndBalance = () => {
           <h2 className="text-white text-xl font-medium capitalize">
             Current Balance
           </h2>
-          <div className="flex items-center justify-between w-full mt-[6px]">
-            <h1 className="text-white text-[34px] font-medium capitalize">
-              $12,869
-            </h1>
-            <div className="text-white text-[10px] font-medium p-[10px] border border-secondary-10 rounded-[80px]">
-              Available for withdrawal
-            </div>
-          </div>
+          <h1 className="text-white text-[34px] font-medium capitalize">
+            $12,869
+          </h1>
         </div>
       </div>
     </div>

@@ -5,9 +5,9 @@ import ReferralProgress from "../../../components/Dashboard/NetworkPage/Referral
 
 const Network = () => {
   const [activeTab, setActiveTab] = useState<
-    "Network" | "Network Activity" | "Jammika"
+    "Network"
   >("Network");
-  const tabButtons: Array<"Network" | "Network Activity" | "Jammika"> = ["Network", "Network Activity", "Jammika"];
+  const tabButtons: Array<"Network"> = ["Network"];
   return (
     <div className="font-Outfit">
       {/* Tab buttons */}
