@@ -3,15 +3,17 @@ import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTi
 import SendFund from "../../../components/Dashboard/FundTransferPage/SendFund/SendFund";
 import VerifyTransfer from "../../../components/Dashboard/FundTransferPage/VerifyTransfer/VerifyTransfer";
 import TransferSuccess from "../../../components/Dashboard/FundTransferPage/TransferSuccess/TransferSuccess";
+import ReviewTransfer from "../../../components/Dashboard/FundTransferPage/ReviewTransfer/ReviewTransfer";
 
 const FundTransfer = () => {
   const [activeTab, setActiveTab] = useState<
-    "Dashboard" | "Fund Transfer" | "Success"
+    "Dashboard" | "Fund Transfer" | "Success" | "Review"
   >("Dashboard");
-  const tabButtons: Array<"Dashboard" | "Fund Transfer" | "Success"> = [
+  const tabButtons: Array<"Dashboard" | "Fund Transfer" | "Success" | "Review"> = [
     "Dashboard",
     "Fund Transfer",
     "Success",
+    "Review",
   ];
 
   return (
@@ -57,6 +59,12 @@ const FundTransfer = () => {
       {activeTab === "Success" && (
         <>
         <TransferSuccess/>
+        </>
+      )}
+
+      {activeTab === "Review" && (
+        <>
+        <ReviewTransfer/>
         </>
       )}
     </div>
