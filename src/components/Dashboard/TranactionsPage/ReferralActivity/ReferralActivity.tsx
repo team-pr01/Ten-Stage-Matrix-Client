@@ -19,7 +19,7 @@ const ReferralActivity = () => {
     },
   ];
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[30%]">
+    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full">
       <h1 className="text-2xl font-medium text-white">Referral Activity</h1>
 
       <div className="flex flex-col gap-[26px] mt-6">
