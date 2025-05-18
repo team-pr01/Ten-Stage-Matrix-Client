@@ -3,18 +3,30 @@ import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTi
 import RecentTransactions from "../../../components/Dashboard/TranactionsPage/RecentTransactions/RecentTransactions";
 import ReferralActivity from "../../../components/Dashboard/TranactionsPage/ReferralActivity/ReferralActivity";
 import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
+import ReferralStats from "../../../components/Dashboard/TranactionsPage/ReferralStats/ReferralStats";
 
 const Transactions = () => {
   const [activeTab, setActiveTab] = useState<
     "Transactions" | "Network Activity"
   >("Transactions");
-  const tabButtons = ["Transactions", "Network Activity"];
+  const tabButtons: Array<"Transactions" | "Network Activity"> = [
+    "Transactions",
+    "Network Activity",
+  ];
+
   return (
     <div className="font-Outfit">
-      <DashboardHeaderTitle title="Activity Details" />
+      <DashboardHeaderTitle
+        title={
+          activeTab === "Transactions"
+            ? "Activity Details"
+            : "Referral Overview"
+        }
+      />
 
+      {/* Tab buttons */}
       <div className="flex items-center gap-6 mt-8">
-        {tabButtons?.map((button: string) => (
+        {tabButtons?.map((button) => (
           <button
             key={button}
             onClick={() => setActiveTab(button)}
@@ -38,19 +50,21 @@ const Transactions = () => {
         </div>
       )}
 
-      {
-        activeTab === "Network Activity" && (
-          <div className="mt-7">
-            <h1 className="text-white font-medium text-2xl mb-5">Referral Code</h1>
-            <div className="flex gap-5">
-                <div className="w-full">
-                    <ReferralCode/>
-                </div>
-                <ReferralActivity />
+      {activeTab === "Network Activity" && (
+        <div className="mt-7">
+          <h1 className="text-white font-medium text-2xl mb-5">
+            Referral Code
+          </h1>
+          <div className="flex gap-5">
+            <div className="w-full">
+              <ReferralCode />
             </div>
+            <ReferralActivity />
           </div>
-        )
-      }
+        </div>
+      )}
+
+      <ReferralStats />
     </div>
   );
 };
