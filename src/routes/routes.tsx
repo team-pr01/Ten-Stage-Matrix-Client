@@ -9,6 +9,7 @@ import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Transactions from "../pages/Dashboard/Transactions/Transactions";
 import Network from "../pages/Dashboard/Network/Network";
 import FundTransfer from "../pages/Dashboard/FundTransfer/FundTransfer";
+import Deposit from "../pages/Dashboard/Deposit/Deposit";
 
 export const router = createBrowserRouter([
   {
@@ -50,6 +51,10 @@ export const router = createBrowserRouter([
       {
         path: "fund-transfer",
         element: <FundTransfer />,
+      },
+      {
+        path: "deposit",
+        element: <Deposit />,
       },
     ],
   },

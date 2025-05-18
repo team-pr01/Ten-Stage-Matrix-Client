@@ -12,11 +12,11 @@ const SendFund = () => {
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleSignup = (data: TFormValues) => {
+  const handleSendFund = (data: TFormValues) => {
     console.log(data);
   };
   return (
-    <form onSubmit={handleSubmit(handleSignup)} className="mt-[22px]">
+    <form onSubmit={handleSubmit(handleSendFund)} className="mt-[22px]">
       <div className="flex flex-col gap-2">
         <label htmlFor="" className="text-neutral-125 text-lg font-medium">
           Recipient Privet Key
