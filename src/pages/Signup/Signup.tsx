@@ -151,7 +151,7 @@ const Signup = () => {
               </p>
             </form>
           </div>
-          <img src={IMAGES.signupSigninImg} alt="" />
+          <img src={IMAGES.signup} alt="" />
         </div>
       </div>
     </div>

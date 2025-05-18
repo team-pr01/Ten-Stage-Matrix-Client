@@ -103,7 +103,7 @@ const SignIn = () => {
               </p>
             </form>
           </div>
-          <img src={IMAGES.signupSigninImg} alt="" />
+          <img src={IMAGES.signin} alt="" />
         </div>
       </div>
     </div>
