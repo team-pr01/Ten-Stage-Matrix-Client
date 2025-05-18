@@ -1,16 +1,17 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import SendFund from "../../../components/Dashboard/FundTransferPage/SendFund/SendFund";
-import { ICONS } from "../../../assets";
+import VerifyTransfer from "../../../components/Dashboard/FundTransferPage/VerifyTransfer/VerifyTransfer";
+import TransferSuccess from "../../../components/Dashboard/FundTransferPage/TransferSuccess/TransferSuccess";
 
 const FundTransfer = () => {
   const [activeTab, setActiveTab] = useState<
-    "Dashboard" | "Fund Transfer" | "Review"
+    "Dashboard" | "Fund Transfer" | "Success"
   >("Dashboard");
-  const tabButtons: Array<"Dashboard" | "Fund Transfer" | "Review"> = [
+  const tabButtons: Array<"Dashboard" | "Fund Transfer" | "Success"> = [
     "Dashboard",
     "Fund Transfer",
-    "Review",
+    "Success",
   ];
 
   return (
@@ -48,39 +49,15 @@ const FundTransfer = () => {
       )}
 
       {activeTab === "Fund Transfer" && (
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-          <div
-            className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[26px] px-9 flex flex-col mt-[22px]`}
-          >
-            <img src={ICONS.recipient} alt="" className="size-[66px]" />
-            <h2 className="text-neutral-100 text-lg mt-[15px]">Recipient</h2>
-            <h1 className="text-white text-[30px] font-medium capitalize mt-2">
-              Private Key: 12345678
-            </h1>
-            <h2 className="text-neutral-100 text-lg mt-2">Alex Lee</h2>
-          </div>
-          <div
-            className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[26px] px-9 flex flex-col mt-[22px]`}
-          >
-            <img src={ICONS.amount} alt="" className="size-[66px]" />
-            <h2 className="text-neutral-100 text-lg mt-[15px]">Amount </h2>
-            <h1 className="text-white text-[30px] font-medium capitalize mt-2">
-              $500,00
-            </h1>
-            <h2 className="text-neutral-100 text-lg mt-2">Transfer Amount</h2>
-          </div>
-          <div
-            className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[26px] px-9 flex flex-col mt-[22px]`}
-          >
-            <img src={ICONS.authentication} alt="" className="size-[66px]" />
-            <h2 className="text-neutral-100 text-lg mt-[15px]">
-              Authentication
-            </h2>
-            <h1 className="text-white text-[30px] font-medium capitalize mt-2">
-              Private Key Verifide
-            </h1>
-          </div>
-        </div>
+        <>
+        <VerifyTransfer/>
+        </>
+      )}
+
+      {activeTab === "Success" && (
+        <>
+        <TransferSuccess/>
+        </>
       )}
     </div>
   );

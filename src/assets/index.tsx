@@ -55,6 +55,8 @@ import currency from "./icons/currency.svg";
 import recipient from "./icons/recipient 1.png";
 import amount from "./icons/amount.png";
 import authentication from "./icons/authentication.png";
+import reference from "./icons/reference.png";
+import success from "./icons/success.png";
 
 
 export const IMAGES = {
@@ -116,4 +118,6 @@ export const ICONS = {
     recipient,
     amount,
     authentication,
+    reference,
+    success,
 }
