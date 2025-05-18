@@ -16,7 +16,7 @@ const MakeDeposit = () => {
   };
   return (
     <div className="font-Outfit">
-      <h1 className="text-xl text-white font-medium mt-[57px]">Minimum Deposit $10 </h1>
+      <h1 className="text-xl text-white font-medium mt-[57px]">Minimum Deposit $10</h1>
       <form onSubmit={handleSubmit(handleSendFund)}>
         <div className="flex flex-col gap-2 mt-[22px]">
         <label htmlFor="" className="text-neutral-125 text-lg font-medium">
