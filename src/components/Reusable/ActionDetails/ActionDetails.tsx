@@ -20,7 +20,10 @@ const ActionDetails = ({data} : {data : any}) => {
                       <img src={item?.icon} alt="" className="size-2" />
                     </div>
                   )}
-                  <span>{item?.type}</span>
+                  {
+                    item?.type &&
+                    <span>{item?.type}</span>
+                  }
                 </td>
 
                 {/* Date */}
