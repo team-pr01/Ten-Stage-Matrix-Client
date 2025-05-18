@@ -1,7 +1,7 @@
 import ActionDetails from "../../../Reusable/ActionDetails/ActionDetails";
 
-const RecentWithdraws = () => {
-  const recentWithdraws = [
+const RecentDonations = () => {
+    const recentDonations = [
     {
       date: "2024-06-24",
       amount: "$2,000",
@@ -31,15 +31,15 @@ const RecentWithdraws = () => {
       type: "PayPal",
     },
   ];
-  return (
-    <div>
+    return (
+       <div>
       <h1 className="text-xl text-white font-medium font-Outfit mt-8 mb-7">
-        Withdrawal Details
+        Donation Details
       </h1>
 
-      <ActionDetails data={recentWithdraws} />
+      <ActionDetails data={recentDonations} />
     </div>
-  );
+    );
 };
 
-export default RecentWithdraws;
+export default RecentDonations;

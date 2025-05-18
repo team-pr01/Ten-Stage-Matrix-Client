@@ -11,6 +11,7 @@ import Network from "../pages/Dashboard/Network/Network";
 import FundTransfer from "../pages/Dashboard/FundTransfer/FundTransfer";
 import Deposit from "../pages/Dashboard/Deposit/Deposit";
 import Withdraw from "../pages/Dashboard/Withdraw/Withdraw";
+import Donate from "../pages/Dashboard/Donate/Donate";
 
 export const router = createBrowserRouter([
   {
@@ -60,6 +61,10 @@ export const router = createBrowserRouter([
       {
         path: "withdraw",
         element: <Withdraw />,
+      },
+      {
+        path: "donate",
+        element: <Donate />,
       },
     ],
   },

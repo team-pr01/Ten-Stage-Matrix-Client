@@ -11,13 +11,13 @@ const RequestWithdraw = () => {
         formState: { errors },
       } = useForm<TFormValues>();
     
-      const handleSendFund = (data: TFormValues) => {
+      const handleRequestWithdraw = (data: TFormValues) => {
         console.log(data);
       };
     return (
         <div className="font-Outfit">
               <h1 className="text-xl text-white font-medium mt-[57px]">Minimum withdraw $5</h1>
-              <form onSubmit={handleSubmit(handleSendFund)}>
+              <form onSubmit={handleSubmit(handleRequestWithdraw)}>
                 <div className="flex flex-col gap-2 mt-[22px]">
                 <label htmlFor="" className="text-neutral-125 text-lg font-medium">
                   Amount
