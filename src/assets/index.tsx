@@ -13,15 +13,6 @@ import instagram5 from "./images/image5.png";
 import instagram6 from "./images/image6.png";
 import signupSigninImg from "./images/signup-signin-img.png";
 
-import totalDonation from "./icons/total-donation.png";
-import activeReferrals from "./icons/active-referrals.png";
-import currentStage from "./icons/currant-stage.png";
-import networkSize from "./icons/network-size.png";
-import referralCode from "./icons/referral-code.png";
-import currentBalance from "./icons/current-balance.png";
-import withdraw from "./icons/withdraw.png";
-import totalEarn from "./icons/total-earn.png";
-
 
 
 import strongSecurity from "./icons/strongSecurity.png";
@@ -39,6 +30,20 @@ import scalable from "./icons/scalable.png";
 import pledge from "./icons/pledge.png";
 import phone from "./icons/phone.svg";
 import email from "./icons/email.svg";
+import totalDonation from "./icons/total-donation.png";
+import activeReferrals from "./icons/active-referrals.png";
+import currentStage from "./icons/currant-stage.png";
+import networkSize from "./icons/network-size.png";
+import referralCode from "./icons/referral-code.png";
+import currentBalance from "./icons/current-balance.png";
+import withdraw from "./icons/withdraw.png";
+import totalEarn from "./icons/total-earn.png";
+import deposit from "./icons/deposite.png";
+import withdraw1 from "./icons/withdraw1.png";
+import donation from "./icons/donation.png";
+import info from "./icons/info.svg";
+import addUser from "./icons/add-user.svg";
+import avatar from "./icons/avatar.svg";
 
 
 export const IMAGES = {
@@ -83,4 +88,10 @@ export const ICONS = {
     currentBalance,
     withdraw,
     totalEarn,
+    deposit,
+    withdraw1,
+    donation,
+    info,
+    addUser,
+    avatar,
 }

@@ -2,15 +2,14 @@ import { ICONS } from "../../../assets";
 import ReferralInfo from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralInfo";
 import TotalWithdrawnAndBalance from "../../../components/Dashboard/DashboardHomePage/TotalWithdrawnAndBalance/TotalWithdrawnAndBalance";
 import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/DashboardDataCard";
+import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 
 const DashboardHome = () => {
   return (
     <div className="font-Outfit">
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h1 className="text-white font-medium text-[32px]">
-          Financial Overview
-        </h1>
+        <DashboardHeaderTitle title="Financial Overview" />
         <button className="p-2 w-[165px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center cursor-pointer">
           Connect wallet
         </button>
