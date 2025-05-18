@@ -7,7 +7,7 @@ const Network = () => {
   const [activeTab, setActiveTab] = useState<
     "Network" | "Network Activity" | "Jammika"
   >("Network");
-  const tabButtons: string[] = ["Network", "Network Activity", "Jammika"];
+  const tabButtons: Array<"Network" | "Network Activity" | "Jammika"> = ["Network", "Network Activity", "Jammika"];
   return (
     <div className="font-Outfit">
       {/* Tab buttons */}
@@ -41,10 +41,10 @@ const Network = () => {
            </div>
             <ActivityLog />
           </div>
+          <ReferralProgress/>
         </div>
       )}
 
-      <ReferralProgress/>
     </div>
   );
 };

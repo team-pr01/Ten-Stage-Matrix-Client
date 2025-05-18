@@ -51,6 +51,7 @@ import pendingReferrals from "./icons/pending-referral.png";
 import level from "./icons/level.png";
 import status from "./icons/status.png";
 import earning from "./icons/earning.png";
+import currency from "./icons/currency.svg";
 
 
 export const IMAGES = {
@@ -108,4 +109,5 @@ export const ICONS = {
     level,
     status,
     earning,
+    currency,
 }

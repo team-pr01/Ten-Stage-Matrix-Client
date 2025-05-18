@@ -8,6 +8,7 @@ import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Transactions from "../pages/Dashboard/Transactions/Transactions";
 import Network from "../pages/Dashboard/Network/Network";
+import FundTransfer from "../pages/Dashboard/FundTransfer/FundTransfer";
 
 export const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ export const router = createBrowserRouter([
       {
         path: "network",
         element: <Network />,
+      },
+      {
+        path: "fund-transfer",
+        element: <FundTransfer />,
       },
     ],
   },
