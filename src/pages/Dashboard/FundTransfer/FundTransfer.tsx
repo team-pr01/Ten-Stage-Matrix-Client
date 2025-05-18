@@ -1,45 +1,25 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
-import { useForm } from "react-hook-form";
+import SendFund from "../../../components/Dashboard/FundTransferPage/SendFund/SendFund";
 import { ICONS } from "../../../assets";
 
-type TFormValues = {
-  privateKey: string;
-  amount: string;
-};
-
 const FundTransfer = () => {
-  const [activeTab, setActiveTab] = useState<"Dashboard" | "Fund Transfer"  | "Review">(
-    "Dashboard"
-  );
-  const tabButtons: Array<"Dashboard" | "Fund Transfer" | 'Review'> = [
+  const [activeTab, setActiveTab] = useState<
+    "Dashboard" | "Fund Transfer" | "Review"
+  >("Dashboard");
+  const tabButtons: Array<"Dashboard" | "Fund Transfer" | "Review"> = [
     "Dashboard",
     "Fund Transfer",
-    "Review"
+    "Review",
   ];
 
-  const {
-      register,
-      handleSubmit,
-      formState: { errors },
-    } = useForm<TFormValues>();
-  
-    const handleSignup = (data:TFormValues) => {
-      console.log(data);
-    }
   return (
     <div className="font-Outfit">
       <DashboardHeaderTitle
-        title={
-          activeTab === "Dashboard"
-            ? "Dashboard"
-            : activeTab === "Fund Transfer"
-            ? "Fund Transfer"
-            : "Review Transfer"
-        }
+        title={activeTab === "Dashboard" ? "Transfer Funds" : "Review Transfer"}
       />
 
-       {/* Tab buttons */}
+      {/* Tab buttons */}
       <div className="flex items-center gap-6 mt-8 relative">
         {tabButtons?.map((button) => (
           <button
@@ -57,61 +37,51 @@ const FundTransfer = () => {
         <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
       </div>
 
-      <p className="max-w-[493px] text-neutral-120 text-lg mt-8">Enter recipient details and amount. Privet key authentications required for security</p>
+      {activeTab === "Dashboard" && (
+        <div>
+          <p className="max-w-[493px] text-neutral-120 text-lg mt-8">
+            Enter recipient details and amount. Privet key authentications
+            required for security
+          </p>
+          <SendFund />
+        </div>
+      )}
 
-      <form onSubmit={handleSubmit(handleSignup)} className="mt-[22px]">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-                  Recipient Privet Key
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter privet Key :"
-                  {...register("privateKey", {
-                    required: "Name is required",
-                  })}
-                  className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.privateKey ? "border-red-500" : "border-neutral-130"
-                  }`}
-                />
-                {typeof errors === "object" && "message" in errors && (
-                  <span className="text-red-500 text-sm">
-                    {String(errors.message)}
-                  </span>
-                )}
-              </div>
-
-              <div className="flex flex-col gap-2 mt-[15px]">
-                <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-                  Amount
-                </label>
-                <div className="flex items-center justify-between">
-                    <input
-                  type="text"
-                  placeholder="Enter amount :"
-                  {...register("amount", {
-                    required: "Name is required",
-                  })}
-                  className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 relative ${
-                    errors?.amount ? "border-red-500" : "border-neutral-130"
-                  }`}
-                />
-                <img src={ICONS.currency} alt="" className="size-6 absolute right-7" />
-                </div>
-                {typeof errors === "object" && "message" in errors && (
-                  <span className="text-red-500 text-sm">
-                    {String(errors.message)}
-                  </span>
-                )}
-              </div>
-
-              <button
-                type="submit"
-                className="p-[10px] w-[140px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[34px] flex items-center justify-center"
-              >
-                Send Funds
-              </button>
-            </form>
+      {activeTab === "Fund Transfer" && (
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
+          <div
+            className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[26px] px-9 flex flex-col mt-[22px]`}
+          >
+            <img src={ICONS.recipient} alt="" className="size-[66px]" />
+            <h2 className="text-neutral-100 text-lg mt-[15px]">Recipient</h2>
+            <h1 className="text-white text-[30px] font-medium capitalize mt-2">
+              Private Key: 12345678
+            </h1>
+            <h2 className="text-neutral-100 text-lg mt-2">Alex Lee</h2>
+          </div>
+          <div
+            className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[26px] px-9 flex flex-col mt-[22px]`}
+          >
+            <img src={ICONS.amount} alt="" className="size-[66px]" />
+            <h2 className="text-neutral-100 text-lg mt-[15px]">Amount </h2>
+            <h1 className="text-white text-[30px] font-medium capitalize mt-2">
+              $500,00
+            </h1>
+            <h2 className="text-neutral-100 text-lg mt-2">Transfer Amount</h2>
+          </div>
+          <div
+            className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[26px] px-9 flex flex-col mt-[22px]`}
+          >
+            <img src={ICONS.authentication} alt="" className="size-[66px]" />
+            <h2 className="text-neutral-100 text-lg mt-[15px]">
+              Authentication
+            </h2>
+            <h1 className="text-white text-[30px] font-medium capitalize mt-2">
+              Private Key Verifide
+            </h1>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
