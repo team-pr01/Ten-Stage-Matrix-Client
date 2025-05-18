@@ -10,16 +10,19 @@ const ReferralStats = () => {
           icon={ICONS.totalReferrals}
           title="Total Invite"
           value="12"
+          padding="px-[90px] py-10"
         />
         <DashboardDataCard
           icon={ICONS.activeReferral}
           title="Active Referrals"
           value="15"
+          padding="px-[90px] py-10"
         />
         <DashboardDataCard
           icon={ICONS.pendingReferrals}
           title="Pending"
           value="6"
+          padding="px-[90px] py-10"
         />
       </div>
     </div>

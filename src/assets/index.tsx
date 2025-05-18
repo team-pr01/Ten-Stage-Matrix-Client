@@ -2,6 +2,7 @@ import logo from "./images/logo.png";
 import heroImg from "./images/hero-section.svg";
 import securelyBuySell from "./images/securly-buy-sell.png";
 import dummyVideoImg from "./images/dummy-video.png";
+import dummyProfileImg from "./images/dummy-profile-img.png";
 import adaFeature from "./images/ada-feature-img.png";
 import becomePartOfCardano from "./images/become-part-of-cardano.png";
 import cryptoIcons from "./images/crypto-icons.svg";
@@ -47,6 +48,9 @@ import avatar from "./icons/avatar.svg";
 import totalReferrals from "./icons/total-referral.png";
 import activeReferral from "./icons/active-referral.png";
 import pendingReferrals from "./icons/pending-referral.png";
+import level from "./icons/level.png";
+import status from "./icons/status.png";
+import earning from "./icons/earning.png";
 
 
 export const IMAGES = {
@@ -54,6 +58,7 @@ export const IMAGES = {
     heroImg,
     securelyBuySell,
     dummyVideoImg,
+    dummyProfileImg,
     adaFeature,
     becomePartOfCardano,
     cryptoIcons,
@@ -100,4 +105,7 @@ export const ICONS = {
     totalReferrals,
     activeReferral,
     pendingReferrals,
+    level,
+    status,
+    earning,
 }

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
-import RecentTransactions from "../../../components/Dashboard/TranactionsPage/RecentTransactions/RecentTransactions";
-import ReferralActivity from "../../../components/Dashboard/TranactionsPage/ReferralActivity/ReferralActivity";
+import RecentTransactions from "../../../components/Dashboard/TransactionsPage/RecentTransactions/RecentTransactions";
+import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
-import ReferralStats from "../../../components/Dashboard/TranactionsPage/ReferralStats/ReferralStats";
+import ReferralStats from "../../../components/Dashboard/TransactionsPage/ReferralStats/ReferralStats";
 
 const Transactions = () => {
   const [activeTab, setActiveTab] = useState<
@@ -25,7 +25,7 @@ const Transactions = () => {
       />
 
       {/* Tab buttons */}
-      <div className="flex items-center gap-6 mt-8">
+      <div className="flex items-center gap-6 mt-8 relative">
         {tabButtons?.map((button) => (
           <button
             key={button}
@@ -39,6 +39,7 @@ const Transactions = () => {
             {button}
           </button>
         ))}
+        <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
       </div>
 
       {activeTab === "Transactions" && (

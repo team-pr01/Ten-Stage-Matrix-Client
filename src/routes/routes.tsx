@@ -7,6 +7,7 @@ import SignIn from "../pages/SignIn/SignIn";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import DashboardHome from "../pages/Dashboard/DashboardHome/DashboardHome";
 import Transactions from "../pages/Dashboard/Transactions/Transactions";
+import Network from "../pages/Dashboard/Network/Network";
 
 export const router = createBrowserRouter([
   {
@@ -42,8 +43,8 @@ export const router = createBrowserRouter([
         element: <Transactions />,
       },
       {
-        path: "signin",
-        element: <SignIn />,
+        path: "network",
+        element: <Network />,
       },
     ],
   },
