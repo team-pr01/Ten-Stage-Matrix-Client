@@ -46,6 +46,7 @@ import donation from "./icons/donation.png";
 import info from "./icons/info.svg";
 import addUser from "./icons/add-user.svg";
 import avatar from "./icons/avatar.svg";
+import avatar2 from "./icons/avatar2.svg";
 import totalReferrals from "./icons/total-referral.png";
 import activeReferral from "./icons/active-referral.png";
 import pendingReferrals from "./icons/pending-referral.png";
@@ -110,6 +111,7 @@ export const ICONS = {
     info,
     addUser,
     avatar,
+    avatar2,
     totalReferrals,
     activeReferral,
     pendingReferrals,

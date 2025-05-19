@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
+import ReferralList from "../../../components/Dashboard/ReportsPage/ReferralList/ReferralList";
 
 const Reports = () => {
   const [activeTab, setActiveTab] = useState<
@@ -32,6 +33,7 @@ const Reports = () => {
       </div>
 
       <EarningTrend />
+      <ReferralList/>
     </div>
   );
 };
