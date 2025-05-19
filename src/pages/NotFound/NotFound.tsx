@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 const NotFound = () => {
   return (
-    <div className="boxShadow px-10 w-full flex items-center flex-col justify-center py-20 rounded-xl bg-neutral-15 h-screen font-Outfit">
+    <div className="boxShadow px-10 w-full flex items-center flex-col justify-center py-20 bg-neutral-15 h-screen font-Outfit">
       <img
         src="https://i.ibb.co/SVMTKPy/Frame-5.png"
         alt="illustration"
