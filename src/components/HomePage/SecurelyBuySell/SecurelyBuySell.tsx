@@ -7,13 +7,13 @@ const SecurelyBuySell = () => {
     <div className="font-Outfit relative py-20">
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute top-0 -left-40 opacity-50"></div>
       <Container>
-        <div className="flex items-center justify-between">
+        <div className="flex flex-col xl:flex-row items-center justify-between">
           <div className="flex flex-col gap-5 z-10">
             <p className="text-white text-2xl">Securely buy, sell, store</p>
-            <h1 className="text-[48px] font-medium text-white max-w-[674px]">
+            <h1 className="text-3xl lg:text-[48px] font-medium text-white max-w-full xl:max-w-[674px]">
               Made with confidence with best platform and easy to use.
             </h1>
-            <p className="text-white max-w-[580px]">
+            <p className="text-white max-w-[580px] text-sm lg:text-base">
               We provide a wide range of cryptocurrencies for trading and offer
               high returns on investment with competitive fees and low
               transaction costs.

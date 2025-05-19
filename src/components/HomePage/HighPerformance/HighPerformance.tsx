@@ -26,7 +26,7 @@ const HighPerformance = () => {
       <div className="bg-primary-20 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 -right-32"></div>
       <Container>
         <div className="flex flex-col items-center justify-between w-full">
-          <div className="flex items-center justify-between w-full">
+          <div className="flex flex-col md:flex-row gap-10 items-center justify-between w-full">
             {successStatus?.map((item) => (
               <div key={item.title} className="flex flex-col z-10">
                 <h1 className="text-[48px] font-medium text-white text-center">
@@ -40,11 +40,11 @@ const HighPerformance = () => {
           </div>
 
           <div className="flex flex-col z-10 w-full mt-[100px]">
-            <h1 className="text-[48px] font-medium text-white text-center">
+            <h1 className="text-3xl lg:text-[48px] font-medium text-white text-center">
               High Performance{" "}
               <span className="text-primary-10">Cardano Mine Pool</span>
             </h1>
-            <p className="text-white max-w-[843px] mx-auto mt-5 text-center">
+            <p className="text-sm lg:text-base text-white max-w-[843px] mx-auto mt-5 text-center">
               MORH Pool is a High Performance Cardano Mine Pool powered by
               multiple green-energy bare-metal servers, operated by a team that
               is passionate about delivering the best reliable Mining rewards to
@@ -58,7 +58,7 @@ const HighPerformance = () => {
                 alt=""
                 className="rounded-[10px]"
               />
-              <button className="p-2 w-[157px] h-[54px] rounded-lg bg-primary-10 text-white font-medium flex items-center justify-center gap-2 absolute right-11 bottom-12">
+              <button className="p-2 w-[157px] h-[54px] rounded-lg bg-primary-10 text-white font-medium flex items-center justify-center gap-2 absolute right-6 md:right-11 bottom-8 md:bottom-12">
                 Start Now
                 <img src={ICONS.play} alt="" className="size-6" />
               </button>

@@ -2,23 +2,12 @@ import { Link, useLocation } from "react-router-dom";
 import { IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
 import Hero from "../../HomePage/Hero/Hero";
+import { navlinks } from "./navlinks";
+import HamburgerMenu from "./HamburgerMenu";
 
 const Navbar = () => {
   const location = useLocation();
-  const navlinks = [
-    {
-      label: "Home",
-      path: "/",
-    },
-    {
-      label: "About",
-      path: "/about-us",
-    },
-    {
-      label: "Contact Us",
-      path: "/contact-us",
-    },
-  ];
+  
   return (
     <div className="relative font-Outfit overflow-hidden">
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute top-0 left-0"></div>
@@ -34,7 +23,7 @@ const Navbar = () => {
             </Link>
 
             {/* Navlinks */}
-            <div className="flex items-center gap-[42px] z-10">
+            <div className="hidden lg:flex items-center gap-[42px] z-10">
               {navlinks?.map((navlink) => (
                 <Link
                   key={navlink.label}
@@ -50,7 +39,7 @@ const Navbar = () => {
               ))}
             </div>
 
-            <div className="flex items-center gap-6 z-10">
+            <div className="hidden lg:flex items-center gap-6 z-10">
               <Link
                 to={"/signin"}
                 className="p-2 w-[126px] h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium flex items-center justify-center"
@@ -64,6 +53,7 @@ const Navbar = () => {
                 Sign Up
               </Link>
             </div>
+            <HamburgerMenu/>
           </div>
         </Container>
       </div>

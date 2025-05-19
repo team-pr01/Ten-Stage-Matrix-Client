@@ -31,13 +31,13 @@ const WhyChooseUs = () => {
 
   return (
     <div className="font-Outfit relative py-20">
-      <div className="bg-primary-30 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute left-0 -top-10"></div>
+      <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[300px] lg:h-[351px] rounded-[431px] blur-[75px] z-0 absolute left-0 -top-10"></div>
       <Container>
-        <h1 className="text-[48px] font-medium text-white text-center capitalize">
+        <h1 className="text-3xl lg:text-[48px] font-medium text-white text-center capitalize z-10 relative">
           Why you choose{" "}
           <span className="text-primary-10">Ten Stage matrix</span>
         </h1>
-        <p className="text-2xl text-white mt-[14px] text-center">
+        <p className="text-sm lg:text-2xl text-white mt-[14px] text-center z-10 relative  `">
           The exchange is where users can buy, sell, and trade.
         </p>
 
