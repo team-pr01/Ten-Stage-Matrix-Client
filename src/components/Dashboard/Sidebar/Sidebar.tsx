@@ -51,8 +51,8 @@ const Sidebar = () => {
     },
     {
       icon: <MdReport />,
-      label: "Report",
-      path: "/dashboard/report",
+      label: "Reports",
+      path: "/dashboard/reports",
     },
     {
       icon: <MdOutlineSettings />,
