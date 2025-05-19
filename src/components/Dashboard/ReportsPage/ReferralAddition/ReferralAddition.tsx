@@ -28,7 +28,7 @@ const ReferralAddition = () => {
         {data?.map((item: any, index: number) => (
           <div
             key={index}
-            className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col items-center justify-center py-[37px] px-[100px]"
+            className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col items-center justify-center py-5 md:py-[37px] px-12 xl:px-[100px]"
           >
             <img
               src={item?.icon}

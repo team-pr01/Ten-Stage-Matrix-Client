@@ -20,7 +20,7 @@ const PerformanceTab = () => {
             {
               icon: ICONS.growth,
               title: "Fastest Growth",
-              value: "Level 06$35,869",
+              value: "Level 06",
               description: "Fastest growth level",
             },
           ];

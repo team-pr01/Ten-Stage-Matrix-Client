@@ -32,7 +32,7 @@ const Notification = () => {
 
   return (
     <div className="font-Outfit">
-      <div className="flex items-center gap-5">
+      <div className="flex flex-col lg:flex-row items-center gap-5">
         {/* Notification Preference */}
         <div className="flex flex-col gap-6 w-full">
           <h1 className="text-2xl text-white font-medium mt-6">Notification Preference</h1>
@@ -72,7 +72,7 @@ const Notification = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 mt-9">
+      <div className="flex flex-col md:flex-row gap-5 mt-9">
         <div className="flex flex-col gap-[26px] rounded-[15px] border-[3px] bg-neutral-30 border-neutral-25/20 bg-neutral-3 py-6 px-[18px] w-full h-fit">
           {referralActivity?.map((item) => (
             <div className="flex items-center justify-between">

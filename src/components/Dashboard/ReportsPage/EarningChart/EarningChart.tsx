@@ -16,7 +16,7 @@ const EarningChart = () => {
     { date: "4 Oct", income: 1000, expense: -650 },
   ];
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[80%] h-full md:h-[300px] overflow-y-auto custom-scrollbar mt-6">
+    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-0 xl:px-[34px] font-Outfit w-full xl:w-[80%] h-full md:h-[300px] overflow-y-auto custom-scrollbar mt-6">
       <ResponsiveContainer width="100%" height={250}>
         <BarChart data={data}>
           <CartesianGrid

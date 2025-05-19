@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { navlinks } from "./navlinks";
 import { FaAlignRight } from "react-icons/fa";
+import { IMAGES } from "../../../assets";
 
 const HamburgerMenu: React.FC = () => {
   const [isHamburgerOpen, setIsHamburgerOpen] = useState(false);
@@ -30,7 +31,10 @@ const HamburgerMenu: React.FC = () => {
 
   return (
     <div className="relative hamburgerMenu block lg:hidden">
-      <FaAlignRight onClick={toggleHamburgerMenu} className="text-white size-7 cursor-pointer" />
+      <FaAlignRight
+        onClick={toggleHamburgerMenu}
+        className="text-white size-7 cursor-pointer"
+      />
 
       {/* Background Overlay */}
       <div
@@ -42,19 +46,26 @@ const HamburgerMenu: React.FC = () => {
 
       {/* Side Menu */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 py-5 px-6 bg-white w-[270px] overflow-y-auto h-screen transition-all duration-300 transform flex flex-col gap-8 ${
+        className={`fixed inset-y-0 right-0 z-50 py-5 px-6 bg-primary-70 w-[270px] overflow-y-auto h-screen transition-all duration-300 transform flex flex-col gap-8 ${
           isHamburgerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {navlinks.map((link, index) => (
+        <Link to={"/"}>
+          <img src={IMAGES.logo} alt="logo" className="z-10" />
+        </Link>
+
+        {navlinks?.map((navlink) => (
           <Link
-            key={index}
-            to={link.path}
-            className={`${
-              location.pathname === link.path ? "font-semibold" : "font-normal"
-            } text-primary-10 text-lg leading-6`}
+            key={navlink.label}
+            to={navlink.path}
+            onClick={toggleHamburgerMenu}
+            className={`text-lg font-medium ${
+              location.pathname === navlink.path
+                ? "underline text-primary-10"
+                : "text-white"
+            }`}
           >
-            {link.label}
+            {navlink.label}
           </Link>
         ))}
       </div>

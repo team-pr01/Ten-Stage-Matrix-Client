@@ -4,8 +4,8 @@ import { ICONS } from "../../../../assets";
 const ReferralProgress = () => {
   return (
     <div className="mt-7">
-      <h1 className="text-white font-medium text-2xl">Referral Stats</h1>
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-4">
+      <h1 className="text-white font-medium text-2xl">Referral Progress</h1>
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-4">
         <DashboardDataCard
           icon={ICONS.level}
           title="Level"

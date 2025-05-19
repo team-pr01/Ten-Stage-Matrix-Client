@@ -5,11 +5,11 @@ const EarningTrend = ({data} : {data:any}) => {
   return (
     <div className="font-Outfit">
       <h1 className="text-2xl text-white font-medium mt-6">Earning Trend</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5 mt-8">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-8">
         {data?.map((item:any, index:number) => (
           <div
             key={index}
-            className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col items-center justify-center py-[37px] px-[100px]"
+            className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col items-center justify-center py-5 xl:py-[37px] px-12 xl:px-[100px]"
           >
             <img
               src={item?.icon}

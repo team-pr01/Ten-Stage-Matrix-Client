@@ -20,9 +20,9 @@ const Profile = () => {
   };
   return (
     <div>
-      <div className="flex items-center gap-5">
+      <div className="flex flex-col md:flex-row items-center gap-5">
         {/* Profile photo */}
-        <div className="flex flex-col gap-6 w-full md:w-[20%]">
+        <div className="flex flex-col gap-6 w-full md:w-[50%] xl:w-[30%] 2xl:w-[20%]">
           <h1 className="text-2xl text-white font-medium mt-6">
             Profile Photo
           </h1>
@@ -32,12 +32,12 @@ const Profile = () => {
               alt=""
               className="rounded-[10px] w-[298px] h-[185px]"
             />
-            <div className="flex justify-between items-center mt-2">
+            <div className="flex flex-col md:flex-row justify-between items-center mt-2">
               <div>
                 <h1 className="text-white text-lg font-medium">
                   Thomas Shelvi
                 </h1>
-                <p className="text-neutral-110 text-sm mt-[3px]">Actor</p>
+                <p className="text-neutral-110 text-sm mt-[3px] text-center md:text-start">Actor</p>
               </div>
               <button
                 onClick={() => setIsUpdateFormVisible(!isUpdateFormVisible)}
@@ -50,7 +50,7 @@ const Profile = () => {
         </div>
 
         {/* Profile info */}
-        <div className="flex flex-col gap-6 w-full md:w-[80%]">
+        <div className="flex flex-col gap-6 w-full md:w-[50%] xl:w-[70%] 2xl:w-[80%]">
           <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
           <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] min-h-[310px]">
             <img

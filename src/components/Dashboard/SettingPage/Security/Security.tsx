@@ -34,7 +34,7 @@ const Security = () => {
 
   return (
     <div className="font-Outfit">
-      <div className="flex items-center gap-5">
+      <div className="flex flex-col lg:flex-row items-center gap-5">
         {/* Profile photo */}
         <div className="flex flex-col gap-6 w-full">
           <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
@@ -74,7 +74,7 @@ const Security = () => {
         </div>
       </div>
 
-      <div className="flex gap-5 mt-9">
+      <div className="flex flex-col md:flex-row gap-5 mt-9">
         {/* Change password form */}
         <div className="w-full">
           <form

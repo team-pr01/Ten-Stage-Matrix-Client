@@ -33,16 +33,16 @@ const ActivityLog = () => {
   ];
 
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[80%] h-full md:h-[300px] overflow-y-auto custom-scrollbar">
+    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[60%] xl:w-[80%] h-full md:h-[300px] overflow-y-auto custom-scrollbar">
       <h1 className="text-2xl font-medium text-white">Activity Log</h1>
 
-      <div className="mt-6">
-        <table className="w-full text-white">
+      <div className="mt-6 overflow-x-auto">
+        <table className="min-w-[600px] w-full text-white">
           <tbody>
             {activityLog.map((item, index) => (
               <tr key={index} className="border-b border-neutral-110">
                 {/* event + Icon */}
-                <td className="flex items-center gap-2 py-3">
+                <td className="flex items-center gap-2 py-3 whitespace-nowrap">
                   <div className="bg-neutral-105 size-[14px] rounded-full p-[3px] flex items-center justify-center">
                     <img src={item?.icon} alt="" className="size-2" />
                   </div>
@@ -50,13 +50,13 @@ const ActivityLog = () => {
                 </td>
 
                 {/* Date */}
-                <td className="py-3">{item?.event}</td>
+                <td className="py-3 whitespace-nowrap">{item?.event}</td>
 
                 {/* Status */}
-                <td className="py-3">{item?.status}</td>
+                <td className="py-3 whitespace-nowrap">{item?.status}</td>
 
                 {/* Info Icon */}
-                <td className="py-3 text-right">
+                <td className="py-3 text-right whitespace-nowrap">
                   <button className="cursor-pointer">
                     <img src={ICONS.info} alt="Info" className="size-6" />
                   </button>

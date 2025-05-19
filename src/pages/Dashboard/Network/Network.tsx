@@ -33,8 +33,8 @@ const Network = () => {
           <h1 className="text-white font-medium text-2xl mb-5">
             Referral Details
           </h1>
-          <div className="flex gap-5">
-            <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] h-fit w-full md:w-[20%]">
+          <div className="flex flex-col md:flex-row gap-5">
+            <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] h-fit w-full md:w-[40%] xl:w-[20%]">
                 <img src={IMAGES.dummyProfileImg} alt="" className="rounded-[10px] w-[298px] h-[185px]" />
                 <h1 className="text-white text-lg font-medium mt-2">Thomas Shelvi</h1>
                 <p className="text-neutral-110 text-sm mt-[3px]">Actor</p>
