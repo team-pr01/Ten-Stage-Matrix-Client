@@ -1,67 +1,13 @@
 import { Link, useLocation } from "react-router-dom";
 import { IMAGES } from "../../../assets";
-import {
-  MdDashboard,
-  MdPeopleAlt,
-  MdOutlineSettings,
-  MdReport,
-} from "react-icons/md";
-import { AiOutlineTransaction } from "react-icons/ai";
-import { FaDonate, FaMoneyCheckAlt } from "react-icons/fa";
-import { RiMoneyDollarCircleLine } from "react-icons/ri";
-import { FiSend } from "react-icons/fi";
+import { dashboardSidebarLinks } from "./sidebarLinks";
+
 
 const Sidebar = () => {
   const location = useLocation();
-  const dashboardSidebarLinks = [
-    {
-      icon: <MdDashboard />,
-      label: "Dashboard",
-      path: "/dashboard",
-    },
-    {
-      icon: <AiOutlineTransaction />,
-      label: "Transactions",
-      path: "/dashboard/transactions",
-    },
-    {
-      icon: <FiSend />,
-      label: "Fund Transfer",
-      path: "/dashboard/fund-transfer",
-    },
-    {
-      icon: <MdPeopleAlt />,
-      label: "Network",
-      path: "/dashboard/network",
-    },
-    {
-      icon: <RiMoneyDollarCircleLine />,
-      label: "Deposit",
-      path: "/dashboard/deposit",
-    },
-    {
-      icon: <FaMoneyCheckAlt />,
-      label: "Withdraw",
-      path: "/dashboard/withdraw",
-    },
-    {
-      icon: <FaDonate />,
-      label: "Donate",
-      path: "/dashboard/donate",
-    },
-    {
-      icon: <MdReport />,
-      label: "Reports",
-      path: "/dashboard/reports",
-    },
-    {
-      icon: <MdOutlineSettings />,
-      label: "Setting",
-      path: "/dashboard/setting",
-    },
-  ];
+  
   return (
-    <div className="w-[323px] bg-neutral-30 border-r border-neutral-25/50 px-10 py-[19px] h-screen overflow-y-auto font-Outfit flex flex-col gap-[30px] sticky top-0 left-0">
+    <div className="w-[323px] bg-neutral-30 border-r border-neutral-25/50 px-10 py-[19px] h-screen overflow-y-auto font-Outfit hidden lg:flex flex-col gap-[30px] sticky top-0 left-0">
       {/* Logo */}
       <Link to={"/"}>
         <img src={IMAGES.logo} alt="logo" className="z-10" />

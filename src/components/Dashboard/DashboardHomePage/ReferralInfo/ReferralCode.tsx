@@ -3,7 +3,7 @@ import { ICONS } from "../../../../assets";
 const ReferralCode = ({ cardHeight = "h-full" }: { cardHeight?: string }) => {
   return (
     <div
-      className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[27px] px-9 flex flex-col col-span-2 ${cardHeight}`}
+      className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[27px] px-9 flex flex-col col-span-1 lg:col-span-2 ${cardHeight}`}
     >
       <img src={ICONS.referralCode} alt="" className="size-[90px]" />
       <h1 className="text-white text-[34px] font-medium capitalize mt-[10px]">

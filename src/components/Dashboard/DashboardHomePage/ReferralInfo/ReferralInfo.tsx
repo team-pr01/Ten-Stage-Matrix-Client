@@ -6,7 +6,7 @@ const ReferralInfo = () => {
   return (
     <div className="mt-6">
       <h1 className="text-white font-medium text-2xl">Referral Code</h1>
-      <div className="grid grid-cols-1 md:grid-cols-5 gap-5 mt-4">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-5 mt-4">
        <ReferralCode/>
 
         <DashboardDataCard

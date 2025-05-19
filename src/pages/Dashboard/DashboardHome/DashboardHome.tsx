@@ -8,7 +8,7 @@ const DashboardHome = () => {
   return (
     <div className="font-Outfit">
       {/* Header */}
-      <div className="flex items-center justify-between">
+      <div className="flex flex-col md:flex-row gap-3 md:gap-0 items-start md:items-center justify-between">
         <DashboardHeaderTitle title="Financial Overview" />
         <button className="p-2 w-[165px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center cursor-pointer">
           Connect wallet
