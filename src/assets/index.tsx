@@ -61,6 +61,9 @@ import reference from "./icons/reference.png";
 import success from "./icons/success.png";
 import inactiveUser from "./icons/in-active-user.png";
 import totalReferral from "./icons/total-referrals.png";
+import activeMembers from "./icons/active-members.png";
+import topEarner from "./icons/top-earner.png";
+import growth from "./icons/growth.png";
 
 
 export const IMAGES = {
@@ -128,4 +131,7 @@ export const ICONS = {
     success,
     inactiveUser,
     totalReferral,
+    activeMembers,
+    topEarner,
+    growth,
 }

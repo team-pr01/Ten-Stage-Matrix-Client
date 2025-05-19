@@ -50,7 +50,7 @@ const RecentActivity = () => {
                 </td>
 
                 {/* Date */}
-                <td className="py-3">{item?.event}</td>
+                <td className="py-3">{item?.event}</td>aad
 
                 {/* Amount */}
                 <td className="py-3">{item?.amount}</td>

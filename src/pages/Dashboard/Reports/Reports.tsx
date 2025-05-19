@@ -3,6 +3,9 @@ import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTi
 import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
 import ReferralList from "../../../components/Dashboard/ReportsPage/ReferralList/ReferralList";
 import TeamSummary from "../../../components/Dashboard/ReportsPage/TeamSummary/TeamSummary";
+import { ICONS } from "../../../assets";
+import PerformanceTab from "../../../components/Dashboard/ReportsPage/PerformanceTab/PerformanceTab";
+import ReferralTree from "../../../components/Dashboard/ReportsPage/ReferralTree/ReferralTree";
 
 const Reports = () => {
   const [activeTab, setActiveTab] = useState<
@@ -11,6 +14,27 @@ const Reports = () => {
   const tabButtons: Array<
     "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"
   > = ["Direct Referrals", "Team Summary", "Performance", "Referral Tree"];
+
+  const earningTrends = [
+    {
+      icon: ICONS.totalReferral,
+      title: "Total Referrals",
+      value: "3",
+      description: "All time earnings from MLM activities.",
+    },
+    {
+      icon: ICONS.activeReferral,
+      title: "Active Referrals",
+      value: "18",
+      description: "Currently active downline members.",
+    },
+    {
+      icon: ICONS.inactiveUser,
+      title: "Inactive Team member",
+      value: "3",
+      description: "Total number of inactive referrals",
+    },
+  ];
   return (
     <div>
       <DashboardHeaderTitle title="Reports Overview" />
@@ -35,12 +59,14 @@ const Reports = () => {
 
       {activeTab === "Direct Referrals" && (
         <>
-          <EarningTrend />
+          <EarningTrend data={earningTrends} />
           <ReferralList />
         </>
       )}
 
       {activeTab === "Team Summary" && <TeamSummary />}
+      {activeTab === "Performance" && <PerformanceTab />}
+      {activeTab === "Referral Tree" && <ReferralTree />}
     </div>
   );
 };
