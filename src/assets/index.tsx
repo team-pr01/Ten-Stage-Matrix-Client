@@ -59,6 +59,8 @@ import amount from "./icons/amount.png";
 import authentication from "./icons/authentication.png";
 import reference from "./icons/reference.png";
 import success from "./icons/success.png";
+import inactiveUser from "./icons/in-active-user.png";
+import totalReferral from "./icons/total-referrals.png";
 
 
 export const IMAGES = {
@@ -124,4 +126,6 @@ export const ICONS = {
     authentication,
     reference,
     success,
+    inactiveUser,
+    totalReferral,
 }

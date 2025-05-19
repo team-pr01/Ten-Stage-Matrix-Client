@@ -2,6 +2,7 @@ import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
 import ReferralList from "../../../components/Dashboard/ReportsPage/ReferralList/ReferralList";
+import TeamSummary from "../../../components/Dashboard/ReportsPage/TeamSummary/TeamSummary";
 
 const Reports = () => {
   const [activeTab, setActiveTab] = useState<
@@ -32,8 +33,14 @@ const Reports = () => {
         <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
       </div>
 
-      <EarningTrend />
-      <ReferralList/>
+      {activeTab === "Direct Referrals" && (
+        <>
+          <EarningTrend />
+          <ReferralList />
+        </>
+      )}
+
+      {activeTab === "Team Summary" && <TeamSummary />}
     </div>
   );
 };

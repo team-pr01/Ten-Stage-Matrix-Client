@@ -3,22 +3,22 @@ import { ICONS } from "../../../../assets";
 const EarningTrend = () => {
   const earningTrends = [
     {
-      icon: ICONS.totalReferrals,
+      icon: ICONS.totalReferral,
       title: "Total Referrals",
       value: "3",
       description: "All time earnings from MLM activities.",
     },
     {
-      icon: ICONS.totalReferrals,
+      icon: ICONS.activeReferral,
       title: "Active Referrals",
       value: "18",
       description: "Currently active downline members.",
     },
     {
-      icon: ICONS.totalReferrals,
-      title: "In Active Team member",
+      icon: ICONS.inactiveUser,
+      title: "Inactive Team member",
       value: "3",
-      description: "Total amount of withdraw",
+      description: "Total number of inactive referrals",
     },
   ];
   return (
