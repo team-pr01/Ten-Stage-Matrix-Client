@@ -1,19 +1,17 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
+import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
 
 const Reports = () => {
-  const [activeTab, setActiveTab] = useState<"Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree">("Direct Referrals");
-  const tabButtons: Array<"Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"> = [
-    "Direct Referrals",
-    "Team Summary",
-    "Performance",
-    "Referral Tree"
-  ];
+  const [activeTab, setActiveTab] = useState<
+    "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"
+  >("Direct Referrals");
+  const tabButtons: Array<
+    "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"
+  > = ["Direct Referrals", "Team Summary", "Performance", "Referral Tree"];
   return (
     <div>
-      <DashboardHeaderTitle
-        title="Reports Overview"
-      />
+      <DashboardHeaderTitle title="Reports Overview" />
 
       {/* Tab buttons */}
       <div className="flex items-center gap-6 mt-8 relative">
@@ -32,6 +30,8 @@ const Reports = () => {
         ))}
         <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
       </div>
+
+      <EarningTrend />
     </div>
   );
 };
