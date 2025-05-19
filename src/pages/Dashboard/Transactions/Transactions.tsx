@@ -43,9 +43,9 @@ const Transactions = () => {
       </div>
 
       {activeTab === "Transactions" && (
-        <div className="mt-7 flex gap-4">
+        <div className="mt-7 flex flex-col xl:flex-row gap-4">
           <RecentTransactions />
-          <div className="w-full md:w-[30%]">
+          <div className="w-full xl:w-[30%]">
             <ReferralActivity />
           </div>
         </div>
@@ -56,7 +56,7 @@ const Transactions = () => {
           <h1 className="text-white font-medium text-2xl mb-5">
             Referral Code
           </h1>
-          <div className="flex gap-5">
+          <div className="flex lex flex-col xl:flex-row gap-5">
             <div className="w-full">
               <ReferralCode />
             </div>
