@@ -5,14 +5,14 @@ import ContactUsForm from "./ContactUsForm";
 const ContactUs = () => {
   return (
     <div className="py-24 relative bg-neutral-10">
-      <div className="bg-primary-20 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute -bottom-20 left-0"></div>
+      <div className="bg-primary-20 w-[300px] lg:w-[432px] h-[300px] lg:h-[351px] rounded-[431px] blur-[75px] z-0 absolute -bottom-20 left-0"></div>
       <Container>
-        <div className="flex items-center justify-between">
-          <div className="z-10 w-[55%]">
-            <h1 className="text-[40px] font-medium text-white capitalize">
+        <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 items-center justify-between">
+          <div className="z-10 w-full xl:w-[55%]">
+            <h1 className="text-3xl lg:text-[40px] font-medium text-white capitalize">
               Do you have any questions?
             </h1>
-            <p className="text-neutral-45 mt-[14px] mb-6 max-w-[519px]">
+            <p className="text-sm lg:text-base text-neutral-45 mt-[14px] mb-6 max-w-[519px]">
               Please contact us directly by mail or from our contact form. You
               can also visit our support page which might help solve your
               problem.

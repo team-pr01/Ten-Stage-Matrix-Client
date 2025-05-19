@@ -39,23 +39,23 @@ const Footer = () => {
   return (
     <div className="bg-primary-40 py-20 font-Outfit z-10 relative">
       <Container>
-        <h1 className="text-[40px] font-medium text-white capitalize text-center">
+        <h1 className="text-3xl lg:text-[40px] font-medium text-white capitalize text-center">
           Join us today!
         </h1>
-        <p className="text-neutral-60 mt-[14px] max-w-[519px] text-center mx-auto">
+        <p className="text-sm lg:text-base text-neutral-60 mt-[14px] max-w-full md:max-w-[519px] text-center mx-auto">
           Cardano is built by a decentralized community of scientists,
           engineers, and thought leaders united in a common purpose.
         </p>
 
         {/* Input field */}
-        <div className="py-1 text-base rounded-md bg-white shadow-secondary-button text-neutral-700 leading-6 cursor-pointer transition-all duration-300 ease-in-out transform active:scale-95 text-nowrap flex gap-2 justify-between items-center w-[461px] mx-auto mt-8">
+        <div className="py-1 text-base rounded-md bg-white shadow-secondary-button text-neutral-700 leading-6 cursor-pointer transition-all duration-300 ease-in-out transform active:scale-95 text-nowrap flex gap-2 justify-between items-center w-full md:w-[461px] mx-auto mt-8">
           <input
             // value={keyword}
             // onChange={(e) => {
             //   setKeyword(e.target.value);
             // }}
             type="text"
-            placeholder={`Search course...`}
+            placeholder={`Enter your email`}
             className="bg-white focus:outline-none pl-4"
           />
           <button className="bg-primary-10 py-3 px-[10px] rounded-xl mr-[14px] text-white font-medium">
@@ -63,7 +63,7 @@ const Footer = () => {
           </button>
         </div>
 
-        <div className="flex justify-between mt-[119px]">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between mt-[119px]">
           <div>
             <img src={IMAGES.logo} alt="logo" className="z-10" />
             <p className="text-neutral-60 max-w-[292px]">
@@ -181,7 +181,7 @@ const Footer = () => {
 
         <hr className="border border-neutral-70 w-full h-[1px] mt-[31px] mb-[11px]" />
 
-        <div className="flex items-center justify-between text-neutral-75">
+        <div className="flex flex-col lg:flex-row gap-5 lg:gap-0 items-start lg:items-center justify-between text-neutral-75">
           <p className="">Design Template Kit by Creativehubit</p>
           <p className="">Copyright (C) 2025.All right reserved</p>
         </div>

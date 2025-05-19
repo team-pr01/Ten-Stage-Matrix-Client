@@ -37,12 +37,12 @@ const StepsToGetStarted = () => {
   return (
     <div className="bg-primary-40 py-20 z-20 relative">
      <Container>
-         <div className="flex items-center justify-between">
+         <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 items-center justify-between">
         <div>
-        <h1 className="text-[48px] font-medium text-white max-w-[506px]">
+        <h1 className="text-3xl lg:text-[48px] font-medium text-white max-w-full xl:max-w-[506px]">
           3 very simple steps to get started with Ten Stage matrix
         </h1>
-        <p className="text-white max-w-[517px] mt-[22px]">
+        <p className="text-sm lg:text-base text-white max-w-[517px] mt-[22px]">
           With over 18.4 million Active Stake, Ten Stage matrix is the best
           platform to get started stake your cardano. It is the easiest platform
           for beginners to easily get into ADA Pool.
@@ -57,8 +57,8 @@ const StepsToGetStarted = () => {
               <img src={step.icon} alt={step.title} />
             </div>
             <div>
-              <h2 className="text-white text-[30px]">{step.title}</h2>
-              <p className="text-neutral-35 text-xl capitalize mt-[3px]">
+              <h2 className="text-white text-2xl md:text-[30px]">{step.title}</h2>
+              <p className="text-neutral-35 text-sm md:text-xl capitalize mt-[3px]">
                 {step.description}
               </p>
             </div>

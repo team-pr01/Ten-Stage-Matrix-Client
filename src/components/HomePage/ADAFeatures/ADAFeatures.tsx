@@ -34,7 +34,7 @@ const ADAFeatures = () => {
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-0 absolute -bottom-20 -right-20"></div>
       <div className="bg-primary-20 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute -top-20 -right-20"></div>
       <Container>
-        <div className="flex items-center justify-between w-full">
+        <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 items-center justify-between w-full">
           {/* Left side image */}
           <div className="relative">
             <img src={IMAGES.adaFeature} alt="" className="z-10 relative" />
@@ -44,10 +44,10 @@ const ADAFeatures = () => {
           </div>
 
           <div className="z-10">
-            <h1 className="text-[48px] font-medium text-white max-w-[507px]">
+            <h1 className="text-3xl lg:text-[48px] font-medium text-white max-w-full xl:max-w-[507px]">
               What Can I Do With ADA?
             </h1>
-            <p className="text-neutral-40 mt-[17px] max-w-[520px]">
+            <p className="text-sm lg:text-base text-neutral-40 mt-[17px] max-w-full xl:max-w-[520px]">
               ADA is a digital currency. Any user, located anywhere in the
               world, can use ada as a secure exchange of value – without
               requiring a third party to mediate the exchange. Every transaction

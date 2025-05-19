@@ -16,11 +16,11 @@ const Home = () => {
             <WhyChooseUs/>
             <SecurelyBuySell/>
             <HighPerformance/>
-            {/* <StepsToGetStarted/>
+            <StepsToGetStarted/>
             <ADAFeatures/>
             <BecomePartOfCardano/>
             <ContactUs/>
-            <Footer/> */}
+            <Footer/>
         </div>
     );
 };
