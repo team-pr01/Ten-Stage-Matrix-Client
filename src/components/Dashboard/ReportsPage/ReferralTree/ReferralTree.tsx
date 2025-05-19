@@ -1,5 +1,6 @@
 import { IMAGES } from "../../../../assets";
 import RecentAddition from "../RecentAddition/RecentAddition";
+import ReferralAddition from "../ReferralAddition/ReferralAddition";
 
 
 const ReferralTree = () => {
@@ -13,6 +14,8 @@ const ReferralTree = () => {
            </div>
             <RecentAddition />
           </div>
+
+          <ReferralAddition/>
         </div>
     );
 };
