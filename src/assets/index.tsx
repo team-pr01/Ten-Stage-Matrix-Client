@@ -66,6 +66,8 @@ import topEarner from "./icons/top-earner.png";
 import growth from "./icons/growth.png";
 import changePassword from "./icons/reset-password 1.png";
 import twoFA from "./icons/biometric-authentication 1.png";
+import emailAlert from "./icons/email-alert.png";
+import notification from "./icons/notification.png";
 
 
 export const IMAGES = {
@@ -138,4 +140,6 @@ export const ICONS = {
     growth,
     changePassword,
     twoFA,
+    emailAlert,
+    notification,
 }
