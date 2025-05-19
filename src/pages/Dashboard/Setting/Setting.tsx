@@ -2,7 +2,7 @@ import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import Profile from "../../../components/Dashboard/SettingPage/Profile/Profile";
 import Security from "../../../components/Dashboard/SettingPage/Security/Security";
-import Notification from './../../../components/Dashboard/SettingPage/Notification/Notification';
+import Notification from "./../../../components/Dashboard/SettingPage/Notification/Notification";
 
 const Setting = () => {
   const [activeTab, setActiveTab] = useState<
@@ -35,15 +35,9 @@ const Setting = () => {
         <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
       </div>
 
-      {
-        activeTab === "Profile" && <Profile/>
-      }
-      {
-        activeTab === "Security" && <Security/>
-      }
-      {
-        activeTab === "Notification" && <Notification/>
-      }
+      {activeTab === "Profile" && <Profile />}
+      {activeTab === "Security" && <Security />}
+      {activeTab === "Notification" && <Notification />}
     </div>
   );
 };
