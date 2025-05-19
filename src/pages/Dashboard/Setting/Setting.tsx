@@ -1,6 +1,7 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import Profile from "../../../components/Dashboard/SettingPage/Profile/Profile";
+import Security from "../../../components/Dashboard/SettingPage/Security/Security";
 
 const Setting = () => {
   const [activeTab, setActiveTab] = useState<
@@ -35,6 +36,9 @@ const Setting = () => {
 
       {
         activeTab === "Profile" && <Profile/>
+      }
+      {
+        activeTab === "Security" && <Security/>
       }
     </div>
   );
