@@ -2,14 +2,19 @@ import { useForm } from "react-hook-form";
 import { IMAGES } from "../../assets";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSignupMutation } from "../../redux/Features/Auth/authApi";
+import { toast } from "sonner";
+import Loader from "../../components/Shared/Loader/Loader";
 
 type TFormValues = {
-  userName: string;
+  name: string;
   email: string;
   password: string;
+  referral_code?: string;
 };
 const Signup = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
+  const [signup, {isLoading}] = useSignupMutation();
 
   const {
     register,
@@ -17,9 +22,25 @@ const Signup = () => {
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleSignup = (data:TFormValues) => {
-    console.log(data);
-  }
+  const handleSignup = async (data: TFormValues) => {
+    try {
+      if (!isChecked) {
+        alert("Please agree to the terms and conditions.");
+        return;
+      }
+      const payload = {
+        name: data.name,
+        email: data.email,
+        password: data.password,
+        referral_code: data?.referral_code || null,
+      };
+      const response = await signup(payload).unwrap();
+      toast.success(response?.message || "Signup successful!");
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="h-full font-Outfit py-28 relative">
       <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
@@ -28,7 +49,8 @@ const Signup = () => {
         <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 items-center justify-between">
           <div className="z-10">
             <Link to={"/"}>
-            <img src={IMAGES.logo} alt="logo" className="z-10" /></Link>
+              <img src={IMAGES.logo} alt="logo" className="z-10" />
+            </Link>
             <h1 className="text-neutral-80 text-xl mt-[17px]">Sign Up</h1>
             <p className="text-neutral-85 mt-[10px]">
               Create New TEN STAGE MATRIX Account
@@ -37,16 +59,16 @@ const Signup = () => {
             <form onSubmit={handleSubmit(handleSignup)} className="mt-[42px]">
               <div className="flex flex-col gap-2">
                 <label htmlFor="" className="text-neutral-85">
-                  Referral's Username
+                  Name
                 </label>
                 <input
                   type="text"
                   placeholder="Enter your username"
-                  {...register("userName", {
+                  {...register("name", {
                     required: "Name is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.userName ? "border-red-500" : "border-neutral-90"
+                    errors?.name ? "border-red-500" : "border-neutral-90"
                   }`}
                 />
                 {typeof errors === "object" && "message" in errors && (
@@ -85,7 +107,51 @@ const Signup = () => {
                 )}
               </div>
 
-              <label className="flex items-center gap-3 text-neutral-85 mt-3 cursor-pointer">
+               <div className="flex flex-col gap-2 mt-[17px]">
+                <label htmlFor="" className="text-neutral-85">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  {...register("password", {
+                    required: "Password is required",
+                  })}
+                  className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
+                    errors?.password ? "border-red-500" : "border-neutral-90"
+                  }`}
+                />
+                {typeof errors === "object" && "message" in errors && (
+                  <span className="text-red-500 text-sm">
+                    {String(errors.message)}
+                  </span>
+                )}
+              </div>
+
+           
+
+              <div className="flex flex-col gap-2 mt-[17px]">
+                <label htmlFor="" className="text-neutral-85">
+                  Referral Code
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your referral code"
+                  {...register("referral_code")}
+                  className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
+                    errors?.referral_code
+                      ? "border-red-500"
+                      : "border-neutral-90"
+                  }`}
+                />
+                {typeof errors === "object" && "message" in errors && (
+                  <span className="text-red-500 text-sm">
+                    {String(errors.message)}
+                  </span>
+                )}
+              </div>
+
+                 <label className="flex items-center gap-3 text-neutral-85 mt-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={isChecked}
@@ -100,32 +166,11 @@ const Signup = () => {
                 </span>
               </label>
 
-              <div className="flex flex-col gap-2 mt-[17px]">
-                <label htmlFor="" className="text-neutral-85">
-                  Passcode
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your Password"
-                  {...register("password", {
-                    required: "Name is required",
-                  })}
-                  className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.password ? "border-red-500" : "border-neutral-90"
-                  }`}
-                />
-                {typeof errors === "object" && "message" in errors && (
-                  <span className="text-red-500 text-sm">
-                    {String(errors.message)}
-                  </span>
-                )}
-              </div>
-
               <button
                 type="submit"
                 className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-6"
               >
-                Sign Up
+                {isLoading ? <Loader size="size-6" /> : "Sign Up"}
               </button>
 
               <div className="flex items-center gap-[9px] mt-[30px]">

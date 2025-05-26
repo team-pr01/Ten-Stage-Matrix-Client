@@ -1,21 +1,38 @@
 import { useForm } from "react-hook-form";
 import { IMAGES } from "../../assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useLoginMutation } from "../../redux/Features/Auth/authApi";
+import { toast } from "sonner";
+import Loader from "../../components/Shared/Loader/Loader";
 
 type TFormValues = {
-  privateKey: string;
+  email: string;
   password: string;
 };
 const SignIn = () => {
+  const [login, { isLoading }]= useLoginMutation();
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleSignup = (data:TFormValues) => {
-    console.log(data);
-  }
+  const handleSignup = async (data: TFormValues) => {
+    try {
+      const payload = {
+        email: data.email,
+        password: data.password,
+      };
+      const response = await login(payload).unwrap();
+      if (response?.message) {
+        toast.success(response?.message || "Login successful!");
+        navigate("/dashboard");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <div className="h-full font-Outfit py-28 relative">
       <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
@@ -24,7 +41,8 @@ const SignIn = () => {
         <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 items-center justify-between">
           <div className="z-10">
             <Link to={"/"}>
-            <img src={IMAGES.logo} alt="logo" className="z-10" /></Link>
+              <img src={IMAGES.logo} alt="logo" className="z-10" />
+            </Link>
             <h1 className="text-neutral-80 text-xl mt-[17px]">Sign in</h1>
             <p className="text-neutral-85 mt-[10px] max-w-[434px]">
               Access the TEN STAGE MATRIX Using your username and passcode
@@ -33,16 +51,16 @@ const SignIn = () => {
             <form onSubmit={handleSubmit(handleSignup)} className="mt-[42px]">
               <div className="flex flex-col gap-2">
                 <label htmlFor="" className="text-neutral-85">
-                  Privet Key
+                  Email
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter your private key"
-                  {...register("privateKey", {
-                    required: "Name is required",
+                  placeholder="Enter your email"
+                  {...register("email", {
+                    required: "Email is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.privateKey ? "border-red-500" : "border-neutral-90"
+                    errors?.email ? "border-red-500" : "border-neutral-90"
                   }`}
                 />
                 {typeof errors === "object" && "message" in errors && (
@@ -54,13 +72,13 @@ const SignIn = () => {
 
               <div className="flex flex-col gap-2 mt-[17px]">
                 <label htmlFor="" className="text-neutral-85">
-                  Passcode
+                  Password
                 </label>
                 <input
-                  type="text"
-                  placeholder="Enter your Password"
+                  type="password"
+                  placeholder="Enter your password"
                   {...register("password", {
-                    required: "Name is required",
+                    required: "Password is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
                     errors?.password ? "border-red-500" : "border-neutral-90"
@@ -77,7 +95,7 @@ const SignIn = () => {
                 type="submit"
                 className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-6"
               >
-                Access Dashboard
+                {isLoading ? <Loader size="size-6" /> : "Sign In"}
               </button>
 
               <div className="flex items-center gap-[9px] mt-[65px]">
