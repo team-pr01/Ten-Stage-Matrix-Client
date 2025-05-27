@@ -1,17 +1,42 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import SendFund from "../../../components/Dashboard/FundTransferPage/SendFund/SendFund";
-import VerifyTransfer from "../../../components/Dashboard/FundTransferPage/VerifyTransfer/VerifyTransfer";
+// import VerifyTransfer from "../../../components/Dashboard/FundTransferPage/VerifyTransfer/VerifyTransfer";
 import TransferSuccess from "../../../components/Dashboard/FundTransferPage/TransferSuccess/TransferSuccess";
-import ReviewTransfer from "../../../components/Dashboard/FundTransferPage/ReviewTransfer/ReviewTransfer";
+// import ReviewTransfer from "../../../components/Dashboard/FundTransferPage/ReviewTransfer/ReviewTransfer";
+import { useTransferFundMutation } from "../../../redux/Features/User/userApi";
+import TransferHistory from "../../../components/Dashboard/FundTransferPage/TransferHistory/TransferHistory";
 
 const FundTransfer = () => {
   const [activeTab, setActiveTab] = useState<
-    "Dashboard" | "Fund Transfer" | "Success" | "Review"
+    "Dashboard" | "Fund Transfer" | "Success" | "Transfer History" | "Review"
   >("Dashboard");
   const tabButtons: Array<
-    "Dashboard" | "Fund Transfer" | "Success" | "Review"
-  > = ["Dashboard", "Fund Transfer", "Success", "Review"];
+    "Dashboard"  | "Success" | "Transfer History" 
+  > = ["Dashboard", "Success", "Transfer History"];
+  // const tabButtons: Array<
+  //   "Dashboard" | "Fund Transfer" | "Success" | "Review"
+  // > = ["Dashboard", "Fund Transfer", "Success", "Review"];
+
+  const [transferData, setTransferData] = useState<string>("");
+const [transferFund, {isLoading}] = useTransferFundMutation();
+
+  const handleSendFund = async (data: any) => {
+    try{
+      const payload = {
+        ...data
+      }
+      const response = await transferFund(payload).unwrap();
+      if(response?.success) {
+        setTransferData(response?.data);
+        setActiveTab("Success");
+      }
+      console.log(response);
+    } catch (error) {
+      console.error("Error sending funds:", error);
+    }
+  };
 
   return (
     <div className="font-Outfit">
@@ -44,27 +69,33 @@ const FundTransfer = () => {
           <p className="max-w-[493px] text-neutral-120 text-lg mt-8">
             Enter recipient details and amount.
           </p>
-          <SendFund />
+          <SendFund handleSendFund={handleSendFund} isLoading={isLoading} />
         </div>
       )}
 
-      {activeTab === "Fund Transfer" && (
+      {/* {activeTab === "Fund Transfer" && (
         <>
           <VerifyTransfer />
         </>
-      )}
+      )} */}
 
       {activeTab === "Success" && (
         <>
-          <TransferSuccess />
+          <TransferSuccess data={transferData} />
         </>
       )}
 
-      {activeTab === "Review" && (
+      {activeTab === "Transfer History" && (
+        <>
+          <TransferHistory />
+        </>
+      )}
+
+      {/* {activeTab === "Review" && (
         <>
           <ReviewTransfer />
         </>
-      )}
+      )} */}
     </div>
   );
 };

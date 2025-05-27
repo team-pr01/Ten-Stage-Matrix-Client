@@ -1,33 +1,23 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
-import { useTransferFundMutation } from "../../../../redux/Features/User/userApi";
 import Loader from "../../../Shared/Loader/Loader";
 
 type TFormValues = {
   recipient_id: string;
   amount: string;
 };
-const SendFund = () => {
-  const [transferFund, {isLoading}] = useTransferFundMutation();
+const SendFund = ({handleSendFund, isLoading} : {handleSendFund: (data: any) => void, isLoading: boolean}) => {
+  
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleSendFund = async (data: TFormValues) => {
-    try{
-      const payload = {
-        ...data
-      }
-      const response = await transferFund(payload).unwrap();
-      console.log(response);
-    } catch (error) {
-      console.error("Error sending funds:", error);
-    }
-  };
+  
   return (
-    <form onSubmit={handleSubmit(handleSendFund)} className="mt-[22px]">
+    <form onSubmit={handleSubmit(handleSendFund)} className="mt-6">
       <div className="flex flex-col gap-2 mt-[15px]">
         <label htmlFor="" className="text-neutral-125 text-lg font-medium">
           Recipient Id
