@@ -11,8 +11,20 @@ const RequestWithdraw = () => {
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleRequestWithdraw = (data: TFormValues) => {
-    console.log(data);
+  // Function to deposit
+  const handleRequestWithdraw = async (data: TFormValues) => {
+    try {
+      const payload = {
+        amount: data.amount,
+      };
+
+      const response = await deposit(payload).unwrap();
+      if (response?.message) {
+        alert(response?.message || "Deposit successful!");
+      }
+    } catch (error) {
+      console.log(error);
+    }
   };
   return (
     <div className="font-Outfit">
