@@ -14,6 +14,17 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getUserDetails: builder.query({
+      query: () => {
+        return {
+          url: `/users/details`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     getReferralList: builder.query({
       query: () => {
         return {
@@ -61,6 +72,7 @@ const userApi = baseApi.injectEndpoints({
 
 export const {
   useGetUserProfileQuery,
+  useGetUserDetailsQuery,
   useGetReferralListQuery,
   useGetActivityStatsQuery,
   useGetTransactionHistoryQuery,
