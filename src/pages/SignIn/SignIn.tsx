@@ -4,14 +4,18 @@ import { Link, useNavigate } from "react-router-dom";
 import { useLoginMutation } from "../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
 import Loader from "../../components/Shared/Loader/Loader";
+import Cookies from "js-cookie";
+import { useDispatch } from "react-redux";
+import { setUser } from "../../redux/Features/Auth/authSlice";
 
 type TFormValues = {
   email: string;
   password: string;
 };
 const SignIn = () => {
-  const [login, { isLoading }]= useLoginMutation();
+  const [login, { isLoading }] = useLoginMutation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const {
     register,
     handleSubmit,
@@ -25,7 +29,26 @@ const SignIn = () => {
         password: data.password,
       };
       const response = await login(payload).unwrap();
+      const user = response?.user;
+      const accessToken = response.token;
+      const userRole = response?.user?.role;
+      if (accessToken) {
+        Cookies.set("accessToken", accessToken, {
+          expires: 7,
+          secure:
+            typeof window !== "undefined" &&
+            window.location.protocol === "https:",
+          sameSite: "strict",
+        });
+        Cookies.set("role", userRole, {
+          expires: 7,
+          secure: window.location.protocol === "https:",
+          sameSite: "strict",
+        });
+      }
+
       if (response?.message) {
+        dispatch(setUser({ user, token: accessToken }));
         toast.success(response?.message || "Login successful!");
         navigate("/dashboard");
       }

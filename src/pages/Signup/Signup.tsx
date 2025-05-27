@@ -1,6 +1,6 @@
 import { useForm } from "react-hook-form";
 import { IMAGES } from "../../assets";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import { useSignupMutation } from "../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
@@ -15,6 +15,7 @@ type TFormValues = {
 const Signup = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
   const [signup, {isLoading}] = useSignupMutation();
+  const navigate = useNavigate();
 
   const {
     register,
@@ -35,8 +36,10 @@ const Signup = () => {
         referral_code: data?.referral_code || null,
       };
       const response = await signup(payload).unwrap();
-      toast.success(response?.message || "Signup successful!");
-      console.log(response);
+      if(response?.message) {
+        toast.success(response?.message || "Signup successful!");
+        navigate("/signin");
+      }
     } catch (error) {
       console.log(error);
     }
