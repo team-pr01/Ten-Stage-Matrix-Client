@@ -3,6 +3,7 @@ import RecentAddition from "../RecentAddition/RecentAddition";
 import ReferralAddition from "../ReferralAddition/ReferralAddition";
 
 const ReferralTree = () => {
+  
   return (
     <div className="font-Outfit">
       <h1 className="text-2xl text-white font-medium mt-6">

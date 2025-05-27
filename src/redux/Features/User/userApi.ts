@@ -80,6 +80,17 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getTeamTree: builder.query({
+      query: () => {
+        return {
+          url: `/users/team-tree`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     transferFund: builder.mutation<any, any>({
       query: (data) => ({
         url: `/transfers/process`,
@@ -131,6 +142,7 @@ export const {
   useGetActivityHistoryQuery,
   useGetTransactionHistoryQuery,
   useGetDonationHistoryQuery,
+  useGetTeamTreeQuery,
   useTransferFundMutation,
   useMakeDonationMutation,
   useUpdateProfileMutation,
