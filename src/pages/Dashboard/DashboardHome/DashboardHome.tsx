@@ -3,8 +3,11 @@ import ReferralInfo from "../../../components/Dashboard/DashboardHomePage/Referr
 import TotalWithdrawnAndBalance from "../../../components/Dashboard/DashboardHomePage/TotalWithdrawnAndBalance/TotalWithdrawnAndBalance";
 import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/DashboardDataCard";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
+import { useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
 
 const DashboardHome = () => {
+  const { data } = useGetUserProfileQuery({});
+  console.log(data?.data?.stats);
   return (
     <div className="font-Outfit">
       {/* Header */}
@@ -19,27 +22,45 @@ const DashboardHome = () => {
         <DashboardDataCard
           icon={ICONS.totalDonation}
           title="Total Donation"
-          value="$50,869"
+          value={
+            data?.data?.stats?.total_donation
+              ? `$${data?.data?.stats?.total_donation}`
+              : "$0"
+          }
         />
 
         <DashboardDataCard
           icon={ICONS.totalEarn}
           title="Total Earn"
-          value="$12,869"
+          value={
+            data?.data?.stats?.total_earn
+              ? `$${data?.data?.stats?.total_earn}`
+              : "$0"
+          }
         />
 
         <DashboardDataCard
           icon={ICONS.withdraw}
           title="Total Deposit"
-          value="$35,869"
+          value={
+            data?.data?.stats?.total_deposit
+              ? `$${data?.data?.stats?.total_deposit}`
+              : "$0"
+          }
         />
       </div>
 
       {/* Total Withdraw and Current Balance */}
-      <TotalWithdrawnAndBalance/>
+      <TotalWithdrawnAndBalance
+        totalWithdraw={data?.data?.stats?.total_withdraw}
+        balance={data?.data?.balances?.balance}
+      />
 
       {/* Referral info */}
-      <ReferralInfo/>
+      <ReferralInfo
+        data={data?.data?.profile}
+        totalTeamMembers={data?.data?.stats?.total_team_members}
+      />
     </div>
   );
 };

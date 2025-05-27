@@ -42,8 +42,7 @@ const FundTransfer = () => {
       {activeTab === "Dashboard" && (
         <div>
           <p className="max-w-[493px] text-neutral-120 text-lg mt-8">
-            Enter recipient details and amount. Privet key authentications
-            required for security
+            Enter recipient details and amount.
           </p>
           <SendFund />
         </div>

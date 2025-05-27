@@ -3,6 +3,17 @@ import { baseApi } from "../../API/baseApi";
 
 const userApi = baseApi.injectEndpoints({
   endpoints: (builder) => ({
+    getUserProfile: builder.query({
+      query: () => {
+        return {
+          url: `/users/profile`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     getReferralList: builder.query({
       query: () => {
         return {
@@ -49,6 +60,7 @@ const userApi = baseApi.injectEndpoints({
 });
 
 export const {
+  useGetUserProfileQuery,
   useGetReferralListQuery,
   useGetActivityStatsQuery,
   useGetTransactionHistoryQuery,

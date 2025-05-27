@@ -1,7 +1,10 @@
 import DashboardDataCard from "../../../Reusable/DashboardDataCard/DashboardDataCard";
 import { ICONS } from "../../../../assets";
+import { useGetActivityStatsQuery } from "../../../../redux/Features/User/userApi";
 
 const ReferralStats = () => {
+   const {data, isLoading} = useGetActivityStatsQuery({});
+    console.log(data);
   return (
     <div className="mt-7">
       <h1 className="text-white font-medium text-2xl">Referral Stats</h1>

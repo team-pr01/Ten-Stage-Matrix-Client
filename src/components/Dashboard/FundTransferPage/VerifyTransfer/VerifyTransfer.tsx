@@ -30,7 +30,7 @@ const VerifyTransfer = () => {
           <img src={ICONS.authentication} alt="" className="size-[66px]" />
           <h2 className="text-neutral-100 text-lg mt-[15px]">Authentication</h2>
           <h1 className="text-white text-[30px] font-medium capitalize mt-2">
-            Private Key Verifide
+            Private Key Verified
           </h1>
         </div>
       </div>

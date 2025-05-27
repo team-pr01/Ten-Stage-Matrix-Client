@@ -1,6 +1,6 @@
 import { ICONS } from "../../../../assets";
 
-const TotalWithdrawnAndBalance = () => {
+const TotalWithdrawnAndBalance = ({ totalWithdraw, balance } : { totalWithdraw: number; balance: number }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
       <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 px-[25px] py-11 flex items-center gap-[33px]">
@@ -10,7 +10,7 @@ const TotalWithdrawnAndBalance = () => {
             Total Withdraw
           </h2>
           <h1 className="text-white text-[34px] font-medium capitalize">
-            $16,869
+            {totalWithdraw ? `$${totalWithdraw}` : "$0"}
           </h1>
         </div>
       </div>
@@ -22,7 +22,7 @@ const TotalWithdrawnAndBalance = () => {
             Current Balance
           </h2>
           <h1 className="text-white text-[34px] font-medium capitalize">
-            $12,869
+            {balance ? `$${balance}` : "$0"}
           </h1>
         </div>
       </div>
