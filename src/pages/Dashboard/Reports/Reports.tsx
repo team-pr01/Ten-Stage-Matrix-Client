@@ -9,7 +9,7 @@ import ReferralActivity from "../../../components/Dashboard/TransactionsPage/Ref
 import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
 
 const Reports = () => {
-  const { data, isLoading } = useGetUserDetailsQuery({});
+  const { data } = useGetUserDetailsQuery({});
 
   const [activeTab, setActiveTab] = useState<
     "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"

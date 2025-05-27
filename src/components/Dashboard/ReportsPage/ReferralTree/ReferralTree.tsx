@@ -1,4 +1,4 @@
-import { IMAGES } from "../../../../assets";
+// import { IMAGES } from "../../../../assets";
 import RecentAddition from "../RecentAddition/RecentAddition";
 import ReferralAddition from "../ReferralAddition/ReferralAddition";
 
@@ -11,13 +11,13 @@ const ReferralTree = () => {
       </h1>
 
       <div className="flex flex-col md:flex-row gap-5 mt-7 w-full">
-        <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] w-full md:w-[40%] xl:w-[20%] h-full md:h-[300px]">
+        {/* <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] w-full md:w-[40%] xl:w-[20%] h-full md:h-[300px]">
           <img
             src={IMAGES.dummyProfileImg}
             alt=""
             className="rounded-[10px] h-full"
           />
-        </div>
+        </div> */}
         <RecentAddition />
       </div>
 

@@ -51,7 +51,7 @@ const Profile = () => {
           </h1>
           <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px]">
             <img
-              src={IMAGES.dummyProfileImg}
+              src={data?.data?.profile?.image || IMAGES.imagePlaceholder}
               alt=""
               className="rounded-[10px] w-[298px] h-[185px]"
             />
@@ -88,7 +88,7 @@ const Profile = () => {
           <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
           <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] min-h-[360px]">
             <img
-              src={IMAGES.dummyProfileImg}
+              src={data?.data?.profile?.image || IMAGES.imagePlaceholder}
               alt=""
               className="size-[66px] rounded-full"
             />

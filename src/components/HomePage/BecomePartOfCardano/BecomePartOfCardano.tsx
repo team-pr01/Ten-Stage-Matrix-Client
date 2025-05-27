@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
+import { useSelector } from "react-redux";
+import { useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 
 const BecomePartOfCardano = () => {
+  const user = useSelector(useCurrentUser);
   return (
     <div className="bg-primary-40 py-20 relative">
       {/* Crypto images */}
@@ -32,12 +35,22 @@ const BecomePartOfCardano = () => {
             block to the blockchain, and receive a monetary reward for doing so.
           </p>
 
-          <Link
+         {
+          !user ?
+           <Link
             to={"/signup"}
             className="p-2 w-[185px] h-[58px] rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center"
           >
             Create Now
           </Link>
+          :
+           <Link
+            to={"/dashboard"}
+            className="p-2 w-[185px] h-[58px] rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center"
+          >
+            Go To Dashboard
+          </Link>
+         }
         </div>
       </Container>
     </div>

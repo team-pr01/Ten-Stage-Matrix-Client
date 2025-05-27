@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import Container from "../../Reusable/Container/Container";
 import { IMAGES } from "../../../assets";
+import { useSelector } from "react-redux";
+import { useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 
 const SecurelyBuySell = () => {
+  const user = useSelector(useCurrentUser);
   return (
     <div className="font-Outfit relative py-20">
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute top-0 -left-40 opacity-50"></div>
@@ -19,12 +22,22 @@ const SecurelyBuySell = () => {
               transaction costs.
             </p>
 
-            <Link
+            {
+              !user ?
+              <Link
               to={"/signup"}
               className="p-2 w-[184px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium mt-3 text-center"
             >
               Let's Get Started
             </Link>
+            :
+            <Link
+              to={"/dashboard"}
+              className="p-2 w-[184px] h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium mt-3 text-center"
+            >
+              Dashboard
+            </Link>
+            }
           </div>
 
           <img src={IMAGES.securelyBuySell} alt="" className="z-10" />

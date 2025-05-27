@@ -14,6 +14,7 @@ import Withdraw from "../pages/Dashboard/Withdraw/Withdraw";
 import Donate from "../pages/Dashboard/Donate/Donate";
 import Reports from "../pages/Dashboard/Reports/Reports";
 import Setting from "../pages/Dashboard/Setting/Setting";
+import ProtectedRoute from "./ProtectedRoute";
 
 export const router = createBrowserRouter([
   {
@@ -37,7 +38,7 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
     errorElement: <NotFound />,
     children: [
       {

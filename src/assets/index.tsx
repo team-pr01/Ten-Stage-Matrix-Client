@@ -14,6 +14,7 @@ import instagram5 from "./images/image5.png";
 import instagram6 from "./images/image6.png";
 import signup from "./images/signup.png";
 import signin from "./images/signin.png";
+import imagePlaceholder from "./images/image-placeholder.jpg";
 
 
 
@@ -87,7 +88,7 @@ export const IMAGES = {
     instagram6,
     signup,
     signin,
-    
+    imagePlaceholder,
 };
 
 export const ICONS = {
