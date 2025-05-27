@@ -6,6 +6,7 @@ import {
   useUpdateProfileMutation,
 } from "../../../../redux/Features/User/userApi";
 import Loader from "../../../Shared/Loader/Loader";
+import { toast } from "sonner";
 
 type TFormValues = {
   name?: string;
@@ -21,6 +22,7 @@ const Profile = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TFormValues>();
 
@@ -30,7 +32,11 @@ const Profile = () => {
         ...data,
       };
       const response = await updateProfile(payload).unwrap();
-      console.log(response);
+      if( response?.message) {
+        toast.success(response?.message || "Profile updated successfully!");
+        reset();
+        setIsUpdateFormVisible(false);
+      }
     } catch (error) {
       console.error("Error updating profile:", error);
     }
@@ -52,10 +58,19 @@ const Profile = () => {
             <div className="flex flex-col mt-2">
               <div>
                 <h1 className="text-white text-lg font-medium capitalize">
-                  {data?.data?.profile?.name}
+                  {
+                    isLoading ?
+                    "Loading..."
+                    :
+                    data?.data?.profile?.name
+                  }
                 </h1>
                 <p className="text-neutral-110 text-sm mt-[3px] text-center md:text-start">
-                  {data?.data?.profile?.email}
+                  {
+                    isLoading
+                      ? "Loading..."
+                      : data?.data?.profile?.email
+                  }
                 </p>
               </div>
               <button
@@ -79,7 +94,12 @@ const Profile = () => {
             />
             <p className="text-neutral-110 text-lg mt-[3px]">Personal</p>
             <h1 className="text-white text-[30px] font-medium mt-2 capitalize">
-              {data?.data?.profile?.name}
+              {
+                    isLoading ?
+                    "Loading..."
+                    :
+                    data?.data?.profile?.name
+                  }
             </h1>
             <p className="text-neutral-110 text-lg mt-[3px]">
               Edit your name and email address.

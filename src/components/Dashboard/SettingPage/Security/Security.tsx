@@ -2,6 +2,7 @@ import { ICONS } from "../../../../assets";
 import { useForm } from "react-hook-form";
 import { useChangePasswordMutation } from "../../../../redux/Features/User/userApi";
 import Loader from "../../../Shared/Loader/Loader";
+import { toast } from "sonner";
 
 type TFormValues = {
   current_password: string;
@@ -14,6 +15,7 @@ const Security = () => {
   const {
     register,
     handleSubmit,
+    reset,
     formState: { errors },
   } = useForm<TFormValues>();
 
@@ -23,7 +25,10 @@ const Security = () => {
         ...data,
       };
       const response = await changePassword(payload).unwrap();
-      console.log(response);
+      if( response?.message) {
+        toast.success(response?.message || "Password updated successfully!");
+        reset();
+      }
     } catch (error) {
       console.error("Error updating changing password:", error);
     }

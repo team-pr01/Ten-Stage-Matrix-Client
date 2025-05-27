@@ -7,7 +7,7 @@ const PerformanceTab = () => {
     const earningTrends = [
             {
               icon: ICONS.activeMembers,
-              title: "Active MembersTotal Team",
+              title: "Active Members",
               value: "960",
               description: "All active members ",
             },

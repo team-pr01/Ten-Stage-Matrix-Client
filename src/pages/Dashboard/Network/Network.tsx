@@ -2,8 +2,10 @@ import { useState } from "react";
 import ActivityLog from "../../../components/Dashboard/NetworkPage/ActivityLog/ActivityLog";
 import { IMAGES } from "../../../assets";
 import ReferralProgress from "../../../components/Dashboard/NetworkPage/ReferralProgress/ReferralProgress";
+import { useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
 
 const Network = () => {
+   const {data, isLoading} = useGetUserProfileQuery({});
   const [activeTab, setActiveTab] = useState<
     "Network"
   >("Network");
@@ -36,12 +38,24 @@ const Network = () => {
           <div className="flex flex-col md:flex-row gap-5">
             <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] h-fit w-full md:w-[40%] xl:w-[20%]">
                 <img src={IMAGES.dummyProfileImg} alt="" className="rounded-[10px] w-[298px] h-[185px]" />
-                <h1 className="text-white text-lg font-medium mt-2">Thomas Shelvi</h1>
-                <p className="text-neutral-110 text-sm mt-[3px]">Actor</p>
+                <h1 className="text-white text-lg font-medium mt-2">
+                   {
+                    isLoading
+                      ? "Loading..."
+                      : data?.data?.profile?.name
+                  }
+                </h1>
+                <p className="text-neutral-110 text-sm mt-[3px]">
+                   {
+                    isLoading
+                      ? "Loading..."
+                      : data?.data?.profile?.email
+                  }
+                </p>
            </div>
             <ActivityLog />
           </div>
-          <ReferralProgress/>
+          <ReferralProgress profile={data?.data?.profile} earning={data?.data?.balances?.balance} />
         </div>
       )}
 

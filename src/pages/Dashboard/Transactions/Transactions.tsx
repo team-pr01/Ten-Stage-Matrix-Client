@@ -7,7 +7,7 @@ import ReferralStats from "../../../components/Dashboard/TransactionsPage/Referr
 import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
 
 const Transactions = () => {
-  const { data, isLoading } = useGetUserDetailsQuery({});
+  const { data } = useGetUserDetailsQuery({});
   const [activeTab, setActiveTab] = useState<
     "Transactions" | "Network Activity"
   >("Transactions");
@@ -67,7 +67,7 @@ const Transactions = () => {
         </div>
       )}
 
-      <ReferralStats data={data?.data?.team} isLoading={isLoading} />
+      <ReferralStats data={data?.data?.team} />
     </div>
   );
 };

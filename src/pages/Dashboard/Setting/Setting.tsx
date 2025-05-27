@@ -2,7 +2,6 @@ import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import Profile from "../../../components/Dashboard/SettingPage/Profile/Profile";
 import Security from "../../../components/Dashboard/SettingPage/Security/Security";
-import Notification from "./../../../components/Dashboard/SettingPage/Notification/Notification";
 
 const Setting = () => {
   const [activeTab, setActiveTab] = useState<
@@ -11,7 +10,7 @@ const Setting = () => {
   const tabButtons: Array<"Profile" | "Security" | "Notification"> = [
     "Profile",
     "Security",
-    "Notification",
+    // "Notification",
   ];
   return (
     <div>
@@ -39,7 +38,7 @@ const Setting = () => {
 
       {activeTab === "Profile" && <Profile />}
       {activeTab === "Security" && <Security />}
-      {activeTab === "Notification" && <Notification />}
+      {/* {activeTab === "Notification" && <Notification />} */}
     </div>
   );
 };

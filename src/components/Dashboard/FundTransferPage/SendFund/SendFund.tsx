@@ -1,13 +1,14 @@
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
 import { useTransferFundMutation } from "../../../../redux/Features/User/userApi";
+import Loader from "../../../Shared/Loader/Loader";
 
 type TFormValues = {
   recipient_id: string;
   amount: string;
 };
 const SendFund = () => {
-  const [transferFund] = useTransferFundMutation();
+  const [transferFund, {isLoading}] = useTransferFundMutation();
   const {
     register,
     handleSubmit,
@@ -78,7 +79,7 @@ const SendFund = () => {
         type="submit"
         className="p-[10px] w-[140px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[34px] flex items-center justify-center"
       >
-        Send Funds
+        {isLoading ? <Loader size="size-6" /> : "Send Fund"}
       </button>
     </form>
   );

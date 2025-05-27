@@ -47,6 +47,17 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getActivityHistory: builder.query({
+      query: () => {
+        return {
+          url: `/activities/history`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     getTransactionHistory: builder.query({
       query: () => {
         return {
@@ -60,7 +71,7 @@ const userApi = baseApi.injectEndpoints({
 
     transferFund: builder.mutation<any, any>({
       query: (data) => ({
-        url: `/transfers`,
+        url: `/transfers/process`,
         method: "POST",
         body: data,
         credentials: "include",
@@ -81,7 +92,7 @@ const userApi = baseApi.injectEndpoints({
 
      changePassword: builder.mutation({
       query: (data) => ({
-        url: "/users/change-password",
+        url: "/users/profile",
         method: "PUT",
         body: data,
         credentials: "include",
@@ -96,6 +107,7 @@ export const {
   useGetUserDetailsQuery,
   useGetReferralListQuery,
   useGetActivityStatsQuery,
+  useGetActivityHistoryQuery,
   useGetTransactionHistoryQuery,
   useTransferFundMutation,
   useUpdateProfileMutation,
