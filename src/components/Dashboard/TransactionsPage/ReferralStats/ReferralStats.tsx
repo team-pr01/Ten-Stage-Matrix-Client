@@ -10,13 +10,13 @@ const ReferralStats = ({data} : {data: any}) => {
         <DashboardDataCard
           icon={ICONS.totalReferrals}
           title="Total Invite"
-          value={data?.total_referrals}
+          value={data?.total_referrals || 0}
           padding="px-[90px] py-10"
         />
         <DashboardDataCard
           icon={ICONS.activeReferral}
           title="Active Referrals"
-          value={data?.active_referrals}
+          value={data?.active_referrals || 0}
           padding="px-[90px] py-10"
         />
         {/* <DashboardDataCard

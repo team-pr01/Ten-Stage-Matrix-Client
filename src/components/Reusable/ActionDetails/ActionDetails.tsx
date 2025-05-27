@@ -1,14 +1,23 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-const ActionDetails = ({ data }: { data: any }) => {
+import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/userApi";
+import { formatDate } from "../../../utile/formatDate";
+import Loader from "../../Shared/Loader/Loader";
+
+const ActionDetails = () => {
+   const { data, isLoading } = useGetTransactionHistoryQuery({});
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[70%]">
       <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
 
       <div className=" mt-6">
         <table className="w-full text-white">
-          <tbody>
-            {data?.map((item: any, index: number) => (
+          {
+            isLoading ?
+            <Loader size="size-10" />
+            :
+            <tbody>
+            {data?.data?.transactions?.map((item: any, index: number) => (
               <tr key={index} className="border-b border-neutral-110">
                 <td className="py-3">{item?._id}</td>
                 {/* Type + Icon */}
@@ -22,7 +31,7 @@ const ActionDetails = ({ data }: { data: any }) => {
                 </td>
 
                 {/* Date */}
-                <td className="py-3">{item?.createdAt}</td>
+                <td className="py-3">{formatDate(item?.created_at)}</td>
 
                 {/* Amount */}
                 <td className="py-3">${item?.amount}</td>
@@ -39,6 +48,7 @@ const ActionDetails = ({ data }: { data: any }) => {
               </tr>
             ))}
           </tbody>
+          }
         </table>
       </div>
     </div>

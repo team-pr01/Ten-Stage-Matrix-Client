@@ -67,7 +67,7 @@ const Transactions = () => {
         </div>
       )}
 
-      <ReferralStats data={data?.data?.team} />
+      <ReferralStats data={data?.data?.team} isLoading={isLoading} />
     </div>
   );
 };
