@@ -5,7 +5,6 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const ReferralActivity = () => {
   const { data, isLoading } = useGetReferralListQuery({});
-  console.log(data);
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full min-h-[350px] max-h-auto overflow-y-auto">
       <h1 className="text-2xl font-medium text-white">Referral Activity</h1>

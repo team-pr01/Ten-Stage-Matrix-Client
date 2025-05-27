@@ -1,10 +1,8 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import DashboardDataCard from "../../../Reusable/DashboardDataCard/DashboardDataCard";
 import { ICONS } from "../../../../assets";
-import { useGetActivityStatsQuery } from "../../../../redux/Features/User/userApi";
 
-const ReferralStats = () => {
-   const {data, isLoading} = useGetActivityStatsQuery({});
-    console.log(data);
+const ReferralStats = ({data} : {data: any}) => {
   return (
     <div className="mt-7">
       <h1 className="text-white font-medium text-2xl">Referral Stats</h1>
@@ -12,21 +10,21 @@ const ReferralStats = () => {
         <DashboardDataCard
           icon={ICONS.totalReferrals}
           title="Total Invite"
-          value="12"
+          value={data?.total_referrals}
           padding="px-[90px] py-10"
         />
         <DashboardDataCard
           icon={ICONS.activeReferral}
           title="Active Referrals"
-          value="15"
+          value={data?.active_referrals}
           padding="px-[90px] py-10"
         />
-        <DashboardDataCard
+        {/* <DashboardDataCard
           icon={ICONS.pendingReferrals}
           title="Pending"
           value="6"
           padding="px-[90px] py-10"
-        />
+        /> */}
       </div>
     </div>
   );

@@ -4,8 +4,10 @@ import RecentTransactions from "../../../components/Dashboard/TransactionsPage/R
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
 import ReferralStats from "../../../components/Dashboard/TransactionsPage/ReferralStats/ReferralStats";
+import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
 
 const Transactions = () => {
+  const { data, isLoading } = useGetUserDetailsQuery({});
   const [activeTab, setActiveTab] = useState<
     "Transactions" | "Network Activity"
   >("Transactions");
@@ -58,14 +60,14 @@ const Transactions = () => {
           </h1>
           <div className="flex lex flex-col xl:flex-row gap-5">
             <div className="w-full">
-              <ReferralCode />
+              <ReferralCode referralCode={data?.data?.profile?.referral_code} />
             </div>
             <ReferralActivity />
           </div>
         </div>
       )}
 
-      <ReferralStats />
+      <ReferralStats data={data?.data?.team} />
     </div>
   );
 };

@@ -67,6 +67,27 @@ const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+
+
+     updateProfile: builder.mutation({
+      query: (forgotPasswordData) => ({
+        url: "/users/profile",
+        method: "PUT",
+        body: forgotPasswordData,
+        credentials: "include",
+      }),
+      invalidatesTags: ["user"],
+    }),
+
+     changePassword: builder.mutation({
+      query: (data) => ({
+        url: "/users/change-password",
+        method: "PUT",
+        body: data,
+        credentials: "include",
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
@@ -77,4 +98,6 @@ export const {
   useGetActivityStatsQuery,
   useGetTransactionHistoryQuery,
   useTransferFundMutation,
+  useUpdateProfileMutation,
+  useChangePasswordMutation,
 } = userApi;

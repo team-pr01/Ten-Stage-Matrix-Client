@@ -4,7 +4,7 @@ const EarningTrend = ({data} : {data:any}) => {
   
   return (
     <div className="font-Outfit">
-      <h1 className="text-2xl text-white font-medium mt-6">Earning Trend</h1>
+      {/* <h1 className="text-2xl text-white font-medium mt-6">Earning Trend</h1> */}
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mt-8">
         {data?.map((item:any, index:number) => (
           <div

@@ -1,36 +1,46 @@
-import { useState } from "react";
 import { ICONS } from "../../../../assets";
 import { useForm } from "react-hook-form";
+import { useChangePasswordMutation } from "../../../../redux/Features/User/userApi";
+import Loader from "../../../Shared/Loader/Loader";
 
 type TFormValues = {
-  currentPassword: string;
-  newPassword: string;
+  current_password: string;
+  new_password: string;
   confirmPassword: string;
 };
 const Security = () => {
-  const [isOn, setIsOn] = useState(false);
+  const [changePassword, {isLoading}] = useChangePasswordMutation();
+  // const [isOn, setIsOn] = useState(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleChangePassword = (data: TFormValues) => {
-    console.log(data);
+  const handleChangePassword = async (data: TFormValues) => {
+    try {
+      const payload = {
+        ...data,
+      };
+      const response = await changePassword(payload).unwrap();
+      console.log(response);
+    } catch (error) {
+      console.error("Error updating changing password:", error);
+    }
   };
 
-  const referralActivity = [
-    {
-      avatar: ICONS.avatar,
-      name: "Thomas Shelvi",
-      designation: "Designer",
-    },
-    {
-      avatar: ICONS.avatar,
-      name: "Thomas Shelvi",
-      designation: "Designer",
-    },
-  ];
+  // const referralActivity = [
+  //   {
+  //     avatar: ICONS.avatar,
+  //     name: "Thomas Shelvi",
+  //     designation: "Designer",
+  //   },
+  //   {
+  //     avatar: ICONS.avatar,
+  //     name: "Thomas Shelvi",
+  //     designation: "Designer",
+  //   },
+  // ];
 
   return (
     <div className="font-Outfit">
@@ -76,7 +86,7 @@ const Security = () => {
 
       <div className="flex flex-col md:flex-row gap-5 mt-9">
         {/* Change password form */}
-        <div className="w-full">
+        <div className="w-full max-w-full md:max-w-[404px]">
           <form
             onSubmit={handleSubmit(handleChangePassword)}
             className="flex flex-col gap-4"
@@ -91,11 +101,11 @@ const Security = () => {
               <input
                 type="password"
                 placeholder="Enter your current password"
-                {...register("currentPassword", {
+                {...register("current_password", {
                   required: "Name is required",
                 })}
                 className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.currentPassword
+                  errors?.current_password
                     ? "border-red-500"
                     : "border-neutral-130"
                 }`}
@@ -116,36 +126,11 @@ const Security = () => {
               <input
                 type="password"
                 placeholder="Enter your full name"
-                {...register("newPassword", {
+                {...register("new_password", {
                   required: "Password is required",
                 })}
                 className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.newPassword ? "border-red-500" : "border-neutral-130"
-                }`}
-              />
-              {typeof errors === "object" && "message" in errors && (
-                <span className="text-red-500 text-sm">
-                  {String(errors.message)}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor=""
-                className="text-neutral-125 text-lg font-medium"
-              >
-                New Password
-              </label>
-              <input
-                type="password"
-                placeholder="Enter your full name"
-                {...register("confirmPassword", {
-                  required: "Password is required",
-                })}
-                className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.confirmPassword
-                    ? "border-red-500"
-                    : "border-neutral-130"
+                  errors?.new_password ? "border-red-500" : "border-neutral-130"
                 }`}
               />
               {typeof errors === "object" && "message" in errors && (
@@ -158,15 +143,18 @@ const Security = () => {
               type="submit"
               className="p-[10px] w-[121px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
             >
-              Save Changes
+              {isLoading ? (
+                <Loader size="size-6" />
+              ) : (
+                "Save Changes"
+              )}
             </button>
           </form>
         </div>
 
-        <div className="flex flex-col gap-[26px] rounded-[15px] border-[3px] bg-neutral-30 border-neutral-25/20 bg-neutral-3 py-6 px-[18px] w-full h-fit">
+        {/* <div className="flex flex-col gap-[26px] rounded-[15px] border-[3px] bg-neutral-30 border-neutral-25/20 bg-neutral-3 py-6 px-[18px] w-full h-fit">
           {referralActivity?.map((item) => (
             <div className="flex items-center justify-between">
-              {/* Name and avatar */}
               <div className="flex items-center gap-3">
                 <img
                   src={item?.avatar}
@@ -194,7 +182,8 @@ const Security = () => {
               </div>
             </div>
           ))}
-        </div>
+        </div> */}
+
       </div>
     </div>
   );

@@ -1,13 +1,16 @@
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
-import ReferralList from "../../../components/Dashboard/ReportsPage/ReferralList/ReferralList";
 import TeamSummary from "../../../components/Dashboard/ReportsPage/TeamSummary/TeamSummary";
 import { ICONS } from "../../../assets";
 import PerformanceTab from "../../../components/Dashboard/ReportsPage/PerformanceTab/PerformanceTab";
 import ReferralTree from "../../../components/Dashboard/ReportsPage/ReferralTree/ReferralTree";
+import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
+import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
 
 const Reports = () => {
+  const { data, isLoading } = useGetUserDetailsQuery({});
+
   const [activeTab, setActiveTab] = useState<
     "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"
   >("Direct Referrals");
@@ -19,21 +22,21 @@ const Reports = () => {
     {
       icon: ICONS.totalReferral,
       title: "Total Referrals",
-      value: "3",
+      value: `${data?.data?.team?.total_referrals}`,
       description: "All time earnings from MLM activities.",
     },
     {
       icon: ICONS.activeReferral,
       title: "Active Referrals",
-      value: "18",
+      value: `${data?.data?.team?.active_referrals}`,
       description: "Currently active downline members.",
     },
-    {
-      icon: ICONS.inactiveUser,
-      title: "Inactive Team member",
-      value: "3",
-      description: "Total number of inactive referrals",
-    },
+    // {
+    //   icon: ICONS.inactiveUser,
+    //   title: "Inactive Team member",
+    //   value: "3",
+    //   description: "Total number of inactive referrals",
+    // },
   ];
   return (
     <div>
@@ -60,12 +63,12 @@ const Reports = () => {
       </div>
 
       {activeTab === "Direct Referrals" && (
-        <>
+        <div className="flex flex-col gap-6">
           <EarningTrend data={earningTrends} />
-          <ReferralList />
-        </>
+          <ReferralActivity />
+        </div>
       )}
-
+  
       {activeTab === "Team Summary" && <TeamSummary />}
       {activeTab === "Performance" && <PerformanceTab />}
       {activeTab === "Referral Tree" && <ReferralTree />}
