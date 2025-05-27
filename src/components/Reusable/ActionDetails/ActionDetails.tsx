@@ -1,11 +1,19 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/userApi";
+import { useLocation } from "react-router-dom";
+import {useGetTransactionHistoryQuery } from "../../../redux/Features/User/userApi";
 import { formatDate } from "../../../utile/formatDate";
 import Loader from "../../Shared/Loader/Loader";
 
 const ActionDetails = () => {
    const { data, isLoading } = useGetTransactionHistoryQuery({});
+   
+   const location = useLocation();
+
+   const filterType = location.pathname === "/dashboard/deposit" ? "Deposit" : "Withdrawal";
+   const filteredData = data?.data?.transactions?.filter(
+     (item: any) => item?.type === filterType
+   );
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[70%]">
       <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
@@ -17,7 +25,7 @@ const ActionDetails = () => {
             <Loader size="size-10" />
             :
             <tbody>
-            {data?.data?.transactions?.map((item: any, index: number) => (
+            {filteredData?.map((item: any, index: number) => (
               <tr key={index} className="border-b border-neutral-110">
                 <td className="py-3">{item?._id}</td>
                 {/* Type + Icon */}

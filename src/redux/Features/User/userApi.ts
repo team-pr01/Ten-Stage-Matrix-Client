@@ -69,9 +69,30 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getDonationHistory: builder.query({
+      query: () => {
+        return {
+          url: `/donations/history`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     transferFund: builder.mutation<any, any>({
       query: (data) => ({
         url: `/transfers/process`,
+        method: "POST",
+        body: data,
+        credentials: "include",
+      }),
+      invalidatesTags: ["user"],
+    }),
+
+    makeDonation: builder.mutation<any, any>({
+      query: (data) => ({
+        url: `/donations/process`,
         method: "POST",
         body: data,
         credentials: "include",
@@ -109,7 +130,9 @@ export const {
   useGetActivityStatsQuery,
   useGetActivityHistoryQuery,
   useGetTransactionHistoryQuery,
+  useGetDonationHistoryQuery,
   useTransferFundMutation,
+  useMakeDonationMutation,
   useUpdateProfileMutation,
   useChangePasswordMutation,
 } = userApi;

@@ -7,7 +7,6 @@ import { useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
 
 const DashboardHome = () => {
   const { data } = useGetUserProfileQuery({});
-  console.log(data?.data?.stats);
   return (
     <div className="font-Outfit">
       {/* Header */}
