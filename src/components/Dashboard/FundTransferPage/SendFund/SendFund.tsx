@@ -20,14 +20,14 @@ const SendFund = ({handleSendFund, isLoading} : {handleSendFund: (data: any) => 
     <form onSubmit={handleSubmit(handleSendFund)} className="mt-6">
       <div className="flex flex-col gap-2 mt-[15px]">
         <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-          Recipient Id
+          Private Key
         </label>
         <div className="flex items-center justify-between">
           <input
             type="text"
-            placeholder="Enter recipient id :"
+            placeholder="Enter recipient private key :"
             {...register("recipient_id", {
-              required: "Name is required",
+              required: "Private key is required",
             })}
             className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 relative ${
               errors?.recipient_id ? "border-red-500" : "border-neutral-130"

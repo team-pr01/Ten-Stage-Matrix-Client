@@ -37,7 +37,7 @@ const Network = () => {
           </h1>
           <div className="flex flex-col md:flex-row gap-5">
             <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] h-fit w-full md:w-[40%] xl:w-[20%]">
-                <img src={data?.data?.profile?.image || IMAGES.imagePlaceholder} alt="" className="rounded-[10px] w-[298px] h-[185px]" />
+                <img src={IMAGES.dummyProfileImg} alt="" className="rounded-[10px] w-[298px] h-[185px]" />
                 <h1 className="text-white text-lg font-medium mt-2">
                    {
                     isLoading
