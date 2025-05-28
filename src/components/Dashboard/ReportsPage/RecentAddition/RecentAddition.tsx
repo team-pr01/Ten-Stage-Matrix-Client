@@ -26,6 +26,7 @@ const RecentAddition = () => {
           </thead>
           <tbody>
             {
+              data?.data?.tree?.children?.length < 1 ? <p className="text-white mt-4">No data found</p> :
             data?.data?.tree?.children?.map((item:any, index:number) => (
               <tr key={index} className="border-b border-neutral-110">
                 {/* Name + Avatar */}

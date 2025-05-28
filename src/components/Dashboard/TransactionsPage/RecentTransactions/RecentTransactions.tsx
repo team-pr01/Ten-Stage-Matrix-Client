@@ -20,6 +20,9 @@ const RecentTransactions = () => {
         isLoading ?
         <Loader size="size-10" />
         :
+        data?.data?.transactions?.length < 1?
+        "No transactions found."
+        :
         data?.data?.transactions?.map((transaction:any, index:number) => (
           <tr key={index} className="border-b border-neutral-110">
             {/* Type + Icon */}

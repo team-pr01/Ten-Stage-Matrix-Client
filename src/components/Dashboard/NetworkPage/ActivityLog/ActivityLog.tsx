@@ -17,6 +17,9 @@ const ActivityLog = () => {
             isLoading ?
             <Loader size="size-10" />
             :
+            data?.data?.activities?.length < 1 ?
+            <p>No activity found.</p>
+            :
             data?.data?.activities?.map((item:any, index:number) => (
               <tr key={index} className="border-b border-neutral-110">
                 {/* event + Icon */}

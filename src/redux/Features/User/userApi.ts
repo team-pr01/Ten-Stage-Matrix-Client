@@ -133,12 +133,32 @@ const userApi = baseApi.injectEndpoints({
       invalidatesTags: ["user"],
     }),
 
+    requestWithdraw: builder.mutation<any, any>({
+      query: (data) => ({
+        url: `/transactions/withdrawal`,
+        method: "POST",
+        body: data,
+        credentials: "include",
+      }),
+      invalidatesTags: ["user"],
+    }),
+
 
      updateProfile: builder.mutation({
-      query: (forgotPasswordData) => ({
+      query: (data) => ({
         url: "/users/profile",
         method: "PUT",
-        body: forgotPasswordData,
+        body: data,
+        credentials: "include",
+      }),
+      invalidatesTags: ["user"],
+    }),
+
+     updateWalletAddress: builder.mutation({
+      query: (data) => ({
+        url: "/users/wallet",
+        method: "PUT",
+        body: data,
         credentials: "include",
       }),
       invalidatesTags: ["user"],
@@ -169,6 +189,8 @@ export const {
   useGetReportsQuery,
   useTransferFundMutation,
   useMakeDonationMutation,
+  useRequestWithdrawMutation,
   useUpdateProfileMutation,
+  useUpdateWalletAddressMutation,
   useChangePasswordMutation,
 } = userApi;

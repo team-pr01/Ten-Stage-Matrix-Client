@@ -15,6 +15,7 @@ import Donate from "../pages/Dashboard/Donate/Donate";
 import Reports from "../pages/Dashboard/Reports/Reports";
 import Setting from "../pages/Dashboard/Setting/Setting";
 import ProtectedRoute from "./ProtectedRoute";
+import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +34,10 @@ export const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignIn />,
+      },
+      {
+        path: "/signup-success",
+        element: <SignupSuccess />,
       },
     ],
   },

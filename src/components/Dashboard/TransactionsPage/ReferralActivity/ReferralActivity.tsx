@@ -13,6 +13,9 @@ const ReferralActivity = () => {
         {isLoading ? (
           <Loader size="size-10" />
         ) : (
+          data?.data?.referrals?.length < 1 ?
+        <p className="text-white">No data found.</p>
+        :
           data?.data?.referrals?.map((item: any) => (
             <div className="flex items-center justify-between">
               {/* Name and avatar */}

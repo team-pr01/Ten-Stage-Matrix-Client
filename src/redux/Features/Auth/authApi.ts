@@ -8,7 +8,7 @@ const authApi = baseApi.injectEndpoints({
         method: "POST",
         body: userInfo,
       }),
-      invalidatesTags: ["users"],
+      invalidatesTags: ["user"],
     }),
 
     signup: builder.mutation({
@@ -17,7 +17,7 @@ const authApi = baseApi.injectEndpoints({
         method: "POST",
         body: userInfo,
       }),
-      invalidatesTags: ["users"],
+      invalidatesTags: ["user"],
     }),
 
     forgotPassword: builder.mutation({
@@ -27,7 +27,7 @@ const authApi = baseApi.injectEndpoints({
         body: forgotPasswordData,
         credentials: "include",
       }),
-      invalidatesTags: ["users"],
+      invalidatesTags: ["user"],
     }),
 
     resetPassword: builder.mutation({
@@ -37,7 +37,7 @@ const authApi = baseApi.injectEndpoints({
         body: resetPasswordData,
         credentials: "include",
       }),
-      invalidatesTags: ["users"],
+      invalidatesTags: ["user"],
     }),
   }),
 });

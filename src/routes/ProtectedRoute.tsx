@@ -6,7 +6,7 @@ import { useCurrentUser } from "../redux/Features/Auth/authSlice";
 
 const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const user = useSelector(useCurrentUser);
-  
+
   const toastShownRef = useRef(false);
 
   useEffect(() => {
@@ -17,7 +17,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   }, [user]);
 
   if (!user) {
-    return <Navigate to="/" replace />;
+    return <Navigate to="/signin" replace />;
   }
 
   return <>{children}</>;

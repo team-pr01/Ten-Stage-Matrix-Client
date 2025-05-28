@@ -12,7 +12,9 @@ const RecentActivity = () => {
       <div className="mt-6 overflow-x-auto">
         <table className="min-w-[600px] w-full text-white">
           <tbody>
-            {data?.data?.activities?.map((item: any, index: number) => (
+            {
+            data?.data?.activities?.length < 1 ? <p className="text-white">No data foud</p> :
+            data?.data?.activities?.map((item: any, index: number) => (
               <tr key={index} className="border-b border-neutral-110">
                 {/* event + Icon */}
                 <td className="flex items-center gap-2 py-3 whitespace-nowrap">

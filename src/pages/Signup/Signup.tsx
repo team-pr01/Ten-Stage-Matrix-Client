@@ -14,7 +14,7 @@ type TFormValues = {
 };
 const Signup = () => {
   const [isChecked, setIsChecked] = useState<boolean>(true);
-  const [signup, {isLoading}] = useSignupMutation();
+  const [signup, { isLoading }] = useSignupMutation();
   const navigate = useNavigate();
 
   const {
@@ -36,9 +36,14 @@ const Signup = () => {
         referral_code: data?.referral_code || null,
       };
       const response = await signup(payload).unwrap();
-      if(response?.message) {
+
+      const userPrivateKey = response?.user?.user_pk;
+      console.log(response);
+      if (response?.message) {
         toast.success(response?.message || "Signup successful!");
-        navigate("/signin");
+        navigate("/signup-success", {
+          state: { userPrivateKey },
+        });
       }
     } catch (error) {
       console.log(error);
@@ -110,15 +115,15 @@ const Signup = () => {
                 )}
               </div>
 
-               <div className="flex flex-col gap-2 mt-[17px]">
+              <div className="flex flex-col gap-2 mt-[17px]">
                 <label htmlFor="" className="text-neutral-85">
-                  Password
+                  Passcode
                 </label>
                 <input
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Enter your passcode"
                   {...register("password", {
-                    required: "Password is required",
+                    required: "Passcode is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
                     errors?.password ? "border-red-500" : "border-neutral-90"
@@ -131,11 +136,9 @@ const Signup = () => {
                 )}
               </div>
 
-           
-
               <div className="flex flex-col gap-2 mt-[17px]">
                 <label htmlFor="" className="text-neutral-85">
-                  Referral Code
+                  Referral Code (Optional)
                 </label>
                 <input
                   type="text"
@@ -154,7 +157,7 @@ const Signup = () => {
                 )}
               </div>
 
-                 <label className="flex items-center gap-3 text-neutral-85 mt-3 cursor-pointer">
+              <label className="flex items-center gap-3 text-neutral-85 mt-3 cursor-pointer">
                 <input
                   type="checkbox"
                   checked={isChecked}

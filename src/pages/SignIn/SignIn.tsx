@@ -9,7 +9,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/Features/Auth/authSlice";
 
 type TFormValues = {
-  email: string;
+  identifier: string;
   password: string;
 };
 const SignIn = () => {
@@ -22,10 +22,10 @@ const SignIn = () => {
     formState: { errors },
   } = useForm<TFormValues>();
 
-  const handleSignup = async (data: TFormValues) => {
+  const handleSignin = async (data: TFormValues) => {
     try {
       const payload = {
-        email: data.email,
+        identifier: data.identifier,
         password: data.password,
       };
       const response = await login(payload).unwrap();
@@ -56,6 +56,7 @@ const SignIn = () => {
       console.log(error);
     }
   };
+  
   return (
     <div className="h-full font-Outfit py-28 relative">
       <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
@@ -68,22 +69,22 @@ const SignIn = () => {
             </Link>
             <h1 className="text-neutral-80 text-xl mt-[17px]">Sign in</h1>
             <p className="text-neutral-85 mt-[10px] max-w-[434px]">
-              Access the TEN STAGE MATRIX Using your username and passcode
+              Access the TEN STAGE MATRIX Using your private key and passcode
             </p>
 
-            <form onSubmit={handleSubmit(handleSignup)} className="mt-[42px]">
+            <form onSubmit={handleSubmit(handleSignin)} className="mt-[42px]">
               <div className="flex flex-col gap-2">
                 <label htmlFor="" className="text-neutral-85">
-                  Email
+                  Private Key
                 </label>
                 <input
                   type="text"
-                  placeholder="Enter your email"
-                  {...register("email", {
-                    required: "Email is required",
+                  placeholder="Enter your identifier"
+                  {...register("identifier", {
+                    required: "identifier is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                    errors?.email ? "border-red-500" : "border-neutral-90"
+                    errors?.identifier ? "border-red-500" : "border-neutral-90"
                   }`}
                 />
                 {typeof errors === "object" && "message" in errors && (

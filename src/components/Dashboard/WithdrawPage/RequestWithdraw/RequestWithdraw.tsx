@@ -1,5 +1,9 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
+import { useGetUserProfileQuery, useRequestWithdrawMutation } from "../../../../redux/Features/User/userApi";
+import { toast } from "sonner";
+import Loader from "../../../Shared/Loader/Loader";
 
 type TFormValues = {
   amount: string;
@@ -10,19 +14,30 @@ const RequestWithdraw = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
+  const {data:profile} = useGetUserProfileQuery({});
+  // console.log(data);
+
+  const [requestWithdraw, {isLoading}] = useRequestWithdrawMutation();
+
+  console.log(profile?.data?.profile?.wallet_address);
 
   // Function to deposit
   const handleRequestWithdraw = async (data: TFormValues) => {
     try {
       const payload = {
-        amount: data.amount,
+        amount: Number(data.amount),
+        withdrawal_address: profile?.data?.profile?.wallet_address,
+        network: "BSC",
+        payment_method: "metamask",
+        type : "Withdrawal"
       };
 
-      const response = await deposit(payload).unwrap();
+      const response = await requestWithdraw(payload).unwrap();
       if (response?.message) {
-        alert(response?.message || "Deposit successful!");
+        alert(response?.message || "Withdraw successful!");
       }
-    } catch (error) {
+    } catch (error: any) {
+      toast.error(error?.data?.error || "An error occurred");
       console.log(error);
     }
   };
@@ -63,7 +78,7 @@ const RequestWithdraw = () => {
           type="submit"
           className="p-[10px] w-[119px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
         >
-          Continue
+          {isLoading ? <Loader size="size-5" /> : "Confirm"}
         </button>
       </form>
     </div>

@@ -6,7 +6,6 @@ import Loader from "../../../Shared/Loader/Loader";
 
 type TFormValues = {
   amount: string;
-  note: string;
 };
 const MakeDonation = () => {
   const [makeDonation, {isLoading}] = useMakeDonationMutation();
@@ -52,31 +51,6 @@ const MakeDonation = () => {
               })}
               className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
                 errors?.amount ? "border-red-500" : "border-neutral-130"
-              }`}
-            />
-            <img
-              src={ICONS.currency}
-              alt=""
-              className="size-6 absolute right-3"
-            />
-          </div>
-          {typeof errors === "object" && "message" in errors && (
-            <span className="text-red-500 text-sm">
-              {String(errors.message)}
-            </span>
-          )}
-        </div>
-        <div className="flex flex-col gap-2 mt-[22px]">
-          <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-            Note (Optional)
-          </label>
-          <div className="flex items-center justify-between max-w-[415px] relative">
-            <input
-              type="text"
-              placeholder="Enter note (optional)"
-              {...register("note")}
-              className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                errors?.note ? "border-red-500" : "border-neutral-130"
               }`}
             />
             <img
