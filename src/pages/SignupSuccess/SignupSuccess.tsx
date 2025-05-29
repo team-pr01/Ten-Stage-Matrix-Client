@@ -37,7 +37,7 @@ const SignupSuccess = () => {
           </Link>
           <SiTicktick className="text-[100px] text-green-500 mx-auto mt-16" />
           <h1 className="text-neutral-80 text-4xl font-bold mt-5">Success</h1>
-          <p className="text-neutral-85 mt-[10px] max-w-[434px]">
+          <p className="text-neutral-85 mt-[10px] max-w-[434px] mx-auto">
             Sign Up Successful! You can now sign in using your Private Key and
             Passcode. Please copy this Private key and keep it safe.
           </p>
