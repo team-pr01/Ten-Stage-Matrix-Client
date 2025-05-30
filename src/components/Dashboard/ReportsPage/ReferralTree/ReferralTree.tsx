@@ -1,9 +1,9 @@
 // import { IMAGES } from "../../../../assets";
 import RecentAddition from "../RecentAddition/RecentAddition";
-import ReferralAddition from "../ReferralAddition/ReferralAddition";
+// import ReferralAddition from "../ReferralAddition/ReferralAddition";
 
 const ReferralTree = () => {
-  
+
   return (
     <div className="font-Outfit">
       <h1 className="text-2xl text-white font-medium mt-6">
@@ -21,7 +21,7 @@ const ReferralTree = () => {
         <RecentAddition />
       </div>
 
-      <ReferralAddition />
+      {/* <ReferralAddition /> */}
     </div>
   );
 };

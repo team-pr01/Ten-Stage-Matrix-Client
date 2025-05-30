@@ -1,7 +1,6 @@
 import { ICONS } from "../../../../assets";
 import { useGetReportsQuery } from "../../../../redux/Features/User/userApi";
 import EarningTrend from "../EarningTrend/EarningTrend";
-import TeamSizeLevel from "../TeamSizeLevel/TeamSizeLevel";
 
 const PerformanceTab = () => {
   const { data } = useGetReportsQuery({});
@@ -16,7 +15,7 @@ const PerformanceTab = () => {
     {
       icon: ICONS.topEarner,
       title: "Top Earner",
-      value: `$${data?.data?.top_earner?.balance || 0}`,
+      value: `$${data?.data?.top_earner?.balance.toFixed(5) || 0}`,
       description: "Current top earner ",
     },
     {
@@ -29,7 +28,7 @@ const PerformanceTab = () => {
   return (
     <div>
       <EarningTrend data={earningTrends} />
-      <TeamSizeLevel />
+      {/* <TeamSizeLevel /> */}
     </div>
   );
 };

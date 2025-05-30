@@ -115,7 +115,7 @@ const DashboardHome = () => {
   //   return `${address.slice(0, 6)}...${address.slice(-4)}`;
   // };
 
-  console.log(data?.data?.balances?.deposit_balance)
+  console.log(data)
   return (
     <div className="font-Outfit">
       {/* Header */}
@@ -144,7 +144,7 @@ const DashboardHome = () => {
           title="Total Donation"
           value={
             data?.data?.stats?.total_donation
-              ? `$${data?.data?.stats?.total_donation}`
+              ? `$${data?.data?.stats?.total_donation.toFixed(5)}`
               : "$0"
           }
         />
@@ -154,7 +154,7 @@ const DashboardHome = () => {
           title="Total Earn"
           value={
             data?.data?.stats?.total_earn
-              ? `$${data?.data?.stats?.total_earn}`
+              ? `$${data?.data?.stats?.total_earn.toFixed(5)}`
               : "$0"
           }
         />
@@ -164,7 +164,7 @@ const DashboardHome = () => {
           title="Total Deposit"
           value={
             data?.data?.stats?.total_deposit
-              ? `$${data?.data?.stats?.total_deposit}`
+              ? `$${data?.data?.stats?.total_deposit.toFixed(5)}`
               : "$0"
           }
         />
@@ -172,9 +172,9 @@ const DashboardHome = () => {
 
       {/* Total Withdraw and Current Balance */}
       <TotalWithdrawnAndBalance
-        totalWithdraw={data?.data?.stats?.total_withdraw}
-        balance={data?.data?.balances?.balance}
-        depositBalance={data?.data?.balances?.deposit_balance}
+        totalWithdraw={data?.data?.stats?.total_withdraw.toFixed(5)}
+        balance={data?.data?.balances?.balance.toFixed(5)}
+        depositBalance={data?.data?.balances?.deposit_balance.toFixed(5)}
       />
 
       {/* Referral info */}
