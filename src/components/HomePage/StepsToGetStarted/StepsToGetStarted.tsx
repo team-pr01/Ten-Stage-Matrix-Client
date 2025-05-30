@@ -19,7 +19,7 @@ const StepsToGetStarted = () => {
       description: (
         <p className="text-neutral-35 text-xl capitalize mt-[3px]">
           Simply <span className="text-primary-45">sign in</span> {" "}
-          to your account and add the fund <br /> to your cardano wallet.
+          to your account and add the fund <br /> to your Ten Stage Matrix wallet.
         </p>
       ),
     },
@@ -44,7 +44,7 @@ const StepsToGetStarted = () => {
         </h1>
         <p className="text-sm lg:text-base text-white max-w-[517px] mt-[22px]">
           With over 18.4 million Active Stake, Ten Stage matrix is the best
-          platform to get started stake your cardano. It is the easiest platform
+          platform to get started stake your Ten Stage Matrix. It is the easiest platform
           for beginners to easily get into ADA Pool.
         </p>
       </div>

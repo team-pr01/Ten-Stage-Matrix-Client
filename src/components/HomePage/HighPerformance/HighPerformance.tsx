@@ -4,7 +4,7 @@ import Container from "../../Reusable/Container/Container";
 const HighPerformance = () => {
   const successStatus = [
     {
-      title: "Cardano Mine Pool",
+      title: "Ten Stage Matrix Mine Pool",
       value: "45M+",
     },
     {
@@ -42,10 +42,10 @@ const HighPerformance = () => {
           <div className="flex flex-col z-10 w-full mt-[100px]">
             <h1 className="text-3xl lg:text-[48px] font-medium text-white text-center">
               High Performance{" "}
-              <span className="text-primary-10">Cardano Mine Pool</span>
+              <span className="text-primary-10">Ten Stage Matrix Mine Pool</span>
             </h1>
             <p className="text-sm lg:text-base text-white max-w-[843px] mx-auto mt-5 text-center">
-              MORH Pool is a High Performance Cardano Mine Pool powered by
+              MORH Pool is a High Performance Ten Stage Matrix Mine Pool powered by
               multiple green-energy bare-metal servers, operated by a team that
               is passionate about delivering the best reliable Mining rewards to
               our delegators.

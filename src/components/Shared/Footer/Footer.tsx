@@ -43,7 +43,7 @@ const Footer = () => {
           Join us today!
         </h1>
         <p className="text-sm lg:text-base text-neutral-60 mt-[14px] max-w-full md:max-w-[519px] text-center mx-auto">
-          Cardano is built by a decentralized community of scientists,
+          Ten Stage Matrix is built by a decentralized community of scientists,
           engineers, and thought leaders united in a common purpose.
         </p>
 

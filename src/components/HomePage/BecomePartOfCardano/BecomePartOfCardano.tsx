@@ -4,7 +4,7 @@ import Container from "../../Reusable/Container/Container";
 import { useSelector } from "react-redux";
 import { useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 
-const BecomePartOfCardano = () => {
+const BecomePartOfTenStageMatrix = () => {
   const user = useSelector(useCurrentUser);
   return (
     <div className="bg-primary-40 py-20 relative">
@@ -18,11 +18,11 @@ const BecomePartOfCardano = () => {
         <div className="flex flex-col items-center gap-[46px] z-10">
           <h1 className="text-2xl lg:text-[48px] font-medium text-white max-w-full xl:max-w-[851px] mx-auto text-center z-10 relative">
             Delegate Your Mine To Build The Network, Earn Rewards, And Become
-            Part Of The Cardano Journey.
+            Part Of The Ten Stage Matrix Journey.
           </h1>
 
           <img
-            src={IMAGES.becomePartOfCardano}
+            src={IMAGES.becomePartOfTen}
             alt=""
             className="rounded-[10px]"
           />
@@ -57,4 +57,4 @@ const BecomePartOfCardano = () => {
   );
 };
 
-export default BecomePartOfCardano;
+export default BecomePartOfTenStageMatrix;

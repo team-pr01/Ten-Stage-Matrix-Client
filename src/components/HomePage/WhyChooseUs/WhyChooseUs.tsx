@@ -13,19 +13,19 @@ const WhyChooseUs = () => {
       icon: ICONS.highLiquidity,
       title: "High liquidity",
       description:
-        "Cardano began with and has grown through research. Before any technology we integrate is developed, it is specified. And before it is specified, it is researched.",
+        "Ten Stage Matrix began with and has grown through research. Before any technology we integrate is developed, it is specified. And before it is specified, it is researched.",
     },
     {
       icon: ICONS.opportunity,
       title: "Opportunity",
       description:
-        "The staging point for every new opportunity. Empower your business through Cardano, and discover the future of technology.",
+        "The staging point for every new opportunity. Empower your business through Ten Stage Matrix, and discover the future of technology.",
     },
     {
       icon: ICONS.technology,
       title: "Technology",
       description:
-        "Cardano brings a new standard in technology – open and inclusive – to challenge the old and activate a new age of sustainable, globally-distributed innovation.",
+        "Ten Stage Matrix brings a new standard in technology – open and inclusive – to challenge the old and activate a new age of sustainable, globally-distributed innovation.",
     },
   ];
 

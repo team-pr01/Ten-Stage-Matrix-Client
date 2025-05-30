@@ -52,7 +52,7 @@ const ADAFeatures = () => {
               world, can use ada as a secure exchange of value – without
               requiring a third party to mediate the exchange. Every transaction
               is permanently, securely, and transparently recorded on the
-              Cardano blockchain.
+              Ten Stage Matrix blockchain.
             </p>
 
             {/* ADA Features card */}

@@ -4,7 +4,7 @@ import securelyBuySell from "./images/securly-buy-sell.png";
 import dummyVideoImg from "./images/dummy-video.png";
 import dummyProfileImg from "./images/dummy-profile-img.png";
 import adaFeature from "./images/ada-feature-img.png";
-import becomePartOfCardano from "./images/become-part-of-cardano.png";
+import becomePartOfTen from "./images/become-part-of-cardano.png";
 import cryptoIcons from "./images/crypto-icons.svg";
 import instagram1 from "./images/image1.png";
 import instagram2 from "./images/image2.png";
@@ -78,7 +78,7 @@ export const IMAGES = {
     dummyVideoImg,
     dummyProfileImg,
     adaFeature,
-    becomePartOfCardano,
+    becomePartOfTen,
     cryptoIcons,
     instagram1,
     instagram2,
