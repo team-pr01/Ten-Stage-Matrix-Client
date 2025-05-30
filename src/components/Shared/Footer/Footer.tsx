@@ -182,7 +182,7 @@ const Footer = () => {
         <hr className="border border-neutral-70 w-full h-[1px] mt-[31px] mb-[11px]" />
 
         <div className="flex flex-col lg:flex-row gap-5 lg:gap-0 items-start lg:items-center justify-between text-neutral-75">
-          <p className="">Design Template Kit by Creativehubit</p>
+          <a href="https://www.creativehubit.com/" target="_blank" className="hover:underline">Design and Developed by Creative Hub IT</a>
           <p className="">Copyright (C) 2025.All right reserved</p>
         </div>
       </Container>
