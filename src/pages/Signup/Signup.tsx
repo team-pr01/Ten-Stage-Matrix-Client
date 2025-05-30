@@ -91,12 +91,6 @@ const Signup = () => {
                   <label htmlFor="" className="text-neutral-85">
                     Your Email
                   </label>
-                  <Link
-                    to={"/"}
-                    className="text-primary-55 text-xs hover:underline"
-                  >
-                    Need Help?
-                  </Link>
                 </div>
                 <input
                   type="text"

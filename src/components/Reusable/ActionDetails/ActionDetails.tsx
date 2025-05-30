@@ -7,7 +7,6 @@ import Loader from "../../Shared/Loader/Loader";
 
 const ActionDetails = () => {
   const { data, isLoading } = useGetTransactionHistoryQuery({});
-
   const location = useLocation();
 
   const filterType =
@@ -48,7 +47,7 @@ const ActionDetails = () => {
                     <td className="py-3 whitespace-nowrap">${item?.amount}</td>
 
                     {/* Status */}
-                    <td className="py-3 whitespace-nowrap">
+                    {/* <td className="py-3 whitespace-nowrap">
                       {item?.status === 1
                         ? "Completed"
                         : item?.status === 2
@@ -56,7 +55,7 @@ const ActionDetails = () => {
                         : item?.status === 3
                         ? "Rejected"
                         : "Processing"}
-                    </td>
+                    </td> */}
 
                     {/* Info Icon */}
                     {/* <td className="py-3 text-right">
