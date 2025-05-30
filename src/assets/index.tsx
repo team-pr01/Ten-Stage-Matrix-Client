@@ -1,6 +1,6 @@
 import logo from "./images/logo.png";
 import heroImg from "./images/hero-section.svg";
-import securelyBuySell from "./images/securly-buy-sell.png";
+import securelyBuySell from "./images/securly-buy-sell.svg";
 import dummyVideoImg from "./images/dummy-video.png";
 import dummyProfileImg from "./images/dummy-profile-img.png";
 import adaFeature from "./images/ada-feature-img.png";

@@ -10,7 +10,7 @@ const SecurelyBuySell = () => {
     <div className="font-Outfit relative py-20">
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute top-0 -left-40 opacity-50"></div>
       <Container>
-        <div className="flex flex-col xl:flex-row items-center justify-between">
+        <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 items-center justify-between">
           <div className="flex flex-col gap-5 z-10">
             <p className="text-white text-2xl">Securely buy, sell, store</p>
             <h1 className="text-3xl lg:text-[48px] font-medium text-white max-w-full xl:max-w-[674px]">
