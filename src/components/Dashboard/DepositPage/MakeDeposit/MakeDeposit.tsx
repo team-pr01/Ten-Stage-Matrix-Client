@@ -266,7 +266,7 @@ const MakeDeposit = () => {
             fgColor="#ffffff"
             size={200}
           />
-          <div className="bg-neutral-50/50 text-white mx-auto font-medium cursor-pointer rounded-md py-1 px-4 tracking-wider font-mono flex items-center justify-between gap-4 my-6 w-full md:w-fit">
+          <div className="bg-neutral-50/50 text-white mx-auto font-medium cursor-pointer rounded-md py-1 px-4 tracking-wider font-mono flex items-center justify-between gap-4 my-6 text-[8px] md:text-base">
             {data?.wallet_address}
             <GoCopy
               onClick={() => handleCopy(data?.wallet_address)}
