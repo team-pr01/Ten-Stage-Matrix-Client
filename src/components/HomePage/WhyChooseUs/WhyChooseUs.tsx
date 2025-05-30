@@ -5,27 +5,27 @@ const WhyChooseUs = () => {
   const whyChooseUs = [
     {
       icon: ICONS.strongSecurity,
-      title: "Strong security",
+      title: "Secured by Binance Smart Chain",
       description:
-        "A platform built for a sustainable future, to help people work better together, trust one another, and build global solutions to global problems.",
+        "Your donations and assets are protected by Binance Smart Chain, ensuring security, transparency, and efficiency in every transaction",
     },
     {
       icon: ICONS.highLiquidity,
-      title: "High liquidity",
+      title: "Empower. Unite. Thrive",
       description:
-        "Ten Stage Matrix began with and has grown through research. Before any technology we integrate is developed, it is specified. And before it is specified, it is researched.",
+        "Empowering communities through inclusive collaboration, transparent communication, and united collective action to drive meaningful, sustainable, and lasting social change.",
     },
     {
       icon: ICONS.opportunity,
-      title: "Opportunity",
+      title: "24/7 Support",
       description:
-        "The staging point for every new opportunity. Empower your business through Ten Stage Matrix, and discover the future of technology.",
+        "Count on us for dependable, round-the-clock support. Whether day or night, we’re always here to assist you, ensuring help is available whenever you need it, no matter the situation.",
     },
     {
       icon: ICONS.technology,
-      title: "Technology",
+      title: "Trusted & Secure",
       description:
-        "Ten Stage Matrix brings a new standard in technology – open and inclusive – to challenge the old and activate a new age of sustainable, globally-distributed innovation.",
+        "Your assets, your terms—securely access, manage, and grow them anytime, anywhere, with confidence and ease, all right at your fingertips.",
     },
   ];
 
@@ -45,10 +45,10 @@ const WhyChooseUs = () => {
           {whyChooseUs?.map((item) => (
             <div
               key={item.title}
-              className="bg-primary-25 py-7 px-4 rounded-xl flex flex-col items-center shadow-custom z-10"
+              className="bg-primary-25 py-7 px-2 rounded-xl flex flex-col items-center shadow-custom z-10"
             >
               <img src={item.icon} alt="" className="size-[70px]" />
-              <h1 className="text-2xl text-white text-center font-medium mt-3">
+              <h1 className="text-xl text-white text-center font-medium mt-3">
                 {item.title}
               </h1>
               <p className="text-white text-center text-sm mt-[6px]">

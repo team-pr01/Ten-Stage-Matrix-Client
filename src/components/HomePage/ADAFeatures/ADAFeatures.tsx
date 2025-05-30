@@ -1,31 +1,19 @@
-import { ICONS, IMAGES } from "../../../assets";
+import { ICONS } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
 
 const ADAFeatures = () => {
   const adaFeatured = [
     {
       icon: ICONS.geoDispersed,
-      title: "Geo Dispersed",
+      title: "Unlocking Passive Income Through Affiliate Marketing",
       description:
-        "We have redundant servers spread out all over the world. Not only does this ensure our blocks transmit fast and efficiently.",
+        "Affiliate marketing offers a powerful way to earn passive income by promoting products or services you believe in. With little upfront cost,you can monetize your content, blog, or social media following by sharing referral links and earning commissions on sales. As your audience grows, so does your income potential—without trading more time. It's a flexible, scalable way to build revenue streams and achieve financial freedom while helping others discover valuable solutions.",
     },
     {
       icon: ICONS.lowLatency,
-      title: "Low Latency",
+      title: "Stage Income: The Power of Community",
       description:
-        "Standbys are used during upgrades and in the unlikely event of server failure, another automatically and immediately takes it place.",
-    },
-    {
-      icon: ICONS.scalable,
-      title: "Scalable",
-      description:
-        "Standbys are used during upgrades and in the unlikely event of server failure, another automatically and immediately takes it place.",
-    },
-    {
-      icon: ICONS.pledge,
-      title: "18.4mil+ Pledge",
-      description:
-        "Higher pledged pools pay higher rewards. OASIS is among the top 1% highest pledged public pools and is self-funded.",
+        "Stage income thrives on the strength of community. As individuals work together, support one another, and grow as a network, everyone benefits. The more people join and contribute, the greater the collective earning potential. Community-driven models create momentum—where each person's success fuels the next. Through shared goals, mentorship, and team effort, stage income becomes more than just earnings; it becomes a movement built on trust, unity, and mutual growth. Together, we earn more.",
     },
   ];
   return (
@@ -34,40 +22,23 @@ const ADAFeatures = () => {
       <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-0 absolute -bottom-20 -right-20"></div>
       <div className="bg-primary-20 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute -top-20 -right-20"></div>
       <Container>
-        <div className="flex flex-col xl:flex-row gap-10 xl:gap-0 items-center justify-between w-full">
+        <div className="flex flex-col gap-10 w-full">
           {/* Left side image */}
-          <div className="relative">
-            <img src={IMAGES.adaFeature} alt="" className="z-10 relative" />
-            {/* Gradients */}
-            <div className="bg-primary-15 w-[443px] h-[351px] rounded-[443px] blur-[75px] z-0 absolute top-5 -left-32"></div>
-            <div className="bg-primary-20 w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute bottom-0 -right-20"></div>
-          </div>
+          
 
           <div className="z-10">
-            <h1 className="text-3xl lg:text-[48px] font-medium text-white max-w-full xl:max-w-[507px]">
-              What Can I Do With ADA?
+            <h1 className="text-3xl lg:text-[48px] font-medium text-white text-start">
+              Earn crypto flexibly with Ten Stage Matrix
             </h1>
-            <p className="text-sm lg:text-base text-neutral-40 mt-[17px] max-w-full xl:max-w-[520px]">
-              ADA is a digital currency. Any user, located anywhere in the
-              world, can use ada as a secure exchange of value – without
-              requiring a third party to mediate the exchange. Every transaction
-              is permanently, securely, and transparently recorded on the
-              Ten Stage Matrix blockchain.
-            </p>
 
             {/* ADA Features card */}
-            <div className="flex flex-col gap-[30px] mt-[45px] ">
+            <div className="flex flex-col lg:flex-row items-center gap-[30px] mt-[45px]">
               {adaFeatured.map((item, index) => (
-                <div key={index} className="flex items-center gap-[31px] z-10">
-                  <div className="bg-primary-20 rounded-full size-[67px] p-3 flex items-center justify-center">
-                    <img src={item.icon} alt={item.title} />
-                  </div>
-                  <div>
-                    <h2 className="text-white text-[30px]">{item.title}</h2>
-                    <p className="text-neutral-35 text-xl capitalize mt-[3px] max-w-[423px]">
+                <div key={index} className="bg-primary-25 py-7 px-4 rounded-xl flex flex-col gap-3 shadow-custom z-10 w-full min-h-[310px]">
+                    <h2 className="text-white text-[30px] font-bold">{item.title}</h2>
+                    <p className="text-neutral-35">
                       {item.description}
                     </p>
-                  </div>
                 </div>
               ))}
             </div>

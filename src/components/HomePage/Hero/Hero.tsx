@@ -12,13 +12,12 @@ const Hero = () => {
             <span className="text-primary-10">200k+</span> Daily active investor
           </div>
           <h1 className="text-3xl lg:text-[56px] font-medium text-white mt-1 max-w-full xl:max-w-[529px]">
-            Helping a World That Benefits Everyone
+            Matters On Ten Stage Matrix
           </h1>
           <p className="text-sm lg:text-xl text-white mt-3 max-w-[558px]">
-            TEN STAGE MATRIX is a blockchain platform empowering changemakers,
-            innovators, and visionaries with the technology and tools to unlock
-            opportunities for both the many and the few—driving meaningful
-            global impact
+            A decentralized, blockchain-integrated platform empowering
+            community-driven donations, ensuring transparency, security, and
+            efficient resource distribution for sustainable impact.
           </p>
 
           {/* Input field */}
@@ -32,7 +31,10 @@ const Hero = () => {
               placeholder={`Enter  your email `}
               className="bg-white focus:outline-none pl-4"
             />
-            <Link to={"/signup"} className="bg-primary-10 py-3 px-[10px] rounded-xl mr-[14px] text-white font-medium">
+            <Link
+              to={"/signup"}
+              className="bg-primary-10 py-3 px-[10px] rounded-xl mr-[14px] text-white font-medium"
+            >
               Get Started
             </Link>
           </div>
