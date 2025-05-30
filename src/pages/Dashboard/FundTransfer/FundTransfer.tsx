@@ -7,6 +7,7 @@ import TransferSuccess from "../../../components/Dashboard/FundTransferPage/Tran
 // import ReviewTransfer from "../../../components/Dashboard/FundTransferPage/ReviewTransfer/ReviewTransfer";
 import { useTransferFundMutation } from "../../../redux/Features/User/userApi";
 import TransferHistory from "../../../components/Dashboard/FundTransferPage/TransferHistory/TransferHistory";
+import { toast } from "sonner";
 
 const FundTransfer = () => {
   const [activeTab, setActiveTab] = useState<
@@ -25,7 +26,8 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
   const handleSendFund = async (data: any) => {
     try{
       const payload = {
-        ...data
+        amount : Number(data.amount),
+        recipient_id : data.recipient_id
       }
       const response = await transferFund(payload).unwrap();
       if(response?.success) {
@@ -34,6 +36,7 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
       }
       console.log(response);
     } catch (error) {
+      toast.error((error as any)?.data?.message || "Something went wrong");
       console.error("Error sending funds:", error);
     }
   };

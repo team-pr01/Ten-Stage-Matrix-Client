@@ -115,6 +115,7 @@ const DashboardHome = () => {
   //   return `${address.slice(0, 6)}...${address.slice(-4)}`;
   // };
 
+  console.log(data?.data?.balances?.deposit_balance)
   return (
     <div className="font-Outfit">
       {/* Header */}
@@ -173,12 +174,14 @@ const DashboardHome = () => {
       <TotalWithdrawnAndBalance
         totalWithdraw={data?.data?.stats?.total_withdraw}
         balance={data?.data?.balances?.balance}
+        depositBalance={data?.data?.balances?.deposit_balance}
       />
 
       {/* Referral info */}
       <ReferralInfo
         data={data?.data?.profile}
         totalTeamMembers={data?.data?.stats?.total_team_members}
+        
       />
     </div>
   );
