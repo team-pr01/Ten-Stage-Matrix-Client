@@ -41,7 +41,7 @@ const SecurelyBuySell = () => {
             )}
           </div>
 
-          <img src={IMAGES.securelyBuySell} alt="" className="z-10" />
+          <img src={IMAGES.securelyBuySell} alt="" className="z-10 w-full lg:w-[650px]" />
         </div>
       </Container>
     </div>
