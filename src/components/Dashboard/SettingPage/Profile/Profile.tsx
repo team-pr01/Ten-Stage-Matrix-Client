@@ -14,6 +14,7 @@ type TFormValues = {
 };
 const Profile = () => {
   const { data, isLoading } = useGetUserProfileQuery({});
+  console.log(data);
   const [updateProfile, { isLoading: isProfileUpdating }] =
     useUpdateProfileMutation();
 
@@ -102,8 +103,14 @@ const Profile = () => {
                     data?.data?.profile?.name
                   }
             </h1>
-            <p className="text-neutral-110 text-lg mt-[3px]">
-              Edit your name and email address.
+            <p className="text-neutral-110 text-lg mt-[3px]">Private Key</p>
+            <p className="text-[9px] md:text-lg font-medium text-white mt-2">
+              {
+                    isLoading ?
+                    "Loading..."
+                    :
+                    data?.data?.profile?.user_pk
+                  }
             </p>
           </div>
         </div>
