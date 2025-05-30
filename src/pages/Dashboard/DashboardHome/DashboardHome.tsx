@@ -6,11 +6,9 @@ import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/Da
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import {
   useGetUserProfileQuery,
-  useUpdateWalletAddressMutation,
 } from "../../../redux/Features/User/userApi";
 // import Web3 from 'web3';
-import detectEthereumProvider from "@metamask/detect-provider";
-import { useState, useEffect } from "react";
+// import detectEthereumProvider from "@metamask/detect-provider";
 
 // Add ethereum to window type
 declare global {
@@ -20,109 +18,109 @@ declare global {
 }
 
 const DashboardHome = () => {
-  const [updateWalletAddress] = useUpdateWalletAddressMutation();
+  // const [updateWalletAddress] = useUpdateWalletAddressMutation();
   const { data } = useGetUserProfileQuery({});
-  const [isConnecting, setIsConnecting] = useState(false);
-  const [walletAddress, setWalletAddress] = useState<string>("");
-  const [isConnected, setIsConnected] = useState(false);
+  // const [isConnecting, setIsConnecting] = useState(false);
+  // const [walletAddress, setWalletAddress] = useState<string>("");
+  // const [isConnected, setIsConnected] = useState(false);
 
-  const handleUpdateWalletAddress = async (walletAddress: string) => {
-    try {
-      const payload = { wallet_address: walletAddress };
-      const response = await updateWalletAddress(payload);
-      console.log(response);
-    } catch (error) {
-      console.error("Error updating wallet address:", error);
-    }
-  };
+  // const handleUpdateWalletAddress = async (walletAddress: string) => {
+  //   try {
+  //     const payload = { wallet_address: walletAddress };
+  //     const response = await updateWalletAddress(payload);
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.error("Error updating wallet address:", error);
+  //   }
+  // };
 
   // Check if wallet is already connected
-  useEffect(() => {
-    const checkConnection = async () => {
-      if (window.ethereum) {
-        try {
-          const accounts = await window.ethereum.request({
-            method: "eth_accounts",
-          });
+  // useEffect(() => {
+  //   const checkConnection = async () => {
+  //     if (window.ethereum) {
+  //       try {
+  //         const accounts = await window.ethereum.request({
+  //           method: "eth_accounts",
+  //         });
 
-          if (accounts.length > 0) {
-            setWalletAddress(accounts);
-            setIsConnected(true);
-          }
-        } catch (error) {
-          console.error("Error checking wallet connection:", error);
-        }
-      }
-    };
+  //         if (accounts.length > 0) {
+  //           setWalletAddress(accounts);
+  //           setIsConnected(true);
+  //         }
+  //       } catch (error) {
+  //         console.error("Error checking wallet connection:", error);
+  //       }
+  //     }
+  //   };
 
-    checkConnection();
-  }, []);
+  //   checkConnection();
+  // }, []);
 
-  useEffect(() => {
-  if (walletAddress) {
-    handleUpdateWalletAddress(walletAddress);
-  }
-}, [walletAddress]);
+//   useEffect(() => {
+//   if (walletAddress) {
+//     handleUpdateWalletAddress(walletAddress);
+//   }
+// }, [walletAddress]);
 
   // Listen for account changes
-  useEffect(() => {
-    if (window.ethereum) {
-      window.ethereum.on("accountsChanged", (accounts: string[]) => {
-        if (accounts.length > 0) {
-          setWalletAddress(accounts[0]);
-          setIsConnected(true);
-        } else {
-          setWalletAddress("");
-          setIsConnected(false);
-        }
-      });
-    }
+  // useEffect(() => {
+  //   if (window.ethereum) {
+  //     window.ethereum.on("accountsChanged", (accounts: string[]) => {
+  //       if (accounts.length > 0) {
+  //         setWalletAddress(accounts[0]);
+  //         setIsConnected(true);
+  //       } else {
+  //         setWalletAddress("");
+  //         setIsConnected(false);
+  //       }
+  //     });
+  //   }
 
-    return () => {
-      if (window.ethereum) {
-        window.ethereum.removeListener("accountsChanged", () => {});
-      }
-    };
-  }, []);
+  //   return () => {
+  //     if (window.ethereum) {
+  //       window.ethereum.removeListener("accountsChanged", () => {});
+  //     }
+  //   };
+  // }, []);
 
-  const connectWallet = async () => {
-    try {
-      setIsConnecting(true);
-      const provider = await detectEthereumProvider();
+  // const connectWallet = async () => {
+  //   try {
+  //     setIsConnecting(true);
+  //     const provider = await detectEthereumProvider();
 
-      if (!provider) {
-        alert("Please install MetaMask!");
-        return;
-      }
+  //     if (!provider) {
+  //       alert("Please install MetaMask!");
+  //       return;
+  //     }
 
-      // Request account access
-      const accounts = await window.ethereum.request({
-        method: "eth_requestAccounts",
-      });
+  //     // Request account access
+  //     const accounts = await window.ethereum.request({
+  //       method: "eth_requestAccounts",
+  //     });
 
-      if (accounts.length > 0) {
-        setWalletAddress(accounts[0]);
-        setIsConnected(true);
-      }
-    } catch (error) {
-      console.error("Error connecting to MetaMask:", error);
-      alert("Error connecting to MetaMask. Please try again.");
-    } finally {
-      setIsConnecting(false);
-    }
-  };
+  //     if (accounts.length > 0) {
+  //       setWalletAddress(accounts[0]);
+  //       setIsConnected(true);
+  //     }
+  //   } catch (error) {
+  //     console.error("Error connecting to MetaMask:", error);
+  //     alert("Error connecting to MetaMask. Please try again.");
+  //   } finally {
+  //     setIsConnecting(false);
+  //   }
+  // };
 
-  const formatAddress = (address: string) => {
-    if (!address) return "";
-    return `${address.slice(0, 6)}...${address.slice(-4)}`;
-  };
+  // const formatAddress = (address: string) => {
+  //   if (!address) return "";
+  //   return `${address.slice(0, 6)}...${address.slice(-4)}`;
+  // };
 
   return (
     <div className="font-Outfit">
       {/* Header */}
       <div className="flex flex-col md:flex-row gap-3 md:gap-0 items-start md:items-center justify-between">
         <DashboardHeaderTitle title="Financial Overview" />
-        <button
+        {/* <button
           onClick={connectWallet}
           disabled={isConnecting}
           className={`p-2 w-auto h-12 rounded-lg border border-primary-10 ${
@@ -136,7 +134,7 @@ const DashboardHome = () => {
             : isConnected
             ? formatAddress(walletAddress)
             : "Connect wallet"}
-        </button>
+        </button> */}
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mt-[18px]">

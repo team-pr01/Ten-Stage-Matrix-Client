@@ -14,21 +14,28 @@ const MakeDonation = () => {
     register,
     handleSubmit,
     formState: { errors },
+    reset,
   } = useForm<TFormValues>();
 
 
    const handleMakeDonation = async (data: TFormValues) => {
   try{
     const payload = {
-      ...data
+      amount : Number(data?.amount)
     };
 
     const response = await makeDonation(payload).unwrap();
     if(response?.success) {
       toast.success(response?.message || "Donation made successfully!");
+      reset();
     }
   } catch (error) {
     console.error("Error making donation:", error);
+    const errorMessage =
+      typeof error === "object" && error !== null && "data" in error && typeof (error as any).data === "object"
+        ? (error as any).data?.error
+        : "An error occurred while making the donation.";
+    toast.error(errorMessage);
   };
 };
 
@@ -39,18 +46,25 @@ const userStage = userProfile?.data?.profile?.stage;
 console.log(userStage);
 
 // Find the matching stage object
-const matchedStage = stages?.find(
-  (stage: any) => stage.stage_number === userStage
-);
+const matchedStage = stages?.find((stage: any) => {
+  const currentStageNumber = stage?.stage_number;
 
-console.log(matchedStage);
+  if (userStage === 0) {
+    return stages?.some((s: any) => s?.stage_number === 1);
+  } else {
+    return currentStageNumber === userStage;
+  }
+});
+
+
+console.log(stages);
  
   return (
     <div className="font-Outfit">
       <h1 className="text-xl text-white font-medium mt-[57px]">
         Minimum Donation ${matchedStage?.donation_requirement}
       </h1>
-      <h1 className="text-xl text-white font-medium mt-[57px]">
+      <h1 className="text-xl text-white font-medium mt-6">
         Provide Donation Details
       </h1>
       <form onSubmit={handleSubmit(handleMakeDonation)}>

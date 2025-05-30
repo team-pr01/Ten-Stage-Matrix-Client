@@ -5,7 +5,6 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const RecentDonations = () => {
   const { data, isLoading } = useGetDonationHistoryQuery({});
-  console.log(data);
   return (
     <div>
       <h1 className="text-xl text-white font-medium font-Outfit mt-8 mb-7">
@@ -23,7 +22,7 @@ const RecentDonations = () => {
               <tbody>
                 {
                 data?.data?.donations?.length < 1?
-                "No donations found."
+                <p className="text-white">No donations found.</p>
                 :
                 data?.data?.donations?.map((item: any, index: number) => (
                   <tr key={index} className="border-b border-neutral-110">
