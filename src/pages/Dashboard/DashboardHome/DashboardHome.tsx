@@ -24,7 +24,6 @@ const DashboardHome = () => {
   const { data } = useGetUserProfileQuery({});
   const [isConnecting, setIsConnecting] = useState(false);
   const [walletAddress, setWalletAddress] = useState<string>("");
-  console.log(walletAddress);
   const [isConnected, setIsConnected] = useState(false);
 
   const handleUpdateWalletAddress = async (walletAddress: string) => {

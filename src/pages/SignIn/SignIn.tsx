@@ -53,6 +53,8 @@ const SignIn = () => {
         navigate("/dashboard");
       }
     } catch (error) {
+      const err = error as { data?: { error?: string } };
+      toast.error(err?.data?.error || "Something went wrong");
       console.log(error);
     }
   };
@@ -96,13 +98,13 @@ const SignIn = () => {
 
               <div className="flex flex-col gap-2 mt-[17px]">
                 <label htmlFor="" className="text-neutral-85">
-                  Password
+                  Passcode
                 </label>
                 <input
                   type="password"
-                  placeholder="Enter your password"
+                  placeholder="Enter your passcode"
                   {...register("password", {
-                    required: "Password is required",
+                    required: "Passcode is required",
                   })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
                     errors?.password ? "border-red-500" : "border-neutral-90"

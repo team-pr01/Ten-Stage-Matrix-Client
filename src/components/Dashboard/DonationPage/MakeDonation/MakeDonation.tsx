@@ -1,6 +1,7 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
-import { useMakeDonationMutation } from "../../../../redux/Features/User/userApi";
+import { useGetStageDataQuery, useGetUserProfileQuery, useMakeDonationMutation } from "../../../../redux/Features/User/userApi";
 import { toast } from "sonner";
 import Loader from "../../../Shared/Loader/Loader";
 
@@ -31,9 +32,24 @@ const MakeDonation = () => {
   };
 };
 
+const { data: stages } = useGetStageDataQuery({});
+const { data: userProfile } = useGetUserProfileQuery({});
+
+const userStage = userProfile?.data?.profile?.stage;
+console.log(userStage);
+
+// Find the matching stage object
+const matchedStage = stages?.find(
+  (stage: any) => stage.stage_number === userStage
+);
+
+console.log(matchedStage);
  
   return (
     <div className="font-Outfit">
+      <h1 className="text-xl text-white font-medium mt-[57px]">
+        Minimum Donation ${matchedStage?.donation_requirement}
+      </h1>
       <h1 className="text-xl text-white font-medium mt-[57px]">
         Provide Donation Details
       </h1>

@@ -113,6 +113,28 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getPublicSettings: builder.query({
+      query: () => {
+        return {
+          url: `/settings/public`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
+    getStageData: builder.query({
+      query: () => {
+        return {
+          url: `/stages`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     transferFund: builder.mutation<any, any>({
       query: (data) => ({
         url: `/transfers/process`,
@@ -173,6 +195,15 @@ const userApi = baseApi.injectEndpoints({
       }),
       invalidatesTags: ["user"],
     }),
+
+     generateWalletAddress: builder.mutation({
+      query: () => ({
+        url: "/wallet/generate",
+        method: "POST",
+        credentials: "include",
+      }),
+      invalidatesTags: ["user"],
+    }),
   }),
 });
 
@@ -187,10 +218,13 @@ export const {
   useGetTeamTreeQuery,
   useGetTransferHistoryQuery,
   useGetReportsQuery,
+  useGetPublicSettingsQuery,
+  useGetStageDataQuery,
   useTransferFundMutation,
   useMakeDonationMutation,
   useRequestWithdrawMutation,
   useUpdateProfileMutation,
   useUpdateWalletAddressMutation,
   useChangePasswordMutation,
+  useGenerateWalletAddressMutation,
 } = userApi;
