@@ -41,7 +41,7 @@ const DashboardHome = () => {
         <DashboardHeaderTitle title="Financial Overview" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-5 mt-[18px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 mt-[18px]">
         <DashboardCard
           icon={ICONS.totalDonation}
           title="Total Donation"

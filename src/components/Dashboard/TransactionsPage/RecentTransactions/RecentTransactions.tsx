@@ -8,7 +8,7 @@ const RecentTransactions = () => {
   const {data, isLoading} = useGetTransactionHistoryQuery({});
 
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full 2xl:w-[70%] min-h-[350px] max-h-auto overflow-y-auto">
+    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full min-h-[350px] max-h-auto overflow-y-auto">
   <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
 
   <div className="mt-6 overflow-x-auto custom-scrollbar">

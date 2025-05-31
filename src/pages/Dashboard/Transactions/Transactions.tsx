@@ -41,9 +41,9 @@ const Transactions = () => {
       </div>
 
       {activeTab === "Transactions" && (
-        <div className="mt-7 flex flex-col 2xl:flex-row gap-4">
+        <div className="mt-7 flex flex-col gap-4">
           <RecentTransactions />
-          <div className="w-full 2xl:w-[30%]">
+          <div className="w-full">
             <ReferralActivity />
           </div>
         </div>
