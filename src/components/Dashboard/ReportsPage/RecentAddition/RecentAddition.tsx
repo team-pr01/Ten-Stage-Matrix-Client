@@ -6,7 +6,7 @@ import Loader from "../../../Shared/Loader/Loader";
 const RecentAddition = () => {
   const [selectedStage, setSelectedStage] = useState("All Stages");
   const [selectedPosition, setSelectedPosition] = useState("All Positions");
-  const [selectedStatus, setSelectedStatus] = useState("All");
+  const [selectedStatus, setSelectedStatus] = useState("All Status");
 
   const { data, isLoading, isFetching } = useGetTeamTreeQuery({
     stage: selectedStage,
@@ -53,7 +53,7 @@ const RecentAddition = () => {
             onChange={(e) => setSelectedStatus(e.target.value)}
             className="bg-primary-40 text-white border border-white rounded-full px-5 py-3 w-full md:w-fit"
           >
-            <option>All</option>
+            <option>All Status</option>
             <option value={"active"}>Active</option>
             <option value={"inactive"}>Inactive</option>
           </select>

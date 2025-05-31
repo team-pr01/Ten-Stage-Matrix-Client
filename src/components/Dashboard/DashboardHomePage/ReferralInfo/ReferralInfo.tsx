@@ -18,7 +18,7 @@ const ReferralInfo = ({ data, totalTeamMembers } : {data: any, totalTeamMembers:
           padding="px-[10px] py-[53px]"
         />
         <DashboardDataCard
-          icon={ICONS.currentStage}
+          icon={ICONS.level}
           title="Current Stage"
           value={`Stage ${data?.stage}`}
           valueFontSize="text-2xl"

@@ -85,7 +85,7 @@ const userApi = baseApi.injectEndpoints({
         const params = new URLSearchParams();
 
         if (stage && stage !== "All Stages") params.append("stage", stage);
-        if (status && status !== "All") params.append("status", status);
+        if (status && status !== "All Status") params.append("status", status);
         if (position && position !== "All Positions") params.append("position", position);
 
         return {

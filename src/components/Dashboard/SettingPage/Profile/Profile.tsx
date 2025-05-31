@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { IMAGES } from "../../../../assets";
 import { useForm } from "react-hook-form";
 import {
   useGetUserProfileQuery,
@@ -33,7 +32,7 @@ const Profile = () => {
         ...data,
       };
       const response = await updateProfile(payload).unwrap();
-      if( response?.message) {
+      if (response?.message) {
         toast.success(response?.message || "Profile updated successfully!");
         reset();
         setIsUpdateFormVisible(false);
@@ -45,73 +44,29 @@ const Profile = () => {
   return (
     <div>
       <div className="flex flex-col md:flex-row items-center gap-5">
-        {/* Profile photo */}
-        <div className="flex flex-col gap-6 w-full md:w-[50%] xl:w-[30%] 2xl:w-[20%]">
-          <h1 className="text-2xl text-white font-medium mt-6">
-            Profile Details
-          </h1>
-          <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px]">
-            <img
-              src={IMAGES.dummyProfileImg}
-              alt=""
-              className="rounded-[10px] w-[298px] h-[185px]"
-            />
-            <div className="flex flex-col mt-2">
-              <div>
-                <h1 className="text-white text-lg font-medium capitalize">
-                  {
-                    isLoading ?
-                    "Loading..."
-                    :
-                    data?.data?.profile?.name
-                  }
-                </h1>
-                <p className="text-neutral-110 text-sm mt-[3px] text-center md:text-start">
-                  {
-                    isLoading
-                      ? "Loading..."
-                      : data?.data?.profile?.email
-                  }
-                </p>
-              </div>
-              <button
-                onClick={() => setIsUpdateFormVisible(!isUpdateFormVisible)}
-                className="p-[10px] w-[130px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
-              >
-                Update Details
-              </button>
-            </div>
-          </div>
-        </div>
-
         {/* Profile info */}
         <div className="flex flex-col gap-6 w-full md:w-[50%] xl:w-[70%] 2xl:w-[80%]">
           <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
-          <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] min-h-[360px]">
-            <img
-              src={IMAGES.dummyProfileImg}
-              // src={data?.data?.profile?.image || IMAGES.imagePlaceholder}
-              alt=""
-              className="size-[66px] rounded-full"
-            />
+          <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px]">
             <p className="text-neutral-110 text-lg mt-[3px]">Personal</p>
+
             <h1 className="text-white text-[30px] font-medium mt-2 capitalize">
-              {
-                    isLoading ?
-                    "Loading..."
-                    :
-                    data?.data?.profile?.name
-                  }
+              {isLoading ? "Loading..." : data?.data?.profile?.name}
             </h1>
+            <p className="text-neutral-110 text-sm mt-[3px] text-center md:text-start">
+              {isLoading ? "Loading..." : data?.data?.profile?.email}
+            </p>
             <p className="text-neutral-110 text-lg mt-[3px]">Private Key</p>
             <p className="text-[9px] md:text-lg font-medium text-white mt-2">
-              {
-                    isLoading ?
-                    "Loading..."
-                    :
-                    data?.data?.profile?.user_pk
-                  }
+              {isLoading ? "Loading..." : data?.data?.profile?.user_pk}
             </p>
+
+            <button
+              onClick={() => setIsUpdateFormVisible(!isUpdateFormVisible)}
+              className="p-[10px] w-[130px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
+            >
+              Update Details
+            </button>
           </div>
         </div>
       </div>
@@ -170,11 +125,7 @@ const Profile = () => {
               type="submit"
               className="p-[10px] w-[121px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
             >
-              {isProfileUpdating ? (
-                <Loader size="size-6" />
-              ) : (
-                "Save Changes"
-              )}
+              {isProfileUpdating ? <Loader size="size-6" /> : "Save Changes"}
             </button>
           </form>
         </div>

@@ -7,8 +7,6 @@ import Loader from "../../../Shared/Loader/Loader";
 const RecentTransactions = () => {
   const {data, isLoading} = useGetTransactionHistoryQuery({});
 
-  console.log(data);
-
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full xl:w-[70%] min-h-[350px] max-h-auto overflow-y-auto">
   <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
@@ -40,7 +38,19 @@ const RecentTransactions = () => {
             <td className="py-3 whitespace-nowrap">${transaction?.amount}</td>
 
             {/* Status */}
-            <td className="py-3 whitespace-nowrap">{transaction?.status}</td>
+            <td className="py-3 whitespace-nowrap">
+              {
+                transaction?.status === 1 ? "Completed" 
+                :
+                transaction?.status === 2 ? "Pending" 
+                :
+                transaction?.status === 3 ? "Rejected" 
+                :
+                transaction?.status === 4 ? "Processing"
+                :
+                ""
+              }
+              </td>
 
             {/* Info Icon */}
             {/* <td className="py-3 text-right whitespace-nowrap">

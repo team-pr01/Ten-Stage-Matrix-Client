@@ -1,20 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-// import { useForm } from "react-hook-form";
-// import { ICONS } from "../../../../assets";
-// import { useMakeDepositMutation } from "../../../../redux/Features/Deposit/depositApi";
-// import Web3 from "web3";
-// import detectEthereumProvider from "@metamask/detect-provider";
 import { useState, useEffect } from "react";
-// import { contractAbiUsdt } from "../../../../utile/ContractABIUSDT";
 import { useGenerateWalletAddressMutation, useGetPublicSettingsQuery } from "../../../../redux/Features/User/userApi";
 import QRCode from "react-qr-code";
 import { GoCopy } from "react-icons/go";
 import { MdOutlineDone } from "react-icons/md";
-
-// USDT Contract Address (Ethereum Mainnet)
-// const USDT_CONTRACT_ADDRESS = "0xdAC17F958D2ee523a2206206994597C13D831ec7";
-// const WALLET_ADDRESS = "0x797bb6C4544B0B7ba2609111bb39a650d91dB66F";
-// const DECIMAL_VALUE = "ether";
 
 // Add ethereum to window type
 declare global {
@@ -23,155 +12,10 @@ declare global {
   }
 }
 
-// type TFormValues = {
-//   amount: string;
-// };
-
 const MakeDeposit = () => {
-  // const [isConnecting, setIsConnecting] = useState(false);
-  // const [balance, setBalance] = useState<string>("0");
-  // const {
-  //   register,
-  //   handleSubmit,
-  //   formState: { errors },
-  // } = useForm<TFormValues>();
 
   const {data:settings} = useGetPublicSettingsQuery({});
   const [generateWalletAddress] = useGenerateWalletAddressMutation();
-
-  // const [deposit] = useMakeDepositMutation();
-
-  // Function to get USDT balance
-  // const getBalance = async () => {
-  //   try {
-  //     const web3 = new Web3(window.ethereum);
-  //     const usdtContract = new web3.eth.Contract(
-  //       contractAbiUsdt(),
-  //       USDT_CONTRACT_ADDRESS
-  //     );
-
-  //     const balance = await usdtContract.methods
-  //       .balanceOf(WALLET_ADDRESS)
-  //       .call();
-  //     if (balance) {
-  //       const formattedBalance = Web3.utils.fromWei(
-  //         String(balance),
-  //         DECIMAL_VALUE
-  //       );
-  //       setBalance(formattedBalance);
-  //     }
-  //   } catch (error) {
-  //     console.error("Error getting balance:", error);
-  //   }
-  // };
-
-  // Get balance on component mount
-  // useEffect(() => {
-  //   getBalance();
-  // }, []);
-
-  // Function to connect to MetaMask
-  // const connectWallet = async () => {
-  //   try {
-  //     const provider = await detectEthereumProvider();
-
-  //     if (!provider) {
-  //       alert("Please install MetaMask!");
-  //       return false;
-  //     }
-
-  //     // Request account access
-  //     await window.ethereum.request({ method: "eth_requestAccounts" });
-  //     return true;
-  //   } catch (error) {
-  //     console.error("Error connecting to MetaMask:", error);
-  //     return false;
-  //   }
-  // };
-
-  // Function to handle USDT payment
-  // const handlePayment = async (amount: string) => {
-  //   try {
-  //     const web3 = new Web3(window.ethereum);
-  //     const accounts = await web3.eth.getAccounts();
-
-  //     if (accounts.length === 0) {
-  //       alert("Please connect your MetaMask wallet first!");
-  //       return;
-  //     }
-
-  //     // Get current gas price
-  //     const gasPrice = await web3.eth.getGasPrice();
-  //     const gasPriceInGwei = Web3.utils.fromWei(gasPrice, "gwei");
-
-  //     // Create USDT contract instance
-  //     const usdtContract = new web3.eth.Contract(
-  //       contractAbiUsdt(),
-  //       USDT_CONTRACT_ADDRESS
-  //     );
-
-  //     // Convert amount to USDT decimals
-  //     const usdtAmount = Web3.utils.toWei(amount, DECIMAL_VALUE);
-
-  //     // Send USDT transaction
-  //     const transaction = await usdtContract.methods
-  //       .transfer(WALLET_ADDRESS, usdtAmount)
-  //       .send({
-  //         from: accounts[0],
-  //         gas: "100000",
-  //         gasPrice: Web3.utils.toWei(gasPriceInGwei, "gwei"),
-  //       });
-
-  //     // Update balance after successful transfer
-  //     await getBalance();
-
-  //     return transaction;
-  //   } catch (error) {
-  //     console.error("Error processing payment:", error);
-  //     throw error;
-  //   }
-  // };
-
-  // Function to deposit
-  // const handleMakeDeposit = async (data: TFormValues) => {
-  //   try {
-  //     setIsConnecting(true);
-
-  //     // Connect to MetaMask
-  //     const isConnected = await connectWallet();
-  //     if (!isConnected) {
-  //       setIsConnecting(false);
-  //       return;
-  //     }
-
-  //     // Process payment
-  //     const transaction = await handlePayment(data.amount);
-
-  //     if (!transaction) {
-  //       throw new Error("Transaction failed");
-  //     }
-
-  //     // If payment successful, proceed with deposit
-  //     const payload = {
-  //       amount: data.amount,
-  //       wallet_address: transaction?.from,
-  //       network: "BSC",
-  //       payment_method: "metamask",
-  //       trx_id: transaction.transactionHash,
-  //       type: "Deposit",
-  //     };
-
-  //     const response = await deposit(payload).unwrap();
-  //     if (response?.message) {
-  //       alert(response?.message || "Deposit successful!");
-  //     }
-  //   } catch (error) {
-  //     console.error(error);
-  //     alert("Error processing payment. Please try again.");
-  //   } finally {
-  //     setIsConnecting(false);
-  //   }
-  // };
 
   const [isCopied, setIsCopied] = useState(false);
 
@@ -251,9 +95,6 @@ const MakeDeposit = () => {
 
   return (
     <div className="font-Outfit">
-      <h1 className="text-xl text-white font-medium mt-[57px]">
-        Minimum Deposit ${settings?.data?.limits?.min_deposit}
-      </h1>
       {/* Conditionally render QR code */}
       {data?.wallet_address && (
         <div className="mt-6 w-fit">

@@ -14,6 +14,7 @@ const ActionDetails = () => {
   const filteredData = data?.data?.transactions?.filter(
     (item: any) => item?.type === filterType
   );
+
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[70%] overflow-y-auto custom-scrollbar">
       <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
@@ -41,10 +42,23 @@ const ActionDetails = () => {
                     </td>
 
                     {/* Date */}
-                    <td className="py-3 whitespace-nowrap">{formatDate(item?.created_at)}</td>
+                    <td className="py-3 whitespace-nowrap">
+                      {formatDate(item?.created_at)}
+                    </td>
 
                     {/* Amount */}
                     <td className="py-3 whitespace-nowrap">${item?.amount}</td>
+                    <td className="py-3 whitespace-nowrap">
+                      {item?.status === 1
+                        ? "Completed"
+                        : item?.status === 2
+                        ? "Pending"
+                        : item?.status === 3
+                        ? "Rejected"
+                        : item?.status === 4
+                        ? "Processing"
+                        : ""}
+                    </td>
 
                     {/* Status */}
                     {/* <td className="py-3 whitespace-nowrap">
