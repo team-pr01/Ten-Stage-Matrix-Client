@@ -10,12 +10,11 @@ const PerformanceTab = () => {
   const { data } = useGetReportsQuery({});
   const { data: teamTree } = useGetTeamTreeQuery({});
 
-  const activeMembers = teamTree?.data?.all_members?.filter((member:any) => member?.status === "active");
   const earningTrends = [
     {
       icon: ICONS.activeMembers,
       title: "Active Members",
-      value: activeMembers?.length || 0,
+      value: teamTree?.data?.active_members || 0,
       description: "All active members ",
     },
     // {

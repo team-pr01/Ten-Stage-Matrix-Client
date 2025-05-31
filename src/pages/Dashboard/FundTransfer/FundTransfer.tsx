@@ -42,7 +42,7 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
   };
 
   return (
-    <div className="font-Outfit">
+    <div className="font-Outfit min-h-screen">
       <DashboardHeaderTitle
         title={activeTab === "Dashboard" ? "Transfer Funds" : "Review Transfer"}
       />

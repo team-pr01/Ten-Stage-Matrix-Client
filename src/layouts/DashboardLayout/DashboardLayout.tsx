@@ -7,7 +7,7 @@ import { IMAGES } from "../../assets";
 const DashboardLayout = () => {
   return (
     <div className="bg-primary-40 w-full">
-      <div className="lg:hidden flex items-center justify-between w-full p-5">
+      <div className="xl:hidden flex items-center justify-between w-full p-5">
         {/* Logo */}
       <Link to={"/"}>
         <img src={IMAGES.logo} alt="logo" className="z-10" />

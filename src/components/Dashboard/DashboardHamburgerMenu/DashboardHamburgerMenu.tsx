@@ -49,7 +49,7 @@ const DashboardHamburgerMenu: React.FC = () => {
   };
 
   return (
-    <div className="relative hamburgerMenu block lg:hidden">
+    <div className="relative hamburgerMenu block xl:hidden">
       <FaAlignRight
         onClick={toggleHamburgerMenu}
         className="text-white size-7 cursor-pointer"

@@ -50,7 +50,7 @@ const Reports = () => {
     // },
   ];
   return (
-    <div>
+    <div className="min-h-screen">
       <DashboardHeaderTitle title="Reports Overview" />
 
       {/* Tab buttons */}

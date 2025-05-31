@@ -42,7 +42,7 @@ const Profile = () => {
     }
   };
   return (
-    <div>
+    <div className="min-h-screen">
       <div className="flex flex-col md:flex-row items-center gap-5">
         {/* Profile info */}
         <div className="flex flex-col gap-6 w-full md:w-[50%] xl:w-[70%] 2xl:w-[80%]">
@@ -53,7 +53,7 @@ const Profile = () => {
             <h1 className="text-white text-[30px] font-medium mt-2 capitalize">
               {isLoading ? "Loading..." : data?.data?.profile?.name}
             </h1>
-            <p className="text-neutral-110 text-sm mt-[3px] text-center md:text-start">
+            <p className="text-neutral-110 text-sm mt-[3px]">
               {isLoading ? "Loading..." : data?.data?.profile?.email}
             </p>
             <p className="text-neutral-110 text-lg mt-[3px]">Private Key</p>

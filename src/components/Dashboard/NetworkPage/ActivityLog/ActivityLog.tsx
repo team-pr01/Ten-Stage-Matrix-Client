@@ -36,7 +36,7 @@ const ActivityLog = () => {
                 <td className="py-3 whitespace-nowrap capitalize">{item?.type}</td>
 
                 {/* Status */}
-                <td className="py-3 whitespace-nowrap">${item?.metadata?.amount}</td>
+                <td className="py-3 whitespace-nowrap">${item?.metadata?.amount || 0}</td>
 
                 {/* Info Icon */}
                 {/* <td className="py-3 text-right whitespace-nowrap">

@@ -19,9 +19,7 @@ declare global {
 const DashboardHome = () => {
   const { data } = useGetUserProfileQuery({});
   const { data: stages } = useGetStageDataQuery({});
-   const { data:teamTree } = useGetTeamTreeQuery({});
-
-  console.log(data?.data);
+  const { data: teamTree } = useGetTeamTreeQuery({});
 
   const userStage = data?.data?.profile?.stage;
 
@@ -50,7 +48,7 @@ const DashboardHome = () => {
           value={
             data?.data?.stats?.total_donation
               ? `${data?.data?.stats?.total_donation.toFixed(5)}`
-              : `$0.00000`
+              : `0.00000`
           }
         />
 
@@ -104,11 +102,12 @@ const DashboardHome = () => {
         <DashboardCard
           icon={ICONS.currentBalance}
           title="Earning Threshold"
-          value={
-            data?.data?.profile?.last_donation *
-              matchedStage?.earning_multiplier -
-              data?.data?.balances?.stage_balance.toFixed(5) || 0
-          }
+          value={`${Math.max(
+            0,
+            (data?.data?.profile?.last_donation ?? 0) *
+              (matchedStage?.earning_multiplier ?? 0) -
+              (data?.data?.balances?.stage_balance ?? 0)
+          ).toFixed(5)}`}
         />
       </div>
 
@@ -127,7 +126,7 @@ const DashboardHome = () => {
       {/* Referral info */}
       <ReferralInfo
         data={data?.data?.profile}
-        totalTeamMembers={teamTree?.data?.all_members?.length || 0}
+        totalTeamMembers={teamTree?.data?.total_members || 0}
       />
     </div>
   );

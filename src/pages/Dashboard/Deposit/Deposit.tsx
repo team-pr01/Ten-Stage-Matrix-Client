@@ -4,7 +4,7 @@ import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTi
 
 const Deposit = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <DashboardHeaderTitle title="Deposit Funds" />
       <MakeDeposit />
       <RecentDeposit />
