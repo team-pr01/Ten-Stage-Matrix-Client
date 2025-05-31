@@ -27,8 +27,6 @@ const Reports = () => {
     "Direct Referrals" | "Earning" | "Performance" | "Team Tree"
   > = ["Direct Referrals", "Earning", "Performance", "Team Tree"];
 
-  console.log(data);
-
   const earningTrends = [
     {
       icon: ICONS.totalReferral,

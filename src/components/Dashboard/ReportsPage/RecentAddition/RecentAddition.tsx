@@ -14,6 +14,8 @@ const RecentAddition = () => {
     position: selectedPosition,
   });
 
+  console.log(data);
+
   const stages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
   const positions = ["left", "right", "center"];
   return (
@@ -64,61 +66,53 @@ const RecentAddition = () => {
         {isLoading || isFetching ? (
           <Loader size="size-10 mt-5" />
         ) : (
-         <div className="overflow-auto max-w-full">
-  <table className="min-w-[900px] w-full text-white table-fixed">
-    <thead className="z-10">
-      <tr className="border-b border-neutral-110 text-left">
-        <th className="py-3 px-4 whitespace-nowrap">Serial No</th>
-        <th className="py-3 px-4 whitespace-nowrap">Name</th>
-        <th className="py-3 px-4 whitespace-nowrap">Email</th>
-        <th className="py-3 px-4 whitespace-nowrap">Status</th>
-        <th className="py-3 px-4 whitespace-nowrap">Position</th>
-        <th className="py-3 px-4 whitespace-nowrap">Referral Code</th>
-        <th className="py-3 px-4 whitespace-nowrap">Stage</th>
-        <th className="py-3 px-4 whitespace-nowrap">Referred By</th>
-        <th className="py-3 px-4 whitespace-nowrap">Joined</th>
-      </tr>
-    </thead>
-    <tbody>
-      {data?.data?.all_members?.length < 1 ? (
-        <tr>
-          <td colSpan={9} className="text-center py-4 text-white">
-            No data found
-          </td>
-        </tr>
-      ) : (
-        data?.data?.all_members?.map((item: any, index: number) => (
-          <tr key={index} className="border-b border-neutral-110/50">
-            <td className="py-3 px-4 whitespace-nowrap">{index + 1}</td>
-            <td className="py-3 px-4 whitespace-nowrap capitalize">
-              {item?.name}
-            </td>
-            <td className="py-3 px-4 whitespace-nowrap">{item?.email}</td>
-            <td className="py-3 px-4 whitespace-nowrap capitalize">
-              {item?.status}
-            </td>
-            <td className="py-3 px-4 whitespace-nowrap capitalize">
-              {item?.position}
-            </td>
-            <td className="py-3 px-4 whitespace-nowrap">
-              {item?.referral_code}
-            </td>
-            <td className="py-3 px-4 whitespace-nowrap">
-              Stage {item?.stage}
-            </td>
-            <td className="py-3 px-4 whitespace-nowrap">
-              {item?.referral_by?.name}, {item?.referral_by?.email}
-            </td>
-            <td className="py-3 px-4 whitespace-nowrap">
-              {item?.joined}
-            </td>
-          </tr>
-        ))
-      )}
-    </tbody>
-  </table>
-</div>
-
+          <div className="overflow-auto max-w-full">
+            <table className="min-w-[900px] w-full text-white">
+              <thead className="z-10">
+                <tr className="border-b border-neutral-110 text-left">
+                  <th className="py-3 px-4">Serial No</th>
+                  <th className="py-3 px-4">Details</th>
+                  <th className="py-3 px-4">Status</th>
+                  <th className="py-3 px-4">Position</th>
+                  <th className="py-3 px-4">Referral Code</th>
+                  <th className="py-3 px-4">Stage</th>
+                  <th className="py-3 px-4">Referred By</th>
+                  <th className="py-3 px-4">Level</th>
+                </tr>
+              </thead>
+              <tbody>
+                {data?.data?.team_members?.length < 1 ? (
+                  <tr>
+                    <td colSpan={9} className="text-center py-4 text-white">
+                      No data found
+                    </td>
+                  </tr>
+                ) : (
+                  data?.data?.team_members?.map((item: any, index: number) => (
+                    <tr key={index} className="border-b border-neutral-110/50">
+                      <td className="py-3 px-4">{index + 1}</td>
+                      <td className="py-3 px-4 capitalize">
+                        {item?.name}
+                        <br />
+                        {item?.email}
+                      </td>
+                      <td className="py-3 px-4 capitalize">{item?.status}</td>
+                      <td className="py-3 px-4 capitalize">{item?.position}</td>
+                      <td className="py-3 px-4">{item?.referral_code}</td>
+                      <td className="py-3 px-4">Stage {item?.stage}</td>
+                      <td className="py-3 px-4">
+                        <span className="capitalize">
+                          {item?.referred_by?.name}
+                        </span>{" "}
+                        <br /> {item?.referred_by?.email}
+                      </td>
+                      <td className="py-3 px-4">{item?.level}</td>
+                    </tr>
+                  ))
+                )}
+              </tbody>
+            </table>
+          </div>
         )}
       </div>
     </div>
