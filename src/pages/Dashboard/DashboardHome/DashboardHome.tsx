@@ -7,6 +7,7 @@ import DashboardCard from "../../../components/Reusable/DashboardCard/DashboardC
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import {
   useGetStageDataQuery,
+  useGetTeamTreeQuery,
   useGetUserProfileQuery,
 } from "../../../redux/Features/User/userApi";
 declare global {
@@ -17,8 +18,10 @@ declare global {
 
 const DashboardHome = () => {
   const { data } = useGetUserProfileQuery({});
-  console.log(data);
   const { data: stages } = useGetStageDataQuery({});
+   const { data:teamTree } = useGetTeamTreeQuery({});
+
+  console.log(data?.data);
 
   const userStage = data?.data?.profile?.stage;
 
@@ -40,7 +43,7 @@ const DashboardHome = () => {
         <DashboardHeaderTitle title="Financial Overview" />
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-3 2xl:grid-cols-4 gap-5 mt-[18px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-4 gap-5 mt-[18px]">
         <DashboardCard
           icon={ICONS.totalDonation}
           title="Total Donation"
@@ -124,7 +127,7 @@ const DashboardHome = () => {
       {/* Referral info */}
       <ReferralInfo
         data={data?.data?.profile}
-        totalTeamMembers={data?.data?.stats?.total_team_members}
+        totalTeamMembers={teamTree?.data?.all_members?.length || 0}
       />
     </div>
   );

@@ -21,11 +21,11 @@ const Reports = () => {
   );
 
   const [activeTab, setActiveTab] = useState<
-    "Direct Referrals" | "Earning" | "Performance" | "Referral Tree"
+    "Direct Referrals" | "Earning" | "Performance" | "Team Tree"
   >("Direct Referrals");
   const tabButtons: Array<
-    "Direct Referrals" | "Earning" | "Performance" | "Referral Tree"
-  > = ["Direct Referrals", "Earning", "Performance", "Referral Tree"];
+    "Direct Referrals" | "Earning" | "Performance" | "Team Tree"
+  > = ["Direct Referrals", "Earning", "Performance", "Team Tree"];
 
   console.log(data);
 
@@ -82,7 +82,7 @@ const Reports = () => {
       {/* previously it was team summery */}
       {activeTab === "Earning" && <TeamSummary />}
       {activeTab === "Performance" && <PerformanceTab />}
-      {activeTab === "Referral Tree" && <ReferralTree />}
+      {activeTab === "Team Tree" && <ReferralTree />}
     </div>
   );
 };

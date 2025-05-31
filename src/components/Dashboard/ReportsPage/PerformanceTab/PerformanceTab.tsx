@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICONS } from "../../../../assets";
 import {
   useGetReportsQuery,
@@ -8,11 +9,13 @@ import EarningTrend from "../EarningTrend/EarningTrend";
 const PerformanceTab = () => {
   const { data } = useGetReportsQuery({});
   const { data: teamTree } = useGetTeamTreeQuery({});
+
+  const activeMembers = teamTree?.data?.all_members?.filter((member:any) => member?.status === "active");
   const earningTrends = [
     {
       icon: ICONS.activeMembers,
       title: "Active Members",
-      value: teamTree?.data?.total_members || 0,
+      value: activeMembers?.length || 0,
       description: "All active members ",
     },
     // {
