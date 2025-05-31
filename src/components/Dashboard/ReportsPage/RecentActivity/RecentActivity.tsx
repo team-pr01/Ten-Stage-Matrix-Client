@@ -4,12 +4,13 @@ import { formatDate } from "../../../../utile/formatDate";
 
 const RecentActivity = () => {
   const { data } = useGetActivityHistoryQuery({});
+  console.log( data);
 
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full h-full md:h-[300px] overflow-y-auto custom-scrollbar mt-6">
       <h1 className="text-2xl font-medium text-white">Recent Activity</h1>
 
-      <div className="mt-6 overflow-x-auto">
+      <div className="mt-6 overflow-x-auto custom-scrollbar">
         <table className="min-w-[600px] w-full text-white">
           <tbody>
             {

@@ -1,8 +1,11 @@
 // import { IMAGES } from "../../../../assets";
+import { useGetTeamTreeQuery } from "../../../../redux/Features/User/userApi";
 import RecentAddition from "../RecentAddition/RecentAddition";
 // import ReferralAddition from "../ReferralAddition/ReferralAddition";
 
 const ReferralTree = () => {
+  const {data} = useGetTeamTreeQuery({})
+  console.log(data);
 
   return (
     <div className="font-Outfit">

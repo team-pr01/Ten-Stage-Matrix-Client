@@ -145,7 +145,7 @@ const DashboardHome = () => {
           value={
             data?.data?.stats?.total_donation
               ? `$${data?.data?.stats?.total_donation.toFixed(5)}`
-              : "$0"
+              : `$0.00000`
           }
         />
 
@@ -155,7 +155,7 @@ const DashboardHome = () => {
           value={
             data?.data?.stats?.total_earn
               ? `$${data?.data?.stats?.total_earn.toFixed(5)}`
-              : "$0"
+              : "$0.00000"
           }
         />
 

@@ -4,7 +4,7 @@ import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTi
 
 const Donate = () => {
   return (
-    <div>
+    <div className="min-h-screen">
       <DashboardHeaderTitle title="Donate Funds" />
       <MakeDonation />
       <RecentDonations />

@@ -2,7 +2,7 @@ import { ICONS } from "../../../../assets";
 
 const TotalWithdrawnAndBalance = ({ totalWithdraw, balance, depositBalance } : { totalWithdraw: number; balance: number, depositBalance:number }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-5 mt-5">
+    <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 mt-5">
       <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 px-[25px] py-11 flex items-center gap-[33px]">
         <img src={ICONS.withdraw} alt="" className="size-[90px]" />
         <div className="w-full">

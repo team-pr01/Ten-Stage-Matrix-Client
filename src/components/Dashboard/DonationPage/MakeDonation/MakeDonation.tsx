@@ -1,7 +1,11 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
-import { useGetStageDataQuery, useGetUserProfileQuery, useMakeDonationMutation } from "../../../../redux/Features/User/userApi";
+import {
+  useGetStageDataQuery,
+  useGetUserProfileQuery,
+  useMakeDonationMutation,
+} from "../../../../redux/Features/User/userApi";
 import { toast } from "sonner";
 import Loader from "../../../Shared/Loader/Loader";
 
@@ -9,7 +13,7 @@ type TFormValues = {
   amount: string;
 };
 const MakeDonation = () => {
-  const [makeDonation, {isLoading}] = useMakeDonationMutation();
+  const [makeDonation, { isLoading }] = useMakeDonationMutation();
   const {
     register,
     handleSubmit,
@@ -17,48 +21,47 @@ const MakeDonation = () => {
     reset,
   } = useForm<TFormValues>();
 
+  const handleMakeDonation = async (data: TFormValues) => {
+    try {
+      const payload = {
+        amount: Number(data?.amount),
+      };
 
-   const handleMakeDonation = async (data: TFormValues) => {
-  try{
-    const payload = {
-      amount : Number(data?.amount)
-    };
-
-    const response = await makeDonation(payload).unwrap();
-    if(response?.success) {
-      toast.success(response?.message || "Donation made successfully!");
-      reset();
+      const response = await makeDonation(payload).unwrap();
+      if (response?.success) {
+        toast.success(response?.message || "Donation made successfully!");
+        reset();
+      }
+    } catch (error) {
+      console.error("Error making donation:", error);
+      const errorMessage =
+        typeof error === "object" &&
+        error !== null &&
+        "data" in error &&
+        typeof (error as any).data === "object"
+          ? (error as any).data?.error
+          : "An error occurred while making the donation.";
+      toast.error(errorMessage);
     }
-  } catch (error) {
-    console.error("Error making donation:", error);
-    const errorMessage =
-      typeof error === "object" && error !== null && "data" in error && typeof (error as any).data === "object"
-        ? (error as any).data?.error
-        : "An error occurred while making the donation.";
-    toast.error(errorMessage);
   };
-};
 
-const { data: stages } = useGetStageDataQuery({});
-const { data: userProfile } = useGetUserProfileQuery({});
+  const { data: stages } = useGetStageDataQuery({});
+  const { data: userProfile } = useGetUserProfileQuery({});
 
-const userStage = userProfile?.data?.profile?.stage;
-console.log(userStage);
+  const userStage = userProfile?.data?.profile?.stage;
+  console.log(userStage);
 
-// Find the matching stage object
-const matchedStage = stages?.find((stage: any) => {
-  const currentStageNumber = stage?.stage_number;
+  // Find the matching stage object
+  const matchedStage = stages?.find((stage: any) => {
+    const currentStageNumber = stage?.stage_number;
 
-  if (userStage === 0) {
-    return stages?.some((s: any) => s?.stage_number === 1);
-  } else {
-    return currentStageNumber === userStage;
-  }
-});
+    if (userStage === 0) {
+      return stages?.some((s: any) => s?.stage_number === 1);
+    } else {
+      return currentStageNumber === userStage;
+    }
+  });
 
-
-console.log(stages);
- 
   return (
     <div className="font-Outfit">
       <h1 className="text-xl text-white font-medium mt-[57px]">

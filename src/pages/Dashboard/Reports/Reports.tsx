@@ -10,6 +10,7 @@ import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
 
 const Reports = () => {
   const { data } = useGetUserDetailsQuery({});
+  console.log(data);
 
   const [activeTab, setActiveTab] = useState<
     "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"

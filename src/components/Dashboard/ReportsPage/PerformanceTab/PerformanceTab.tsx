@@ -12,12 +12,12 @@ const PerformanceTab = () => {
       value: data?.data?.active_users || 0,
       description: "All active members ",
     },
-    {
-      icon: ICONS.topEarner,
-      title: "Top Earner",
-      value: `$${data?.data?.top_earner?.balance.toFixed(5) || 0}`,
-      description: "Current top earner ",
-    },
+    // {
+    //   icon: ICONS.topEarner,
+    //   title: "Top Earner",
+    //   value: `$${data?.data?.top_earner?.balance.toFixed(5) || 0}`,
+    //   description: "Current top earner ",
+    // },
     {
       icon: ICONS.growth,
       title: "Top Referrers",
