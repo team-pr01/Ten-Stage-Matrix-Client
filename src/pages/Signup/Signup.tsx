@@ -1,7 +1,6 @@
 import { useForm } from "react-hook-form";
 import { IMAGES } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
 import { useSignupMutation } from "../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
 import Loader from "../../components/Shared/Loader/Loader";
@@ -13,7 +12,6 @@ type TFormValues = {
   referral_code?: string;
 };
 const Signup = () => {
-  const [isChecked, setIsChecked] = useState<boolean>(true);
   const [signup, { isLoading }] = useSignupMutation();
   const navigate = useNavigate();
 
@@ -25,10 +23,6 @@ const Signup = () => {
 
   const handleSignup = async (data: TFormValues) => {
     try {
-      if (!isChecked) {
-        alert("Please agree to the terms and conditions.");
-        return;
-      }
       const payload = {
         name: data.name,
         email: data.email,
@@ -50,28 +44,24 @@ const Signup = () => {
     }
   };
   return (
-    <div className="h-full font-Outfit py-28 relative">
+    <div className="h-full min-h-screen font-Outfit py-28 relative">
       <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
       <div className="bg-primary-15 w-[300px] lg:w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute -top-32 right-0"></div>
       <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
-        <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 items-center justify-between">
-          <div className="z-10">
+        <div className="w-full max-w-full md:max-w-[600px] mx-auto z-10 relative">
+          <div className="z-10 bg-neutral-30 rounded-xl p-5">
             <Link to={"/"}>
               <img src={IMAGES.logo} alt="logo" className="z-10" />
             </Link>
-            <h1 className="text-neutral-80 text-xl mt-[17px]">Sign Up</h1>
-            <p className="text-neutral-85 mt-[10px]">
-              Create New TEN STAGE MATRIX Account
-            </p>
+            <h1 className="text-neutral-80 text-2xl mt-[17px] text-center">
+              Create Your Account
+            </h1>
 
             <form onSubmit={handleSubmit(handleSignup)} className="mt-[42px]">
               <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-neutral-85">
-                  Name
-                </label>
                 <input
                   type="text"
-                  placeholder="Enter your username"
+                  placeholder="Enter your name"
                   {...register("name", {
                     required: "Name is required",
                   })}
@@ -87,11 +77,7 @@ const Signup = () => {
               </div>
 
               <div className="flex flex-col gap-2 mt-[17px]">
-                <div className="flex items-center justify-between">
-                  <label htmlFor="" className="text-neutral-85">
-                    Your Email
-                  </label>
-                </div>
+                <div className="flex items-center justify-between"></div>
                 <input
                   type="text"
                   placeholder="Your Email Address"
@@ -110,9 +96,6 @@ const Signup = () => {
               </div>
 
               <div className="flex flex-col gap-2 mt-[17px]">
-                <label htmlFor="" className="text-neutral-85">
-                  Passcode
-                </label>
                 <input
                   type="password"
                   placeholder="Enter your passcode"
@@ -131,13 +114,12 @@ const Signup = () => {
               </div>
 
               <div className="flex flex-col gap-2 mt-[17px]">
-                <label htmlFor="" className="text-neutral-85">
-                  Referral Code (Optional)
-                </label>
                 <input
                   type="text"
                   placeholder="Enter your referral code"
-                  {...register("referral_code")}
+                  {...register("referral_code", {
+                    required: "Referral code is required",
+                  })}
                   className={`w-full p-4 rounded-[8px] border border-neutral-90 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
                     errors?.referral_code
                       ? "border-red-500"
@@ -151,52 +133,23 @@ const Signup = () => {
                 )}
               </div>
 
-              <label className="flex items-center gap-3 text-neutral-85 mt-3 cursor-pointer">
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={() => setIsChecked(!isChecked)}
-                  className="accent-orange-500  w-4 h-4"
-                />
-                <span>
-                  I agree to{" "}
-                  <span className="font-semibold">TEN STAGE MATRIX</span>{" "}
-                  <span className="text-primary-55">Policy</span> &{" "}
-                  <span className="text-primary-55">terms</span>
-                </span>
-              </label>
-
               <button
                 type="submit"
-                className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-6"
+                className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer text-lg mt-6"
               >
-                {isLoading ? <Loader size="size-6" /> : "Sign Up"}
+                {isLoading ? <Loader size="size-6" /> : "Create Account"}
               </button>
 
-              <div className="flex items-center gap-[9px] mt-[30px]">
-                <div className="h-[1px] w-[171px] bg-neutral-90"></div>
-                <p className="text-neutral-85">or</p>
-                <div className="h-[1px] w-[171px] bg-neutral-90"></div>
-              </div>
-
               <div className="flex flex-col gap-2 mt-[17px]">
-                <label htmlFor="" className="text-neutral-85">
-                  Already account on platform?
-                </label>
-                <Link
-                  to={"/signin"}
-                  className="p-2 w-full h-12 rounded-lg bg-primary-60 text-white font-medium text-center cursor-pointer mt-6 flex items-center justify-center"
-                >
-                  Sign In
-                </Link>
+                <p className="text-neutral-85 text-center">
+                  Already have an account?{" "}
+                  <Link to={"/signin"} className="font-bold text-white">
+                    Login Here
+                  </Link>
+                </p>
               </div>
-
-              <p className="text-neutral-85 mt-8">
-                @ 2025 TEN STAGE MATRIX All Rights Reserved
-              </p>
             </form>
           </div>
-          <img src={IMAGES.signup} alt="" />
         </div>
       </div>
     </div>

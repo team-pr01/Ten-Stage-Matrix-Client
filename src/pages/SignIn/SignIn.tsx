@@ -60,28 +60,23 @@ const SignIn = () => {
   };
   
   return (
-    <div className="h-full font-Outfit py-28 relative">
+
+    <div className="h-full min-h-screen font-Outfit py-28 relative">
       <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
       <div className="bg-primary-15 w-[300px] lg:w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute -top-32 right-0"></div>
-      <div className="max-w-full lg:max-w-[1250px] mx-auto px-5 2xl:px-0">
-        <div className="flex flex-col lg:flex-row gap-20 lg:gap-0 items-center justify-between">
-          <div className="z-10">
+      <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
+        <div className="w-full max-w-full md:max-w-[600px] mx-auto z-10">
+          <div className="z-10 bg-neutral-30 rounded-xl p-5 relative">
             <Link to={"/"}>
               <img src={IMAGES.logo} alt="logo" className="z-10" />
             </Link>
-            <h1 className="text-neutral-80 text-xl mt-[17px]">Sign in</h1>
-            <p className="text-neutral-85 mt-[10px] max-w-[434px]">
-              Access the TEN STAGE MATRIX Using your private key and passcode
-            </p>
+            <h1 className="text-neutral-80 text-2xl mt-[17px] text-center">Access Your Account</h1>
 
-            <form onSubmit={handleSubmit(handleSignin)} className="mt-[42px]">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="" className="text-neutral-85">
-                  Private Key
-                </label>
+            <form onSubmit={handleSubmit(handleSignin)} className="mt-[42px] z-10">
+              <div className="flex flex-col gap-2 z-10">
                 <input
                   type="text"
-                  placeholder="Enter your identifier"
+                  placeholder="Private key"
                   {...register("identifier", {
                     required: "identifier is required",
                   })}
@@ -97,12 +92,9 @@ const SignIn = () => {
               </div>
 
               <div className="flex flex-col gap-2 mt-[17px]">
-                <label htmlFor="" className="text-neutral-85">
-                  Passcode
-                </label>
                 <input
                   type="password"
-                  placeholder="Enter your passcode"
+                  placeholder="Passcode"
                   {...register("password", {
                     required: "Passcode is required",
                   })}
@@ -121,33 +113,16 @@ const SignIn = () => {
                 type="submit"
                 className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-6"
               >
-                {isLoading ? <Loader size="size-6" /> : "Sign In"}
+                {isLoading ? <Loader size="size-6" /> : "Access Dashboard"}
               </button>
 
-              <div className="flex items-center gap-[9px] mt-[65px]">
-                <div className="h-[1px] w-[171px] bg-neutral-90"></div>
-                <p className="text-neutral-85">or</p>
-                <div className="h-[1px] w-[171px] bg-neutral-90"></div>
+              <div className="flex flex-col gap-2 mt-[17px]">
+                <p className="text-neutral-85 text-center">
+                  New here? <Link to={"/signup"} className="font-bold text-white">Create An Account</Link>
+                </p>
               </div>
-
-              <div className="flex flex-col gap-2 mt-8">
-                <label htmlFor="" className="text-neutral-85">
-                  New on our platform?
-                </label>
-                <Link
-                  to={"/signup"}
-                  className="p-2 w-full h-12 rounded-lg bg-primary-60 text-white font-medium text-center cursor-pointer flex items-center justify-center"
-                >
-                  Create an account
-                </Link>
-              </div>
-
-              <p className="text-neutral-85 mt-[90px]">
-                @ 2025 TEN STAGE MATRIX All Rights Reserved
-              </p>
             </form>
           </div>
-          <img src={IMAGES.signin} alt="" />
         </div>
       </div>
     </div>
