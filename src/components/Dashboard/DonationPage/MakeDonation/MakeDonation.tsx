@@ -39,7 +39,7 @@ const MakeDonation = () => {
         error !== null &&
         "data" in error &&
         typeof (error as any).data === "object"
-          ? (error as any).data?.error
+          ? (error as any).data?.message
           : "An error occurred while making the donation.";
       toast.error(errorMessage);
     }

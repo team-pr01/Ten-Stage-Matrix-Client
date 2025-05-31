@@ -22,7 +22,7 @@ const ReferralProgress = ({profile, earning} : {profile: any, earning: number}) 
         <DashboardDataCard
           icon={ICONS.earning}
           title="Earning "
-          value={`$${earning || 0}`}
+          value={`$${earning.toFixed(5) || 0.00000}`}
           padding="px-[90px] py-10"
         />
       </div>

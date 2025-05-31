@@ -1,6 +1,6 @@
 import { ICONS } from "../../../../assets";
 
-const TotalWithdrawnAndBalance = ({ totalWithdraw, balance, depositBalance } : { totalWithdraw: number; balance: number, depositBalance:number }) => {
+const TotalWithdrawnAndBalance = ({ totalWithdraw, balance, depositBalance, activeEarning } : { totalWithdraw: number; balance: number, depositBalance:number, activeEarning:number }) => {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 mt-5">
       <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 px-[25px] py-11 flex items-center gap-[33px]">
@@ -35,6 +35,17 @@ const TotalWithdrawnAndBalance = ({ totalWithdraw, balance, depositBalance } : {
           </h2>
           <h1 className="text-white text-[34px] font-medium capitalize">
             {depositBalance ? `$${depositBalance}` : "$0"}
+          </h1>
+        </div>
+      </div>
+      <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 px-[25px] py-11 flex items-center gap-[33px]">
+        <img src={ICONS.currentBalance} alt="" className="size-[90px]" />
+        <div className="w-full">
+          <h2 className="text-white text-xl font-medium capitalize">
+            Active Earning
+          </h2>
+          <h1 className="text-white text-[34px] font-medium capitalize">
+            {activeEarning ? `$${activeEarning}` : "$0"}
           </h1>
         </div>
       </div>

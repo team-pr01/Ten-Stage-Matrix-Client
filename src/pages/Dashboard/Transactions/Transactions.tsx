@@ -2,18 +2,14 @@ import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import RecentTransactions from "../../../components/Dashboard/TransactionsPage/RecentTransactions/RecentTransactions";
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
-import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
-import ReferralStats from "../../../components/Dashboard/TransactionsPage/ReferralStats/ReferralStats";
-import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
+import ActivityLog from "../../../components/Dashboard/NetworkPage/ActivityLog/ActivityLog";
 
 const Transactions = () => {
-  const { data } = useGetUserDetailsQuery({});
   const [activeTab, setActiveTab] = useState<
-    "Transactions" | "Network Activity"
+    "Transactions"
   >("Transactions");
-  const tabButtons: Array<"Transactions" | "Network Activity"> = [
+  const tabButtons: Array<"Transactions"> = [
     "Transactions",
-    "Network Activity",
   ];
 
   return (
@@ -53,21 +49,13 @@ const Transactions = () => {
         </div>
       )}
 
-      {activeTab === "Network Activity" && (
-        <div className="mt-7">
-          <h1 className="text-white font-medium text-2xl mb-5">
-            Referral Code
-          </h1>
-          <div className="flex lex flex-col xl:flex-row gap-5">
-            <div className="w-full">
-              <ReferralCode referralCode={data?.data?.profile?.referral_code} />
-            </div>
-            <ReferralActivity />
-          </div>
-        </div>
-      )}
+      <div className="mt-7">
+        <ActivityLog />
+      </div>
 
-      <ReferralStats data={data?.data?.team} />
+      
+
+      {/* <ReferralStats data={data?.data?.team} /> */}
     </div>
   );
 };

@@ -1,15 +1,18 @@
 import { useState } from "react";
-import ActivityLog from "../../../components/Dashboard/NetworkPage/ActivityLog/ActivityLog";
-import { IMAGES } from "../../../assets";
 import ReferralProgress from "../../../components/Dashboard/NetworkPage/ReferralProgress/ReferralProgress";
-import { useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
+import { useGetUserDetailsQuery, useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
+import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
+import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 
 const Network = () => {
-   const {data, isLoading} = useGetUserProfileQuery({});
+   const {data} = useGetUserProfileQuery({});
+   const { data:userDetails } = useGetUserDetailsQuery({});
+
+
   const [activeTab, setActiveTab] = useState<
-    "Network"
-  >("Network");
-  const tabButtons: Array<"Network"> = ["Network"];
+    "Network Activity"
+  >("Network Activity");
+  const tabButtons: Array<"Network Activity"> = ["Network Activity"];
   return (
     <div className="font-Outfit">
       {/* Tab buttons */}
@@ -30,34 +33,20 @@ const Network = () => {
         <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
       </div>
 
-      {activeTab === "Network" && (
+      {activeTab === "Network Activity" && (
         <div className="mt-7">
           <h1 className="text-white font-medium text-2xl mb-5">
-            Referral Details
+            Referral Code
           </h1>
-          <div className="flex flex-col md:flex-row gap-5">
-            <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] h-fit w-full md:w-[40%] xl:w-[20%]">
-                <img src={IMAGES.dummyProfileImg} alt="" className="rounded-[10px] w-[298px] h-[185px]" />
-                <h1 className="text-white text-lg font-medium mt-2">
-                   {
-                    isLoading
-                      ? "Loading..."
-                      : data?.data?.profile?.name
-                  }
-                </h1>
-                <p className="text-neutral-110 text-sm mt-[3px]">
-                   {
-                    isLoading
-                      ? "Loading..."
-                      : data?.data?.profile?.email
-                  }
-                </p>
-           </div>
-            <ActivityLog />
+          <div className="flex lex flex-col xl:flex-row gap-5">
+            <div className="w-full">
+              <ReferralCode referralCode={userDetails?.data?.profile?.referral_code} />
+            </div>
+            <ReferralActivity />
           </div>
-          <ReferralProgress profile={data?.data?.profile} earning={data?.data?.balances?.balance} />
         </div>
       )}
+      <ReferralProgress profile={data?.data?.profile} earning={data?.data?.balances?.balance} />
 
     </div>
   );

@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
@@ -6,18 +7,27 @@ import { ICONS } from "../../../assets";
 import PerformanceTab from "../../../components/Dashboard/ReportsPage/PerformanceTab/PerformanceTab";
 import ReferralTree from "../../../components/Dashboard/ReportsPage/ReferralTree/ReferralTree";
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
-import { useGetUserDetailsQuery } from "../../../redux/Features/User/userApi";
+import {
+  useGetReferralListQuery,
+  useGetUserDetailsQuery,
+} from "../../../redux/Features/User/userApi";
 
 const Reports = () => {
   const { data } = useGetUserDetailsQuery({});
-  console.log(data);
+  const { data: referrals } = useGetReferralListQuery({});
+
+  const activeReferrals = referrals?.data?.referrals?.filter(
+    (referral: any) => referral?.status === "active"
+  );
 
   const [activeTab, setActiveTab] = useState<
-    "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"
+    "Direct Referrals" | "Earning" | "Performance" | "Referral Tree"
   >("Direct Referrals");
   const tabButtons: Array<
-    "Direct Referrals" | "Team Summary" | "Performance" | "Referral Tree"
-  > = ["Direct Referrals", "Team Summary", "Performance", "Referral Tree"];
+    "Direct Referrals" | "Earning" | "Performance" | "Referral Tree"
+  > = ["Direct Referrals", "Earning", "Performance", "Referral Tree"];
+
+  console.log(data);
 
   const earningTrends = [
     {
@@ -29,7 +39,7 @@ const Reports = () => {
     {
       icon: ICONS.activeReferral,
       title: "Active Referrals",
-      value: `${data?.data?.team?.active_referrals}`,
+      value: `${activeReferrals?.length}`,
       description: "Currently active downline members.",
     },
     // {
@@ -69,8 +79,8 @@ const Reports = () => {
           <ReferralActivity />
         </div>
       )}
-  
-      {activeTab === "Team Summary" && <TeamSummary />}
+      {/* previously it was team summery */}
+      {activeTab === "Earning" && <TeamSummary />}
       {activeTab === "Performance" && <PerformanceTab />}
       {activeTab === "Referral Tree" && <ReferralTree />}
     </div>

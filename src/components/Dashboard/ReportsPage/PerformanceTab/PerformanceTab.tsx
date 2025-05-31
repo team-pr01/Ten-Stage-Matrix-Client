@@ -1,15 +1,18 @@
 import { ICONS } from "../../../../assets";
-import { useGetReportsQuery } from "../../../../redux/Features/User/userApi";
+import {
+  useGetReportsQuery,
+  useGetTeamTreeQuery,
+} from "../../../../redux/Features/User/userApi";
 import EarningTrend from "../EarningTrend/EarningTrend";
 
 const PerformanceTab = () => {
   const { data } = useGetReportsQuery({});
-  console.log(data);
+  const { data: teamTree } = useGetTeamTreeQuery({});
   const earningTrends = [
     {
       icon: ICONS.activeMembers,
       title: "Active Members",
-      value: data?.data?.active_users || 0,
+      value: teamTree?.data?.total_members || 0,
       description: "All active members ",
     },
     // {

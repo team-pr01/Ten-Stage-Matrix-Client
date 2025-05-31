@@ -7,7 +7,7 @@ const ActivityLog = () => {
   const {data, isLoading} = useGetActivityHistoryQuery({});
 
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[60%] xl:w-[80%] h-full md:h-[300px] overflow-y-auto custom-scrollbar">
+    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar">
       <h1 className="text-2xl font-medium text-white">Activity Log</h1>
 
       <div className="mt-6 overflow-x-auto">

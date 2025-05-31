@@ -1,30 +1,11 @@
-// import { IMAGES } from "../../../../assets";
-import { useGetTeamTreeQuery } from "../../../../redux/Features/User/userApi";
 import RecentAddition from "../RecentAddition/RecentAddition";
-// import ReferralAddition from "../ReferralAddition/ReferralAddition";
 
 const ReferralTree = () => {
-  const {data} = useGetTeamTreeQuery({})
-  console.log(data);
-
   return (
-    <div className="font-Outfit">
-      <h1 className="text-2xl text-white font-medium mt-6">
-        Network Structure
-      </h1>
-
-      <div className="flex flex-col md:flex-row gap-5 mt-7 w-full">
-        {/* <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] w-full md:w-[40%] xl:w-[20%] h-full md:h-[300px]">
-          <img
-            src={IMAGES.dummyProfileImg}
-            alt=""
-            className="rounded-[10px] h-full"
-          />
-        </div> */}
+    <div className="font-Outfit min-h-screen">
+      <div className="mt-7 w-full">
         <RecentAddition />
       </div>
-
-      {/* <ReferralAddition /> */}
     </div>
   );
 };
