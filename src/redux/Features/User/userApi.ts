@@ -81,12 +81,11 @@ const userApi = baseApi.injectEndpoints({
     }),
 
      getTeamTree: builder.query({
-      query: ({ stage, status, position }) => {
+      query: ({ stage, status }) => {
         const params = new URLSearchParams();
 
         if (stage && stage !== "All Stages") params.append("stage", stage);
         if (status && status !== "All Status") params.append("status", status);
-        if (position && position !== "All Positions") params.append("position", position);
 
         return {
           url: `/users/team-tree?${params.toString()}`,

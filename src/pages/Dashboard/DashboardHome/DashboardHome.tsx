@@ -21,6 +21,10 @@ const DashboardHome = () => {
   const { data: stages } = useGetStageDataQuery({});
   const { data: teamTree } = useGetTeamTreeQuery({});
 
+  console.log(teamTree);
+
+  console.log(data);
+
   const userStage = data?.data?.profile?.stage;
 
   // Find the matching stage object
@@ -33,6 +37,15 @@ const DashboardHome = () => {
       return currentStageNumber === userStage;
     }
   });
+
+  const limitUpCommission = data?.data?.profile?.limit_up_commission;
+  const lastDonation = data?.data?.profile?.last_donation;
+  const earningMultiplier = matchedStage?.earning_multiplier;
+  const stageBalance = data?.data?.balances?.stage_balance
+
+  const multipliedValue = lastDonation * earningMultiplier;
+
+  const earningThreshold = stageBalance > 0 && stageBalance >  multipliedValue ? limitUpCommission : multipliedValue + limitUpCommission 
 
   return (
     <div className="font-Outfit">
@@ -102,31 +115,13 @@ const DashboardHome = () => {
         <DashboardCard
           icon={ICONS.currentBalance}
           title="Earning Threshold"
-          value={`${Math.max(
-            0,
-            (data?.data?.profile?.last_donation ?? 0) *
-              (matchedStage?.earning_multiplier ?? 0) -
-              (data?.data?.balances?.stage_balance ?? 0)
-          ).toFixed(5)}`}
+          value={`${earningThreshold ? earningThreshold : multipliedValue}`}
         />
       </div>
-
-      {/* Total Withdraw and Current Balance */}
-      {/* <TotalWithdrawnAndBalance
-        totalWithdraw={data?.data?.stats?.total_withdraw.toFixed(5)}
-        balance={data?.data?.balances?.balance.toFixed(5)}
-        depositBalance={data?.data?.balances?.deposit_balance.toFixed(5)}
-        activeEarning={
-          data?.data?.profile?.last_donation *
-            matchedStage?.earning_multiplier -
-            data?.data?.balances?.stage_balance.toFixed(5) || 0
-        }
-      /> */}
-
       {/* Referral info */}
       <ReferralInfo
         data={data?.data?.profile}
-        totalTeamMembers={teamTree?.data?.total_members || 0}
+        totalTeamMembers={teamTree?.data?.length || 0}
       />
     </div>
   );

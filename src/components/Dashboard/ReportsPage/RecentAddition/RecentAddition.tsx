@@ -5,19 +5,16 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const RecentAddition = () => {
   const [selectedStage, setSelectedStage] = useState("All Stages");
-  const [selectedPosition, setSelectedPosition] = useState("All Positions");
   const [selectedStatus, setSelectedStatus] = useState("All Status");
+
+  console.log(selectedStatus);
 
   const { data, isLoading, isFetching } = useGetTeamTreeQuery({
     stage: selectedStage,
     status: selectedStatus,
-    position: selectedPosition,
   });
 
-  console.log(data);
-
-  const stages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
-  const positions = ["left", "right", "center"];
+  const stages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
     <div className="font-Outfit rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] w-full h-full overflow-y-auto custom-scrollbar">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
@@ -33,19 +30,6 @@ const RecentAddition = () => {
             {stages.map((stage) => (
               <option key={stage} className="">
                 {stage}
-              </option>
-            ))}
-          </select>
-
-          <select
-            value={selectedPosition}
-            onChange={(e) => setSelectedPosition(e.target.value)}
-            className="bg-primary-40 text-white border border-white rounded-full px-5 py-3 w-full md:w-fit"
-          >
-            <option>All Positions</option>
-            {positions.map((position) => (
-              <option key={position} className="capitalize">
-                {position}
               </option>
             ))}
           </select>
@@ -73,22 +57,20 @@ const RecentAddition = () => {
                   <th className="py-3 px-4">Serial No</th>
                   <th className="py-3 px-4">Details</th>
                   <th className="py-3 px-4">Status</th>
-                  <th className="py-3 px-4">Position</th>
                   <th className="py-3 px-4">Referral Code</th>
                   <th className="py-3 px-4">Stage</th>
                   <th className="py-3 px-4">Referred By</th>
-                  <th className="py-3 px-4">Level</th>
                 </tr>
               </thead>
               <tbody>
-                {data?.data?.team_members?.length < 1 ? (
+                {data?.data?.length < 1 ? (
                   <tr>
                     <td colSpan={9} className="text-center py-4 text-white">
                       No data found
                     </td>
                   </tr>
                 ) : (
-                  data?.data?.team_members?.map((item: any, index: number) => (
+                  data?.data?.map((item: any, index: number) => (
                     <tr key={index} className="border-b border-neutral-110/50">
                       <td className="py-3 px-4">{index + 1}</td>
                       <td className="py-3 px-4 capitalize">
@@ -97,7 +79,6 @@ const RecentAddition = () => {
                         {item?.email}
                       </td>
                       <td className="py-3 px-4 capitalize">{item?.status}</td>
-                      <td className="py-3 px-4 capitalize">{item?.position}</td>
                       <td className="py-3 px-4">{item?.referral_code}</td>
                       <td className="py-3 px-4">Stage {item?.stage}</td>
                       <td className="py-3 px-4">
@@ -106,7 +87,6 @@ const RecentAddition = () => {
                         </span>{" "}
                         <br /> {item?.referred_by?.email}
                       </td>
-                      <td className="py-3 px-4">{item?.level}</td>
                     </tr>
                   ))
                 )}

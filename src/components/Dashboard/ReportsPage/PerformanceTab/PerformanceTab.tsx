@@ -14,7 +14,7 @@ const PerformanceTab = () => {
     {
       icon: ICONS.activeMembers,
       title: "Active Members",
-      value: teamTree?.data?.active_members || 0,
+      value: teamTree?.stats?.active_members || 0,
       description: "All active members ",
     },
     // {
