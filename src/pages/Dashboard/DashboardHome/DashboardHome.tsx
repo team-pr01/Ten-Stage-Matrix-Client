@@ -38,14 +38,14 @@ const DashboardHome = () => {
     }
   });
 
-  const limitUpCommission = data?.data?.profile?.limit_up_commission;
+  // const limitUpCommission = data?.data?.profile?.limit_up_commission;
+  // const stageBalance = data?.data?.balances?.stage_balance
   const lastDonation = data?.data?.profile?.last_donation;
   const earningMultiplier = matchedStage?.earning_multiplier;
-  const stageBalance = data?.data?.balances?.stage_balance
 
   const multipliedValue = lastDonation * earningMultiplier;
 
-  const earningThreshold = stageBalance > 0 && stageBalance >  multipliedValue ? limitUpCommission : multipliedValue + limitUpCommission 
+  // const earningThreshold = stageBalance > 0 && stageBalance >  multipliedValue ? limitUpCommission : multipliedValue + limitUpCommission 
 
   return (
     <div className="font-Outfit">
@@ -115,7 +115,7 @@ const DashboardHome = () => {
         <DashboardCard
           icon={ICONS.currentBalance}
           title="Earning Threshold"
-          value={`${earningThreshold ? earningThreshold : multipliedValue}`}
+          value={`${multipliedValue?.toFixed(5)}`}
         />
       </div>
       {/* Referral info */}
