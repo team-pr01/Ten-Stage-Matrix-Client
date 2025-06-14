@@ -1,13 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
-import { useGetPublicSettingsQuery, useRequestWithdrawMutation } from "../../../../redux/Features/User/userApi";
+import {
+  useGetPublicSettingsQuery,
+  useGetUserProfileQuery,
+  useRequestWithdrawMutation,
+} from "../../../../redux/Features/User/userApi";
 import { toast } from "sonner";
 import Loader from "../../../Shared/Loader/Loader";
 
 type TFormValues = {
   amount: string;
-  withdrawal_address : string;
+  withdrawal_address: string;
 };
 const RequestWithdraw = () => {
   const {
@@ -18,9 +22,10 @@ const RequestWithdraw = () => {
   // const {data:profile} = useGetUserProfileQuery({});
   // console.log(data);
 
-  const [requestWithdraw, {isLoading}] = useRequestWithdrawMutation();
+  const [requestWithdraw, { isLoading }] = useRequestWithdrawMutation();
 
-  const {data:settings} = useGetPublicSettingsQuery({});
+  const { data: settings } = useGetPublicSettingsQuery({});
+  const { data } = useGetUserProfileQuery({});
 
   // Function to deposit
   const handleRequestWithdraw = async (data: TFormValues) => {
@@ -31,7 +36,7 @@ const RequestWithdraw = () => {
         withdrawal_address: data?.withdrawal_address,
         network: "BSC",
         payment_method: "blockchain",
-        type : "Withdrawal"
+        type: "Withdrawal",
       };
 
       const response = await requestWithdraw(payload).unwrap();
@@ -47,6 +52,12 @@ const RequestWithdraw = () => {
     <div className="font-Outfit">
       <h1 className="text-xl text-white font-medium mt-[57px]">
         Minimum withdraw ${settings?.data?.limits?.min_withdrawal}
+      </h1>
+      <h1 className="text-xl text-green-500 font-medium mt-3">
+        Available to withdraw $
+        {data?.data?.balances?.balance
+          ? `${data?.data?.balances?.balance.toFixed(5)}`
+          : "0.00000"}
       </h1>
       <form onSubmit={handleSubmit(handleRequestWithdraw)}>
         <div className="flex flex-col gap-2 mt-[22px]">
@@ -88,7 +99,9 @@ const RequestWithdraw = () => {
                 required: "Name is required",
               })}
               className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                errors?.withdrawal_address ? "border-red-500" : "border-neutral-130"
+                errors?.withdrawal_address
+                  ? "border-red-500"
+                  : "border-neutral-130"
               }`}
             />
           </div>

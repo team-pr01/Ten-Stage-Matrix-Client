@@ -32,7 +32,7 @@ const Reports = () => {
       icon: ICONS.totalReferral,
       title: "Total Referrals",
       value: `${data?.data?.team?.total_referrals}`,
-      description: "All time earnings from MLM activities.",
+      description: "",
     },
     {
       icon: ICONS.activeReferral,

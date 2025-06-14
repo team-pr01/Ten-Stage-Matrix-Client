@@ -1,7 +1,7 @@
 import { createBrowserRouter } from "react-router-dom";
 import MainLayout from "../layouts/MainLayout/MainLayout";
 import NotFound from "../pages/NotFound/NotFound";
-import Home from "../pages/Home/Home";
+// import Home from "../pages/Home/Home";
 import Signup from "../pages/Signup/Signup";
 import SignIn from "../pages/SignIn/SignIn";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
@@ -16,6 +16,9 @@ import Reports from "../pages/Dashboard/Reports/Reports";
 import Setting from "../pages/Dashboard/Setting/Setting";
 import ProtectedRoute from "./ProtectedRoute";
 import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
+import Home from "../pages/Home/Home";
+import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
+import ResetPassword from "../pages/ResetPassword/ResetPassword";
 
 export const router = createBrowserRouter([
   {
@@ -23,10 +26,15 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     errorElement: <NotFound />,
     children: [
+      //  {
+      //   path: "/",
+      //   element: <Home />,
+      // },
       {
         path: "/",
-        element: <Home />,
+        element: <SignIn />,
       },
+     
       {
         path: "/signup",
         element: <Signup />,
@@ -34,6 +42,14 @@ export const router = createBrowserRouter([
       {
         path: "/signin",
         element: <SignIn />,
+      },
+      {
+        path: "/forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "/reset-password",
+        element: <ResetPassword />,
       },
       {
         path: "/signup-success",

@@ -45,6 +45,7 @@ const DashboardHamburgerMenu: React.FC = () => {
     // Dispatch logout and navigate
     dispatch(logout());
     toast.success("Logged out successfully.");
+    localStorage.clear();
     navigate("/signin");
   };
 
@@ -65,7 +66,7 @@ const DashboardHamburgerMenu: React.FC = () => {
 
       {/* Side Menu */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 py-5 px-6 bg-primary-70 w-[270px] overflow-y-auto h-screen transition-all duration-300 transform flex flex-col justify-between ${
+        className={`fixed inset-y-0 right-0 z-50 py-5 px-6 bg-primary-70 w-[270px] overflow-y-auto transition-all duration-300 transform flex flex-col gap-12 ${
           isHamburgerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >

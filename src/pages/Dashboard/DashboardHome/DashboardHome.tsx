@@ -21,10 +21,6 @@ const DashboardHome = () => {
   const { data: stages } = useGetStageDataQuery({});
   const { data: teamTree } = useGetTeamTreeQuery({});
 
-  console.log(teamTree);
-
-  console.log(data);
-
   const userStage = data?.data?.profile?.stage;
 
   // Find the matching stage object
@@ -81,7 +77,7 @@ const DashboardHome = () => {
           value={
             data?.data?.stats?.total_deposit
               ? `${data?.data?.stats?.total_deposit.toFixed(5)}`
-              : "0"
+              : "0.00000"
           }
         />
 

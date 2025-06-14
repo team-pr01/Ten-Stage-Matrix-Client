@@ -7,8 +7,6 @@ const RecentAddition = () => {
   const [selectedStage, setSelectedStage] = useState("All Stages");
   const [selectedStatus, setSelectedStatus] = useState("All Status");
 
-  console.log(selectedStatus);
-
   const { data, isLoading, isFetching } = useGetTeamTreeQuery({
     stage: selectedStage,
     status: selectedStatus,
@@ -55,10 +53,13 @@ const RecentAddition = () => {
               <thead className="z-10">
                 <tr className="border-b border-neutral-110 text-left">
                   <th className="py-3 px-4">Serial No</th>
+
                   <th className="py-3 px-4">Details</th>
                   <th className="py-3 px-4">Status</th>
                   <th className="py-3 px-4">Referral Code</th>
                   <th className="py-3 px-4">Stage</th>
+                  <th className="py-3 px-4">Level</th>
+                  <th className="py-3 px-4">Position</th>
                   <th className="py-3 px-4">Referred By</th>
                 </tr>
               </thead>
@@ -73,6 +74,7 @@ const RecentAddition = () => {
                   data?.data?.map((item: any, index: number) => (
                     <tr key={index} className="border-b border-neutral-110/50">
                       <td className="py-3 px-4">{index + 1}</td>
+
                       <td className="py-3 px-4 capitalize">
                         {item?.name}
                         <br />
@@ -81,6 +83,8 @@ const RecentAddition = () => {
                       <td className="py-3 px-4 capitalize">{item?.status}</td>
                       <td className="py-3 px-4">{item?.referral_code}</td>
                       <td className="py-3 px-4">Stage {item?.stage}</td>
+                      <td className="py-3 px-4">{item?.level}</td>
+                      <td className="py-3 px-4">{item?.position}</td>
                       <td className="py-3 px-4">
                         <span className="capitalize">
                           {item?.referred_by?.name}

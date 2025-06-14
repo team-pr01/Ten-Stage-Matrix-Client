@@ -67,7 +67,7 @@ const SignIn = () => {
       <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
         <div className="w-full max-w-full md:max-w-[600px] mx-auto z-10">
           <div className="z-10 bg-neutral-30 rounded-xl p-5 relative">
-            <Link to={"/"}>
+            <Link to={"https://tenstagematrix.com"}>
               <img src={IMAGES.logo} alt="logo" className="z-10" />
             </Link>
             <h1 className="text-neutral-80 text-2xl mt-[17px] text-center">Access Your Account</h1>
@@ -109,9 +109,13 @@ const SignIn = () => {
                 )}
               </div>
 
+              <div className="flex justify-end mt-3">
+                <Link to={"/forgot-password"} className="text-primary-10 text-sm hover:underline">Forgot Password?</Link>
+              </div>
+
               <button
                 type="submit"
-                className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-6"
+                className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-3"
               >
                 {isLoading ? <Loader size="size-6" /> : "Access Dashboard"}
               </button>

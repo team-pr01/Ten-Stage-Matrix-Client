@@ -4,7 +4,6 @@ import Loader from "../../../Shared/Loader/Loader";
 
 const ReferralActivity = () => {
   const { data, isLoading } = useGetReferralListQuery({});
-  console.log(data);
   return (
     <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full min-h-[350px] max-h-auto overflow-y-auto">
       <h1 className="text-2xl font-medium text-white">Referral Activity</h1>
@@ -20,6 +19,7 @@ const ReferralActivity = () => {
                 <th className="p-3 whitespace-nowrap">Serial No</th>
                 <th className="p-3 whitespace-nowrap">Name</th>
                 <th className="p-3 whitespace-nowrap">Email</th>
+                <th className="p-3 whitespace-nowrap">Position</th>
                 <th className="p-3 whitespace-nowrap">Status</th>
                 <th className="p-3 whitespace-nowrap">Referral Code</th>
                 <th className="p-3 whitespace-nowrap">Stage</th>
@@ -40,6 +40,7 @@ const ReferralActivity = () => {
                     {/* Level */}
                    
                     <td className="p-3 whitespace-nowrap">{item?.email}</td>
+                    <td className="p-3 whitespace-nowrap capitalize">{item?.team_tree?.position}</td>
                     <td className="p-3 whitespace-nowrap capitalize">{item?.status}</td>
                     <td className="p-3 whitespace-nowrap">
                       {item?.referral_code}

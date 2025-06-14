@@ -44,6 +44,7 @@ const HamburgerMenu: React.FC = () => {
     // Dispatch logout and navigate
     dispatch(logout());
     toast.success("Logged out successfully.");
+    localStorage.clear();
     navigate("/signin");
   };
 

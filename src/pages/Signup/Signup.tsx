@@ -40,6 +40,8 @@ const Signup = () => {
         });
       }
     } catch (error) {
+      const err = error as { data?: { error?: string } };
+      toast.error(err?.data?.error || "Something went wrong");
       console.log(error);
     }
   };
@@ -50,7 +52,7 @@ const Signup = () => {
       <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
         <div className="w-full max-w-full md:max-w-[600px] mx-auto z-10 relative">
           <div className="z-10 bg-neutral-30 rounded-xl p-5">
-            <Link to={"/"}>
+            <Link to={"https://tenstagematrix.com"}>
               <img src={IMAGES.logo} alt="logo" className="z-10" />
             </Link>
             <h1 className="text-neutral-80 text-2xl mt-[17px] text-center">
