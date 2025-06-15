@@ -82,3 +82,9 @@
   background-color: #dddddda6;
   border-radius: 6px;
 }
+
+
+.rd3t-link {
+  stroke: #9ca3af !important; /* Tailwind gray-400 */
+  stroke-width: 1.5px !important;
+}

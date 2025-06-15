@@ -49,7 +49,6 @@ const SignIn = () => {
 
       if (response?.message) {
         dispatch(setUser({ user, token: accessToken }));
-        toast.success(response?.message || "Login successful!");
         navigate("/dashboard");
       }
     } catch (error) {

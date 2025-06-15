@@ -14,7 +14,7 @@ const RecentAddition = () => {
 
   const stages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div className="font-Outfit rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] w-full h-full overflow-y-auto custom-scrollbar">
+    <div className="font-Outfit rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] max-w-full lg:max-w-[1000px] 2xl:max-w-full h-full overflow-y-auto custom-scrollbar">
       <div className="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
         <h1 className="text-2xl font-medium text-white">Total Team Tree</h1>
 
@@ -49,7 +49,7 @@ const RecentAddition = () => {
           <Loader size="size-10 mt-5" />
         ) : (
           <div className="overflow-auto max-w-full">
-            <table className="min-w-[900px] w-full text-white">
+            <table className=" w-full text-white">
               <thead className="z-10">
                 <tr className="border-b border-neutral-110 text-left">
                   <th className="py-3 px-4">Serial No</th>

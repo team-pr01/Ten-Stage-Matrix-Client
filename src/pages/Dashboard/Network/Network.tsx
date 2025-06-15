@@ -38,7 +38,7 @@ const Network = () => {
           <h1 className="text-white font-medium text-2xl mb-5">
             Referral Code
           </h1>
-          <div className="flex lex flex-col xl:flex-row gap-5">
+          <div className="flex flex-col 2xl:flex-row gap-5">
             <div className="w-full">
               <ReferralCode referralCode={userDetails?.data?.profile?.referral_code} />
             </div>

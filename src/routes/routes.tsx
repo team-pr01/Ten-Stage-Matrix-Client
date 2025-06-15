@@ -16,7 +16,7 @@ import Reports from "../pages/Dashboard/Reports/Reports";
 import Setting from "../pages/Dashboard/Setting/Setting";
 import ProtectedRoute from "./ProtectedRoute";
 import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
-import Home from "../pages/Home/Home";
+// import Home from "../pages/Home/Home";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
 

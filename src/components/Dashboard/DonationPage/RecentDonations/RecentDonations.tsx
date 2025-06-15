@@ -11,11 +11,11 @@ const RecentDonations = () => {
         Donation Details
       </h1>
 
-      <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[70%]">
+      <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full">
         <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
 
         <div className="overflow-x-auto custom-scrollbar mt-6">
-          <table className="min-w-[600px] w-full text-white">
+          <table className="w-full text-white">
             {isLoading ? (
               <Loader size="size-10" />
             ) : (

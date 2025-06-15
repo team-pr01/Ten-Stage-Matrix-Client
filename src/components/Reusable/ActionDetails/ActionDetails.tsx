@@ -5,7 +5,7 @@ import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/user
 import { formatDate } from "../../../utile/formatDate";
 import Loader from "../../Shared/Loader/Loader";
 
-const ActionDetails = () => {
+const   ActionDetails = () => {
   const { data, isLoading } = useGetTransactionHistoryQuery({});
   const location = useLocation();
 
@@ -16,11 +16,11 @@ const ActionDetails = () => {
   );
 
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full md:w-[70%] overflow-y-auto custom-scrollbar">
+    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full overflow-y-auto custom-scrollbar">
       <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
 
       <div className=" mt-6">
-        <table className="min-w-[600px] w-full text-white">
+        <table className=" w-full text-white">
           {isLoading ? (
             <Loader size="size-10" />
           ) : (
