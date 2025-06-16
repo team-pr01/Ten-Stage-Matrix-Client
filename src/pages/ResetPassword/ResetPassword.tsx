@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import Loader from "../../components/Shared/Loader/Loader";
 import { IMAGES } from "../../assets";
 import { useForgotPasswordMutation } from "../../redux/Features/Auth/authApi";
@@ -11,6 +11,7 @@ type TFormValues = {
 };
 
 const ResetPassword = () => {
+  const {token} = useParams();
      const [forgotPassword, { isLoading }] = useForgotPasswordMutation();
       const navigate = useNavigate();
       const {
@@ -18,8 +19,6 @@ const ResetPassword = () => {
         handleSubmit,
         formState: { errors },
       } = useForm<TFormValues>();
-
-      const token = ""
     
       const handleSignin = async (data: TFormValues) => {
         try {
@@ -92,7 +91,7 @@ const ResetPassword = () => {
                 type="submit"
                 className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-3"
               >
-                {isLoading ? <Loader size="size-6" /> : "Submit"}
+                {isLoading ? <Loader size="size-6" /> : "Reset"}
               </button>
 
               <div className="flex flex-col gap-2 mt-[17px]">

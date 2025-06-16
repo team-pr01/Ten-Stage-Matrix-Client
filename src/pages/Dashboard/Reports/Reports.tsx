@@ -14,57 +14,6 @@ import {
 } from "../../../redux/Features/User/userApi";
 import { TeamTreeGraph } from "../../Home/TeamTreeGraph";
 
-const referralData:any = {
-  name: 'Y',
-  color: 'dark',
-  children: [
-    {
-      name: 'A',
-      color: 'light',
-      children: [
-        { 
-          name: 'C', 
-          color: 'dark', 
-          children: [
-            { name: 'G', color: 'light' }, 
-            { name: 'L', color: 'light' }
-          ] 
-        },
-        { 
-          name: 'E', 
-          color: 'dark', 
-          children: [
-            { name: 'H', color: 'light' },
-            { name: 'M', color: 'light' }
-          ]
-        },
-      ],
-    },
-    {
-      name: 'B',
-      color: 'light',
-      children: [
-        { 
-          name: 'D', 
-          color: 'dark', 
-          children: [
-            { name: 'I', color: 'light' }, 
-            { name: 'J', color: 'light' }
-          ] 
-        },
-        { 
-          name: 'F', 
-          color: 'dark', 
-          children: [
-            { name: 'N', color: 'light' }, 
-            { name: 'K', color: 'light' }
-          ]
-        },
-      ],
-    },
-  ],
-};
-
 const Reports = () => {
   const { data } = useGetUserDetailsQuery({});
   const { data: referrals } = useGetReferralListQuery({});
@@ -133,7 +82,7 @@ const Reports = () => {
       {activeTab === "Performance" && <PerformanceTab />}
       {activeTab === "Team Tree" && <ReferralTree />}
       {activeTab === "Team Tree Graph" && <div className="overflow-x-auto mt-10">
-        <TeamTreeGraph node={referralData} />
+        <TeamTreeGraph />
       </div>}
     </div>
   );

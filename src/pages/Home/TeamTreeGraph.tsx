@@ -75,7 +75,6 @@ Position: ${nodeDatum.attributes?.position}`}
             </g>
           );
         }}
-        // To style links, use the 'pathClassFunc' or global CSS targeting .rd3t-link
       />
     </div>
   );

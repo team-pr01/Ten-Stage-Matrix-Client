@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Loader from "../../components/Shared/Loader/Loader";
 import { IMAGES } from "../../assets";
 import { useForgotPasswordMutation } from "../../redux/Features/Auth/authApi";
@@ -11,7 +11,6 @@ type TFormValues = {
 
 const ForgotPassword = () => {
      const [forgotPassword, { isLoading }] = useForgotPasswordMutation();
-      const navigate = useNavigate();
       const {
         register,
         handleSubmit,
@@ -27,7 +26,6 @@ const ForgotPassword = () => {
     
           if (response?.message) {
             toast.success(response?.message || "Reset credentials set to your email.");
-            navigate("/reset-password");
           }
         } catch (error) {
           const err = error as { data?: { error?: string } };
