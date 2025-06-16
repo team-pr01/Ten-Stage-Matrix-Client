@@ -31,8 +31,8 @@ const authApi = baseApi.injectEndpoints({
     }),
 
     resetPassword: builder.mutation({
-      query: ({ resetPasswordData }) => ({
-        url: `/users/reset-password}`,
+      query: ({ resetPasswordData, token }) => ({
+        url: `/users/reset-password/${token}`,
         method: "POST",
         body: resetPasswordData,
         credentials: "include",

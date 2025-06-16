@@ -31,7 +31,7 @@ const Reports = () => {
     {
       icon: ICONS.totalReferral,
       title: "Total Referrals",
-      value: `${data?.data?.team?.total_referrals}`,
+      value: `${data?.data?.team?.total_referrals || 0}`,
       description: "",
     },
     {

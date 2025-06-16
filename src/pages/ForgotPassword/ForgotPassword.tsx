@@ -63,10 +63,6 @@ const ForgotPassword = () => {
                 )}
               </div>
 
-              <div className="flex justify-end mt-3">
-                <Link to={"/forgot-password"} className="text-primary-10 text-sm hover:underline">Forgot Password?</Link>
-              </div>
-
               <button
                 type="submit"
                 className="p-2 w-full  h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-3"
