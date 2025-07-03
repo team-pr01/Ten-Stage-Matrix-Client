@@ -23,7 +23,7 @@ const Navbar = () => {
     // Dispatch logout and navigate
     dispatch(logout());
     toast.success("Logged out successfully.");
-    navigate("/signin");
+    navigate("/auth/signin");
   };
 
   return (
@@ -60,7 +60,7 @@ const Navbar = () => {
             {!user ? (
               <div className="hidden lg:flex items-center gap-6 z-10">
                 <Link
-                  to={"/signin"}
+                  to={"/auth/signin"}
                   className="p-2 w-[126px] h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium flex items-center justify-center"
                 >
                   Sign In

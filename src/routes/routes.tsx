@@ -19,6 +19,7 @@ import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
 // import Home from "../pages/Home/Home";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
+import AuthLayout from "../layouts/AuthLayout/AuthLayout";
 
 export const router = createBrowserRouter([
   {
@@ -36,7 +37,7 @@ export const router = createBrowserRouter([
       },
      
       {
-        path: "/signup",
+        path: "/  signup",
         element: <Signup />,
       },
       {
@@ -53,6 +54,34 @@ export const router = createBrowserRouter([
       },
       {
         path: "/signup-success",
+        element: <SignupSuccess />,
+      },
+    ],
+  },
+  {
+    path: "/auth",
+    element: <AuthLayout />,
+    errorElement: <NotFound />,
+    children: [
+     
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "signin",
+        element: <SignIn />,
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />,
+      },
+      {
+        path: "reset-password/:token",
+        element: <ResetPassword />,
+      },
+      {
+        path: "signup-success",
         element: <SignupSuccess />,
       },
     ],

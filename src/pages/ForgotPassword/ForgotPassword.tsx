@@ -72,7 +72,7 @@ const ForgotPassword = () => {
 
               <div className="flex flex-col gap-2 mt-[17px]">
                 <p className="text-neutral-85 text-center">
-                  Back to <Link to={"/signin"} className="text-white underline">Signin</Link>
+                  Back to <Link to={"/auth/signin"} className="text-white underline">Signin</Link>
                 </p>
               </div>
             </form>

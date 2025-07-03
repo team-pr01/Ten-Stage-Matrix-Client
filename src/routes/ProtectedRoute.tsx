@@ -17,7 +17,7 @@ const ProtectedRoute: React.FC<{ children: React.ReactNode }> = ({ children }) =
   }, [user]);
 
   if (!user) {
-    return <Navigate to="/signin" replace />;
+    return <Navigate to="/auth/signin" replace />;
   }
 
   return <>{children}</>;

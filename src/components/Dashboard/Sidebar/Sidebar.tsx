@@ -20,7 +20,7 @@ const Sidebar = () => {
     dispatch(logout());
     toast.success("Logged out successfully.");
     localStorage.clear();
-    navigate("/signin");
+    navigate("/auth/signin");
   };
 
   return (

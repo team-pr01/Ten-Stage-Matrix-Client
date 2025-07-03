@@ -34,7 +34,7 @@ const ResetPassword = () => {
 
       if (response?.message) {
         toast.success(response?.message || "Password reset successfully");
-        navigate("/signin");
+        navigate("/auth/signin");
       }
     } catch (error) {
       const err = error as { data?: { error?: string } };
@@ -99,7 +99,7 @@ const ResetPassword = () => {
               <div className="flex flex-col gap-2 mt-[17px]">
                 <p className="text-neutral-85 text-center">
                   Back to{" "}
-                  <Link to={"/signin"} className="text-white underline">
+                  <Link to={"/auth/signin"} className="text-white underline">
                     Signin
                   </Link>
                 </p>

@@ -62,13 +62,7 @@ const SignIn = () => {
   };
 
   return (
-    <div className="min-h-screen w-full font-Outfit relative flex flex-col gap-[60px] items-center justify-center px-5 py-10">
-      <img
-        src={IMAGES.authBg}
-        alt=""
-        className="w-full h-full absolute top-0"
-      />
-
+    <div className="flex flex-col gap-[60px] items-center justify-center w-full">
       <div className="relative flex flex-col gap-3 justify-center w-full">
         <Link to={"https://tenstagematrix.com"} className="mx-auto">
           <img

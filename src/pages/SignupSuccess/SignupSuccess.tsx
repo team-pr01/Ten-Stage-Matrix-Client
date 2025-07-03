@@ -57,7 +57,7 @@ const SignupSuccess = () => {
             />
           </div>
 
-          <Link to={"/signin"}
+          <Link to={"/auth/signin"}
             className="p-2 h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer"
           >
            Back to Sign In

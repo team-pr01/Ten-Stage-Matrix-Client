@@ -46,7 +46,7 @@ const DashboardHamburgerMenu: React.FC = () => {
     dispatch(logout());
     toast.success("Logged out successfully.");
     localStorage.clear();
-    navigate("/signin");
+    navigate("/auth/signin");
   };
 
   return (
@@ -93,7 +93,7 @@ const DashboardHamburgerMenu: React.FC = () => {
         {!user ? (
           <div className="flex flex-col items-center gap-6 z-10">
             <Link
-              to={"/signin"}
+              to={"/auth/signin"}
               className="p-2 w-full h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium flex items-center justify-center"
             >
               Sign In
