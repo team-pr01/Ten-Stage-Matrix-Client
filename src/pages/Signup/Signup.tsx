@@ -3,9 +3,9 @@ import { ICONS, IMAGES } from "../../assets";
 import { Link, useNavigate } from "react-router-dom";
 import { useSignupMutation } from "../../redux/Features/Auth/authApi";
 import { toast } from "sonner";
-import Loader from "../../components/Shared/Loader/Loader";
 import TextInput from "../../components/Reusable/TextInput/TextInput";
 import { useState } from "react";
+import Button from "../../components/Reusable/Button/Button";
 
 type TFormValues = {
   name: string;
@@ -154,26 +154,13 @@ const Signup = () => {
                 })}
               />
 
-              <button
-                type="submit"
-                className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 transition duration-300 text-white font-medium text-sm text-center cursor-pointer"
-                style={{
-                  boxShadow: `
-                    inset 0px 2px 2px 0px #D26407,
-                    inset 0px -4px 4px 0px rgba(0, 0, 0, 0.35),
-                    inset 0px 4px 4px 0px rgba(255, 255, 255, 0.40),
-                    0px 4px 24px 0px rgba(168, 82, 5, 0.50)
-                  `,
-                }}
-              >
-                {isLoading ? <Loader size="size-6" /> : "Create Account"}
-              </button>
+              <Button label="Create Account" isLoading={isLoading} />
 
               <div className="flex flex-col gap-2">
                 <p className="text-neutral-85 text-center">
                   Already have an account?{" "}
                   <Link to={"/auth/signin"} className="font-bold text-white">
-                    Login Here
+                    Signin
                   </Link>
                 </p>
               </div>
