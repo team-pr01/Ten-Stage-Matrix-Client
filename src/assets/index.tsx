@@ -74,6 +74,9 @@ import privateKey from "./icons/private-key.svg";
 import passcode from "./icons/passcode.svg";
 import eyeOpen from "./icons/eye-open.svg";
 import eyeClose from "./icons/eye-close.svg";
+import userName from "./icons/user-name.svg";
+import emailIcon from "./icons/email-icon.svg";
+import referralCodeIcon from "./icons/referral-code-icon.svg";
 
 
 export const IMAGES = {
@@ -153,5 +156,8 @@ export const ICONS = {
     privateKey,
     passcode, 
     eyeOpen,
-    eyeClose
+    eyeClose,
+    userName,
+    emailIcon,
+    referralCodeIcon
 }

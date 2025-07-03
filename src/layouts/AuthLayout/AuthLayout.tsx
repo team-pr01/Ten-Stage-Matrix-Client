@@ -9,7 +9,7 @@ const AuthLayout = () => {
         alt=""
         className="w-screen h-full absolute top-0"
       />
-         <Outlet/>
+      <Outlet />
     </div>
   );
 };

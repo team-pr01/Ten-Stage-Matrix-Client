@@ -9,6 +9,7 @@ import { useDispatch } from "react-redux";
 import { setUser } from "../../redux/Features/Auth/authSlice";
 import { useState } from "react";
 import "./AnimatedGradient.css";
+import TextInput from "../../components/Reusable/TextInput/TextInput";
 
 type TFormValues = {
   identifier: string;
@@ -84,41 +85,15 @@ const SignIn = () => {
             }}
           >
             <form onSubmit={handleSubmit(handleSignin)} className="z-10">
-              <div className="flex flex-col gap-2">
-                <label htmlFor="identifier" className="text-white mb-1">
-                  Private key
-                </label>
-
-                <div className="relative">
-                  <img
-                    src={ICONS.privateKey}
-                    alt="private key"
-                    className="absolute left-5 top-1/2 -translate-y-1/2 size-5 z-10 pointer-events-none"
-                  />
-                  <div className="group rounded-[8px] bg-neutral-90 p-[1px] transition-all duration-500 hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400">
-                    <input
-                      id="identifier"
-                      type="text"
-                      placeholder="Private key"
-                      {...register("identifier", {
-                        required: "Identifier is required",
-                      })}
-                      className={`w-full pl-12 pr-6 py-[15px] rounded-[7px] bg-neutral-140 focus:outline-none transition duration-300 focus:border-primary-45/70 text-neutral-85 ${
-                        errors?.identifier ? "ring-2 ring-red-500" : ""
-                      }`}
-                      style={{
-                        boxShadow:
-                          "inset 0px 4px 10.5px 0px rgba(255, 255, 255, 0.25)",
-                      }}
-                    />
-                  </div>
-                </div>
-                {errors?.identifier?.message && (
-                  <span className="text-red-500 text-sm">
-                    {String(errors.identifier.message)}
-                  </span>
-                )}
-              </div>
+              <TextInput
+                label="Private Key"
+                placeholder="Private key"
+                icon={ICONS.privateKey}
+                error={errors.identifier}
+                {...register("identifier", {
+                  required: "Identifier is required",
+                })}
+              />
 
               {/* Passcode Field */}
               <div className="flex flex-col gap-2 mt-[17px]">
@@ -161,7 +136,7 @@ const SignIn = () => {
                     />
                   </div>
                 </div>
-                =
+
                 {errors?.password?.message && (
                   <span className="text-red-500 text-sm">
                     {String(errors.password.message)}
@@ -169,7 +144,7 @@ const SignIn = () => {
                 )}
               </div>
 
-              <div className="flex justify-end">
+              <div className="flex justify-end my-3">
                 <Link
                   to={"/forgot-password"}
                   className="text-primary-10 text-sm hover:underline"
@@ -196,7 +171,7 @@ const SignIn = () => {
               <div className="flex flex-col gap-2 mt-[17px]">
                 <p className="text-neutral-85 text-center">
                   New here?{" "}
-                  <Link to={"/signup"} className="font-medium text-white">
+                  <Link to={"/auth/signup"} className="font-medium text-white">
                     Create An Account
                   </Link>
                 </p>

@@ -35,7 +35,7 @@ export const router = createBrowserRouter([
         path: "/",
         element: <SignIn />,
       },
-     
+
       {
         path: "/  signup",
         element: <Signup />,
@@ -63,7 +63,6 @@ export const router = createBrowserRouter([
     element: <AuthLayout />,
     errorElement: <NotFound />,
     children: [
-     
       {
         path: "signup",
         element: <Signup />,
@@ -88,7 +87,11 @@ export const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <ProtectedRoute><DashboardLayout /></ProtectedRoute>,
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     errorElement: <NotFound />,
     children: [
       {
