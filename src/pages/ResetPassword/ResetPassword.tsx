@@ -1,9 +1,10 @@
 import { Link, useNavigate, useParams } from "react-router-dom";
-import Loader from "../../components/Shared/Loader/Loader";
-import { IMAGES } from "../../assets";
+import { ICONS, IMAGES } from "../../assets";
 import { useResetPasswordMutation } from "../../redux/Features/Auth/authApi";
 import { useForm } from "react-hook-form";
 import { toast } from "sonner";
+import { useState } from "react";
+import Button from "../../components/Reusable/Button/Button";
 
 type TFormValues = {
   password: string;
@@ -11,6 +12,8 @@ type TFormValues = {
 };
 
 const ResetPassword = () => {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
   const { token } = useParams();
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
   const navigate = useNavigate();
@@ -30,7 +33,10 @@ const ResetPassword = () => {
         password: data.password,
         confirm_password: data.confirm_password,
       };
-      const response = await resetPassword({resetPasswordData:payload, token:token}).unwrap();
+      const response = await resetPassword({
+        resetPasswordData: payload,
+        token: token,
+      }).unwrap();
 
       if (response?.message) {
         toast.success(response?.message || "Password reset successfully");
@@ -43,60 +49,124 @@ const ResetPassword = () => {
   };
 
   return (
-    <div className="h-full min-h-screen font-Outfit py-28 relative">
-      <div className="bg-primary-30 w-[300px] lg:w-[432px] h-[351px] rounded-[431px] blur-[75px] z-0 absolute top-0 left-0"></div>
-      <div className="bg-primary-15 w-[300px] lg:w-[443px] h-[351px] rounded-[443px] blur-[75px] z-10 absolute -top-32 right-0"></div>
-      <div className="max-w-[1250px] mx-auto px-5 2xl:px-0">
-        <div className="w-full max-w-full md:max-w-[600px] mx-auto z-10">
-          <div className="z-10 bg-neutral-30 rounded-xl p-5 relative">
-            <Link to={"https://tenstagematrix.com"}>
-              <img src={IMAGES.logo} alt="logo" className="z-10" />
-            </Link>
-            <h1 className="text-neutral-80 text-2xl mt-[17px] text-center">Reset Your Passcode</h1>
+    <div className="flex flex-col gap-[60px] items-center justify-center w-full">
+      <div className="relative flex flex-col gap-3 justify-center w-full">
+        <Link to={"https://tenstagematrix.com"} className="mx-auto">
+          <img
+            src={IMAGES.logo}
+            alt="logo"
+            className="z-10 w-[208px] h-[52px]"
+          />
+        </Link>
+        <h1 className="text-neutral-80 text-[32px] text-center">
+          Reset Your Passcode
+        </h1>
+      </div>
 
-            <form onSubmit={handleSubmit(handleSignin)} className="mt-[42px] z-10">
-              <div className="flex flex-col gap-2 mt-[17px]">
-                <input
-                  type="password"
-                  placeholder="Passcode"
-                  {...register("password", {
-                    required: "Passcode is required",
-                  })}
-                  className={`w-full p-4 rounded-[8px] border focus:outline-none transition duration-300 text-neutral-85 ${
-                    errors?.password ? "border-red-500" : "border-neutral-90 focus:border-primary-10/50"
-                  }`}
-                />
+      <div className="max-w-[580px] mx-auto px-5 2xl:px-0 flex items-center justify-center w-full">
+        <div className="animated-border rounded-[28px]">
+          <div
+            className="z-10 bg-[#0e092a] border-[#ffffff1a] border-2 rounded-[28px] p-6 relative w-full h-full backdrop-blur-sm"
+            style={{
+              boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+            }}
+          >
+            <form onSubmit={handleSubmit(handleSignin)} className="flex flex-col gap-5">
+              {/* Passcode Field */}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="password" className="text-white mb-1">Passcode</label>
+                <div className="relative">
+                  <img
+                    src={ICONS.passcode}
+                    alt="passcode"
+                    className="absolute left-5 top-1/2 -translate-y-1/2 size-5 z-10 pointer-events-none"
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-5 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+                    onClick={() => setShowPassword((prev) => !prev)}
+                  >
+                    <img
+                      src={showPassword ? ICONS.eyeClose : ICONS.eyeOpen}
+                      alt="toggle password"
+                      className="size-5"
+                    />
+                  </button>
+                  <div className="group rounded-[8px] bg-neutral-90 p-[1px] transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 group-focus-within:bg-gradient-to-r group-focus-within:from-orange-400 group-focus-within:via-green-400 group-focus-within:to-cyan-400">
+                    <input
+                      id="password"
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Passcode"
+                      {...register("password", {
+                        required: "Passcode is required",
+                      })}
+                      className={`w-full pl-12 pr-12 py-[15px] rounded-[7px] bg-neutral-140 focus:outline-none transition duration-300 text-neutral-85 ${
+                        errors?.password ? "ring-2 ring-red-500" : ""
+                      }`}
+                      style={{
+                        boxShadow:
+                          "inset 0px 4px 10.5px 0px rgba(255, 255, 255, 0.25)",
+                      }}
+                    />
+                  </div>
+                </div>
                 {errors?.password?.message && (
-                  <span className="text-red-500 text-sm">{errors.password.message}</span>
+                  <span className="text-red-500 text-sm">
+                    {String(errors.password.message)}
+                  </span>
                 )}
               </div>
 
-              <div className="flex flex-col gap-2 mt-[17px]">
-                <input
-                  type="password"
-                  placeholder="Re-enter your passcode"
-                  {...register("confirm_password", {
-                    required: "Re-enter your passcode",
-                    validate: (value) =>
-                      value === passwordValue || "Passwords do not match",
-                  })}
-                  className={`w-full p-4 rounded-[8px] border focus:outline-none transition duration-300 text-neutral-85 ${
-                    errors?.confirm_password ? "border-red-500" : "border-neutral-90 focus:border-primary-10/50"
-                  }`}
-                />
+              {/* Confirm Passcode Field */}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="confirm_password" className="text-white mb-1">Confirm Passcode</label>
+                <div className="relative">
+                  <img
+                    src={ICONS.passcode}
+                    alt="passcode"
+                    className="absolute left-5 top-1/2 -translate-y-1/2 size-5 z-10 pointer-events-none"
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-5 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+                    onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  >
+                    <img
+                      src={showConfirmPassword ? ICONS.eyeClose : ICONS.eyeOpen}
+                      alt="toggle confirm password"
+                      className="size-5"
+                    />
+                  </button>
+                  <div className="group rounded-[8px] bg-neutral-90 p-[1px] transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 group-focus-within:bg-gradient-to-r group-focus-within:from-orange-400 group-focus-within:via-green-400 group-focus-within:to-cyan-400">
+                    <input
+                      id="confirm_password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      placeholder="Re-enter Passcode"
+                      {...register("confirm_password", {
+                        required: "Re-enter your passcode",
+                        validate: (value) =>
+                          value === passwordValue || "Passcodes do not match",
+                      })}
+                      className={`w-full pl-12 pr-12 py-[15px] rounded-[7px] bg-neutral-140 focus:outline-none transition duration-300 text-neutral-85 ${
+                        errors?.confirm_password ? "ring-2 ring-red-500" : ""
+                      }`}
+                      style={{
+                        boxShadow:
+                          "inset 0px 4px 10.5px 0px rgba(255, 255, 255, 0.25)",
+                      }}
+                    />
+                  </div>
+                </div>
                 {errors?.confirm_password?.message && (
-                  <span className="text-red-500 text-sm">{errors.confirm_password.message}</span>
+                  <span className="text-red-500 text-sm">
+                    {String(errors.confirm_password.message)}
+                  </span>
                 )}
               </div>
 
-              <button
-                type="submit"
-                className="p-2 w-full h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer mt-3"
-              >
-                {isLoading ? <Loader size="size-6" /> : "Reset"}
-              </button>
+              <Button label="Reset" isLoading={isLoading} />
 
-              <div className="flex flex-col gap-2 mt-[17px]">
+              <div className="flex flex-col gap-2">
                 <p className="text-neutral-85 text-center">
                   Back to{" "}
                   <Link to={"/auth/signin"} className="text-white underline">

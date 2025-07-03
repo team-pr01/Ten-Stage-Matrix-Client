@@ -1,5 +1,3 @@
-import TextInput from "../../Reusable/TextInput/TextInput";
-import TextArea from "../../Reusable/TextArea";
 import { useForm } from "react-hook-form";
 
 type TFormValues = {
@@ -10,9 +8,9 @@ type TFormValues = {
 };
 const ContactUsForm = () => {
   const {
-    register,
+    // register,
     handleSubmit,
-    formState: { errors },
+    // formState: { errors },
   } = useForm<TFormValues>();
 
   const sendMessage = (data: TFormValues) => {
@@ -23,7 +21,7 @@ const ContactUsForm = () => {
       onSubmit={handleSubmit(sendMessage)}
       className="flex flex-col gap-[18px] w-full xl:w-[45%] z-10"
     >
-      <div className="flex flex-col md:flex-row gap-[18px]">
+      {/* <div className="flex flex-col md:flex-row gap-[18px]">
         <TextInput
           placeholder="Your Name"
           error={errors.name}
@@ -52,13 +50,13 @@ const ContactUsForm = () => {
         {...register("message")}
       />
       <div className="flex justify-end">
-<button
-      type="submit"
-        className="p-2 w-[170px] h-[58px] rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center"
-      >
-        Send Message
-      </button>
-      </div>
+        <button
+          type="submit"
+          className="p-2 w-[170px] h-[58px] rounded-lg border border-primary-10 bg-primary-10 text-white font-medium flex items-center justify-center"
+        >
+          Send Message
+        </button>
+      </div> */}
     </form>
   );
 };

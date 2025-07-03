@@ -61,7 +61,7 @@ const ForgotPassword = () => {
               onSubmit={handleSubmit(handleSignin)}
               className="flex flex-col gap-5"
             >
-               <TextInput
+              <TextInput
                 label="Email"
                 placeholder="Your Email Address"
                 icon={ICONS.emailIcon}
