@@ -15,6 +15,7 @@ import instagram6 from "./images/image6.png";
 import signup from "./images/signup.png";
 import signin from "./images/signin.png";
 import imagePlaceholder from "./images/image-placeholder.jpg";
+import authBg from "./images/auth-bg.png";
 
 
 
@@ -69,6 +70,10 @@ import changePassword from "./icons/reset-password 1.png";
 import twoFA from "./icons/biometric-authentication 1.png";
 import emailAlert from "./icons/email-alert.png";
 import notification from "./icons/notification.png";
+import privateKey from "./icons/private-key.svg";
+import passcode from "./icons/passcode.svg";
+import eyeOpen from "./icons/eye-open.svg";
+import eyeClose from "./icons/eye-close.svg";
 
 
 export const IMAGES = {
@@ -89,6 +94,7 @@ export const IMAGES = {
     signup,
     signin,
     imagePlaceholder,
+    authBg,
 };
 
 export const ICONS = {
@@ -143,4 +149,9 @@ export const ICONS = {
     twoFA,
     emailAlert,
     notification,
+
+    privateKey,
+    passcode, 
+    eyeOpen,
+    eyeClose
 }

@@ -1,0 +1,33 @@
+.animated-border {
+  width: 100%;
+  position: relative;
+  overflow: hidden;
+  padding: 3px;
+  z-index: 1;
+  background-color: #0d1117;
+}
+.animated-border::before {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: conic-gradient(from 0deg at 50% 20%, #0b052b, #2af59570);
+  animation: spinGradient 5s linear infinite;
+  filter: blur(6px);
+}
+
+/* The Rotation Animation */
+@keyframes spinGradient {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.animated-border p {
+  margin: 0;
+}
