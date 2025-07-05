@@ -1,7 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { ICONS, IMAGES } from "../../../assets";
+import { useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
 
 const DashboardHeader = () => {
+  const { data } = useGetUserProfileQuery({});
+
   const location = useLocation();
   const title =
     location.pathname === "/dashboard"
@@ -32,9 +35,9 @@ const DashboardHeader = () => {
       <button className="p-[10px] rounded-[20px] bg-neutral-25/10 shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
         <img src={IMAGES.avatar3} alt="" className="size-12 rounded-full" />
         <div>
-          <h1 className="text-white font-bold leading-5">Rahul Sutradhar</h1>
+          <h1 className="text-white font-bold leading-5 text-left">{data?.data?.profile?.name || "Loading..."}</h1>
           <p className="text-neutral-145 font-medium text-xs leading-5 text-left">
-            rahul@gmail.com
+            {data?.data?.profile?.email || "Loading..."}
           </p>
         </div>
         <img src={ICONS.leftArrow} alt="" className="size-6 rounded-full" />
