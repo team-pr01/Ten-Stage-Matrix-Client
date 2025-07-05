@@ -4,12 +4,8 @@ import ReferralActivity from "../../../components/Dashboard/TransactionsPage/Ref
 import ActivityLog from "../../../components/Dashboard/NetworkPage/ActivityLog/ActivityLog";
 
 const Transactions = () => {
-  const [activeTab, setActiveTab] = useState<
-    "Transactions"
-  >("Transactions");
-  const tabButtons: Array<"Transactions"> = [
-    "Transactions",
-  ];
+  const [activeTab, setActiveTab] = useState<"Transactions">("Transactions");
+  const tabButtons: Array<"Transactions"> = ["Transactions"];
 
   return (
     <div className="font-Outfit">
@@ -43,8 +39,6 @@ const Transactions = () => {
       <div className="mt-7">
         <ActivityLog />
       </div>
-
-      
 
       {/* <ReferralStats data={data?.data?.team} /> */}
     </div>

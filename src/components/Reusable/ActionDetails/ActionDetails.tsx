@@ -16,7 +16,10 @@ const   ActionDetails = () => {
   );
 
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full overflow-y-auto custom-scrollbar">
+    <div  style={{
+        boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+        backdropFilter: "blur(5.05px)",
+      }} className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar custom-scrollbar">
       <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
 
       <div className=" mt-6">

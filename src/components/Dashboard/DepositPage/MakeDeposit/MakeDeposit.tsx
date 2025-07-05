@@ -1,6 +1,9 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState, useEffect } from "react";
-import { useGenerateWalletAddressMutation, useGetPublicSettingsQuery } from "../../../../redux/Features/User/userApi";
+import {
+  useGenerateWalletAddressMutation,
+  useGetPublicSettingsQuery,
+} from "../../../../redux/Features/User/userApi";
 import QRCode from "react-qr-code";
 import { GoCopy } from "react-icons/go";
 import { MdOutlineDone } from "react-icons/md";
@@ -13,8 +16,7 @@ declare global {
 }
 
 const MakeDeposit = () => {
-
-  const {data:settings} = useGetPublicSettingsQuery({});
+  const { data: settings } = useGetPublicSettingsQuery({});
   const [generateWalletAddress] = useGenerateWalletAddressMutation();
 
   const [isCopied, setIsCopied] = useState(false);
@@ -31,7 +33,7 @@ const MakeDeposit = () => {
 
   const [data, setData] = useState<any>(null);
 
-   const handleMakeDeposit1 = async () => {
+  const handleMakeDeposit1 = async () => {
     try {
       const response = await generateWalletAddress({}).unwrap();
       if (response?.success) {
@@ -52,29 +54,28 @@ const MakeDeposit = () => {
   };
 
   useEffect(() => {
-  const checkAndGenerateWallet = async () => {
-    const stored = localStorage.getItem("walletData");
-    const currentTime = new Date().getTime();
+    const checkAndGenerateWallet = async () => {
+      const stored = localStorage.getItem("walletData");
+      const currentTime = new Date().getTime();
 
-    if (stored) {
-      const { data, expiry } = JSON.parse(stored);
-      if (currentTime < expiry) {
-        // Data still valid
-        setData(data);
-        return;
-      } else {
-        // Expired, remove it
-        localStorage.removeItem("walletData");
+      if (stored) {
+        const { data, expiry } = JSON.parse(stored);
+        if (currentTime < expiry) {
+          // Data still valid
+          setData(data);
+          return;
+        } else {
+          // Expired, remove it
+          localStorage.removeItem("walletData");
+        }
       }
-    }
 
-    // No valid data found — call the function
-    await handleMakeDeposit1();
-  };
+      // No valid data found — call the function
+      await handleMakeDeposit1();
+    };
 
-  checkAndGenerateWallet();
-}, []);
-
+    checkAndGenerateWallet();
+  }, []);
 
   // Load data from localStorage if still valid
   useEffect(() => {
@@ -97,7 +98,7 @@ const MakeDeposit = () => {
     <div className="font-Outfit">
       {/* Conditionally render QR code */}
       {data?.wallet_address && (
-        <div className="mt-6 w-fit">
+        <div className="w-fit">
           <h2 className="text-white text-lg font-semibold mb-2">
             Scan QR to Deposit
           </h2>
@@ -107,22 +108,31 @@ const MakeDeposit = () => {
             fgColor="#ffffff"
             size={200}
           />
-          <div className="bg-neutral-50/50 text-white mx-auto font-medium cursor-pointer rounded-md py-1 px-4 tracking-wider font-mono flex items-center justify-between gap-4 my-6 text-[8px] md:text-base">
-            {data?.wallet_address}
-            <GoCopy
-              onClick={() => handleCopy(data?.wallet_address)}
-              className={`${
-                isCopied ? "opacity-0 hidden" : "opacity-100 flex"
-              } transition-all duration-300 cursor-pointer`}
-            />
-            <MdOutlineDone
-              className={`${
-                isCopied ? "opacity-100 flex" : "opacity-0 hidden"
-              } transition-all duration-300 cursor-pointer`}
-            />
+          <div className="my-7 p-[1px] rounded-md bg-transparent hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 transition-all duration-300">
+            <div
+              style={{
+                boxShadow: "inset 0px 4px 10.5px 0px rgba(255, 255, 255, 0.25)",
+              }}
+              className="bg-neutral-140 text-white font-medium rounded-md py-4 px-6 tracking-wider font-mono flex items-center justify-between gap-4 text-[8px] md:text-base w-full h-full"
+            >
+              {data?.wallet_address}
+              <GoCopy
+                onClick={() => handleCopy(data?.wallet_address)}
+                className={`${
+                  isCopied ? "opacity-0 hidden" : "opacity-100 flex"
+                } transition-all duration-300 cursor-pointer`}
+              />
+              <MdOutlineDone
+                className={`${
+                  isCopied ? "opacity-100 flex" : "opacity-0 hidden"
+                } transition-all duration-300 cursor-pointer`}
+              />
+            </div>
           </div>
+
           <p className="text-red-500">
-            This wallet address will be expired in {data?.expires_in}. Please make sure to deposit within the time limit.
+            This wallet address will be expired in {data?.expires_in}. Please
+            make sure to deposit within the time limit.
           </p>
         </div>
       )}

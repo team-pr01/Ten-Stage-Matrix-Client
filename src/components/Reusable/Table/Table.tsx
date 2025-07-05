@@ -15,7 +15,7 @@ const Table = ({ title, tableHeaders, data, isLoading }: TableProps) => {
         boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
         backdropFilter: "blur(5.05px)",
       }}
-      className="min-h-[350px] rounded-[28px] border-2 border-neutral-155 bg-neutral-30 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar"
+      className="min-h-[350px] rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar"
     >
       <h1 className="text-2xl font-medium text-white">{title}</h1>
 
