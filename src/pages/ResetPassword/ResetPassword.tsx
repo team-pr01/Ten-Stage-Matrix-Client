@@ -13,7 +13,8 @@ type TFormValues = {
 
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
   const { token } = useParams();
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
   const navigate = useNavigate();
@@ -71,10 +72,15 @@ const ResetPassword = () => {
               boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
             }}
           >
-            <form onSubmit={handleSubmit(handleSignin)} className="flex flex-col gap-5">
+            <form
+              onSubmit={handleSubmit(handleSignin)}
+              className="flex flex-col gap-5"
+            >
               {/* Passcode Field */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="password" className="text-white mb-1">Passcode</label>
+                <label htmlFor="password" className="text-white mb-1">
+                  New Passcode
+                </label>
                 <div className="relative">
                   <img
                     src={ICONS.passcode}
@@ -96,7 +102,7 @@ const ResetPassword = () => {
                     <input
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      placeholder="Passcode"
+                      placeholder="Enter New Passcode"
                       {...register("password", {
                         required: "Passcode is required",
                       })}
@@ -119,7 +125,9 @@ const ResetPassword = () => {
 
               {/* Confirm Passcode Field */}
               <div className="flex flex-col gap-2">
-                <label htmlFor="confirm_password" className="text-white mb-1">Confirm Passcode</label>
+                <label htmlFor="confirm_password" className="text-white mb-1">
+                  Confirm Passcode
+                </label>
                 <div className="relative">
                   <img
                     src={ICONS.passcode}

@@ -63,7 +63,7 @@ const ForgotPassword = () => {
             >
               <TextInput
                 label="Email"
-                placeholder="Your Email Address"
+                placeholder="Enter Email Address"
                 icon={ICONS.emailIcon}
                 error={errors.email}
                 type="email"
@@ -74,7 +74,7 @@ const ForgotPassword = () => {
 
               <Button label="Submit" isLoading={isLoading} />
 
-              <div className="flex flex-col gap-2 mt-[17px]">
+              <div className="flex flex-col gap-2">
                 <p className="text-neutral-85 text-center">
                   Back to{" "}
                   <Link to={"/auth/signin"} className="text-white underline">

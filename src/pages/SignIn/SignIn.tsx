@@ -87,7 +87,7 @@ const SignIn = () => {
             <form onSubmit={handleSubmit(handleSignin)} className="z-10">
               <TextInput
                 label="Private Key"
-                placeholder="Private key"
+                placeholder="Enter Private key"
                 icon={ICONS.privateKey}
                 error={errors.identifier}
                 {...register("identifier", {
@@ -122,7 +122,7 @@ const SignIn = () => {
                     <input
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      placeholder="Passcode"
+                      placeholder="Enter Passcode"
                       {...register("password", {
                         required: "Passcode is required",
                       })}
