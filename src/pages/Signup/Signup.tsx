@@ -11,18 +11,23 @@ type TFormValues = {
   name: string;
   email: string;
   password: string;
+  confirm_password?: string;
   referral_code?: string;
 };
 const Signup = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
   const [signup, { isLoading }] = useSignupMutation();
   const navigate = useNavigate();
 
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors },
   } = useForm<TFormValues>();
+  const passwordValue = watch("password");
 
   const handleSignup = async (data: TFormValues) => {
     try {
@@ -76,7 +81,7 @@ const Signup = () => {
             >
               <TextInput
                 label="Name"
-                placeholder="Enter your name"
+                placeholder="Enter Name"
                 icon={ICONS.userName}
                 error={errors.name}
                 {...register("name", {
@@ -86,7 +91,7 @@ const Signup = () => {
 
               <TextInput
                 label="Email"
-                placeholder="Your Email Address"
+                placeholder="Enter Email Address"
                 icon={ICONS.emailIcon}
                 error={errors.email}
                 type="email"
@@ -122,7 +127,7 @@ const Signup = () => {
                     <input
                       id="password"
                       type={showPassword ? "text" : "password"}
-                      placeholder="Passcode"
+                      placeholder="Enter Passcode"
                       {...register("password", {
                         required: "Passcode is required",
                       })}
@@ -144,9 +149,58 @@ const Signup = () => {
                 )}
               </div>
 
+              {/* Confirm Passcode Field */}
+              <div className="flex flex-col gap-2">
+                <label htmlFor="confirm_password" className="text-white mb-1">
+                  Confirm Passcode
+                </label>
+                <div className="relative">
+                  <img
+                    src={ICONS.passcode}
+                    alt="passcode"
+                    className="absolute left-5 top-1/2 -translate-y-1/2 size-5 z-10 pointer-events-none"
+                  />
+                  <button
+                    type="button"
+                    className="absolute right-5 top-1/2 -translate-y-1/2 z-10 cursor-pointer"
+                    onClick={() => setShowConfirmPassword((prev) => !prev)}
+                  >
+                    <img
+                      src={showConfirmPassword ? ICONS.eyeClose : ICONS.eyeOpen}
+                      alt="toggle confirm password"
+                      className="size-5"
+                    />
+                  </button>
+                  <div className="group rounded-[8px] bg-neutral-90 p-[1px] transition-all duration-300 hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 group-focus-within:bg-gradient-to-r group-focus-within:from-orange-400 group-focus-within:via-green-400 group-focus-within:to-cyan-400">
+                    <input
+                      id="confirm_password"
+                      type={showConfirmPassword ? "text" : "password"}
+                      placeholder="Re-enter Passcode"
+                      {...register("confirm_password", {
+                        required: "Re-enter your passcode",
+                        validate: (value) =>
+                          value === passwordValue || "Passcodes do not match",
+                      })}
+                      className={`w-full pl-12 pr-12 py-[15px] rounded-[7px] bg-neutral-140 focus:outline-none transition duration-300 text-neutral-85 ${
+                        errors?.confirm_password ? "ring-2 ring-red-500" : ""
+                      }`}
+                      style={{
+                        boxShadow:
+                          "inset 0px 4px 10.5px 0px rgba(255, 255, 255, 0.25)",
+                      }}
+                    />
+                  </div>
+                </div>
+                {errors?.confirm_password?.message && (
+                  <span className="text-red-500 text-sm">
+                    {String(errors.confirm_password.message)}
+                  </span>
+                )}
+              </div>
+
               <TextInput
                 label="Referral Code"
-                placeholder="Enter your referral code"
+                placeholder="Enter Referral Code"
                 icon={ICONS.referralCodeIcon}
                 error={errors.referral_code}
                 {...register("referral_code", {
