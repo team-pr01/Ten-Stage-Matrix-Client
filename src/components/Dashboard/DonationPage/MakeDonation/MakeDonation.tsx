@@ -7,7 +7,8 @@ import {
   useMakeDonationMutation,
 } from "../../../../redux/Features/User/userApi";
 import { toast } from "sonner";
-import Loader from "../../../Shared/Loader/Loader";
+import TextInput from "../../../Reusable/TextInput/TextInput";
+import Button from "../../../Reusable/Button/Button";
 
 type TFormValues = {
   amount: string;
@@ -63,47 +64,21 @@ const MakeDonation = () => {
   });
 
   return (
-    <div className="font-Outfit">
-      <h1 className="text-xl text-white font-medium mt-[57px]">
+    <div className="font-Outfit flex flex-col gap-6 xl:gap-10">
+      <h1 className="text-xl text-white font-medium">
         Minimum Donation ${matchedStage?.donation_requirement}
       </h1>
-      <h1 className="text-xl text-white font-medium mt-6">
-        Provide Donation Details
-      </h1>
-      <form onSubmit={handleSubmit(handleMakeDonation)}>
-        <div className="flex flex-col gap-2 mt-[22px]">
-          <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-            Amount
-          </label>
-          <div className="flex items-center justify-between max-w-[415px] relative">
-            <input
-              type="text"
-              placeholder="Enter your amount USD"
-              {...register("amount", {
-                required: "Amount is required",
-              })}
-              className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                errors?.amount ? "border-red-500" : "border-neutral-130"
-              }`}
-            />
-            <img
-              src={ICONS.currency}
-              alt=""
-              className="size-6 absolute right-3"
-            />
-          </div>
-          {typeof errors === "object" && "message" in errors && (
-            <span className="text-red-500 text-sm">
-              {String(errors.message)}
-            </span>
-          )}
-        </div>
-        <button
-          type="submit"
-          className="p-[10px] w-[119px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
-        >
-          {isLoading ? <Loader size="size-6" /> : "Submit"}
-        </button>
+      <form onSubmit={handleSubmit(handleMakeDonation)} className="flex flex-col gap-5">
+        <TextInput
+          label="Amount"
+          placeholder="Enter Amount"
+          icon={ICONS.dollar}
+          error={errors.amount}
+          {...register("amount", {
+            required: "Amount is required",
+          })}
+        />
+        <Button label="Submit" isLoading={isLoading} classNames="w-[176px]" />
       </form>
     </div>
   );

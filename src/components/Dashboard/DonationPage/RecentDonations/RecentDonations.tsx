@@ -6,13 +6,8 @@ import Loader from "../../../Shared/Loader/Loader";
 const RecentDonations = () => {
   const { data, isLoading } = useGetDonationHistoryQuery({});
   return (
-    <div>
-      <h1 className="text-xl text-white font-medium font-Outfit mt-8 mb-7">
-        Donation Details
-      </h1>
-
-      <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full">
-        <h1 className="text-2xl font-medium text-white">Recent Transaction</h1>
+      <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full my-12">
+        <h1 className="text-2xl font-medium text-white">Recent Donations</h1>
 
         <div className="overflow-x-auto custom-scrollbar mt-6">
           <table className="w-full text-white">
@@ -58,7 +53,6 @@ const RecentDonations = () => {
           </table>
         </div>
       </div>
-    </div>
   );
 };
 
