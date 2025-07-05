@@ -4,7 +4,7 @@ import { useState } from "react";
 import ChangePasswordModal from "./ChangePasswordModal";
 
 const Security = () => {
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
     <div className="font-Outfit mt-10">

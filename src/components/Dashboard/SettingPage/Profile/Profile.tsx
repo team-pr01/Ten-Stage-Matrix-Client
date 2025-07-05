@@ -1,48 +1,12 @@
 import { useState } from "react";
-import { useForm } from "react-hook-form";
-import {
-  useGetUserProfileQuery,
-  useUpdateProfileMutation,
-} from "../../../../redux/Features/User/userApi";
-import { toast } from "sonner";
+import { useGetUserProfileQuery } from "../../../../redux/Features/User/userApi";
 import Button from "../../../Reusable/Button/Button";
-import TextInput from "../../../Reusable/TextInput/TextInput";
-import { ICONS } from "../../../../assets";
+import UpdateProfileModal from "../Security/UpdateProfileModal";
 
-type TFormValues = {
-  name?: string;
-  wallet_address?: string;
-};
 const Profile = () => {
+  const [isUpdateProfileModalOpen, setIsUpdateProfileModalOpen] = useState<boolean>(false);
   const { data, isLoading } = useGetUserProfileQuery({});
-  console.log(data);
-  const [updateProfile, { isLoading: isProfileUpdating }] =
-    useUpdateProfileMutation();
 
-  const [isUpdateFormVisible, setIsUpdateFormVisible] =
-    useState<boolean>(false);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<TFormValues>();
-
-  const handleUpdateProfile = async (data: TFormValues) => {
-    try {
-      const payload = {
-        ...data,
-      };
-      const response = await updateProfile(payload).unwrap();
-      if (response?.message) {
-        toast.success(response?.message || "Profile updated successfully!");
-        reset();
-        setIsUpdateFormVisible(false);
-      }
-    } catch (error) {
-      console.error("Error updating profile:", error);
-    }
-  };
   return (
     <div className="min-h-screen ">
       <div className="flex flex-col md:flex-row items-center gap-5">
@@ -72,44 +36,19 @@ const Profile = () => {
               label="Update Details"
               isLoading={isLoading}
               classNames="w-[176px] mt-5"
-              onClick={() => setIsUpdateFormVisible(!isUpdateFormVisible)}
+              onClick={() =>
+                setIsUpdateProfileModalOpen(!isUpdateProfileModalOpen)
+              }
             />
           </div>
         </div>
       </div>
 
-      {isUpdateFormVisible && (
-        <div className="mt-9 max-w-[404px]">
-          <form
-            onSubmit={handleSubmit(handleUpdateProfile)}
-            className="flex flex-col gap-4"
-          >
-            <TextInput
-              label="Name"
-              placeholder="Enter Name"
-              icon={ICONS.userName}
-              error={errors.name}
-              {...register("name", {
-                required: "Name is required",
-              })}
-            />
-            <TextInput
-              label=" Wallet Address"
-              placeholder="Enter  Wallet Address"
-              icon={ICONS.privateKey}
-              error={errors.wallet_address}
-              {...register("wallet_address", {
-                required: " Wallet address is required",
-              })}
-            />
-            <Button
-              label="Save Changes"
-              isLoading={isProfileUpdating}
-              classNames="w-[176px]"
-            />
-          </form>
-        </div>
-      )}
+      <UpdateProfileModal
+        isUpdateProfileModalOpen={isUpdateProfileModalOpen}
+        setIsUpdateProfileModalOpen={setIsUpdateProfileModalOpen}
+        defaultValues={data?.data?.profile}
+      />
     </div>
   );
 };
