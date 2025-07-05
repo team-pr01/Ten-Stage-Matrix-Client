@@ -13,8 +13,7 @@ type TFormValues = {
 
 const ResetPassword = () => {
   const [showPassword, setShowPassword] = useState<boolean>(false);
-  const [showConfirmPassword, setShowConfirmPassword] =
-    useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =useState<boolean>(false);
   const { token } = useParams();
   const [resetPassword, { isLoading }] = useResetPasswordMutation();
   const navigate = useNavigate();

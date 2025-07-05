@@ -4,12 +4,11 @@ import Security from "../../../components/Dashboard/SettingPage/Security/Securit
 
 const Setting = () => {
   const [activeTab, setActiveTab] = useState<
-    "Profile" | "Security" | "Notification"
+    "Profile" | "Security"
   >("Profile");
-  const tabButtons: Array<"Profile" | "Security" | "Notification"> = [
+  const tabButtons: Array<"Profile" | "Security"> = [
     "Profile",
     "Security",
-    // "Notification",
   ];
   return (
     <div>
@@ -35,7 +34,6 @@ const Setting = () => {
 
       {activeTab === "Profile" && <Profile />}
       {activeTab === "Security" && <Security />}
-      {/* {activeTab === "Notification" && <Notification />} */}
     </div>
   );
 };

@@ -1,77 +1,41 @@
 import { ICONS } from "../../../../assets";
-import { useForm } from "react-hook-form";
-import { useChangePasswordMutation } from "../../../../redux/Features/User/userApi";
-import Loader from "../../../Shared/Loader/Loader";
-import { toast } from "sonner";
+import Button from "../../../Reusable/Button/Button";
+import { useState } from "react";
+import ChangePasswordModal from "./ChangePasswordModal";
 
-type TFormValues = {
-  current_password: string;
-  new_password: string;
-  confirmPassword: string;
-};
 const Security = () => {
-  const [changePassword, {isLoading}] = useChangePasswordMutation();
-  // const [isOn, setIsOn] = useState(false);
-  const {
-    register,
-    handleSubmit,
-    reset,
-    formState: { errors },
-  } = useForm<TFormValues>();
-
-  const handleChangePassword = async (data: TFormValues) => {
-    try {
-      const payload = {
-        ...data,
-      };
-      const response = await changePassword(payload).unwrap();
-      if( response?.message) {
-        toast.success(response?.message || "Password updated successfully!");
-        reset();
-      }
-    } catch (error) {
-      console.error("Error updating changing password:", error);
-    }
-  };
-
-  // const referralActivity = [
-  //   {
-  //     avatar: ICONS.avatar,
-  //     name: "Thomas Shelvi",
-  //     designation: "Designer",
-  //   },
-  //   {
-  //     avatar: ICONS.avatar,
-  //     name: "Thomas Shelvi",
-  //     designation: "Designer",
-  //   },
-  // ];
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="font-Outfit">
+    <div className="font-Outfit mt-10">
       <div className="flex flex-col lg:flex-row items-center gap-5">
         {/* Profile photo */}
         <div className="flex flex-col gap-6 w-full">
-          <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
-          <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] min-h-[270px]">
+          <div
+            style={{
+              boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+              backdropFilter: "blur(5.05px)",
+            }}
+            className="rounded-[28px] border border-primary-50 bg-neutral-90/10 p-6 flex flex-col w-full md:w-[327px]"
+          >
             <img
               src={ICONS.changePassword}
               alt=""
-              className="size-[66px] rounded-full"
+              className={`size-[200px] mx-auto`}
             />
-            <p className="text-neutral-110 text-lg mt-[3px]">Change Password</p>
-            <h1 className="text-white text-[30px] font-medium mt-2">
-              Update Password
-            </h1>
-            <p className="text-neutral-110 text-lg mt-[3px]">
+            <p className="text-neutral-110 text-sm mt-[3px]">
               Set a strong password to keep your Account secure.
             </p>
+            <Button
+              label="Change Password"
+              classNames="w-[176px] mt-5"
+              onClick={() => setIsModalOpen(!isModalOpen)}
+            />
           </div>
         </div>
 
         {/* Profile info */}
-        <div className="flex flex-col gap-6 w-full">
-          <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
+        {/* <div className="flex flex-col gap-6 w-full">
           <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px] min-h-[270px]">
             <img
               src={ICONS.twoFA}
@@ -86,110 +50,13 @@ const Security = () => {
               Add an extra layrr of protection to your account.
             </p>
           </div>
-        </div>
-      </div>
-
-      <div className="flex flex-col md:flex-row gap-5 mt-9">
-        {/* Change password form */}
-        <div className="w-full max-w-full md:max-w-[404px]">
-          <form
-            onSubmit={handleSubmit(handleChangePassword)}
-            className="flex flex-col gap-4"
-          >
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor=""
-                className="text-neutral-125 text-lg font-medium"
-              >
-                Current Password
-              </label>
-              <input
-                type="password"
-                placeholder="Enter your current password"
-                {...register("current_password", {
-                  required: "Name is required",
-                })}
-                className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.current_password
-                    ? "border-red-500"
-                    : "border-neutral-130"
-                }`}
-              />
-              {typeof errors === "object" && "message" in errors && (
-                <span className="text-red-500 text-sm">
-                  {String(errors.message)}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor=""
-                className="text-neutral-125 text-lg font-medium"
-              >
-                New Password
-              </label>
-              <input
-                type="password"
-                placeholder="Enter your full name"
-                {...register("new_password", {
-                  required: "Password is required",
-                })}
-                className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.new_password ? "border-red-500" : "border-neutral-130"
-                }`}
-              />
-              {typeof errors === "object" && "message" in errors && (
-                <span className="text-red-500 text-sm">
-                  {String(errors.message)}
-                </span>
-              )}
-            </div>
-            <button
-              type="submit"
-              className="p-[10px] w-[121px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
-            >
-              {isLoading ? (
-                <Loader size="size-6" />
-              ) : (
-                "Save Changes"
-              )}
-            </button>
-          </form>
-        </div>
-
-        {/* <div className="flex flex-col gap-[26px] rounded-[15px] border-[3px] bg-neutral-30 border-neutral-25/20 bg-neutral-3 py-6 px-[18px] w-full h-fit">
-          {referralActivity?.map((item) => (
-            <div className="flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <img
-                  src={item?.avatar}
-                  alt=""
-                  className="size-[43px] rounded-full"
-                />
-                <div>
-                  <h1 className="text-white text-lg font-medium capitalize">
-                    {item?.name}
-                  </h1>
-                  <p className="text-neutral-35 text-sm mt-[2px]">
-                    {item?.designation}
-                  </p>
-                </div>
-              </div>
-              <div
-                onClick={() => setIsOn(!isOn)}
-                className={`w-16 h-9 rounded-full cursor-pointer transition-colors duration-300 px-1 flex items-center ${
-                  isOn
-                    ? "bg-primary-10 justify-end"
-                    : "bg-gray-300 justify-start"
-                }`}
-              >
-                <div className="w-7 h-7 rounded-full bg-[#2E2552] transition-transform duration-300"></div>
-              </div>
-            </div>
-          ))}
         </div> */}
-
       </div>
+
+      <ChangePasswordModal
+        isModalOpen={isModalOpen}
+        setIsModalOpen={setIsModalOpen}
+      />
     </div>
   );
 };

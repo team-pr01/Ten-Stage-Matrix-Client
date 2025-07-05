@@ -4,8 +4,10 @@ import {
   useGetUserProfileQuery,
   useUpdateProfileMutation,
 } from "../../../../redux/Features/User/userApi";
-import Loader from "../../../Shared/Loader/Loader";
 import { toast } from "sonner";
+import Button from "../../../Reusable/Button/Button";
+import TextInput from "../../../Reusable/TextInput/TextInput";
+import { ICONS } from "../../../../assets";
 
 type TFormValues = {
   name?: string;
@@ -42,13 +44,19 @@ const Profile = () => {
     }
   };
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen ">
       <div className="flex flex-col md:flex-row items-center gap-5">
         {/* Profile info */}
         <div className="flex flex-col gap-6 w-full md:w-[50%] xl:w-[70%] 2xl:w-[80%]">
           <h1 className="text-2xl text-white font-medium mt-6">Profile Info</h1>
-          <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-6 px-[18px]">
-            <p className="text-neutral-110 text-lg mt-[3px]">Personal</p>
+          <div
+            style={{
+              boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+              backdropFilter: "blur(5.05px)",
+            }}
+            className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col py-6 px-[18px]"
+          >
+            <p className="text-neutral-110 text-sm mt-[3px]">Personal</p>
 
             <h1 className="text-white text-[30px] font-medium mt-2 capitalize">
               {isLoading ? "Loading..." : data?.data?.profile?.name}
@@ -56,17 +64,16 @@ const Profile = () => {
             <p className="text-neutral-110 text-sm mt-[3px]">
               {isLoading ? "Loading..." : data?.data?.profile?.email}
             </p>
-            <p className="text-neutral-110 text-lg mt-[3px]">Private Key</p>
+            <p className="text-neutral-110 text-sm mt-[30px]">Private Key</p>
             <p className="text-[9px] md:text-lg font-medium text-white mt-2">
               {isLoading ? "Loading..." : data?.data?.profile?.user_pk}
             </p>
-
-            <button
+            <Button
+              label="Update Details"
+              isLoading={isLoading}
+              classNames="w-[176px] mt-5"
               onClick={() => setIsUpdateFormVisible(!isUpdateFormVisible)}
-              className="p-[10px] w-[130px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
-            >
-              Update Details
-            </button>
+            />
           </div>
         </div>
       </div>
@@ -77,56 +84,29 @@ const Profile = () => {
             onSubmit={handleSubmit(handleUpdateProfile)}
             className="flex flex-col gap-4"
           >
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor=""
-                className="text-neutral-125 text-lg font-medium"
-              >
-                Full Name
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your full name"
-                {...register("name")}
-                className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.name ? "border-red-500" : "border-neutral-130"
-                }`}
-              />
-              {typeof errors === "object" && "message" in errors && (
-                <span className="text-red-500 text-sm">
-                  {String(errors.message)}
-                </span>
-              )}
-            </div>
-            <div className="flex flex-col gap-2">
-              <label
-                htmlFor=""
-                className="text-neutral-125 text-lg font-medium"
-              >
-                Wallet Address
-              </label>
-              <input
-                type="text"
-                placeholder="Enter your wallet address"
-                {...register("wallet_address")}
-                className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                  errors?.wallet_address
-                    ? "border-red-500"
-                    : "border-neutral-130"
-                }`}
-              />
-              {typeof errors === "object" && "message" in errors && (
-                <span className="text-red-500 text-sm">
-                  {String(errors.message)}
-                </span>
-              )}
-            </div>
-            <button
-              type="submit"
-              className="p-[10px] w-[121px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
-            >
-              {isProfileUpdating ? <Loader size="size-6" /> : "Save Changes"}
-            </button>
+            <TextInput
+              label="Name"
+              placeholder="Enter Name"
+              icon={ICONS.userName}
+              error={errors.name}
+              {...register("name", {
+                required: "Name is required",
+              })}
+            />
+            <TextInput
+              label=" Wallet Address"
+              placeholder="Enter  Wallet Address"
+              icon={ICONS.privateKey}
+              error={errors.wallet_address}
+              {...register("wallet_address", {
+                required: " Wallet address is required",
+              })}
+            />
+            <Button
+              label="Save Changes"
+              isLoading={isProfileUpdating}
+              classNames="w-[176px]"
+            />
           </form>
         </div>
       )}
