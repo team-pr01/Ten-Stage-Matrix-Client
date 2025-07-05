@@ -85,6 +85,7 @@ import logout from "./icons/logout.svg";
 import leftArrow from "./icons/left-arrow.svg";
 import availableToWithdraw from "./icons/available-to-withdraw.png";
 import dollar from "./icons/dollar.svg";
+import referralCode2 from "./icons/referral-code2.png";
 
 
 export const IMAGES = {
@@ -176,4 +177,5 @@ export const ICONS = {
     logout,
     leftArrow,
     dollar,
+    referralCode2,
 }

@@ -3,11 +3,13 @@ const DashboardCard = ({
   title,
   value,
   direction,
+  isCurrencyVisible=true,
 }: {
   icon: string;
   title: string;
   value: number | string;
   direction?: string;
+  isCurrencyVisible?: boolean;
 }) => {
   return (
     <div
@@ -30,9 +32,9 @@ const DashboardCard = ({
           style={{
             textShadow: "0px 0px 13.5px #E6700B",
           }}
-          className="text-primary-10 text-2xl font-bold border border-neutral-90 px-6 py-2 rounded-3xl w-fit"
+          className="text-primary-10 text-2xl font-bold border border-neutral-90 px-6 py-2 rounded-3xl w-fit capitalize"
         >
-          {value ? `$${value}` : "$0.00000"}
+          {value ? `${isCurrencyVisible ? "$" : ""}${value}` : "$0.00000"}
         </div>
       </div>
     </div>

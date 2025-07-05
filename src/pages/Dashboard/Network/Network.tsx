@@ -1,22 +1,23 @@
 import { useState } from "react";
 import ReferralProgress from "../../../components/Dashboard/NetworkPage/ReferralProgress/ReferralProgress";
-import { useGetUserDetailsQuery, useGetUserProfileQuery } from "../../../redux/Features/User/userApi";
+import {
+  useGetUserDetailsQuery,
+  useGetUserProfileQuery,
+} from "../../../redux/Features/User/userApi";
 import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 
 const Network = () => {
-   const {data} = useGetUserProfileQuery({});
-   const { data:userDetails } = useGetUserDetailsQuery({});
+  const { data } = useGetUserProfileQuery({});
+  const { data: userDetails } = useGetUserDetailsQuery({});
 
-
-  const [activeTab, setActiveTab] = useState<
-    "Network Activity"
-  >("Network Activity");
+  const [activeTab, setActiveTab] =
+    useState<"Network Activity">("Network Activity");
   const tabButtons: Array<"Network Activity"> = ["Network Activity"];
   return (
     <div className="font-Outfit">
       {/* Tab buttons */}
-      <div className="flex items-center gap-6 mt-8 relative">
+      <div className="flex items-center gap-6 relative">
         {tabButtons?.map((button) => (
           <button
             key={button}
@@ -39,15 +40,19 @@ const Network = () => {
             Referral Code
           </h1>
           <div className="flex flex-col 2xl:flex-row gap-5">
+            <ReferralCode
+              referralCode={userDetails?.data?.profile?.referral_code}
+            />
             <div className="w-full">
-              <ReferralCode referralCode={userDetails?.data?.profile?.referral_code} />
+              <ReferralActivity />
             </div>
-            <ReferralActivity />
           </div>
         </div>
       )}
-      <ReferralProgress profile={data?.data?.profile} earning={data?.data?.balances?.balance} />
-
+      <ReferralProgress
+        profile={data?.data?.profile}
+        earning={data?.data?.balances?.balance}
+      />
     </div>
   );
 };

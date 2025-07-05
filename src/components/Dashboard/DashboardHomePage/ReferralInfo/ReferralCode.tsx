@@ -1,5 +1,6 @@
 import { ICONS } from "../../../../assets";
 import { useState } from "react";
+import Button from "../../../Reusable/Button/Button";
 
 const ReferralCode = ({
   cardHeight = "h-full",
@@ -22,28 +23,34 @@ const ReferralCode = ({
 
   return (
     <div
-      className={`rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 py-[27px] px-9 flex flex-col col-span-1 lg:col-span-2 ${cardHeight}`}
+      style={{
+        boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+        backdropFilter: "blur(5.05px)",
+      }}
+      className={`rounded-[28px] border border-primary-50 bg-neutral-90/10 p-6 flex flex-col w-full max-w-[355px] ${cardHeight}`}
     >
-      <img src={ICONS.referralCode} alt="" className="size-[90px]" />
-      <h1 className="text-white text-[34px] font-medium capitalize mt-[10px]">
-        Your Code: {referralCode}
-      </h1>
-      <h2 className="text-neutral-100 text-xl font-medium capitalize mt-[13px]">
-        Share this code to invite new members.
-      </h2>
-
-      <div className="flex items-center gap-[11px] mt-[15px]">
-        <button
-          onClick={handleCopy}
-          className="w-[132px] h-[38px] bg-primary-10 rounded-[80px] border border-primary-10 text-white text-sm font-medium p-[10px] flex items-center justify-center cursor-pointer"
-        >
-          {copied ? "Copied!" : "Copy Code"}
-        </button>
-        {/* Optional button */}
-        {/* <button className="w-[132px] h-[38px] bg-primary-70 rounded-[80px] border border-primary-65 text-white text-sm font-medium p-[10px] flex items-center justify-center">
-          How it works
-        </button> */}
+      <div className="space-y-8">
+        <div className="flex items-center gap-[10px]">
+          <div
+            className="bg-[#2AF595] size-[18px] rounded-full blur-[5px]"
+          ></div>
+          <h1 className="text-white text-xl font-medium capitalize">
+          Your Code: {referralCode}
+        </h1>
+        </div>
+        
+        <img src={ICONS.referralCode2} alt="" className="w-[200px] mx-auto" />
+        <h2 className="text-neutral-100 text-xs font-medium capitalize">
+          Share this code to invite new members.
+        </h2>
       </div>
+
+      <Button
+        type="button"
+        label={copied ? "Copied!" : "Copy Code"}
+        onClick={handleCopy}
+        classNames="w-fit mt-5"
+      />
     </div>
   );
 };
