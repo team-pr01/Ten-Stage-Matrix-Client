@@ -21,6 +21,7 @@ import referralCodeBg from "./images/referal-code-bg.png";
 
 
 
+import calender from "./icons/calender.svg";
 import strongSecurity from "./icons/strongSecurity.png";
 import highLiquidity from "./icons/highLiquidity.png";
 import opportunity from "./icons/opportunity.svg";
@@ -109,6 +110,7 @@ export const IMAGES = {
 };
 
 export const ICONS = {
+    calender,
     strongSecurity,
     highLiquidity,
     opportunity,

@@ -5,7 +5,10 @@ import Loader from "../../../Shared/Loader/Loader";
 const ReferralActivity = () => {
   const { data, isLoading } = useGetReferralListQuery({});
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 flex flex-col py-7 px-[34px] font-Outfit w-full min-h-[350px] max-h-auto overflow-y-auto">
+    <div style={{
+    boxShadow: 'inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)',
+    backdropFilter: 'blur(5.05px)',
+  }} className="min-h-[350px] rounded-[28px] border-2 border-neutral-155 bg-neutral-30 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar">
       <h1 className="text-2xl font-medium text-white">Referral Activity</h1>
 
       <div className="flex flex-col gap-[26px] mt-6">
@@ -15,7 +18,7 @@ const ReferralActivity = () => {
          <div className="overflow-x-auto custom-scrollbar">
            <table className="min-w-[600px] w-full text-white">
             <thead>
-              <tr className="border-b border-neutral-110 text-left">
+              <tr className="border-b border-neutral-90 text-left">
                 <th className="p-3 whitespace-nowrap">Serial No</th>
                 <th className="p-3 whitespace-nowrap">Name</th>
                 <th className="p-3 whitespace-nowrap">Email</th>
@@ -30,7 +33,7 @@ const ReferralActivity = () => {
                 <p className="text-white mt-4">No data found</p>
               ) : (
                 data?.data?.referrals?.map((item: any, index: number) => (
-                  <tr key={index} className="border-b border-neutral-110/50">
+                  <tr key={index} className="border-b border-neutral-90 text-neutral-55">
                     {/* Name + Avatar */}
                      <td className="p-3 whitespace-nowrap">{index+1}</td>
                     <td className="flex items-center gap-2 p-3 whitespace-nowrap">
