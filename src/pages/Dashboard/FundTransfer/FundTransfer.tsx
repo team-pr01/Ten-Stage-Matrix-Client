@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import SendFund from "../../../components/Dashboard/FundTransferPage/SendFund/SendFund";
-// import VerifyTransfer from "../../../components/Dashboard/FundTransferPage/VerifyTransfer/VerifyTransfer";
 import TransferSuccess from "../../../components/Dashboard/FundTransferPage/TransferSuccess/TransferSuccess";
-// import ReviewTransfer from "../../../components/Dashboard/FundTransferPage/ReviewTransfer/ReviewTransfer";
 import { useTransferFundMutation } from "../../../redux/Features/User/userApi";
 import TransferHistory from "../../../components/Dashboard/FundTransferPage/TransferHistory/TransferHistory";
 import { toast } from "sonner";
@@ -12,24 +10,23 @@ const FundTransfer = () => {
   const [activeTab, setActiveTab] = useState<
     "Dashboard" | "Fund Transfer" | "Success" | "Transfer History" | "Review"
   >("Dashboard");
-  const tabButtons: Array<
-    "Dashboard"  | "Success" | "Transfer History" 
-  > = ["Dashboard", "Success", "Transfer History"];
-  // const tabButtons: Array<
-  //   "Dashboard" | "Fund Transfer" | "Success" | "Review"
-  // > = ["Dashboard", "Fund Transfer", "Success", "Review"];
+  const tabButtons: Array<"Dashboard" | "Success" | "Transfer History"> = [
+    "Dashboard",
+    "Success",
+    "Transfer History",
+  ];
 
   const [transferData, setTransferData] = useState<string>("");
-const [transferFund, {isLoading}] = useTransferFundMutation();
+  const [transferFund, { isLoading }] = useTransferFundMutation();
 
   const handleSendFund = async (data: any) => {
-    try{
+    try {
       const payload = {
-        amount : Number(data.amount),
-        recipient_id : data.recipient_id
-      }
+        amount: Number(data.amount),
+        recipient_id: data.recipient_id,
+      };
       const response = await transferFund(payload).unwrap();
-      if(response?.success) {
+      if (response?.success) {
         setTransferData(response?.data);
         setActiveTab("Success");
       }
@@ -71,12 +68,6 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
         </div>
       )}
 
-      {/* {activeTab === "Fund Transfer" && (
-        <>
-          <VerifyTransfer />
-        </>
-      )} */}
-
       {activeTab === "Success" && (
         <>
           <TransferSuccess data={transferData} />
@@ -88,12 +79,6 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
           <TransferHistory />
         </>
       )}
-
-      {/* {activeTab === "Review" && (
-        <>
-          <ReviewTransfer />
-        </>
-      )} */}
     </div>
   );
 };

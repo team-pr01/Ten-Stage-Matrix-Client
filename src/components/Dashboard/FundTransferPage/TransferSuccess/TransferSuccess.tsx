@@ -2,7 +2,6 @@
 import { ICONS } from "../../../../assets";
 
 const TransferSuccess = ({data} : {data: any}) => {
-  console.log(data);
   return (
     data ?
     <div>
@@ -28,15 +27,6 @@ const TransferSuccess = ({data} : {data: any}) => {
           <h2 className="text-neutral-100 text-lg mt-2">Transfer Id</h2>
         </div>
       </div>
-
-      {/* <div className="flex items-center gap-[13px] mt-[31px]">
-        <button className="w-[145px] h-[38px] bg-primary-10 rounded-[80px] text-white text-sm font-medium p-[10px] flex items-center justify-center">
-          View Transaction
-        </button>
-        <button className="w-[132px] h-[38px] bg-primary-80 rounded-[80px] text-white text-sm font-medium p-[10px] flex items-center justify-center">
-          New transfer
-        </button>
-      </div> */}
     </div>
     :
     <p className="text-white mt-6">Please send funds first</p>
