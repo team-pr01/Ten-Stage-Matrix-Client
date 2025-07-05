@@ -22,28 +22,9 @@ const SendFund = ({
   } = useForm<TFormValues>();
 
   return (
-    <form onSubmit={handleSubmit(handleSendFund)} className="mt-6 flex flex-col gap-5">
-      {/* <div className="flex flex-col gap-2 mt-[15px]">
-        <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-          Private Key
-        </label>
-        <div className="flex items-center justify-between">
-          <input
-            type="text"
-            placeholder="Enter recipient private key :"
-            {...register("recipient_id", {
-              required: "Private key is required",
-            })}
-            className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 relative ${
-              errors?.recipient_id ? "border-red-500" : "border-neutral-130"
-            }`}
-          />
-        </div>
-        {typeof errors === "object" && "message" in errors && (
-          <span className="text-red-500 text-sm">{String(errors.message)}</span>
-        )}
-      </div> */}
-
+    <form
+      onSubmit={handleSubmit(handleSendFund)}
+      className="mt-6 flex flex-col gap-5">
       <TextInput
         label="Private Key"
         placeholder="Enter Private key"
@@ -63,32 +44,6 @@ const SendFund = ({
           required: "Amount is required",
         })}
       />
-
-      {/* <div className="flex flex-col gap-2 mt-[15px]">
-        <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-          Amount
-        </label>
-        <div className="flex items-center justify-between">
-          <input
-            type="text"
-            placeholder="Enter amount :"
-            {...register("amount", {
-              required: "Name is required",
-            })}
-            className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 relative ${
-              errors?.amount ? "border-red-500" : "border-neutral-130"
-            }`}
-          />
-          <img
-            src={ICONS.currency}
-            alt=""
-            className="size-6 absolute right-7"
-          />
-        </div>
-        {typeof errors === "object" && "message" in errors && (
-          <span className="text-red-500 text-sm">{String(errors.message)}</span>
-        )}
-      </div> */}
 
       <Button label="Send Fund" isLoading={isLoading} classNames="w-[176px]" />
     </form>

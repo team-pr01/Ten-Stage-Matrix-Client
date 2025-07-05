@@ -7,7 +7,8 @@ import {
   useRequestWithdrawMutation,
 } from "../../../../redux/Features/User/userApi";
 import { toast } from "sonner";
-import Loader from "../../../Shared/Loader/Loader";
+import TextInput from "../../../Reusable/TextInput/TextInput";
+import Button from "../../../Reusable/Button/Button";
 
 type TFormValues = {
   amount: string;
@@ -19,8 +20,6 @@ const RequestWithdraw = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
-  // const {data:profile} = useGetUserProfileQuery({});
-  // console.log(data);
 
   const [requestWithdraw, { isLoading }] = useRequestWithdrawMutation();
 
@@ -50,7 +49,7 @@ const RequestWithdraw = () => {
   };
   return (
     <div className="font-Outfit">
-      <h1 className="text-xl text-white font-medium mt-[57px]">
+      <h1 className="text-xl text-white font-medium">
         Minimum withdraw ${settings?.data?.limits?.min_withdrawal}
       </h1>
       <h1 className="text-xl text-green-500 font-medium mt-3">
@@ -59,64 +58,29 @@ const RequestWithdraw = () => {
           ? `${data?.data?.balances?.balance.toFixed(5)}`
           : "0.00000"}
       </h1>
-      <form onSubmit={handleSubmit(handleRequestWithdraw)}>
-        <div className="flex flex-col gap-2 mt-[22px]">
-          <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-            Amount
-          </label>
-          <div className="flex items-center justify-between max-w-[415px] relative">
-            <input
-              type="text"
-              placeholder="Enter your amount USD"
-              {...register("amount", {
-                required: "Name is required",
-              })}
-              className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                errors?.amount ? "border-red-500" : "border-neutral-130"
-              }`}
-            />
-            <img
-              src={ICONS.currency}
-              alt=""
-              className="size-6 absolute right-3"
-            />
-          </div>
-          {typeof errors === "object" && "message" in errors && (
-            <span className="text-red-500 text-sm">
-              {String(errors.message)}
-            </span>
-          )}
-        </div>
-        <div className="flex flex-col gap-2 mt-[22px]">
-          <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-            Wallet Address
-          </label>
-          <div className="flex items-center justify-between max-w-[415px] relative">
-            <input
-              type="text"
-              placeholder="Enter your withdraw wallet address"
-              {...register("withdrawal_address", {
-                required: "Name is required",
-              })}
-              className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                errors?.withdrawal_address
-                  ? "border-red-500"
-                  : "border-neutral-130"
-              }`}
-            />
-          </div>
-          {typeof errors === "object" && "message" in errors && (
-            <span className="text-red-500 text-sm">
-              {String(errors.message)}
-            </span>
-          )}
-        </div>
-        <button
-          type="submit"
-          className="p-[10px] w-[119px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center"
-        >
-          {isLoading ? <Loader size="size-5" /> : "Confirm"}
-        </button>
+      <form
+        onSubmit={handleSubmit(handleRequestWithdraw)}
+        className="flex flex-col gap-5 mt-12"
+      >
+        <TextInput
+          label="Amount"
+          placeholder="Enter Amount"
+          icon={ICONS.dollar}
+          error={errors.amount}
+          {...register("amount", {
+            required: "Amount is required",
+          })}
+        />
+        <TextInput
+          label="Wallet Address"
+          placeholder="Enter Wallet Address"
+          icon={ICONS.privateKey}
+          error={errors.withdrawal_address}
+          {...register("withdrawal_address", {
+            required: "Wallet address is required",
+          })}
+        />
+        <Button label="Confirm" isLoading={isLoading} classNames="w-[176px]" />
       </form>
     </div>
   );
