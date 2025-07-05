@@ -24,24 +24,17 @@ const TeamSummary = () => {
     }
   });
 
-  const earningTrends = [
-    // {
-    //   icon: ICONS.activeReferral,
-    //   title: "Total Team",
-    //   value: `$${data?.data?.stats?.total_team || 0}`,
-    //   description: "All time earnings from MLM activities.",
-    // },
-   {
-  icon: ICONS.earning,
-  title: "Earning Threshold",
-  value: `$${Math.max(
-    0,
-    data?.data?.profile?.last_donation * matchedStage?.earning_multiplier -
-    data?.data?.balances?.stage_balance
-  ).toFixed(5)}`,
-  description: "Current active earning",
-}
-
+  const earningTrends = [ 
+    {
+      icon: ICONS.earning,
+      title: "Earning Threshold",
+      value: `$${Math.max(
+        0,
+        data?.data?.profile?.last_donation * matchedStage?.earning_multiplier -
+          data?.data?.balances?.stage_balance
+      ).toFixed(5)}`,
+      description: "Current active earning",
+    },
   ];
   return (
     <div>

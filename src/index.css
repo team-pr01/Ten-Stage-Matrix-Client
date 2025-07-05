@@ -153,3 +153,7 @@ input:-webkit-autofill:active {
     /* Prevent the browser from changing the background color back */
     transition: background-color 5000s ease-in-out 0s;
 }
+select option:checked {
+  background-color: white !important;
+  color: black;
+}

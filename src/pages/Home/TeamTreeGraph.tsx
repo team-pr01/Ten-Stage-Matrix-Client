@@ -27,7 +27,15 @@ export const TeamTreeGraph: React.FC = () => {
     );
 
   return (
-    <div style={{ width: "100%", height: "600px", backgroundColor: "#1e1b4b" }}>
+    <div
+      className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155"
+      style={{
+        width: "100%",
+        height: "600px",
+        boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+        backdropFilter: "blur(5.05px)",
+      }}
+    >
       <Tree
         data={treeData}
         orientation="vertical"
@@ -44,8 +52,9 @@ export const TeamTreeGraph: React.FC = () => {
                 height="60"
                 x="-30"
                 y="-30"
-                fill="#38bdf8"
+                fill="#fe7c0af3"
                 rx={10}
+                stroke="#dddddd11"
               />
               <text
                 fill="black"

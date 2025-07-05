@@ -30,21 +30,15 @@ const Reports = () => {
     {
       icon: ICONS.totalReferral,
       title: "Total Referrals",
+      description : "Total referrals in your team",
       value: `${data?.data?.team?.total_referrals || 0}`,
-      description: "",
     },
     {
       icon: ICONS.activeReferral,
       title: "Active Referrals",
-      value: `${activeReferrals?.length}`,
+      value: `${activeReferrals?.length || 0}`,
       description: "Currently active downline members.",
     },
-    // {
-    //   icon: ICONS.inactiveUser,
-    //   title: "Inactive Team member",
-    //   value: "3",
-    //   description: "Total number of inactive referrals",
-    // },
   ];
   return (
     <div className="min-h-screen">

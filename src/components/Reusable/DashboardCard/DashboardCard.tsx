@@ -1,12 +1,14 @@
 const DashboardCard = ({
   icon,
   title,
+  description,
   value,
   direction,
-  isCurrencyVisible=true,
+  isCurrencyVisible = true,
 }: {
   icon: string;
   title: string;
+  description?: string;
   value: number | string;
   direction?: string;
   isCurrencyVisible?: boolean;
@@ -21,13 +23,14 @@ const DashboardCard = ({
         direction === "col" ? "flex-col" : "flex-col md:flex-row-reverse"
       }`}
     >
-      <img
-        src={icon}
-        alt=""
-        className={`size-[200px] mx-auto`}
-      />
+      <img src={icon} alt="" className={`size-[200px] mx-auto`} />
       <div className="w-full flex flex-col gap-3">
-        <h2 className="text-white text-xl font-medium capitalize">{title}</h2>
+        <div>
+          <h2 className="text-white text-xl font-medium capitalize">{title}</h2>
+        {description && (
+          <p className="text-neutral-110 text-sm font-semibold mt-1">{description}</p>
+        )}
+        </div>
         <div
           style={{
             textShadow: "0px 0px 13.5px #E6700B",
@@ -36,6 +39,7 @@ const DashboardCard = ({
         >
           {value ? `${isCurrencyVisible ? "$" : ""}${value}` : "$0.00000"}
         </div>
+        
       </div>
     </div>
   );

@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import { ICONS } from "../../../../assets";
 import {
   useGetReportsQuery,
@@ -17,14 +16,8 @@ const PerformanceTab = () => {
       value: teamTree?.stats?.active_members || 0,
       description: "All active members ",
     },
-    // {
-    //   icon: ICONS.topEarner,
-    //   title: "Top Earner",
-    //   value: `$${data?.data?.top_earner?.balance.toFixed(5) || 0}`,
-    //   description: "Current top earner ",
-    // },
     {
-      icon: ICONS.growth,
+      icon: ICONS.level,
       title: "Top Referrers",
       value: data?.data?.top_referrers?.length || 0,
       description: "To referrers overview",
@@ -33,7 +26,6 @@ const PerformanceTab = () => {
   return (
     <div>
       <EarningTrend data={earningTrends} />
-      {/* <TeamSizeLevel /> */}
     </div>
   );
 };
