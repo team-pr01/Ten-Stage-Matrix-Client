@@ -13,9 +13,8 @@ const Transactions = () => {
 
   return (
     <div className="font-Outfit">
-
       {/* Tab buttons */}
-      <div className="flex items-center gap-6 mt-8 relative">
+      <div className="flex items-center gap-6 relative">
         {tabButtons?.map((button) => (
           <button
             key={button}

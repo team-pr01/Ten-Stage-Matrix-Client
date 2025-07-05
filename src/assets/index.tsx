@@ -17,6 +17,7 @@ import signin from "./images/signin.png";
 import imagePlaceholder from "./images/image-placeholder.jpg";
 import authBg from "./images/auth-bg.png";
 import avatar3 from "./images/avatar.png";
+import referralCodeBg from "./images/referal-code-bg.png";
 
 
 
@@ -43,6 +44,7 @@ import referralCode from "./icons/referral-code.png";
 import currentBalance from "./icons/current-balance.png";
 import withdraw from "./icons/withdraw.png";
 import totalEarn from "./icons/total-earn.png";
+import impactBalance from "./icons/impact-balance.png";
 import deposit from "./icons/deposite.png";
 import withdraw1 from "./icons/withdraw1.png";
 import donation from "./icons/donation.png";
@@ -80,6 +82,7 @@ import emailIcon from "./icons/email-icon.svg";
 import referralCodeIcon from "./icons/referral-code-icon.svg";
 import logout from "./icons/logout.svg";
 import leftArrow from "./icons/left-arrow.svg";
+import availableToWithdraw from "./icons/available-to-withdraw.png";
 
 
 export const IMAGES = {
@@ -102,6 +105,7 @@ export const IMAGES = {
     imagePlaceholder,
     authBg,
     avatar3,
+    referralCodeBg,
 };
 
 export const ICONS = {
@@ -128,6 +132,8 @@ export const ICONS = {
     currentBalance,
     withdraw,
     totalEarn,
+    availableToWithdraw,
+    impactBalance,
     deposit,
     withdraw1,
     donation,

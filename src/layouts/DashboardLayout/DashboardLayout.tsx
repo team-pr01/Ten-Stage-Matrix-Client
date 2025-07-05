@@ -22,7 +22,7 @@ const DashboardLayout = () => {
       </div>
       <div className="flex gap-[30px] z-10 relative px-5 py-[30px]">
         <Sidebar />   
-      <div className="w-full ">
+      <div className="w-full flex flex-col gap-8">
         <DashboardHeader/>
         <Outlet />
       </div>

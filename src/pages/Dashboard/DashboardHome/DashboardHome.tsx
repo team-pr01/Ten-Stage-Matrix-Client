@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { ICONS } from "../../../assets";
+import { ICONS, IMAGES } from "../../../assets";
 import ReferralInfo from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralInfo";
 // import TotalWithdrawnAndBalance from "../../../components/Dashboard/DashboardHomePage/TotalWithdrawnAndBalance/TotalWithdrawnAndBalance";
 // import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/DashboardDataCard";
@@ -44,10 +44,33 @@ const DashboardHome = () => {
 
   return (
     <div className="font-Outfit">
+      <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-[50px]">
+        <img src={IMAGES.referralCodeBg} alt="" className="w-full h-full" />
+        <div className="text-white absolute top-2 md:top-0 left-3 md:left-12 xl:left-20 bottom-0 flex flex-col justify-center">
+          <h1 className="text-xl md:text-[40px] font-bold leading-0 md:leading-[45px]">
+            Your code: X7Y9ZQ
+          </h1>
+          <h1 className="text-[10px] sm:text-xs font-medium leading-0 md:leading-5 mt-6 md:mt-4">
+            Share This Code To Invite New Members.
+          </h1>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 mt-[18px]">
+          <button
+            className="w-[160px] px-3 md:px-6 py-2 md:py-3 rounded-xl hover:bg-gray-100 bg-white text-neutral-10 font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+            style={{
+              boxShadow: `
+                              0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 2px 2px 0px #FFF inset, 0px 4px 6px 0px rgba(0, 0, 0, 0.30) inset, 0px 4px 24px 0px rgba(168, 82, 5, 0.30)
+                            `,
+            }}
+          >
+            Copy Code
+          </button>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
         <DashboardCard
-          icon={ICONS.totalDonation}
+        direction="col"
+          icon={ICONS.donation}
           title="Total Donation"
           value={
             data?.data?.stats?.total_donation
@@ -57,7 +80,8 @@ const DashboardHome = () => {
         />
 
         <DashboardCard
-          icon={ICONS.totalEarn}
+         direction="col"
+          icon={ICONS.earning}
           title="Total Earn"
           value={
             data?.data?.stats?.total_earn
@@ -67,7 +91,8 @@ const DashboardHome = () => {
         />
 
         <DashboardCard
-          icon={ICONS.withdraw}
+          icon={ICONS.deposit}
+          direction="col"
           title="Total Deposit"
           value={
             data?.data?.stats?.total_deposit
@@ -77,6 +102,7 @@ const DashboardHome = () => {
         />
 
         <DashboardCard
+        direction="row"
           icon={ICONS.withdraw}
           title="Total Withdraw"
           value={
@@ -86,7 +112,8 @@ const DashboardHome = () => {
           }
         />
         <DashboardCard
-          icon={ICONS.currentBalance}
+         direction="row"
+          icon={ICONS.availableToWithdraw}
           title="Available To Withdraw"
           value={
             data?.data?.balances?.balance
@@ -95,7 +122,8 @@ const DashboardHome = () => {
           }
         />
         <DashboardCard
-          icon={ICONS.currentBalance}
+         direction="row"
+          icon={ICONS.impactBalance}
           title="Impact Balance"
           value={
             data?.data?.balances?.deposit_balance
@@ -104,6 +132,7 @@ const DashboardHome = () => {
           }
         />
         <DashboardCard
+         direction="row"
           icon={ICONS.currentBalance}
           title="Earning Threshold"
           value={`${Math.max(

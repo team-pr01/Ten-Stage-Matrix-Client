@@ -1,14 +1,39 @@
-const DashboardCard = ({icon, title, value} : {icon: string, title: string, value: number | string}) => {
+const DashboardCard = ({
+  icon,
+  title,
+  value,
+  direction,
+}: {
+  icon: string;
+  title: string;
+  value: number | string;
+  direction?: string;
+}) => {
   return (
-    <div className="rounded-[15px] border-[3px] border-neutral-25/20 bg-neutral-30 px-[25px] py-11 flex flex-col md:flex-row items-start md:items-center gap-[33px]">
-      <img src={icon} alt="" className="size-[90px]" />
-      <div className="w-full">
-        <h2 className="text-white text-xl font-medium capitalize">
-          {title}
-        </h2>
-        <h1 className="text-white text-[34px] font-medium capitalize">
+    <div
+      style={{
+        boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+        backdropFilter: "blur(5.05px)",
+      }}
+      className={`rounded-[28px] border border-primary-50 bg-neutral-90/10 p-6 flex items-start md:items-center gap-[33px] ${
+        direction === "col" ? "flex-col" : "flex-col md:flex-row-reverse"
+      }`}
+    >
+      <img
+        src={icon}
+        alt=""
+        className={`size-[200px] mx-auto`}
+      />
+      <div className="w-full flex flex-col gap-3">
+        <h2 className="text-white text-xl font-medium capitalize">{title}</h2>
+        <div
+          style={{
+            textShadow: "0px 0px 13.5px #E6700B",
+          }}
+          className="text-primary-10 text-2xl font-bold border border-neutral-90 px-6 py-2 rounded-3xl w-fit"
+        >
           {value ? `$${value}` : "$0.00000"}
-        </h1>
+        </div>
       </div>
     </div>
   );

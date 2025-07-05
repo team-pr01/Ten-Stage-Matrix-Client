@@ -29,7 +29,7 @@ const DashboardHeader = () => {
         {title}
       </h1>
 
-      <button className="p-[10px] rounded-[20px] bg-neutral-25/10 shadow-custom-dropdown flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
+      <button className="p-[10px] rounded-[20px] bg-neutral-25/10 shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95">
         <img src={IMAGES.avatar3} alt="" className="size-12 rounded-full" />
         <div>
           <h1 className="text-white font-bold leading-5">Rahul Sutradhar</h1>
