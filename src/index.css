@@ -58,7 +58,7 @@
 
   /* Shadows */
   --shadow-custom: inset 0px 0px 23.2px -32px rgba(255, 255, 255, 0.10), 0px 64px 64px -32px rgba(102, 37, 0, 0.65);
-  --shadow-custom-joinus: 0px 0px 56px 24px rgba(255, 255, 255, 0.10);
+  --shadow-custom-dropdown: 0px 0px 11.6px 0px rgba(255, 255, 255, 0.15) inset;
   --shadow-custom-hero: 0px 4px 250px 16px #A276FA;
   --shadow-custom-button: 0px -2px 2px 0px rgba(255, 255, 255, 0.05) inset, 0px 12px 45px 0px rgba(137, 81, 246, 0.35);
 

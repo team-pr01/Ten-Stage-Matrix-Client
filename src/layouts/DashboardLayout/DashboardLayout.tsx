@@ -3,6 +3,7 @@ import Sidebar from "../../components/Dashboard/Sidebar/Sidebar";
 import DashboardHamburgerMenu from "../../components/Dashboard/DashboardHamburgerMenu/DashboardHamburgerMenu";
 import { Link } from "react-router-dom";
 import { IMAGES } from "../../assets";
+import DashboardHeader from "../../components/Dashboard/DashboardHeader/DashboardHeader";
 
 const DashboardLayout = () => {
   return (
@@ -22,6 +23,7 @@ const DashboardLayout = () => {
       <div className="flex gap-[30px] z-10 relative px-5 py-[30px]">
         <Sidebar />   
       <div className="w-full ">
+        <DashboardHeader/>
         <Outlet />
       </div>
       </div>

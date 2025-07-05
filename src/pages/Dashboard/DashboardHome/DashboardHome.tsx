@@ -4,7 +4,6 @@ import ReferralInfo from "../../../components/Dashboard/DashboardHomePage/Referr
 // import TotalWithdrawnAndBalance from "../../../components/Dashboard/DashboardHomePage/TotalWithdrawnAndBalance/TotalWithdrawnAndBalance";
 // import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/DashboardDataCard";
 import DashboardCard from "../../../components/Reusable/DashboardCard/DashboardCard";
-import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import {
   useGetStageDataQuery,
   useGetTeamTreeQuery,
@@ -45,10 +44,6 @@ const DashboardHome = () => {
 
   return (
     <div className="font-Outfit">
-      {/* Header */}
-      <div className="flex flex-col md:flex-row gap-3 md:gap-0 items-start md:items-center justify-between">
-        <DashboardHeaderTitle title="Financial Overview" />
-      </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5 mt-[18px]">
         <DashboardCard

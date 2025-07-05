@@ -44,7 +44,7 @@ const Sidebar = () => {
             <Link
               key={item.label}
               to={item.path}
-              className={`flex items-center gap-2 text-xl hover:text-primary-10 transition duration-300 px-5 py-4 rounded-xl ${
+              className={`flex items-center gap-2 text-xl hover:text-primary-10 px-5 py-4 rounded-xl transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 ${
                 location.pathname === item.path
                   ? "bg-gradient-navlink text-white"
                   : "text-neutral-145"
@@ -66,7 +66,7 @@ const Sidebar = () => {
         </p>
         <button
           onClick={handleLogout}
-          className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 transition duration-300 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5"
+          className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
           style={{
             boxShadow: `
                     inset 0px 2px 2px 0px #D26407,

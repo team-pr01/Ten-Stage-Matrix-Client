@@ -16,6 +16,7 @@ import signup from "./images/signup.png";
 import signin from "./images/signin.png";
 import imagePlaceholder from "./images/image-placeholder.jpg";
 import authBg from "./images/auth-bg.png";
+import avatar3 from "./images/avatar.png";
 
 
 
@@ -78,6 +79,7 @@ import userName from "./icons/user-name.svg";
 import emailIcon from "./icons/email-icon.svg";
 import referralCodeIcon from "./icons/referral-code-icon.svg";
 import logout from "./icons/logout.svg";
+import leftArrow from "./icons/left-arrow.svg";
 
 
 export const IMAGES = {
@@ -99,6 +101,7 @@ export const IMAGES = {
     signin,
     imagePlaceholder,
     authBg,
+    avatar3,
 };
 
 export const ICONS = {
@@ -161,5 +164,6 @@ export const ICONS = {
     userName,
     emailIcon,
     referralCodeIcon,
-    logout
+    logout,
+    leftArrow,
 }
