@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaAlignRight } from "react-icons/fa";
 import { dashboardSidebarLinks } from "../Sidebar/sidebarLinks";
-import { IMAGES } from "../../../assets";
+import { ICONS, IMAGES } from "../../../assets";
 import { useDispatch, useSelector } from "react-redux";
 import { logout, useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 import { toast } from "sonner";
@@ -66,28 +66,30 @@ const DashboardHamburgerMenu: React.FC = () => {
 
       {/* Side Menu */}
       <div
-        className={`fixed inset-y-0 right-0 z-50 py-5 px-6 bg-primary-70 w-[270px] overflow-y-auto transition-all duration-300 transform flex flex-col gap-12 ${
+        className={`bg-neutral-20 py-8 px-6 border border-primary-50  fixed inset-y-0 right-0 z-50 w-[270px] overflow-y-auto transition-all duration-300 transform flex flex-col gap-8 ${
           isHamburgerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         <div className="flex flex-col gap-8">
           <Link to={"/"}>
-          <img src={IMAGES.logo} alt="logo" className="z-10" />
-        </Link>
-
-        {dashboardSidebarLinks?.map((item) => (
-          <Link
-            key={item.label}
-            to={item.path}
-            onClick={toggleHamburgerMenu}
-            className={`flex items-center gap-2 text-xl hover:text-primary-10 transition duration-300 ${
-              location.pathname === item.path ? "text-primary-10" : "text-white"
-            }`}
-          >
-            {item.icon}
-            {item.label}
+            <img src={IMAGES.logo} alt="logo" className="z-10" />
           </Link>
-        ))}
+
+          {dashboardSidebarLinks?.map((item) => (
+            <Link
+              key={item.label}
+              to={item.path}
+              onClick={toggleHamburgerMenu}
+              className={`flex items-center gap-2 text-xl hover:text-primary-10 transition duration-300 ${
+                location.pathname === item.path
+                  ? "text-primary-10"
+                  : "text-white"
+              }`}
+            >
+              {item.icon}
+              {item.label}
+            </Link>
+          ))}
         </div>
 
         {!user ? (
@@ -106,11 +108,26 @@ const DashboardHamburgerMenu: React.FC = () => {
             </Link>
           </div>
         ) : (
-          <div className="flex flex-col items-center gap-6 z-10 w-full">
+          <div className="border border-primary-50 bg-neutral-150 shadow-custom rounded-[28px] px-4 py-7 text-center">
+            <h1 className="font-semibold leading-6 text-white">
+              Earn crypto flexibly!
+            </h1>
+            <p className="font-medium text-xs leading-5 mt-[6px] text-neutral-145">
+              Creating or adding new tasks couldn't be easier
+            </p>
             <button
               onClick={handleLogout}
-              className="p-2 w-full h-12 rounded-lg border border-secondary-10 text-secondary-10 font-medium flex items-center justify-center cursor-pointer"
+              className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+              style={{
+                boxShadow: `
+                              inset 0px 2px 2px 0px #D26407,
+                              inset 0px -4px 4px 0px rgba(0, 0, 0, 0.35),
+                              inset 0px 4px 4px 0px rgba(255, 255, 255, 0.40),
+                              0px 4px 24px 0px rgba(168, 82, 5, 0.50)
+                            `,
+              }}
             >
+              <img src={ICONS.logout} alt="" className="size-6" />
               Logout
             </button>
           </div>

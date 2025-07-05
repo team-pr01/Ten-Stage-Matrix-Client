@@ -13,7 +13,7 @@ const DashboardLayout = () => {
         alt=""
         className="w-screen h-full absolute top-0 z-0"
       />
-      <div className="xl:hidden flex items-center justify-between w-full p-5 z-10 relative">
+      <div className="xl:hidden flex items-center justify-between w-full p-5 z-50 relative">
         {/* Logo */}
       <Link to={"/"}>
         <img src={IMAGES.logo} alt="logo" className="z-10" />
