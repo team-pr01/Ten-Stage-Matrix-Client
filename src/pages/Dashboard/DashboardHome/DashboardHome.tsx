@@ -1,8 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import { ICONS, IMAGES } from "../../../assets";
-import ReferralInfo from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralInfo";
-// import TotalWithdrawnAndBalance from "../../../components/Dashboard/DashboardHomePage/TotalWithdrawnAndBalance/TotalWithdrawnAndBalance";
-// import DashboardDataCard from "../../../components/Reusable/DashboardDataCard/DashboardDataCard";
 import DashboardCard from "../../../components/Reusable/DashboardCard/DashboardCard";
 import {
   useGetStageDataQuery,
@@ -41,6 +39,16 @@ const DashboardHome = () => {
   // const multipliedValue = lastDonation * earningMultiplier;
 
   // const earningThreshold = stageBalance > 0 && stageBalance >  multipliedValue ? limitUpCommission : multipliedValue + limitUpCommission
+  const [copied, setCopied] = useState<boolean>(false);
+  const handleCopy = async () => {
+    try {
+      await navigator.clipboard.writeText(data?.data?.profile?.referral_code);
+      setCopied(true);
+      setTimeout(() => setCopied(false), 2000);
+    } catch (error) {
+      console.error("Failed to copy referral code", error);
+    }
+  };
 
   return (
     <div className="font-Outfit">
@@ -48,13 +56,14 @@ const DashboardHome = () => {
         <img src={IMAGES.referralCodeBg} alt="" className="w-full h-full" />
         <div className="text-white absolute top-2 md:top-0 left-3 md:left-12 xl:left-20 bottom-0 flex flex-col justify-center">
           <h1 className="text-xl md:text-[40px] font-bold leading-0 md:leading-[45px]">
-            Your code: X7Y9ZQ
+            Your code: {data?.data?.profile?.referral_code || "Loading..."}
           </h1>
           <h1 className="text-[10px] sm:text-xs font-medium leading-0 md:leading-5 mt-6 md:mt-4">
             Share This Code To Invite New Members.
           </h1>
 
           <button
+            onClick={handleCopy}
             className="w-[160px] px-3 md:px-6 py-2 md:py-3 rounded-xl hover:bg-gray-100 bg-white text-neutral-10 font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
             style={{
               boxShadow: `
@@ -62,14 +71,14 @@ const DashboardHome = () => {
                             `,
             }}
           >
-            Copy Code
+            {copied ? "Copied" : "Copy Code"}
           </button>
         </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 2xl:grid-cols-3 gap-5">
         <DashboardCard
-        direction="col"
+          direction="col"
           icon={ICONS.donation}
           title="Total Donation"
           value={
@@ -80,7 +89,7 @@ const DashboardHome = () => {
         />
 
         <DashboardCard
-         direction="col"
+          direction="col"
           icon={ICONS.earning}
           title="Total Earn"
           value={
@@ -102,7 +111,7 @@ const DashboardHome = () => {
         />
 
         <DashboardCard
-        direction="row"
+          direction="row"
           icon={ICONS.withdraw}
           title="Total Withdraw"
           value={
@@ -112,7 +121,7 @@ const DashboardHome = () => {
           }
         />
         <DashboardCard
-         direction="row"
+          direction="row"
           icon={ICONS.availableToWithdraw}
           title="Available To Withdraw"
           value={
@@ -122,7 +131,7 @@ const DashboardHome = () => {
           }
         />
         <DashboardCard
-         direction="row"
+          direction="row"
           icon={ICONS.impactBalance}
           title="Impact Balance"
           value={
@@ -132,8 +141,8 @@ const DashboardHome = () => {
           }
         />
         <DashboardCard
-         direction="row"
-          icon={ICONS.currentBalance}
+          direction="row"
+          icon={ICONS.earningThreshold}
           title="Earning Threshold"
           value={`${Math.max(
             0,
@@ -142,12 +151,28 @@ const DashboardHome = () => {
               data?.data?.balances?.stage_balance
           ).toFixed(5)}`}
         />
+        <DashboardCard
+          direction="row"
+          icon={ICONS.networkSize}
+          title="Network size"
+          value={teamTree?.data?.length || 0}
+          isCurrencyVisible={false}
+        />
+        <DashboardCard
+          direction="row"
+          icon={ICONS.status}
+          title="Status"
+          value={data?.data?.profile?.status}
+          isCurrencyVisible={false}
+        />
+        <DashboardCard
+          direction="row"
+          icon={ICONS.level}
+          title="Current Stage"
+          value={data?.data?.profile?.stage}
+          isCurrencyVisible={false}
+        />
       </div>
-      {/* Referral info */}
-      <ReferralInfo
-        data={data?.data?.profile}
-        totalTeamMembers={teamTree?.data?.length || 0}
-      />
     </div>
   );
 };
