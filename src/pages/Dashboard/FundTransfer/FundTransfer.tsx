@@ -43,7 +43,7 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
   return (
     <div className="font-Outfit min-h-screen">
       {/* Tab buttons */}
-      <div className="mt-8 relative overflow-x-auto">
+      <div className="relative overflow-x-auto">
         <div className="flex items-center gap-6 whitespace-nowrap">
           {tabButtons?.map((button) => (
             <button

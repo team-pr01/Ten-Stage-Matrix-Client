@@ -38,7 +38,7 @@ const RecentTransactions = () => {
             <td className="p-3 whitespace-nowrap">{formatDate(transaction?.created_at)}</td>
 
             {/* Amount */}
-            <td className="p-3 whitespace-nowrap">${transaction?.amount}</td>
+            <td className="p-3 whitespace-nowrap">${transaction?.amount.toFixed(5)}</td>
 
             {/* Status */}
             <td className="p-3 whitespace-nowrap">

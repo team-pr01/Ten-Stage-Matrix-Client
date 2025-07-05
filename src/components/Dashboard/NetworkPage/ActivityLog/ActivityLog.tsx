@@ -47,7 +47,7 @@ const ActivityLog = () => {
 
                   {/* Status */}
                   <td className="py-3 whitespace-nowrap">
-                    ${item?.metadata?.amount || 0}
+                    ${(item?.metadata?.amount || 0).toFixed(5)}
                   </td>
                 </tr>
               ))

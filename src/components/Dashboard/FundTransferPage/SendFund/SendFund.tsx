@@ -1,24 +1,29 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useForm } from "react-hook-form";
 import { ICONS } from "../../../../assets";
-import Loader from "../../../Shared/Loader/Loader";
+import TextInput from "../../../Reusable/TextInput/TextInput";
+import Button from "../../../Reusable/Button/Button";
 
 type TFormValues = {
   recipient_id: string;
   amount: string;
 };
-const SendFund = ({handleSendFund, isLoading} : {handleSendFund: (data: any) => void, isLoading: boolean}) => {
-  
+const SendFund = ({
+  handleSendFund,
+  isLoading,
+}: {
+  handleSendFund: (data: any) => void;
+  isLoading: boolean;
+}) => {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
 
-  
   return (
-    <form onSubmit={handleSubmit(handleSendFund)} className="mt-6">
-      <div className="flex flex-col gap-2 mt-[15px]">
+    <form onSubmit={handleSubmit(handleSendFund)} className="mt-6 flex flex-col gap-5">
+      {/* <div className="flex flex-col gap-2 mt-[15px]">
         <label htmlFor="" className="text-neutral-125 text-lg font-medium">
           Private Key
         </label>
@@ -37,9 +42,29 @@ const SendFund = ({handleSendFund, isLoading} : {handleSendFund: (data: any) => 
         {typeof errors === "object" && "message" in errors && (
           <span className="text-red-500 text-sm">{String(errors.message)}</span>
         )}
-      </div>
+      </div> */}
 
-      <div className="flex flex-col gap-2 mt-[15px]">
+      <TextInput
+        label="Private Key"
+        placeholder="Enter Private key"
+        icon={ICONS.privateKey}
+        error={errors.recipient_id}
+        {...register("recipient_id", {
+          required: "Private key is required",
+        })}
+      />
+
+      <TextInput
+        label="Amount"
+        placeholder="Enter Amount"
+        icon={ICONS.dollar}
+        error={errors.amount}
+        {...register("amount", {
+          required: "Amount is required",
+        })}
+      />
+
+      {/* <div className="flex flex-col gap-2 mt-[15px]">
         <label htmlFor="" className="text-neutral-125 text-lg font-medium">
           Amount
         </label>
@@ -63,14 +88,9 @@ const SendFund = ({handleSendFund, isLoading} : {handleSendFund: (data: any) => 
         {typeof errors === "object" && "message" in errors && (
           <span className="text-red-500 text-sm">{String(errors.message)}</span>
         )}
-      </div>
+      </div> */}
 
-      <button
-        type="submit"
-        className="p-[10px] w-[140px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[34px] flex items-center justify-center"
-      >
-        {isLoading ? <Loader size="size-6" /> : "Send Fund"}
-      </button>
+      <Button label="Send Fund" isLoading={isLoading} classNames="w-[176px]" />
     </form>
   );
 };
