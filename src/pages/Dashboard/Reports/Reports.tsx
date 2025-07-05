@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import EarningTrend from "../../../components/Dashboard/ReportsPage/EarningTrend/EarningTrend";
 import TeamSummary from "../../../components/Dashboard/ReportsPage/TeamSummary/TeamSummary";
 import { ICONS } from "../../../assets";
@@ -49,7 +48,6 @@ const Reports = () => {
   ];
   return (
     <div className="min-h-screen">
-      <DashboardHeaderTitle title="Reports Overview" />
 
       {/* Tab buttons */}
       <div className="mt-8 relative overflow-x-auto">

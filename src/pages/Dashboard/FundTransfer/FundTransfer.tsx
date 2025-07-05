@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
-import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import SendFund from "../../../components/Dashboard/FundTransferPage/SendFund/SendFund";
 // import VerifyTransfer from "../../../components/Dashboard/FundTransferPage/VerifyTransfer/VerifyTransfer";
 import TransferSuccess from "../../../components/Dashboard/FundTransferPage/TransferSuccess/TransferSuccess";
@@ -43,10 +42,6 @@ const [transferFund, {isLoading}] = useTransferFundMutation();
 
   return (
     <div className="font-Outfit min-h-screen">
-      <DashboardHeaderTitle
-        title={activeTab === "Dashboard" ? "Transfer Funds" : "Review Transfer"}
-      />
-
       {/* Tab buttons */}
       <div className="mt-8 relative overflow-x-auto">
         <div className="flex items-center gap-6 whitespace-nowrap">

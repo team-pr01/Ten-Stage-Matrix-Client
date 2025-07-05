@@ -1,5 +1,4 @@
 import { useState } from "react";
-import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import Profile from "../../../components/Dashboard/SettingPage/Profile/Profile";
 import Security from "../../../components/Dashboard/SettingPage/Security/Security";
 
@@ -14,8 +13,6 @@ const Setting = () => {
   ];
   return (
     <div>
-      <DashboardHeaderTitle title="Account Settings" />
-
       {/* Tab buttons */}
       <div className="relative mt-8 overflow-x-auto">
         <div className="flex items-center gap-6 flex-nowrap min-w-max">

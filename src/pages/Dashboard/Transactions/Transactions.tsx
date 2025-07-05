@@ -1,5 +1,4 @@
 import { useState } from "react";
-import DashboardHeaderTitle from "../../../components/Reusable/DashboardHeaderTitle/DashboardHeaderTitle";
 import RecentTransactions from "../../../components/Dashboard/TransactionsPage/RecentTransactions/RecentTransactions";
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 import ActivityLog from "../../../components/Dashboard/NetworkPage/ActivityLog/ActivityLog";
@@ -14,13 +13,6 @@ const Transactions = () => {
 
   return (
     <div className="font-Outfit">
-      <DashboardHeaderTitle
-        title={
-          activeTab === "Transactions"
-            ? "Activity Details"
-            : "Referral Overview"
-        }
-      />
 
       {/* Tab buttons */}
       <div className="flex items-center gap-6 mt-8 relative">

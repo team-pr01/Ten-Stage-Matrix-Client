@@ -44,7 +44,7 @@ const Sidebar = () => {
             <Link
               key={item.label}
               to={item.path}
-              className={`flex items-center gap-2 text-xl hover:text-primary-10 px-5 py-4 rounded-xl transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 ${
+              className={`flex items-center gap-2 text-xl hover:text-primary-10 px-5 py-4 rounded-xl transition-all duration-300 ease-in-out transform hover:scale-100 active:scale-95 ${
                 location.pathname === item.path
                   ? "bg-gradient-navlink text-white"
                   : "text-neutral-145"
