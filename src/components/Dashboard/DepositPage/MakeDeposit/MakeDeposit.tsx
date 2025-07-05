@@ -102,12 +102,15 @@ const MakeDeposit = () => {
           <h2 className="text-white text-lg font-semibold mb-2">
             Scan QR to Deposit
           </h2>
-          <QRCode
+          {/* bg-white rounded-xl p-3 */}
+          <div className=""> 
+            <QRCode
             value={data?.wallet_address}
             bgColor="#000000"
             fgColor="#ffffff"
             size={200}
           />
+          </div>
           <div className="my-7 p-[1px] rounded-md bg-transparent hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 transition-all duration-300">
             <div
               style={{
