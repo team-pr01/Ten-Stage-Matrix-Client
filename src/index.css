@@ -48,20 +48,32 @@
   --color-neutral-125: #E4E1E1;
   --color-neutral-130: #919191;
   --color-neutral-135: #CACACA;
+  /* --------------------------------- */
   --color-neutral-140: #0e092a;
+  --color-neutral-145 : #ffffff8f;
+  --color-neutral-150 : #380e241a;
 
   /* Secondary */
   --color-secondary-10: #6EBC94;
 
   /* Shadows */
-  --shadow-custom: 0px 0px 50px 0px rgba(0, 0, 0, 0.10);
+  --shadow-custom: inset 0px 0px 23.2px -32px rgba(255, 255, 255, 0.10), 0px 64px 64px -32px rgba(102, 37, 0, 0.65);
   --shadow-custom-joinus: 0px 0px 56px 24px rgba(255, 255, 255, 0.10);
   --shadow-custom-hero: 0px 4px 250px 16px #A276FA;
   --shadow-custom-button: 0px -2px 2px 0px rgba(255, 255, 255, 0.05) inset, 0px 12px 45px 0px rgba(137, 81, 246, 0.35);
 
   /* Gradients */
   --bg-gradient-primary: linear-gradient(180deg, #8C52FF 0%, #A276FA 100%);
-  --bg-gradient-dark: linear-gradient(180deg, rgba(124, 67, 215, 0.00) 0%, rgba(124, 67, 215, 0.05) 23.44%, rgba(124, 67, 215, 0.05) 100%);
+  --bg-gradient-navlink: linear-gradient(90deg, rgba(230, 112, 11, 0.30) 0%, rgba(151, 96, 49, 0.00) 100%);
+  --bg-gradient-line: radial-gradient(50% 50% at 50% 50%, #E58963 0%, rgba(163, 59, 59, 0) 100%);
+}
+
+.bg-gradient-navlink {
+  background: var(--bg-gradient-navlink);
+}
+
+.bg-gradient-line {
+  background: var(--bg-gradient-line);
 }
 
 

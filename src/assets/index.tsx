@@ -77,6 +77,7 @@ import eyeClose from "./icons/eye-close.svg";
 import userName from "./icons/user-name.svg";
 import emailIcon from "./icons/email-icon.svg";
 import referralCodeIcon from "./icons/referral-code-icon.svg";
+import logout from "./icons/logout.svg";
 
 
 export const IMAGES = {
@@ -159,5 +160,6 @@ export const ICONS = {
     eyeClose,
     userName,
     emailIcon,
-    referralCodeIcon
+    referralCodeIcon,
+    logout
 }
