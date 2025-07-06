@@ -20,6 +20,8 @@ import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
+import Levels from "../pages/Dashboard/Levels/Levels";
+import LevelDetails from "../pages/Dashboard/Levels/LevelDetails";
 
 export const router = createBrowserRouter([
   {
@@ -104,6 +106,14 @@ export const router = createBrowserRouter([
       {
         path: "reports",
         element: <Reports />,
+      },
+      {
+        path: "levels",
+        element: <Levels />,
+      },
+      {
+        path: "level/:id",
+        element: <LevelDetails />,
       },
       {
         path: "setting",

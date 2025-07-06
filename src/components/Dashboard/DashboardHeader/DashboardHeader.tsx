@@ -23,6 +23,10 @@ const DashboardHeader = () => {
       ? "Donate Funds"
       : location.pathname === "/dashboard/reports"
       ? "Reports Overview"
+      : location.pathname === "/dashboard/levels"
+      ? "Levels Dashboard"
+      : location.pathname.startsWith("/dashboard/level/")
+      ? "Level details"
       : location.pathname === "/dashboard/setting"
       ? "Account Settings"
       : "Financial Overview";

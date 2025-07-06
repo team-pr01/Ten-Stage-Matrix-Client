@@ -5,7 +5,7 @@ import {
   MdReport,
 } from "react-icons/md";
 import { AiOutlineTransaction } from "react-icons/ai";
-import { FaDonate, FaMoneyCheckAlt } from "react-icons/fa";
+import { FaDonate, FaLevelDownAlt, FaMoneyCheckAlt } from "react-icons/fa";
 import { RiMoneyDollarCircleLine } from "react-icons/ri";
 import { FiSend } from "react-icons/fi";
 
@@ -49,6 +49,11 @@ export const dashboardSidebarLinks = [
       icon: <MdReport />,
       label: "Reports",
       path: "/dashboard/reports",
+    },
+    {
+      icon: <FaLevelDownAlt />,
+      label: "Levels",
+      path: "/dashboard/levels",
     },
     {
       icon: <MdOutlineSettings />,

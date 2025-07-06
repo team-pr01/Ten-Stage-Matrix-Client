@@ -87,6 +87,7 @@ import availableToWithdraw from "./icons/available-to-withdraw.png";
 import dollar from "./icons/dollar.svg";
 import referralCode2 from "./icons/referral-code2.png";
 import earningThreshold from "./icons/earning-threshold.png";
+import userLevel from "./icons/user-level.svg";
 
 
 export const IMAGES = {
@@ -180,4 +181,5 @@ export const ICONS = {
     leftArrow,
     dollar,
     referralCode2,
+    userLevel,
 }
