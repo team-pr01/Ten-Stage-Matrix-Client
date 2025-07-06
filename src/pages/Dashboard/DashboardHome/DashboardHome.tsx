@@ -155,7 +155,7 @@ const DashboardHome = () => {
           direction="row"
           icon={ICONS.networkSize}
           title="Network size"
-          value={teamTree?.data?.length || 0}
+          value={`${teamTree?.data?.length || 0} Members`}
           isCurrencyVisible={false}
         />
         <DashboardCard
@@ -169,7 +169,7 @@ const DashboardHome = () => {
           direction="row"
           icon={ICONS.level}
           title="Current Stage"
-          value={data?.data?.profile?.stage}
+          value={`Stage ${data?.data?.profile?.stage}`}
           isCurrencyVisible={false}
         />
       </div>

@@ -10,7 +10,7 @@ const RecentTransactions = () => {
   return (
     <div
       style={{
-        boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
+        boxShadow: "4px 4px 33.2px 0px rgba(255, 255, 255, 0.20) inset",
         backdropFilter: "blur(5.05px)",
       }}
       className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar min-h-[350px] max-h-auto"

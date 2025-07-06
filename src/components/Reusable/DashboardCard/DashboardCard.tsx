@@ -16,10 +16,10 @@ const DashboardCard = ({
   return (
     <div
       style={{
-        boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
-        backdropFilter: "blur(5.05px)",
+        boxShadow: "4px 4px 33.2px 0px rgba(255, 255, 255, 0.20) inset",
+        backdropFilter: "blur(5.050000190734863px)",
       }}
-      className={`rounded-[28px] border border-primary-50 bg-neutral-90/10 p-6 flex items-start md:items-center gap-[33px] ${
+      className={`rounded-[28px] border border-primary-50 bg-neutral-155 p-6 flex items-start md:items-center gap-[33px] ${
         direction === "col" ? "flex-col" : "flex-col md:flex-row-reverse"
       }`}
     >
