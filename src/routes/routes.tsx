@@ -20,8 +20,8 @@ import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
-import Levels from "../pages/Dashboard/Levels/Levels";
 import LevelDetails from "../pages/Dashboard/Levels/LevelDetails";
+import Earn from "../pages/Dashboard/Earn/Earn";
 
 export const router = createBrowserRouter([
   {
@@ -108,8 +108,8 @@ export const router = createBrowserRouter([
         element: <Reports />,
       },
       {
-        path: "levels",
-        element: <Levels />,
+        path: "earn",
+        element: <Earn />,
       },
       {
         path: "level/:id",

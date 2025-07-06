@@ -5,7 +5,7 @@ import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/user
 import { formatDate } from "../../../utile/formatDate";
 import Loader from "../../Shared/Loader/Loader";
 
-const   ActionDetails = () => {
+const ActionDetails = () => {
   const { data, isLoading } = useGetTransactionHistoryQuery({});
   const location = useLocation();
 
@@ -16,10 +16,13 @@ const   ActionDetails = () => {
   );
 
   return (
-    <div  style={{
+    <div
+      style={{
         boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
         backdropFilter: "blur(5.05px)",
-      }} className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar custom-scrollbar">
+      }}
+      className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar custom-scrollbar"
+    >
       <h1 className="text-2xl font-medium text-white">Withdrawal Details</h1>
 
       <div className=" mt-6">
@@ -50,7 +53,9 @@ const   ActionDetails = () => {
                     </td>
 
                     {/* Amount */}
-                    <td className="py-3 whitespace-nowrap">${item?.amount.toFixed(5)}</td>
+                    <td className="py-3 whitespace-nowrap">
+                      ${item?.amount.toFixed(5)}
+                    </td>
                     <td className="py-3 whitespace-nowrap">
                       {item?.status === 1
                         ? "Completed"

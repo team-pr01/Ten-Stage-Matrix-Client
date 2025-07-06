@@ -25,8 +25,8 @@ const DashboardHeader = () => {
       ? "Reports Overview"
       : location.pathname === "/dashboard/levels"
       ? "Levels Dashboard"
-      : location.pathname.startsWith("/dashboard/level/")
-      ? "Level details"
+      : location.pathname === "/dashboard/earn"
+      ? "Earn More"
       : location.pathname === "/dashboard/setting"
       ? "Account Settings"
       : "Financial Overview";

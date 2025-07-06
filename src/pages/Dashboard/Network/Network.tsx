@@ -6,14 +6,19 @@ import {
 } from "../../../redux/Features/User/userApi";
 import ReferralCode from "../../../components/Dashboard/DashboardHomePage/ReferralInfo/ReferralCode";
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
+import Levels from "../Levels/Levels";
 
 const Network = () => {
   const { data } = useGetUserProfileQuery({});
   const { data: userDetails } = useGetUserDetailsQuery({});
 
-  const [activeTab, setActiveTab] =
-    useState<"Network Activity">("Network Activity");
-  const tabButtons: Array<"Network Activity"> = ["Network Activity"];
+  const [activeTab, setActiveTab] = useState<"Network Activity" | "Levels">(
+    "Network Activity"
+  );
+  const tabButtons: Array<"Network Activity" | "Levels"> = [
+    "Network Activity",
+    "Levels",
+  ];
   return (
     <div className="font-Outfit">
       {/* Tab buttons */}
@@ -35,26 +40,36 @@ const Network = () => {
       </div>
 
       {activeTab === "Network Activity" && (
-        <div className="mt-7">
-          <h1 className="text-white font-medium text-2xl mb-5">
-            Referral Code
-          </h1>
-          <div className="flex flex-col 2xl:flex-row gap-5">
-            <div className="w-full md:w-[355px]">
-              <ReferralCode
-                referralCode={userDetails?.data?.profile?.referral_code}
-              />
-            </div>
-            <div className="w-full xl:w-full 2xl:w-[700px]">
-              <ReferralActivity />
+        <>
+          <div className="mt-7">
+            <h1 className="text-white font-medium text-2xl mb-5">
+              Referral Code
+            </h1>
+            <div className="flex flex-col 2xl:flex-row gap-5">
+              <div className="w-full md:w-[355px]">
+                <ReferralCode
+                  referralCode={userDetails?.data?.profile?.referral_code}
+                />
+              </div>
+              <div className="w-full xl:w-full 2xl:w-[700px] max-h-[500px]">
+                <ReferralActivity />
+              </div>
             </div>
           </div>
-        </div>
+          <ReferralProgress
+            profile={data?.data?.profile}
+            earning={data?.data?.balances?.balance}
+          />
+        </>
       )}
-      <ReferralProgress
-        profile={data?.data?.profile}
-        earning={data?.data?.balances?.balance}
-      />
+
+      {
+        activeTab === "Levels" && (
+          <div className="mt-7">
+            <Levels />
+          </div>
+        )
+      }
     </div>
   );
 };

@@ -13,7 +13,7 @@ const Setting = () => {
   return (
     <div>
       {/* Tab buttons */}
-      <div className="relative mt-8 overflow-x-auto">
+      <div className="relative overflow-x-auto">
         <div className="flex items-center gap-6 flex-nowrap min-w-max">
           {tabButtons?.map((button) => (
             <button
