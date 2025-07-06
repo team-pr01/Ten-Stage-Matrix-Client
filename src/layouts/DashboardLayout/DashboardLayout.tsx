@@ -7,12 +7,14 @@ import DashboardHeader from "../../components/Dashboard/DashboardHeader/Dashboar
 
 const DashboardLayout = () => {
   return (
-    <div className="bg-primary-40 w-full relative">
-      <img
+    <div className="bg-primary-40 relative">
+       <img
         src={IMAGES.authBg}
         alt=""
         className="w-screen h-full absolute top-0 z-0"
       />
+      <div className="w-full relative max-w-[1440px] mx-auto">
+       
       <div className="xl:hidden flex items-center justify-between w-full p-5 z-50 relative">
         {/* Logo */}
       <Link to={"/"}>
@@ -25,6 +27,7 @@ const DashboardLayout = () => {
       <div className="w-full flex flex-col gap-8">
         <DashboardHeader/>
         <Outlet />
+      </div>
       </div>
       </div>
     </div>
