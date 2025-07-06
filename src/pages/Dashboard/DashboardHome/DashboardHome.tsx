@@ -76,7 +76,7 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 mb-5">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mb-[30px]">
         <DashboardCard
           direction="col"
           icon={ICONS.donation}
@@ -111,7 +111,7 @@ const DashboardHome = () => {
         />
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-5">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
         <DashboardCard
           direction="row"
           icon={ICONS.withdraw}

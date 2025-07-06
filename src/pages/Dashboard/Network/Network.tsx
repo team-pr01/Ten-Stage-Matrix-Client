@@ -40,10 +40,12 @@ const Network = () => {
             Referral Code
           </h1>
           <div className="flex flex-col 2xl:flex-row gap-5">
-            <ReferralCode
-              referralCode={userDetails?.data?.profile?.referral_code}
-            />
-            <div className="w-full">
+            <div className="w-full md:w-[355px]">
+              <ReferralCode
+                referralCode={userDetails?.data?.profile?.referral_code}
+              />
+            </div>
+            <div className="w-full xl:w-full 2xl:w-[700px]">
               <ReferralActivity />
             </div>
           </div>

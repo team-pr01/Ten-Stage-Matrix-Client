@@ -27,7 +27,7 @@ const ReferralCode = ({
         boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
         backdropFilter: "blur(5.05px)",
       }}
-      className={`rounded-[28px] border border-primary-50 bg-neutral-90/10 p-6 flex flex-col w-full max-w-[355px] ${cardHeight}`}
+      className={`rounded-[28px] border border-primary-50 bg-neutral-90/10 p-6 flex flex-col ${cardHeight}`}
     >
       <div className="space-y-8">
         <div className="flex items-center gap-[10px]">
