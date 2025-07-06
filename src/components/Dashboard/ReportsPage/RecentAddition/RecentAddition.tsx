@@ -19,7 +19,7 @@ const RecentAddition = () => {
         boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
         backdropFilter: "blur(5.05px)",
       }}
-      className="font-Outfit rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col py-7 px-[34px] max-w-full lg:max-w-[1000px] 2xl:max-w-full h-full overflow-y-auto custom-scrollbar"
+      className="font-Outfit rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col py-7 px-[34px] max-w-full lg:max-w-[1000px] xl:max-w-[920px] h-full overflow-y-auto custom-scrollbar"
     >
       <div className="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
         <h1 className="text-2xl font-medium text-white">Total Team Tree</h1>
@@ -64,7 +64,7 @@ const RecentAddition = () => {
         ) : (
           <div className="overflow-auto max-w-full">
             <table className=" w-full text-white">
-              <thead className="z-10">
+              <thead className="z-10 text-nowrap">
                 <tr className="border-b border-neutral-110 text-left">
                   <th className="py-3 px-4">Serial No</th>
 

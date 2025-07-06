@@ -13,7 +13,7 @@ const DashboardLayout = () => {
         alt=""
         className="w-screen h-full absolute top-0 z-0"
       />
-      <div className="w-full relative max-w-[1440px] mx-auto">
+      <div className="w-full relative max-w-full 2xl:max-w-[1440px] mx-auto">
        
       <div className="xl:hidden flex items-center justify-between w-full p-5 z-50 relative">
         {/* Logo */}
@@ -30,7 +30,7 @@ const DashboardLayout = () => {
       </div>
       </div>
       </div>
-    </div>
+  </div>
   );
 };
 
