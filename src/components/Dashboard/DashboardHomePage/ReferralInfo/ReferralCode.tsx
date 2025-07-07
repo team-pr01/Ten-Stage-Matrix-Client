@@ -23,15 +23,15 @@ const ReferralCode = ({
 
   return (
     <div
-      className="p-[2px] rounded-[28px]"
-      style={{
-        background: `linear-gradient(
-    60deg,
-    rgba(255, 255, 255, 0.005) 0%,
-    rgba(42, 245, 149, 0.60) 30%,
-    rgba(255, 255, 255, 0.005) 40%
-  )`,
-      }}
+      className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient"
+  //     style={{
+  //       background: `linear-gradient(
+  //   60deg,
+  //   rgba(255, 255, 255, 0.005) 0%,
+  //   rgba(42, 245, 149, 0.60) 30%,
+  //   rgba(255, 255, 255, 0.005) 40%
+  // )`,
+  //     }}
     >
       <div className="bg-neutral-10 rounded-[28px]">
         <div

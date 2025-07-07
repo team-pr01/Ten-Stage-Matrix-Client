@@ -15,15 +15,16 @@ const DashboardCard = ({
 }) => {
   return (
     <div
-      className="p-[2px] rounded-[28px]"
-      style={{
-        background: `linear-gradient(
-    60deg,
-    rgba(255, 255, 255, 0.005) 0%,
-    rgba(42, 245, 149, 0.60) 30%,
-    rgba(255, 255, 255, 0.005) 40%
-  )`,
-      }}
+      className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient"
+
+  //     style={{
+  //       background: `linear-gradient(
+  //   60deg,
+  //   rgba(255, 255, 255, 0.005) 0%,
+  //   rgba(42, 245, 149, 0.60) 30%,
+  //   rgba(255, 255, 255, 0.005) 40%
+  // )`,
+  //     }}
     >
       <div className="bg-neutral-10 rounded-[28px]">
         <div
@@ -35,7 +36,7 @@ const DashboardCard = ({
           backdropFilter: "blur(5.05px)",
         }}
       >
-        <img src={icon} alt="" className="size-[200px] mx-auto" />
+        <img src={icon} alt="" className="size-[120px] md:size-[200px] mx-auto" />
 
         <div className="w-full flex flex-col gap-3 text-center md:text-left">
           <div>
@@ -54,7 +55,7 @@ const DashboardCard = ({
               textShadow: "0px 0px 13.5px #E6700B",
               background: `linear-gradient(90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0))`,
             }}
-            className="text-primary-10 text-2xl font-bold border border-neutral-90 px-6 py-2 rounded-3xl w-fit mx-auto md:mx-0 capitalize"
+            className="text-primary-10 text-xl md:text-2xl font-bold border border-neutral-90 px-6 py-2 rounded-3xl w-fit mx-auto md:mx-0 capitalize"
           >
             {value ? `${isCurrencyVisible ? "$" : ""}${value}` : "$0.00000"}
           </div>

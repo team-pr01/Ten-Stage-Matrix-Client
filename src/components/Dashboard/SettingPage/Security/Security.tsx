@@ -8,7 +8,9 @@ const Security = () => {
 
   return (
     <div className="font-Outfit mt-10">
-      <div className="flex flex-col lg:flex-row items-center gap-5">
+     <div className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient w-fit">
+      <div className="bg-neutral-10 rounded-[28px]">
+         <div className="flex flex-col lg:flex-row items-center gap-5">
         {/* Profile photo */}
         <div className="flex flex-col gap-6 w-full">
           <div
@@ -52,6 +54,8 @@ const Security = () => {
           </div>
         </div> */}
       </div>
+      </div>
+     </div>
 
       <ChangePasswordModal
         isModalOpen={isModalOpen}

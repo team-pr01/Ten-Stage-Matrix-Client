@@ -5,7 +5,9 @@ const Levels = () => {
   return (
     <div className="font-Outfit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-h-screen">
       <Link
-        to={`/dashboard/level/${1}`}
+        to={`/dashboard/level/${1}`} className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient h-fit">
+<div className="bg-neutral-10 rounded-[28px]">
+  <div
         style={{
           boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
           backdropFilter: "blur(5.05px)",
@@ -17,7 +19,10 @@ const Levels = () => {
           <h1 className="text-xl font-medium text-white">Level 1</h1>
           <h1 className="text-xl text-neutral-160">Network Size: 15</h1>
         </div>
+      </div>
+</div>
       </Link>
+      
     </div>
   );
 };

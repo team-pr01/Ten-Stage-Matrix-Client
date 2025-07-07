@@ -68,6 +68,11 @@
   --bg-gradient-primary: linear-gradient(180deg, #8C52FF 0%, #A276FA 100%);
   --bg-gradient-navlink: linear-gradient(90deg, rgba(230, 112, 11, 0.30) 0%, rgba(151, 96, 49, 0.00) 100%);
   --bg-gradient-line: radial-gradient(50% 50% at 50% 50%, #E58963 0%, rgba(163, 59, 59, 0) 100%);
+  --bg-border-gradient: linear-gradient(50deg, rgba(255, 255, 255, 0.10) 30.32%, #2AF595 35.52%, rgba(255, 255, 255, 0.10) 43.48%);
+}
+
+.bg-border-gradient {
+  background: var(--bg-border-gradient);
 }
 
 .bg-gradient-navlink {
