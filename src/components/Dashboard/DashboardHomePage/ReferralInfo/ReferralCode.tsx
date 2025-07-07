@@ -52,7 +52,7 @@ const ReferralCode = ({
             <img
               src={ICONS.referralCode2}
               alt=""
-              className="w-[200px] mx-auto"
+              className="size-[120px] md:size-[200px] mx-auto"
             />
             <h2 className="text-neutral-100 text-xs font-medium capitalize">
               Share this code to invite new members.
