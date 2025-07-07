@@ -25,8 +25,9 @@ const DashboardCard = ({
   )`,
       }}
     >
-      <div
-        className={`rounded-[26px] bg-[#0B0B1F] p-6 flex items-start md:items-center gap-[33px] ${
+      <div className="bg-neutral-10 rounded-[28px]">
+        <div
+        className={`rounded-[26px] bg-neutral-90/10 p-6 flex items-start md:items-center gap-[33px] ${
           direction === "col" ? "flex-col" : "flex-col md:flex-row-reverse"
         }`}
         style={{
@@ -58,6 +59,7 @@ const DashboardCard = ({
             {value ? `${isCurrencyVisible ? "$" : ""}${value}` : "$0.00000"}
           </div>
         </div>
+      </div>
       </div>
     </div>
   );

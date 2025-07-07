@@ -158,3 +158,21 @@ select option:checked {
   background-color: white !important;
   color: black;
 }
+
+
+@layer components {
+  .glass-card-content {
+    @apply relative rounded-[26px] p-6 flex items-start md:items-center gap-[33px] backdrop-blur-md;
+    background-color: rgba(22, 22, 22, 0.4); /* Keep your glass feel */
+    box-shadow: inset 4px 4px 33.2px rgba(255, 255, 255, 0.2);
+    z-index: 10;
+  }
+
+  .glass-card-content::before {
+    content: '';
+    @apply absolute inset-0 rounded-[26px];
+    background: #0D0D0D; /* base color to block gradient leak */
+    opacity: 0.5;
+    z-index: -1;
+  }
+}
