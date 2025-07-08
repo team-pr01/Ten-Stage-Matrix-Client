@@ -37,7 +37,7 @@ const Navbar = () => {
           <div className="flex items-center justify-between z-50">
             {/* Logo */}
             <Link to={"/"}>
-              <img src={IMAGES.logo} alt="logo" className="z-10" />
+              <img src={IMAGES.logoGif} alt="logo" className="z-10" />
             </Link>
 
             {/* Navlinks */}

@@ -1,4 +1,5 @@
 import logo from "./images/logo.png";
+import logoGif from "./images/logo.gif";
 import heroImg from "./images/hero-section.svg";
 import securelyBuySell from "./images/securly-buy-sell.svg";
 import dummyVideoImg from "./images/dummy-video.png";
@@ -93,6 +94,7 @@ import borderGradient from "./icons/Frame 10.svg";
 
 export const IMAGES = {
     logo,
+    logoGif,
     heroImg,
     securelyBuySell,
     dummyVideoImg,

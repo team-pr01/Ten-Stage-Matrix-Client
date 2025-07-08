@@ -33,7 +33,7 @@ const SignupSuccess = () => {
       <div className="max-w-full lg:max-w-[500px] mx-auto px-5 2xl:px-0 flex items-center justify-center h-full">
         <div className="z-10 text-center">
           <Link to={"/"}>
-            <img src={IMAGES.logo} alt="logo" className="z-10 mx-auto" />
+            <img src={IMAGES.logoGif} alt="logo" className="z-10 mx-auto" />
           </Link>
           <SiTicktick className="text-[100px] text-green-500 mx-auto mt-16" />
           <h1 className="text-neutral-80 text-4xl font-bold mt-5">Success</h1>

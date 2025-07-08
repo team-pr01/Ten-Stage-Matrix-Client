@@ -18,7 +18,7 @@ const DashboardLayout = () => {
       <div className="xl:hidden flex items-center justify-between w-full p-5 z-50 relative">
         {/* Logo */}
       <Link to={"/"}>
-        <img src={IMAGES.logo} alt="logo" className="z-10" />
+        <img src={IMAGES.logoGif} alt="logo" className="z-10" />
       </Link>
       <DashboardHamburgerMenu/>
       </div>

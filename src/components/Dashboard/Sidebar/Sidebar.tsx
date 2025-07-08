@@ -34,7 +34,7 @@ const Sidebar = () => {
       <div className="flex flex-col gap-[30px]">
         {/* Logo */}
         <Link to={"/"}>
-          <img src={IMAGES.logo} alt="logo" className="z-10" />
+          <img src={IMAGES.logoGif} alt="logo" className="z-10" />
         </Link>
 
         <div className="bg-gradient-line h-[1px] w-full" />

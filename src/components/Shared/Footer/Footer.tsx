@@ -65,7 +65,7 @@ const Footer = () => {
 
         <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between mt-[119px]">
           <div>
-            <img src={IMAGES.logo} alt="logo" className="z-10" />
+            <img src={IMAGES.logoGif} alt="logo" className="z-10" />
             <p className="text-neutral-60 max-w-[292px]">
               Begin your fitness journey now! Join us to achieve your health
               goalswith experientialnd supportive comm

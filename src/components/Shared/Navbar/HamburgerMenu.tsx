@@ -71,7 +71,7 @@ const HamburgerMenu: React.FC = () => {
       >
        <div className="flex flex-col gap-8 z-10">
          <Link to={"/"}>
-          <img src={IMAGES.logo} alt="logo" className="z-10" />
+          <img src={IMAGES.logoGif} alt="logo" className="z-10" />
         </Link>
 
         {navlinks?.map((navlink) => (
