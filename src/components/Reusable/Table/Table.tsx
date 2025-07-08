@@ -2,7 +2,7 @@
 import Loader from "../../Shared/Loader/Loader";
 
 type TableProps = {
-  title: string;
+  title?: any | string;
   tableHeaders: string[];
   data: any[];
   isLoading: boolean;
@@ -17,7 +17,10 @@ const Table = ({ title, tableHeaders, data, isLoading }: TableProps) => {
       }}
       className="min-h-[350px] rounded-[28px] border-2 border-neutral-155 bg-neutral-155 flex flex-col p-5 xl:p-[30px] font-Outfit w-full h-full overflow-y-auto custom-scrollbar"
     >
-      <h1 className="text-2xl font-medium text-white">{title}</h1>
+      {
+        title &&
+        <h1 className="text-2xl font-medium text-white">{title}</h1>
+      }
 
       <div className="flex flex-col gap-[26px] mt-6">
         {isLoading ? (
@@ -51,7 +54,7 @@ const Table = ({ title, tableHeaders, data, isLoading }: TableProps) => {
                         const key = header
                           .toLowerCase()
                           .replace(/\s+/g, "_")
-                          .replace(/[^a-z0-9_]/gi, ""); // safer key match
+                          .replace(/[^a-z0-9_]/gi, "");
                         return (
                           <td key={i} className="p-3 whitespace-nowrap">
                             {key === "serial_no" ? index + 1 : item?.[key] ?? "--"}

@@ -22,6 +22,7 @@ import ResetPassword from "../pages/ResetPassword/ResetPassword";
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
 import LevelDetails from "../pages/Dashboard/Levels/LevelDetails";
 import Earn from "../pages/Dashboard/Earn/Earn";
+import ReferralDetails from "../pages/ReferralDetails/ReferralDetails";
 
 export const router = createBrowserRouter([
   {
@@ -114,6 +115,10 @@ export const router = createBrowserRouter([
       {
         path: "level/:id",
         element: <LevelDetails />,
+      },
+      {
+        path: "referral-details/:name/:id",
+        element: <ReferralDetails />,
       },
       {
         path: "setting",
