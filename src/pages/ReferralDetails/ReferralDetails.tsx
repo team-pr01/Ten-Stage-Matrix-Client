@@ -22,8 +22,9 @@ const ReferralDetails = () => {
     },
   ];
   return (
-    <div className="font-Outfit">
-      <Table
+    <div className="font-Outfit min-h-screen">
+      <div className="h-fit">
+        <Table
         title={
           <h1 className="text-neutral-35 text-xl lg:text-2xl font-medium">
             Referral Details of{" "}
@@ -41,6 +42,7 @@ const ReferralDetails = () => {
         }
         isLoading={isLoading}
       />
+      </div>
     </div>
   );
 };
