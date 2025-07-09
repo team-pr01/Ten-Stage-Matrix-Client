@@ -71,7 +71,7 @@ const RequestWithdraw = () => {
       <select
         value={selectedMethod}
         onChange={(e) => setSelectedMethod(e.target.value)}
-        className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none mt-5"
+        className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none mt-5 w-full md:w-fit"
       >
         {withdrawMethods.map((method) => (
           <option key={method} value={method} className="text-black">
