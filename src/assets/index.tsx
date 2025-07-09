@@ -90,6 +90,7 @@ import referralCode2 from "./icons/referral-code2.png";
 import earningThreshold from "./icons/earning-threshold.png";
 import userLevel from "./icons/user-level.svg";
 import borderGradient from "./icons/Frame 10.svg";
+import position from "./icons/position.svg";
 
 
 export const IMAGES = {
@@ -186,4 +187,5 @@ export const ICONS = {
     referralCode2,
     userLevel,
     borderGradient,
+    position,
 }
