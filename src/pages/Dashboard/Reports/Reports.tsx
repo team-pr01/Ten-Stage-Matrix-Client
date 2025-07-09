@@ -12,6 +12,7 @@ import {
   useGetUserDetailsQuery,
 } from "../../../redux/Features/User/userApi";
 import { TeamTreeGraph } from "../../Home/TeamTreeGraph";
+import Tab from "../../../components/Reusable/Tab/Tab";
 
 const Reports = () => {
   const { data } = useGetUserDetailsQuery({});
@@ -43,25 +44,12 @@ const Reports = () => {
   return (
     <div className="min-h-screen">
 
-      {/* Tab buttons */}
-      <div className="mt-8 relative overflow-x-auto">
-        <div className="flex items-center gap-6 whitespace-nowrap">
-          {tabButtons?.map((button) => (
-            <button
-              key={button}
-              onClick={() => setActiveTab(button)}
-              className={`text-xl font-medium transition-all cursor-pointer duration-300 border-b-[3px] pb-[9px] ${
-                activeTab === button
-                  ? "text-white border-white"
-                  : "text-neutral-70 border-transparent"
-              }`}
-            >
-              {button}
-            </button>
-          ))}
-        </div>
-        <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
-      </div>
+       {/* Tab buttons */}
+      <Tab
+        tabs={tabButtons}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
 
       {activeTab === "Direct Referrals" && (
         <div className="flex flex-col gap-6">

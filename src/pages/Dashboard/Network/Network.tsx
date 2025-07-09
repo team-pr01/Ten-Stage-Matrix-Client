@@ -25,7 +25,6 @@ const Network = () => {
 
   return (
     <div className="font-Outfit">
-      {/* Use reusable Tab component */}
       <Tab
         tabs={tabButtons}
         activeTab={activeTab}

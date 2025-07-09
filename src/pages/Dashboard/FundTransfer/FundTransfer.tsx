@@ -5,6 +5,7 @@ import TransferSuccess from "../../../components/Dashboard/FundTransferPage/Tran
 import { useTransferFundMutation } from "../../../redux/Features/User/userApi";
 import TransferHistory from "../../../components/Dashboard/FundTransferPage/TransferHistory/TransferHistory";
 import { toast } from "sonner";
+import Tab from "../../../components/Reusable/Tab/Tab";
 
 const FundTransfer = () => {
   const [activeTab, setActiveTab] = useState<
@@ -39,25 +40,12 @@ const FundTransfer = () => {
 
   return (
     <div className="font-Outfit min-h-screen">
-      {/* Tab buttons */}
-      <div className="relative overflow-x-auto">
-        <div className="flex items-center gap-6 whitespace-nowrap">
-          {tabButtons?.map((button) => (
-            <button
-              key={button}
-              onClick={() => setActiveTab(button)}
-              className={`text-xl font-medium transition-all cursor-pointer duration-300 border-b-[3px] pb-[9px] ${
-                activeTab === button
-                  ? "text-white border-white"
-                  : "text-neutral-70 border-transparent"
-              }`}
-            >
-              {button}
-            </button>
-          ))}
-        </div>
-        <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" />
-      </div>
+       {/* Tab buttons */}
+      <Tab
+        tabs={tabButtons}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
 
       {activeTab === "Dashboard" && (
         <div>

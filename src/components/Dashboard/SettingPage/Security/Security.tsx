@@ -7,7 +7,7 @@ const Security = () => {
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   return (
-    <div className="font-Outfit mt-10">
+    <div className="font-Outfit mt-10 min-h-screen">
      <div className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient w-fit">
       <div className="bg-neutral-10 rounded-[28px]">
          <div className="flex flex-col lg:flex-row items-center gap-5">

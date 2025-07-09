@@ -9,6 +9,7 @@ import {
 import { toast } from "sonner";
 import TextInput from "../../../Reusable/TextInput/TextInput";
 import Button from "../../../Reusable/Button/Button";
+import { useState } from "react";
 
 type TFormValues = {
   amount: string;
@@ -47,6 +48,14 @@ const RequestWithdraw = () => {
       console.log(error);
     }
   };
+
+  const withdrawMethods = [
+    "Withdraw From Available to Withdraw",
+    "Withdraw From Impact Balance",
+  ];
+  const [selectedMethod, setSelectedMethod] = useState(
+    "Withdraw From Available to Withdraw"
+  );
   return (
     <div className="font-Outfit">
       <h1 className="text-xl text-white font-medium">
@@ -58,6 +67,18 @@ const RequestWithdraw = () => {
           ? `${data?.data?.balances?.balance.toFixed(5)}`
           : "0.00000"}
       </h1>
+
+      <select
+        value={selectedMethod}
+        onChange={(e) => setSelectedMethod(e.target.value)}
+        className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none mt-5"
+      >
+        {withdrawMethods.map((method) => (
+          <option key={method} value={method} className="text-black">
+            {method}
+          </option>
+        ))}
+      </select>
       <form
         onSubmit={handleSubmit(handleRequestWithdraw)}
         className="flex flex-col gap-5 mt-12"
