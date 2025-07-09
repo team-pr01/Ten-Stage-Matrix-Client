@@ -8,6 +8,7 @@ import ReferralCode from "../../../components/Dashboard/DashboardHomePage/Referr
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 import Levels from "../Levels/Levels";
 import Position from "../../../components/Dashboard/NetworkPage/Position/Position";
+import Tab from "../../../components/Reusable/Tab/Tab";
 
 const Network = () => {
   const { data } = useGetUserProfileQuery({});
@@ -21,26 +22,15 @@ const Network = () => {
     "Levels",
     "Position",
   ];
+
   return (
     <div className="font-Outfit">
-      {/* Tab buttons */}
-      <div className="flex items-center gap-6 relative">
-        {tabButtons?.map((button) => (
-          <button
-            key={button}
-            onClick={() => setActiveTab(button)}
-            className={`text-xl font-medium transition-all cursor-pointer duration-300 pb-[9px] ${
-              activeTab === button ? "text-white" : "text-neutral-70 "
-            }`}
-          >
-            {button}
-          </button>
-        ))}
-        {/* <hr className="border border-neutral-115 w-full h-[1px] absolute top-[37.5px]" /> */}
-      </div>
-      <div className=" w-full">
-        <div className="h-[1px] w-full bg-[linear-gradient(to_right,transparent_0%,#f97316_25%,#22c55e_75%,transparent_100%)]"></div>
-      </div>
+      {/* Use reusable Tab component */}
+      <Tab
+        tabs={tabButtons}
+        activeTab={activeTab}
+        setActiveTab={setActiveTab}
+      />
 
       {activeTab === "Network Activity" && (
         <>
