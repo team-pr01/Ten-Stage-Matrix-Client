@@ -14,7 +14,7 @@ const LevelDetails = () => {
 
   const stages = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
   return (
-    <div>
+    <div className="min-h-screen">
       <div
         style={{
           boxShadow: "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
