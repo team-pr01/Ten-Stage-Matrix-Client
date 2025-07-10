@@ -9,7 +9,8 @@ import {
 import { toast } from "sonner";
 import TextInput from "../../../Reusable/TextInput/TextInput";
 import Button from "../../../Reusable/Button/Button";
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
+import { MdOutlineKeyboardArrowDown } from "react-icons/md";
 
 type TFormValues = {
   amount: string;
@@ -49,13 +50,28 @@ const RequestWithdraw = () => {
     }
   };
 
-  const withdrawMethods = [
-    "Withdraw From Available to Withdraw",
-    "Withdraw From Impact Balance",
-  ];
-  const [selectedMethod, setSelectedMethod] = useState(
-    "Withdraw From Available to Withdraw"
+  const [selectedMethod, setSelectedMethod] = useState<string>(
+    "Withdraw from available to withdraw"
   );
+  const [open, setOpen] = useState(false);
+  const dropDownRef = useRef<HTMLDivElement>(null);
+  const items = [
+    "Withdraw from available to withdraw",
+    "Withdraw from impact balance",
+  ];
+  useEffect(() => {
+    const close = (e: any) => {
+      if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
+        setOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", close);
+
+    return () => {
+      document.removeEventListener("mousedown", close);
+    };
+  }, []);
+
   return (
     <div className="font-Outfit">
       <h1 className="text-xl text-white font-medium">
@@ -68,17 +84,41 @@ const RequestWithdraw = () => {
           : "0.00000"}
       </h1>
 
-      <select
-        value={selectedMethod}
-        onChange={(e) => setSelectedMethod(e.target.value)}
-        className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none mt-5 w-full md:w-fit"
-      >
-        {withdrawMethods.map((method) => (
-          <option key={method} value={method} className="text-black">
-            {method}
-          </option>
-        ))}
-      </select>
+      <div ref={dropDownRef} className="relative w-fit text-white">
+        <button
+          onClick={() => {
+            setOpen((prev) => !prev);
+          }}
+          className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none mt-5 cursor-pointer flex items-center justify-between gap-3 w-full md:w-[340px]"
+        >
+          {selectedMethod}
+          <MdOutlineKeyboardArrowDown className="text-xl" />
+        </button>
+        <ul
+          className={`${
+            open ? "visible" : "invisible"
+          } absolute top-12 z-50 w-full space-y-2 bg-neutral-10 p-3`}
+        >
+          {items.map((item, idx) => (
+            <li
+              key={idx}
+              onClick={() => {
+                setSelectedMethod(item);
+                setOpen(false);
+              }}
+              className={`rounded-sm bg-neutral-25/10 text-white shadow-custom-dropdown p-2 ${
+                open ? "opacity-100 duration-500" : "opacity-0 duration-150"
+              } hover:bg-primary-10 cursor-pointer`}
+              style={{
+                transform: `translateY(${open ? 0 : (idx + 1) * 10}px)`,
+              }}
+            >
+              {item}
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <form
         onSubmit={handleSubmit(handleRequestWithdraw)}
         className="flex flex-col gap-5 mt-12"
