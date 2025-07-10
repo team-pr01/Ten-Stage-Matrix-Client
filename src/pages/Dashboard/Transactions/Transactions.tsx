@@ -29,8 +29,6 @@ const Transactions = () => {
       <div className="mt-7">
         <ActivityLog />
       </div>
-
-      {/* <ReferralStats data={data?.data?.team} /> */}
     </div>
   );
 };
