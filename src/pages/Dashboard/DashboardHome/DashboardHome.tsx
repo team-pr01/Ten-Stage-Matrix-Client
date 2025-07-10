@@ -76,41 +76,6 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mb-[30px]">
-        <DashboardCard
-          direction="col"
-          icon={ICONS.donation}
-          title="Total Donation"
-          value={
-            data?.data?.stats?.total_donation
-              ? `${data?.data?.stats?.total_donation.toFixed(5)}`
-              : `0.00000`
-          }
-        />
-
-        <DashboardCard
-          direction="col"
-          icon={ICONS.earning}
-          title="Total Earn"
-          value={
-            data?.data?.stats?.total_earn
-              ? `${data?.data?.stats?.total_earn.toFixed(5)}`
-              : "0.00000"
-          }
-        />
-
-        <DashboardCard
-          icon={ICONS.deposit}
-          direction="col"
-          title="Total Deposit"
-          value={
-            data?.data?.stats?.total_deposit
-              ? `${data?.data?.stats?.total_deposit.toFixed(5)}`
-              : "0.00000"
-          }
-        />
-      </div>
-
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
         <DashboardCard
           direction="row"
@@ -173,6 +138,41 @@ const DashboardHome = () => {
           title="Current Stage"
           value={`Stage ${data?.data?.profile?.stage}`}
           isCurrencyVisible={false}
+        />
+      </div>
+
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
+        <DashboardCard
+          direction="col"
+          icon={ICONS.donation}
+          title="Total Donation"
+          value={
+            data?.data?.stats?.total_donation
+              ? `${data?.data?.stats?.total_donation.toFixed(5)}`
+              : `0.00000`
+          }
+        />
+
+        <DashboardCard
+          direction="col"
+          icon={ICONS.earning}
+          title="Total Earn"
+          value={
+            data?.data?.stats?.total_earn
+              ? `${data?.data?.stats?.total_earn.toFixed(5)}`
+              : "0.00000"
+          }
+        />
+
+        <DashboardCard
+          icon={ICONS.deposit}
+          direction="col"
+          title="Total Deposit"
+          value={
+            data?.data?.stats?.total_deposit
+              ? `${data?.data?.stats?.total_deposit.toFixed(5)}`
+              : "0.00000"
+          }
         />
       </div>
     </div>
