@@ -9,18 +9,20 @@ import ReferralActivity from "../../../components/Dashboard/TransactionsPage/Ref
 import Levels from "../Levels/Levels";
 import Position from "../../../components/Dashboard/NetworkPage/Position/Position";
 import Tab from "../../../components/Reusable/Tab/Tab";
+import Progress from "../../../components/Dashboard/NetworkPage/Progress/Progress";
 
 const Network = () => {
   const { data } = useGetUserProfileQuery({});
   const { data: userDetails } = useGetUserDetailsQuery({});
 
   const [activeTab, setActiveTab] = useState<
-    "Network Activity" | "Levels" | "Position"
+    "Network Activity" | "Levels" | "Position" | "Progress"
   >("Network Activity");
-  const tabButtons: Array<"Network Activity" | "Levels" | "Position"> = [
+  const tabButtons: Array<"Network Activity" | "Levels" | "Position" | "Progress"> = [
     "Network Activity",
     "Levels",
     "Position",
+    "Progress",
   ];
 
   return (
@@ -64,6 +66,12 @@ const Network = () => {
       {activeTab === "Position" && (
         <div className="mt-7">
           <Position />
+        </div>
+      )}
+
+      {activeTab === "Progress" && (
+        <div className="mt-7">
+          <Progress />
         </div>
       )}
     </div>
