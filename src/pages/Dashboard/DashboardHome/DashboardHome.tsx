@@ -84,27 +84,6 @@ const DashboardHome = () => {
       ).toFixed(5)}`,
     },
     {
-      icon: ICONS.networkSize,
-      title: "Network size",
-      value: `${teamTree?.data?.length || 0} Members`,
-      isCurrencyVisible: false,
-    },
-    {
-      icon: ICONS.status,
-      title: "Status",
-      value: data?.data?.profile?.status,
-      isCurrencyVisible: false,
-    },
-    {
-      icon: ICONS.level,
-      title: "Current Stage",
-      value: `Stage ${data?.data?.profile?.stage}`,
-      isCurrencyVisible: false,
-    },
-  ];
-
-  const dashboardStatsCards = [
-    {
       icon: ICONS.donation,
       title: "Total Donation",
       value: data?.data?.stats?.total_donation
@@ -127,6 +106,27 @@ const DashboardHome = () => {
     },
   ];
 
+  const dashboardStatsCards = [
+    {
+      icon: ICONS.networkSize,
+      title: "Network size",
+      value: `${teamTree?.data?.length || 0} Members`,
+      isCurrencyVisible: false,
+    },
+    {
+      icon: ICONS.status,
+      title: "Status",
+      value: data?.data?.profile?.status,
+      isCurrencyVisible: false,
+    },
+    {
+      icon: ICONS.level,
+      title: "Current Stage",
+      value: `Stage ${data?.data?.profile?.stage}`,
+      isCurrencyVisible: false,
+    },
+  ];
+
   return (
     <div className="font-Outfit">
       <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-[50px]">
@@ -141,7 +141,7 @@ const DashboardHome = () => {
 
           <button
             onClick={handleCopy}
-            className="w-[160px] px-3 md:px-6 py-2 md:py-3 rounded-xl hover:bg-gray-100 bg-white text-neutral-10 font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+            className="w-[160px] px-3 md:px-6 py-2 md:py-3 rounded-xl hover:bg-gray-100 bg-white text-neutral-10 font-semibold text-xs sm:text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
             style={{
               boxShadow: `
                               0px -4px 4px 0px rgba(0, 0, 0, 0.25) inset, 0px 2px 2px 0px #FFF inset, 0px 4px 6px 0px rgba(0, 0, 0, 0.30) inset, 0px 4px 24px 0px rgba(168, 82, 5, 0.30)
@@ -161,7 +161,7 @@ const DashboardHome = () => {
             icon={card.icon}
             title={card.title}
             value={card.value}
-            isCurrencyVisible={card?.isCurrencyVisible ?? true}
+            // isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         ))}
       </div>
@@ -174,7 +174,7 @@ const DashboardHome = () => {
             icon={card.icon}
             title={card.title}
             value={card.value}
-            isCurrencyVisible={card?.isCurrencyVisible ?? true}
+            // isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         ))}
       </div>
@@ -187,6 +187,7 @@ const DashboardHome = () => {
             icon={card.icon}
             title={card.title}
             value={card.value}
+            isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         ))}
       </div>
@@ -199,6 +200,7 @@ const DashboardHome = () => {
             icon={card.icon}
             title={card.title}
             value={card.value}
+            isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         ))}
       </div>
