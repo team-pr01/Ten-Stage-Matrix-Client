@@ -10,19 +10,21 @@ type TabSwitcherProps = {
 const Tab: React.FC<TabSwitcherProps> = ({ tabs, activeTab, setActiveTab }) => {
   return (
     <div className="font-Outfit w-full">
-      {/* Tab buttons */}
-      <div className="flex items-center gap-6 relative">
-        {tabs.map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`text-xl font-medium transition-all cursor-pointer duration-300 pb-[9px] ${
-              activeTab === tab ? "text-white" : "text-neutral-70"
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
+      {/* Scrollable tab buttons */}
+      <div className="relative overflow-x-auto scrollbar-hide">
+        <div className="flex items-center gap-6 whitespace-nowrap min-w-max px-2">
+          {tabs.map((tab) => (
+            <button
+              key={tab}
+              onClick={() => setActiveTab(tab)}
+              className={`text-nowrap text-xl font-medium transition-all cursor-pointer duration-300 pb-[9px] ${
+                activeTab === tab ? "text-white" : "text-neutral-70"
+              }`}
+            >
+              {tab}
+            </button>
+          ))}
+        </div>
       </div>
 
       {/* Gradient Line */}

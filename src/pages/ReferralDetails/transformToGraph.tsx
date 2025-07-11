@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-export const transformToD3Tree = (node: any | null): any => {
+export const transformToGraph = (node: any | null): any => {
   if (!node || typeof node !== "object") return null;
 
   const children: any[] = [];
@@ -7,9 +7,9 @@ export const transformToD3Tree = (node: any | null): any => {
   if (node.children) {
     const { left, center, right } = node.children;
 
-    if (left) children.push(transformToD3Tree(left));
-    if (center) children.push(transformToD3Tree(center));
-    if (right) children.push(transformToD3Tree(right));
+    if (left) children.push(transformToGraph(left));
+    if (center) children.push(transformToGraph(center));
+    if (right) children.push(transformToGraph(right));
   }
 
   return {

@@ -1,32 +1,31 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useMemo } from "react";
-import Tree from "react-d3-tree";
+import { useMemo } from "react";
 import { useGetReferralTreeQuery } from "../../redux/Features/User/userApi";
-import { transformToD3Tree } from "./transformToTree";
+import Tree from "react-d3-tree";
+import { transformToGraph } from "./transformToGraph";
 
-export const TeamTreeGraph: React.FC = () => {
-  const { data, isLoading, isError } = useGetReferralTreeQuery({});
-
-  const treeData = useMemo(() => {
-    if (!data?.data) return [];
-
-    const transformed = transformToD3Tree(data.data);
-    return transformed ? [transformed] : [];
-  }, [data]);
-
-  if (isLoading)
-    return <div className="p-10 text-center text-white">Loading...</div>;
-  if (isError)
+const GraphView = () => {
+    const { data, isLoading, isError } = useGetReferralTreeQuery({});
+      console.log(data);
+    
+      const treeData = useMemo(() => {
+        if (!data?.data) return [];
+    
+        const transformed = transformToGraph(data.data);
+        return transformed ? [transformed] : [];
+      }, [data]);
+    
+      if (isLoading)
+        return <div className="p-10 text-center text-white">Loading...</div>;
+      if (isError)
+        return (
+          <div className="p-10 text-center text-red-500">Error loading tree</div>
+        );
+      if (treeData.length === 0)
+        return (
+          <div className="p-10 text-center text-white">No tree data available</div>
+        );
     return (
-      <div className="p-10 text-center text-red-500">Error loading tree</div>
-    );
-  if (treeData.length === 0)
-    return (
-      <div className="p-10 text-center text-white">No tree data available</div>
-    );
-
-  return (
-    <div
+        <div
       className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155"
       style={{
         width: "100%",
@@ -132,5 +131,7 @@ Referred by: ${referredBy}`}
         }}
       />
     </div>
-  );
+    );
 };
+
+export default GraphView;
