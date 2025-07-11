@@ -71,7 +71,11 @@ const FundTransfer = () => {
         setActiveTab={setActiveTab}
       />
 
-      <h1 className="text-xl text-green-500 font-medium mt-5">
+      
+
+      {activeTab === "Dashboard" && (
+        <div>
+          <h1 className="text-xl text-green-500 font-medium mt-5">
         Available{" "}
         {selectedMethod === "From available to withdraw"
           ? "withdrawal balance"
@@ -79,23 +83,21 @@ const FundTransfer = () => {
           ? "impact balance"
           : "balance"}{" "}
         $
-        {
-          selectedMethod === "From available to withdraw" ?
+        {selectedMethod === "From available to withdraw" ? (
           <span>
-          {data?.data?.balances?.balance
-            ? `${data?.data?.balances?.balance.toFixed(5)}`
-            : "0.00000"}
-        </span>
-        :
-        selectedMethod === "From impact balance" ?
-        <span>
-          {data?.data?.balances?.deposit_balance
-            ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
-            : "0.00000"}
-        </span>
-        :
-        0.00000
-        }
+            {data?.data?.balances?.balance
+              ? `${data?.data?.balances?.balance.toFixed(5)}`
+              : "0.00000"}
+          </span>
+        ) : selectedMethod === "From impact balance" ? (
+          <span>
+            {data?.data?.balances?.deposit_balance
+              ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
+              : "0.00000"}
+          </span>
+        ) : (
+          0.0
+        )}
       </h1>
 
       <div ref={dropDownRef} className="relative w-fit text-white">
@@ -134,9 +136,6 @@ const FundTransfer = () => {
           ))}
         </ul>
       </div>
-
-      {activeTab === "Dashboard" && (
-        <div>
           <p className="max-w-[493px] text-neutral-120 text-lg mt-8">
             Enter recipient details and amount.
           </p>
