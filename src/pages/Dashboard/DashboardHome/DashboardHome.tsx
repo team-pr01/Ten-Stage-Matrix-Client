@@ -7,6 +7,7 @@ import {
   useGetTeamTreeQuery,
   useGetUserProfileQuery,
 } from "../../../redux/Features/User/userApi";
+import DashboardCard2 from "../../../components/Reusable/DashboardCard/DashboardCard2";
 declare global {
   interface Window {
     ethereum: any;
@@ -50,6 +51,82 @@ const DashboardHome = () => {
     }
   };
 
+  const dashboardCardData = [
+    {
+      icon: ICONS.withdraw,
+      title: "Total Withdraw",
+      value: data?.data?.stats?.total_withdraw
+        ? `${data?.data?.stats?.total_withdraw.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.availableToWithdraw,
+      title: "Available To Withdraw",
+      value: data?.data?.balances?.balance
+        ? `${data?.data?.balances?.balance.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.impactBalance,
+      title: "Impact Balance",
+      value: data?.data?.balances?.deposit_balance
+        ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.earningThreshold,
+      title: "Earning Threshold",
+      value: `${Math.max(
+        0,
+        (data?.data?.profile?.last_donation || 0) *
+          (matchedStage?.earning_multiplier || 0) -
+          (data?.data?.balances?.stage_balance || 0)
+      ).toFixed(5)}`,
+    },
+    {
+      icon: ICONS.networkSize,
+      title: "Network size",
+      value: `${teamTree?.data?.length || 0} Members`,
+      isCurrencyVisible: false,
+    },
+    {
+      icon: ICONS.status,
+      title: "Status",
+      value: data?.data?.profile?.status,
+      isCurrencyVisible: false,
+    },
+    {
+      icon: ICONS.level,
+      title: "Current Stage",
+      value: `Stage ${data?.data?.profile?.stage}`,
+      isCurrencyVisible: false,
+    },
+  ];
+
+  const dashboardStatsCards = [
+    {
+      icon: ICONS.donation,
+      title: "Total Donation",
+      value: data?.data?.stats?.total_donation
+        ? `${data?.data?.stats?.total_donation.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.earning,
+      title: "Total Earn",
+      value: data?.data?.stats?.total_earn
+        ? `${data?.data?.stats?.total_earn.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.deposit,
+      title: "Total Deposit",
+      value: data?.data?.stats?.total_deposit
+        ? `${data?.data?.stats?.total_deposit.toFixed(5)}`
+        : "0.00000",
+    },
+  ];
+
   return (
     <div className="font-Outfit">
       <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-[50px]">
@@ -76,104 +153,54 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-        <DashboardCard
-          direction="row"
-          icon={ICONS.withdraw}
-          title="Total Withdraw"
-          value={
-            data?.data?.stats?.total_withdraw
-              ? `${data?.data?.stats?.total_withdraw.toFixed(5)}`
-              : "0.00000"
-          }
-        />
-        <DashboardCard
-          direction="row"
-          icon={ICONS.availableToWithdraw}
-          title="Available To Withdraw"
-          value={
-            data?.data?.balances?.balance
-              ? `${data?.data?.balances?.balance.toFixed(5)}`
-              : "0.00000"
-          }
-        />
-        <DashboardCard
-          direction="row"
-          icon={ICONS.impactBalance}
-          title="Impact Balance"
-          value={
-            data?.data?.balances?.deposit_balance
-              ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
-              : "0.00000"
-          }
-        />
-        <DashboardCard
-          direction="row"
-          icon={ICONS.earningThreshold}
-          title="Earning Threshold"
-          value={`${Math.max(
-            0,
-            data?.data?.profile?.last_donation *
-              matchedStage?.earning_multiplier -
-              data?.data?.balances?.stage_balance
-          ).toFixed(5)}`}
-        />
-        <DashboardCard
-          direction="row"
-          icon={ICONS.networkSize}
-          title="Network size"
-          value={`${teamTree?.data?.length || 0} Members`}
-          isCurrencyVisible={false}
-        />
-        <DashboardCard
-          direction="row"
-          icon={ICONS.status}
-          title="Status"
-          value={data?.data?.profile?.status}
-          isCurrencyVisible={false}
-        />
-        <DashboardCard
-          direction="row"
-          icon={ICONS.level}
-          title="Current Stage"
-          value={`Stage ${data?.data?.profile?.stage}`}
-          isCurrencyVisible={false}
-        />
+      <div className="md:hidden grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+        {dashboardCardData.map((card, index) => (
+          <DashboardCard2
+            key={index}
+            direction="row"
+            icon={card.icon}
+            title={card.title}
+            value={card.value}
+            isCurrencyVisible={card?.isCurrencyVisible ?? true}
+          />
+        ))}
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
-        <DashboardCard
-          direction="col"
-          icon={ICONS.donation}
-          title="Total Donation"
-          value={
-            data?.data?.stats?.total_donation
-              ? `${data?.data?.stats?.total_donation.toFixed(5)}`
-              : `0.00000`
-          }
-        />
+      <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+        {dashboardCardData.map((card, index) => (
+          <DashboardCard
+            key={index}
+            direction="row"
+            icon={card.icon}
+            title={card.title}
+            value={card.value}
+            isCurrencyVisible={card?.isCurrencyVisible ?? true}
+          />
+        ))}
+      </div>
 
-        <DashboardCard
-          direction="col"
-          icon={ICONS.earning}
-          title="Total Earn"
-          value={
-            data?.data?.stats?.total_earn
-              ? `${data?.data?.stats?.total_earn.toFixed(5)}`
-              : "0.00000"
-          }
-        />
+      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
+        {dashboardStatsCards.map((card, index) => (
+          <DashboardCard
+            key={index}
+            direction="col"
+            icon={card.icon}
+            title={card.title}
+            value={card.value}
+          />
+        ))}
+      </div>
 
-        <DashboardCard
-          icon={ICONS.deposit}
-          direction="col"
-          title="Total Deposit"
-          value={
-            data?.data?.stats?.total_deposit
-              ? `${data?.data?.stats?.total_deposit.toFixed(5)}`
-              : "0.00000"
-          }
-        />
+      <div className="md:hidden grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
+        {dashboardStatsCards.map((card, index) => (
+          <DashboardCard2
+            key={index}
+            direction="col"
+            icon={card.icon}
+            title={card.title}
+            value={card.value}
+          />
+        ))}
       </div>
     </div>
   );

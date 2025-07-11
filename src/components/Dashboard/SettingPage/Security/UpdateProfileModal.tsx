@@ -10,6 +10,7 @@ import { useEffect } from "react";
 
 type TFormValues = {
   name?: string;
+  email?: string;
   wallet_address?: string;
 };
 
@@ -35,6 +36,7 @@ const UpdateProfileModal = ({
 
   useEffect(() => {
     setValue("name", defaultValues?.name);
+    setValue("email", defaultValues?.email);
     setValue("wallet_address", defaultValues?.user_pk);
   }, [defaultValues, setValue]);
 
@@ -89,6 +91,15 @@ const UpdateProfileModal = ({
             error={errors.name}
             {...register("name", {
               required: "Name is required",
+            })}
+          />
+          <TextInput
+            label="Email"
+            placeholder="Enter Email"
+            icon={ICONS.emailIcon}
+            error={errors.email}
+            {...register("email", {
+              required: "Email is required",
             })}
           />
           <TextInput
