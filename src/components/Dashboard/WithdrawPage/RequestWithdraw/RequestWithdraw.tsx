@@ -51,13 +51,13 @@ const RequestWithdraw = () => {
   };
 
   const [selectedMethod, setSelectedMethod] = useState<string>(
-    "Withdraw from available to withdraw"
+    "Select withdrawal method"
   );
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const items = [
-    "Withdraw from available to withdraw",
-    "Withdraw from impact balance",
+    "From available to withdraw",
+    "From impact balance",
   ];
   useEffect(() => {
     const close = (e: any) => {
@@ -77,23 +77,47 @@ const RequestWithdraw = () => {
       <h1 className="text-xl text-white font-medium">
         Minimum withdraw ${settings?.data?.limits?.min_withdrawal}
       </h1>
-      <h1 className="text-xl text-green-500 font-medium mt-3">
-        Available to withdraw $
-        {data?.data?.balances?.balance
-          ? `${data?.data?.balances?.balance.toFixed(5)}`
-          : "0.00000"}
+     <h1 className="text-xl text-green-500 font-medium mt-5">
+        Available{" "}
+        {selectedMethod === "From available to withdraw"
+          ? "withdrawal balance"
+          : selectedMethod === "From impact balance"
+          ? "impact balance"
+          : "balance"}{" "}
+        $
+        {
+          selectedMethod === "From available to withdraw" ?
+          <span>
+          {data?.data?.balances?.balance
+            ? `${data?.data?.balances?.balance.toFixed(5)}`
+            : "0.00000"}
+        </span>
+        :
+        selectedMethod === "From impact balance" ?
+        <span>
+          {data?.data?.balances?.deposit_balance
+            ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
+            : "0.00000"}
+        </span>
+        :
+        0.00000
+        }
       </h1>
 
+
+
       <div ref={dropDownRef} className="relative w-fit text-white">
-        <button
-          onClick={() => {
-            setOpen((prev) => !prev);
-          }}
-          className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none mt-5 cursor-pointer flex items-center justify-between gap-3 w-full md:w-[340px]"
-        >
-          {selectedMethod}
-          <MdOutlineKeyboardArrowDown className="text-xl" />
-        </button>
+        <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit my-8 h-fit">
+          <button
+            onClick={() => {
+              setOpen((prev) => !prev);
+            }}
+            className="px-5 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none cursor-pointer flex items-center justify-between gap-3 w-full md:w-[280px]"
+          >
+            {selectedMethod}
+            <MdOutlineKeyboardArrowDown className="text-xl" />
+          </button>
+        </div>
         <ul
           className={`${
             open ? "visible" : "invisible"
@@ -133,12 +157,12 @@ const RequestWithdraw = () => {
           })}
         />
         <TextInput
-          label="Wallet Address"
-          placeholder="Enter Wallet Address"
+          label="USDT BEP-20 Wallet Address."
+          placeholder="Enter USDT BEP-20 Wallet Address."
           icon={ICONS.privateKey}
           error={errors.withdrawal_address}
           {...register("withdrawal_address", {
-            required: "Wallet address is required",
+            required: "Your USDT BEP-20 Wallet Address. is required",
           })}
         />
         <Button label="Confirm" isLoading={isLoading} classNames="w-[176px]" />
