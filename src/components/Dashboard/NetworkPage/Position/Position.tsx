@@ -7,7 +7,7 @@ const Position = () => {
         <div className="font-Outfit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 items-center">
       <Link
         to={`/dashboard/level/${1}`}
-        className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient2 h-[180px]"
+        className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient2 h-[210px]"
       >
         <div className="bg-neutral-10 rounded-[28px] h-full">
           <div
@@ -21,6 +21,7 @@ const Position = () => {
             <div className="space-y-[6px]">
               <h1 className="text-xl font-medium text-white">Line 1</h1>
               <h1 className="text-neutral-160">Network Size: 15</h1>
+              <p className="text-neutral-160">Active members: 15</p>
             </div>
           </div>
         </div>
@@ -48,7 +49,7 @@ const Position = () => {
       </Link>
       <Link
         to={`/dashboard/level/${1}`}
-        className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient2 h-[180px]"
+        className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient2 h-[210px]"
       >
         <div className="bg-neutral-10 rounded-[28px] h-full">
           <div
@@ -62,6 +63,7 @@ const Position = () => {
             <div className="space-y-[6px]">
               <h1 className="text-xl font-medium text-white">Line 3</h1>
               <p className="text-neutral-160">Network Size: 15</p>
+              <p className="text-neutral-160">Active members: 15</p>
               
             </div>
           </div>

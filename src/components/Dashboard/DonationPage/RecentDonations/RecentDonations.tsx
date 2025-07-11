@@ -6,9 +6,9 @@ import Table from "../../../Reusable/Table/Table";
 const RecentDonations = () => {
   const { data, isLoading } = useGetDonationHistoryQuery({});
   return (
-    <div className="mt-16">
-      <Table
-        title="Withdrawal Details"
+      <div className="mt-16 h-fit">
+        <Table
+        title="Recent Donations"
         tableHeaders={[
           "Serial No",
           "Transaction Id",
@@ -23,7 +23,7 @@ const RecentDonations = () => {
             transaction_id: item._id,
             type: item.type,
             date: formatDate(item?.created_at),
-            amount: `$${item?.amount.toFixed(5)}`,
+            amount: `$${item?.amount?.toFixed(5)}`,
             status:
               item?.status === 1
                 ? "Completed"
@@ -38,7 +38,7 @@ const RecentDonations = () => {
         }
         isLoading={isLoading}
       />
-    </div>
+      </div>
   );
 };
 
