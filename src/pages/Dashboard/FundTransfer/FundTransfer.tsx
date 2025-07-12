@@ -44,11 +44,11 @@ const FundTransfer = () => {
   };
 
   const [selectedMethod, setSelectedMethod] = useState<string>(
-    "Select transfer method"
+    "Select Wallet"
   );
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
-  const items = ["From available to withdraw", "From impact balance"];
+  const items = ["Withdrawable Balance", "Impact Balance"];
   useEffect(() => {
     const close = (e: any) => {
       if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
@@ -77,19 +77,19 @@ const FundTransfer = () => {
         <div>
           <h1 className="text-xl text-green-500 font-medium mt-5">
         Available{" "}
-        {selectedMethod === "From available to withdraw"
+        {selectedMethod === "Withdrawable Balance"
           ? "withdrawal balance"
-          : selectedMethod === "From impact balance"
+          : selectedMethod === "Impact Balance"
           ? "impact balance"
           : "balance"}{" "}
         $
-        {selectedMethod === "From available to withdraw" ? (
+        {selectedMethod === "Withdrawable Balance" ? (
           <span>
             {data?.data?.balances?.balance
               ? `${data?.data?.balances?.balance.toFixed(5)}`
               : "0.00000"}
           </span>
-        ) : selectedMethod === "From impact balance" ? (
+        ) : selectedMethod === "Impact Balance" ? (
           <span>
             {data?.data?.balances?.deposit_balance
               ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`

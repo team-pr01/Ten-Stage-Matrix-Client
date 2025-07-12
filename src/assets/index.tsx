@@ -19,6 +19,7 @@ import imagePlaceholder from "./images/image-placeholder.jpg";
 import authBg from "./images/auth-bg.png";
 import avatar3 from "./images/avatar.png";
 import referralCodeBg from "./images/referal-code-bg.png";
+import lock from "./images/lock.png";
 
 
 
@@ -115,6 +116,7 @@ export const IMAGES = {
     authBg,
     avatar3,
     referralCodeBg,
+    lock,
 };
 
 export const ICONS = {
