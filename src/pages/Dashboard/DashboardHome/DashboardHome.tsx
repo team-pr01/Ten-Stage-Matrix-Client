@@ -7,7 +7,6 @@ import {
   useGetTeamTreeQuery,
   useGetUserProfileQuery,
 } from "../../../redux/Features/User/userApi";
-import DashboardCard2 from "../../../components/Reusable/DashboardCard/DashboardCard2";
 declare global {
   interface Window {
     ethereum: any;
@@ -153,20 +152,7 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      <div className="md:hidden grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
-        {dashboardCardData.map((card, index) => (
-          <DashboardCard2
-            key={index}
-            direction="row"
-            icon={card.icon}
-            title={card.title}
-            value={card.value}
-            // isCurrencyVisible={card?.isCurrencyVisible ?? true}
-          />
-        ))}
-      </div>
-
-      <div className="hidden md:grid grid-cols-1 lg:grid-cols-2 gap-[30px]">
+      <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-[14px] md:gap-[30px]">
         {dashboardCardData.map((card, index) => (
           <DashboardCard
             key={index}
@@ -179,22 +165,9 @@ const DashboardHome = () => {
         ))}
       </div>
 
-      <div className="hidden md:grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
         {dashboardStatsCards.map((card, index) => (
           <DashboardCard
-            key={index}
-            direction="col"
-            icon={card.icon}
-            title={card.title}
-            value={card.value}
-            isCurrencyVisible={card?.isCurrencyVisible ?? true}
-          />
-        ))}
-      </div>
-
-      <div className="md:hidden grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
-        {dashboardStatsCards.map((card, index) => (
-          <DashboardCard2
             key={index}
             direction="col"
             icon={card.icon}
