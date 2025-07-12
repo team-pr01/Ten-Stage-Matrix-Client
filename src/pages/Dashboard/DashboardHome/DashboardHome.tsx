@@ -52,37 +52,6 @@ const DashboardHome = () => {
 
   const dashboardCardData = [
     {
-      icon: ICONS.withdraw,
-      title: "Total Withdraw",
-      value: data?.data?.stats?.total_withdraw
-        ? `${data?.data?.stats?.total_withdraw.toFixed(5)}`
-        : "0.00000",
-    },
-    {
-      icon: ICONS.availableToWithdraw,
-      title: "Withdrawable Balance",
-      value: data?.data?.balances?.balance
-        ? `${data?.data?.balances?.balance.toFixed(5)}`
-        : "0.00000",
-    },
-    {
-      icon: ICONS.impactBalance,
-      title: "Impact Balance",
-      value: data?.data?.balances?.deposit_balance
-        ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
-        : "0.00000",
-    },
-    {
-      icon: ICONS.earningThreshold,
-      title: "Remaining Balance",
-      value: `${Math.max(
-        0,
-        (data?.data?.profile?.last_donation || 0) *
-          (matchedStage?.earning_multiplier || 0) -
-          (data?.data?.balances?.stage_balance || 0)
-      ).toFixed(5)}`,
-    },
-    {
       icon: ICONS.donation,
       title: "Total Donation",
       value: data?.data?.stats?.total_donation
@@ -103,6 +72,37 @@ const DashboardHome = () => {
         ? `${data?.data?.stats?.total_deposit.toFixed(5)}`
         : "0.00000",
     },
+    {
+      icon: ICONS.withdraw,
+      title: "Total Withdraw",
+      value: data?.data?.stats?.total_withdraw
+        ? `${data?.data?.stats?.total_withdraw.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.availableToWithdraw,
+      title: "Withdrawable Balance",
+      value: data?.data?.balances?.balance
+        ? `${data?.data?.balances?.balance.toFixed(5)}`
+        : "0.00000",
+    },
+    {
+      icon: ICONS.impactBalance,
+      title: "Impact Balance",
+      value: data?.data?.balances?.deposit_balance
+        ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
+        : "0.00000",
+    },
+    // {
+    //   icon: ICONS.earningThreshold,
+    //   title: "Remaining Balance",
+    //   value: `${Math.max(
+    //     0,
+    //     (data?.data?.profile?.last_donation || 0) *
+    //       (matchedStage?.earning_multiplier || 0) -
+    //       (data?.data?.balances?.stage_balance || 0)
+    //   ).toFixed(5)}`,
+    // },
   ];
 
   const dashboardStatsCards = [
@@ -152,7 +152,7 @@ const DashboardHome = () => {
         </div>
       </div>
 
-      <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-[14px] md:gap-[30px]">
+      <div className="grid grid-cols-2 md:grid-cols-1 lg:grid-cols-2 gap-[14px] md:gap-[30px] ">
         {dashboardCardData.map((card, index) => (
           <DashboardCard
             key={index}
@@ -163,6 +163,35 @@ const DashboardHome = () => {
             // isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         ))}
+        <div className="hidden md:grid">
+          <DashboardCard
+            direction="row"
+            icon={ICONS.earningThreshold}
+            title={"Remaining Balance"}
+            value={`${Math.max(
+              0,
+              (data?.data?.profile?.last_donation || 0) *
+                (matchedStage?.earning_multiplier || 0) -
+                (data?.data?.balances?.stage_balance || 0)
+            ).toFixed(5)}`}
+            // isCurrencyVisible={card?.isCurrencyVisible ?? true}
+          />
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 md:hidden mt-[30px]">
+        <DashboardCard
+          direction="row"
+          icon={ICONS.earningThreshold}
+          title={"Remaining Balance"}
+          value={`${Math.max(
+            0,
+            (data?.data?.profile?.last_donation || 0) *
+              (matchedStage?.earning_multiplier || 0) -
+              (data?.data?.balances?.stage_balance || 0)
+          ).toFixed(5)}`}
+          // isCurrencyVisible={card?.isCurrencyVisible ?? true}
+        />
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-[30px] mt-[30px]">
