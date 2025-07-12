@@ -50,15 +50,10 @@ const RequestWithdraw = () => {
     }
   };
 
-  const [selectedMethod, setSelectedMethod] = useState<string>(
-    "Select Wallet"
-  );
+  const [selectedMethod, setSelectedMethod] = useState<string>("Select Wallet");
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
-  const items = [
-    "Withdrawable Balance",
-    "Impact Balance",
-  ];
+  const items = ["Withdrawable Balance", "Impact Balance"];
   useEffect(() => {
     const close = (e: any) => {
       if (dropDownRef.current && !dropDownRef.current.contains(e.target)) {
@@ -77,7 +72,7 @@ const RequestWithdraw = () => {
       <h1 className="text-xl text-white font-medium">
         Minimum withdraw ${settings?.data?.limits?.min_withdrawal}
       </h1>
-     <h1 className="text-xl text-green-500 font-medium mt-5">
+      <h1 className="text-base sm:text-xl text-green-500 font-medium mt-5">
         Available{" "}
         {selectedMethod === "Withdrawable Balance"
           ? "withdrawal balance"
@@ -85,26 +80,22 @@ const RequestWithdraw = () => {
           ? "impact balance"
           : "balance"}{" "}
         $
-        {
-          selectedMethod === "Withdrawable Balance" ?
+        {selectedMethod === "Withdrawable Balance" ? (
           <span>
-          {data?.data?.balances?.balance
-            ? `${data?.data?.balances?.balance.toFixed(5)}`
-            : "0.00000"}
-        </span>
-        :
-        selectedMethod === "Impact Balance" ?
-        <span>
-          {data?.data?.balances?.deposit_balance
-            ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
-            : "0.00000"}
-        </span>
-        :
-        0.00000
-        }
+            {data?.data?.balances?.balance
+              ? `${data?.data?.balances?.balance.toFixed(5)}`
+              : "0.00000"}
+          </span>
+        ) : selectedMethod === "Impact Balance" ? (
+          <span>
+            {data?.data?.balances?.deposit_balance
+              ? `${data?.data?.balances?.deposit_balance.toFixed(5)}`
+              : "0.00000"}
+          </span>
+        ) : (
+          0.0
+        )}
       </h1>
-
-
 
       <div ref={dropDownRef} className="relative w-fit text-white">
         <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit my-8 h-fit">
@@ -112,7 +103,7 @@ const RequestWithdraw = () => {
             onClick={() => {
               setOpen((prev) => !prev);
             }}
-            className="px-5 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none cursor-pointer flex items-center justify-between gap-3 w-full md:w-[280px]"
+            className="px-5 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 focus:outline-none cursor-pointer flex items-center justify-between gap-3 w-[250px] md:w-[280px]"
           >
             {selectedMethod}
             <MdOutlineKeyboardArrowDown className="text-xl" />
@@ -124,21 +115,25 @@ const RequestWithdraw = () => {
           } absolute top-12 z-50 w-full space-y-2 bg-neutral-10 p-3`}
         >
           {items.map((item, idx) => (
-            <li
+            <div
               key={idx}
               onClick={() => {
                 setSelectedMethod(item);
                 setOpen(false);
               }}
-              className={`rounded-sm bg-neutral-25/10 text-white shadow-custom-dropdown p-2 ${
+              className={`bg-border-gradient2 p-[1px] rounded-sm ${
                 open ? "opacity-100 duration-500" : "opacity-0 duration-150"
-              } hover:bg-primary-10 cursor-pointer`}
-              style={{
-                transform: `translateY(${open ? 0 : (idx + 1) * 10}px)`,
-              }}
+              }`}
             >
-              {item}
-            </li>
+              <li
+                className={`rounded-sm bg-neutral-10 text-white shadow-custom-dropdown p-2 text-nowrap  hover:bg-primary-10 cursor-pointer`}
+                style={{
+                  transform: `translateY(${open ? 0 : (idx + 1) * 10}px)`,
+                }}
+              >
+                {item}
+              </li>
+            </div>
           ))}
         </ul>
       </div>

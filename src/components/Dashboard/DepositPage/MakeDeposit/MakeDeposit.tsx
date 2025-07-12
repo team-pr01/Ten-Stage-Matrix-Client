@@ -97,7 +97,7 @@ const MakeDeposit = () => {
   return (
     <div className="font-Outfit">
      <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit mb-8">
-       <button className="px-6 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 ">
+       <button className="px-6 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 ">
         Generate Wallet
       </button>
      </div>

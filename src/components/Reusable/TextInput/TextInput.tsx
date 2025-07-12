@@ -51,7 +51,7 @@ const TextInput = forwardRef<HTMLInputElement, TextInputProps>(
             alt="private key"
             className="absolute left-5 top-1/2 -translate-y-1/2 size-5 z-10 pointer-events-none"
           />
-          <div className="group rounded-[8px] bg-neutral-90 p-[1px] transition-all duration-500 hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400">
+          <div className="group rounded-[8px] bg-neutral-90 p-[1px] transition-all duration-500 hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 focus-within:bg-gradient-to-r focus-within:from-orange-400 focus-within:via-green-400 focus-within:to-cyan-400">
             <input
               required={isRequired}
               id={name}

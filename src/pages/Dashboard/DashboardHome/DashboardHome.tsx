@@ -60,7 +60,7 @@ const DashboardHome = () => {
     },
     {
       icon: ICONS.availableToWithdraw,
-      title: "Available To Withdraw",
+      title: "Withdrawable Balance",
       value: data?.data?.balances?.balance
         ? `${data?.data?.balances?.balance.toFixed(5)}`
         : "0.00000",
@@ -74,7 +74,7 @@ const DashboardHome = () => {
     },
     {
       icon: ICONS.earningThreshold,
-      title: "Earning Threshold",
+      title: "Remaining Balance",
       value: `${Math.max(
         0,
         (data?.data?.profile?.last_donation || 0) *
