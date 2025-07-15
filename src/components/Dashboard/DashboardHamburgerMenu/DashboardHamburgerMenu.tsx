@@ -70,7 +70,7 @@ const DashboardHamburgerMenu: React.FC = () => {
         }`}
       >
         <div className="flex flex-col gap-8">
-          <Link to={"/"}>
+          <Link to={"/dashboard"}>
             <img src={IMAGES.logoGif} alt="logo" className="z-10" />
           </Link>
 

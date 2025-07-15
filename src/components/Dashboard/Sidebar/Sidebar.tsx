@@ -33,13 +33,13 @@ const Sidebar = () => {
     >
       <div className="flex flex-col gap-[30px]">
         {/* Logo */}
-        <Link to={"/"}>
+        <Link to={"/dashboard"}>
           <img src={IMAGES.logoGif} alt="logo" className="z-10" />
         </Link>
 
         <div className="bg-gradient-line h-[1px] w-full" />
 
-        <div className="flex flex-col h-full max-h-[460px] overflow-y-auto custom-scrollbar">
+        <div className="flex flex-col h-full max-h-[400px] 2xl:max-h-[650px] overflow-y-auto custom-scrollbar">
           {dashboardSidebarLinks?.map((item) => (
             <Link
               key={item.label}
@@ -57,16 +57,16 @@ const Sidebar = () => {
         </div>
       </div>
 
-      <div className="border border-primary-50 bg-neutral-150 shadow-custom rounded-[28px] px-4 py-7 text-center">
-        <h1 className="font-semibold leading-6 text-white">
+      {/* <div className="border border-primary-50 bg-neutral-150 shadow-custom rounded-[28px] px-4 py-7 text-center"> */}
+        {/* <h1 className="font-semibold leading-6 text-white">
           Earn crypto flexibly!
         </h1>
         <p className="font-medium text-xs leading-5 mt-[6px] text-neutral-145">
           Creating or adding new tasks couldn't be easier
-        </p>
+        </p> */}
         <button
           onClick={handleLogout}
-          className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] mt-5 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+          className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
           style={{
             boxShadow: `
                     inset 0px 2px 2px 0px #D26407,
@@ -79,7 +79,7 @@ const Sidebar = () => {
           <img src={ICONS.logout} alt="" className="size-6" />
           Logout
         </button>
-      </div>
+      {/* </div> */}
     </div>
   );
 };

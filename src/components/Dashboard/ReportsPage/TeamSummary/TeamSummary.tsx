@@ -27,7 +27,7 @@ const TeamSummary = () => {
   const earningTrends = [ 
     {
       icon: ICONS.earning,
-      title: "Earning Threshold",
+      title: "Remaining Balance",
       value: `$${Math.max(
         0,
         data?.data?.profile?.last_donation * matchedStage?.earning_multiplier -
