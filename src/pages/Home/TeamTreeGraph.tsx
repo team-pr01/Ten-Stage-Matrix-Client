@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-explicit-any */
 import React, { useMemo } from "react";
 import Tree from "react-d3-tree";
 import { useGetReferralTreeQuery } from "../../redux/Features/User/userApi";
