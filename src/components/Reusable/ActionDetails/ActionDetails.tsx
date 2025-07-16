@@ -17,7 +17,7 @@ const ActionDetails = () => {
   return (
     <div>
       <Table
-        title="Deposit Details"
+        title="Withdraw Details"
         tableHeaders={[
           "Serial No",
           "Transaction Id",

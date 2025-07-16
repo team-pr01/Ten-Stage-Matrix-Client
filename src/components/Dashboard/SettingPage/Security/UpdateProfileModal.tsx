@@ -60,7 +60,7 @@ const UpdateProfileModal = ({
     <div
       className={`${
         isUpdateProfileModalOpen ? " visible" : " invisible"
-      } w-full h-screen fixed top-0 left-0 z-[200000000] bg-neutral-15/90 flex items-center justify-center transition-all duration-300 font-Outfit`}
+      } w-full h-screen fixed top-0 left-0 z-[200000000] bg-[#00000066] backdrop-blur-sm flex items-center justify-center transition-all duration-300 font-Outfit`}
     >
       <div
         className={`${
