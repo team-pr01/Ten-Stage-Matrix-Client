@@ -44,88 +44,64 @@ const GraphView = () => {
           const fullName = nodeDatum.attributes?.fullName || "N/A";
           const stage = nodeDatum.attributes?.stage || "N/A";
           const position = nodeDatum.attributes?.position || "N/A";
-         const referredBy =
-           typeof nodeDatum.attributes?.referred_by === "object" && nodeDatum.attributes?.referred_by !== null
-             ? (nodeDatum.attributes?.referred_by as { name?: string }).name || "N/A"
-             : nodeDatum.attributes?.referred_by ?? "N/A";
+          const referredBy =
+            typeof nodeDatum.attributes?.referred_by === "object" &&
+            nodeDatum.attributes?.referred_by !== null
+              ? (nodeDatum.attributes?.referred_by as { name?: string }).name ||
+                "N/A"
+              : String(nodeDatum.attributes?.referred_by ?? "N/A");
+
+          const nodeWidth = 140;
+          const nodeHeight = 120;
 
           return (
             <g>
-              {/* Rectangle for the node */}
-              <rect
-                width="140"
-                height="120"
-                x="-70"
-                y="-60"
-                fill="#dddddd"
-                rx={10}
-                stroke="#dddddd11"
-              />
-              
-              {/* Node details with consistent styling */}
-              <text
-                fill="black"
-                x="0"
-                y="-30"
-                textAnchor="middle"
-                style={{
-                  fontSize: "12px",
-                  fontWeight: "bold",
-                  fontFamily: "Arial, sans-serif" // Ensures consistent font rendering
-                }}
+              <foreignObject
+                x={-nodeWidth / 2}
+                y={-nodeHeight / 2}
+                width={nodeWidth}
+                height={nodeHeight}
               >
-                {fullName}
-              </text>
-              
-              <text
-                fill="black"
-                x="0"
-                y="-10"
-                textAnchor="middle"
-                style={{
-                  fontSize: "10px",
-                  fontWeight: "normal",
-                  fontFamily: "Arial, sans-serif"
-                }}
-              >
-                Stage: {stage}
-              </text>
-              
-              <text
-                fill="black"
-                x="0"
-                y="10"
-                textAnchor="middle"
-                style={{
-                  fontSize: "10px",
-                  fontWeight: "normal",
-                  fontFamily: "Arial, sans-serif"
-                }}
-              >
-                Position: {position}
-              </text>
-              
-              <text
-                fill="black"
-                x="0"
-                y="30"
-                textAnchor="middle"
-                style={{
-                  fontSize: "10px",
-                  fontWeight: "normal",
-                  fontFamily: "Arial, sans-serif"
-                }}
-              >
-                Referred by: {referredBy}
-              </text>
-
-              {/* Tooltip (shows on hover) */}
-              <title>
-                {`Name: ${fullName}
-Stage: ${stage}
-Position: ${position}
-Referred by: ${referredBy}`}
-              </title>
+                <div
+                  style={{
+                    width: `${nodeWidth}px`,
+                    height: `${nodeHeight}px`,
+                    backgroundColor:
+                      data?.data?.status === "active" ? "#00FF00" : "#FF0000",
+                    borderRadius: "10px",
+                    display: "flex",
+                    flexDirection: "column",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    textAlign: "center",
+                    fontFamily: "Arial, sans-serif",
+                    color:
+                      data?.data?.status === "active" ? "black" : "#ffffff",
+                    WebkitFontSmoothing: "antialiased",
+                    MozOsxFontSmoothing: "grayscale",
+                  }}
+                  title={`Name: ${fullName}\nStage: ${stage}\nPosition: ${position}\nReferred by: ${referredBy}`}
+                >
+                  <div
+                    style={{
+                      fontWeight: "bold",
+                      fontSize: "12px",
+                      marginBottom: "4px",
+                    }}
+                  >
+                    {fullName}
+                  </div>
+                  <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
+                    Stage: {stage}
+                  </div>
+                  <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
+                    Position: {position}
+                  </div>
+                  <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
+                    Referred by: {referredBy}
+                  </div>
+                </div>
+              </foreignObject>
             </g>
           );
         }}

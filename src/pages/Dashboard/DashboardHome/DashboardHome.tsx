@@ -128,7 +128,7 @@ const DashboardHome = () => {
 
   return (
     <div className="font-Outfit">
-      <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-[50px]">
+      <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-5 xl:mb-[30px]">
         <img src={IMAGES.referralCodeBg} alt="" className="w-full h-full" />
         <div className="text-white absolute top-2 md:top-0 left-3 md:left-12 xl:left-20 bottom-0 flex flex-col justify-center">
           <h1 className="text-xl md:text-[40px] font-bold leading-0 md:leading-[45px]">
