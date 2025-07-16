@@ -24,9 +24,6 @@ const ProgressTable = () => {
               <table className="min-w-[600px] w-full text-white">
                 <thead>
                   <tr className="border-b border-neutral-90 text-left">
-                    <th className="p-3 whitespace-nowrap capitalize">
-                      Serial No
-                    </th>
                     <th className="p-3 whitespace-nowrap capitalize">Stage</th>
                     <th className="p-3 whitespace-nowrap capitalize">Line 1</th>
                     <th className="p-3 whitespace-nowrap capitalize">Line 2</th>
@@ -53,7 +50,6 @@ const ProgressTable = () => {
                   ) : (
                     <>
                       <tr className="border-b border-neutral-90 text-neutral-55">
-                        <td className="p-3 whitespace-nowrap">1</td>
                         <td className="p-3 whitespace-nowrap">Stage 1</td>
                         <td
                           onClick={() => {
