@@ -8,6 +8,7 @@
 // import Footer from "../../components/Shared/Footer/Footer";
 // import Navbar from "../../components/Shared/Navbar/Navbar";
 
+import FindNextOpportunity from "../../components/HomePage/FindNextOpportunity/FindNextOpportunity";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 
 // The complete tree data from the image
@@ -16,9 +17,8 @@ const Home = () => {
   return (
     <div className="h-screen">
       <Navbar/>
-      {/* <Hero/> */}
-      {/* <WhyChooseUs/>
-            <SecurelyBuySell/>
+       <FindNextOpportunity/>
+            {/*<SecurelyBuySell/>
             <HighPerformance/>
             <StepsToGetStarted/>
             <ADAFeatures/>

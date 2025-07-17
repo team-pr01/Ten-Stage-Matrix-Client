@@ -1,6 +1,5 @@
 import logo from "./images/logo.png";
 import logoGif from "./images/logo.gif";
-import heroImg from "./images/hero-section.svg";
 import securelyBuySell from "./images/securly-buy-sell.svg";
 import dummyVideoImg from "./images/dummy-video.png";
 import dummyProfileImg from "./images/dummy-profile-img.png";
@@ -20,6 +19,8 @@ import authBg from "./images/auth-bg.png";
 import avatar3 from "./images/avatar.png";
 import referralCodeBg from "./images/referal-code-bg.png";
 import lock from "./images/lock.png";
+import heroImg from "./images/hero-img.png";
+import heroGradient from "./images/hero-gradient.png";
 
 
 
@@ -117,6 +118,7 @@ export const IMAGES = {
     avatar3,
     referralCodeBg,
     lock,
+    heroGradient,
 };
 
 export const ICONS = {

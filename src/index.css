@@ -71,6 +71,7 @@
   --bg-gradient-line: radial-gradient(50% 50% at 50% 50%, #E58963 0%, rgba(163, 59, 59, 0) 100%);
   --bg-border-gradient: linear-gradient(50deg, rgba(255, 255, 255, 0.10) 30.32%, #2AF595 35.52%, rgba(255, 255, 255, 0.10) 43.48%);
   --bg-border-gradient2: linear-gradient(30deg, rgba(255, 255, 255, 0.10) 30.32%, #2AF595 35.52%, rgba(255, 255, 255, 0.10) 43.48%);
+  --bg-hero-gradient: linear-gradient(180deg, #19092F 0%, #06001E 100%);
 }
 
 .bg-border-gradient {
@@ -87,6 +88,10 @@
 
 .bg-gradient-line {
   background: var(--bg-gradient-line);
+}
+
+.bg-hero-gradient {
+  background: var(--bg-hero-gradient);
 }
 
 
@@ -186,4 +191,11 @@ select option:checked {
     opacity: 0.5;
     z-index: -1;
   }
+}
+
+
+.gradient-text {
+  background: linear-gradient(270deg, #E6700B 3.45%, #5EEDD0 42.76%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }

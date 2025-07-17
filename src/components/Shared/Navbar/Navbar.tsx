@@ -23,8 +23,9 @@ const Navbar = () => {
   };
 
   return (
-    <div className="font-Outfit">
-      <div className="bg-neutral-10 py-[15px] z-50 relative">
+    <div className="font-Outfit relative overflow-hidden h-full">
+        <img src={IMAGES.heroGradient} alt="" className="absolute top-0 mx-auto w-full" />
+      <div className="py-[15px] z-50 relative">
         <Container>
           <div className="flex items-center justify-between z-50">
             {/* Logo */}
@@ -92,6 +93,7 @@ const Navbar = () => {
           </div>
         </Container>
       </div>
+     
 
       <Hero />
     </div>
