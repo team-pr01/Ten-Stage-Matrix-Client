@@ -4,27 +4,30 @@ import Table from "../../components/Reusable/Table/Table";
 import Button from "../../components/Reusable/Button/Button";
 import { useState } from "react";
 import GraphView from "./GraphView";
+import { useGetAllReferralListQuery } from "../../redux/Features/User/userApi";
 
 const ReferralDetails = () => {
   // const { data, isLoading } = useGetReferralListQuery({});
   const [viewMode, setViewMode] = useState("list");
-  const { name, id } = useParams();
+  const { id } = useParams();
   console.log(id);
-  const isLoading = false;
-  const data = [
-    {
-      name: "Test",
-      status: "Active",
-      stage: "1",
-      referralLevel: "Test",
-    },
-    {
-      name: "Test",
-      status: "Active",
-      stage: "2",
-      referralLevel: "Test",
-    },
-  ];
+  // const data = [
+  //   {
+  //     name: "Test",
+  //     status: "Active",
+  //     stage: "1",
+  //     referralLevel: "Test",
+  //   },
+  //   {
+  //     name: "Test",
+  //     status: "Active",
+  //     stage: "2",
+  //     referralLevel: "Test",
+  //   },
+  // ];
+
+  const {data, isLoading} = useGetAllReferralListQuery(id);
+  console.log(data);
   return (
     <div className="font-Outfit min-h-screen">
       <div className="flex items-center gap-4 mb-5">
@@ -39,7 +42,7 @@ const ReferralDetails = () => {
           title={
             <h1 className="text-neutral-35 text-xl lg:text-2xl font-medium">
               Referral Details of{" "}
-              <span className="text-white font-bold">{name}</span>
+              <span className="text-white font-bold">Rahul</span>
             </h1>
           }
           tableHeaders={[

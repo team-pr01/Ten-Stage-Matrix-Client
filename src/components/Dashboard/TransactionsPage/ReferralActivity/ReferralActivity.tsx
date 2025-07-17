@@ -22,7 +22,7 @@ const ReferralActivity = () => {
           data?.data?.referrals?.map((item: any) => ({
             name: (
               <Link
-                to={`/dashboard/referral-details/${item?.name}/${item?._id}`}
+                to={`/dashboard/referral-details/${item?._id}`}
                 className="underline"
               >
                 {item.name}

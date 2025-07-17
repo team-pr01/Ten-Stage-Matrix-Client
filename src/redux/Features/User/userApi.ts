@@ -151,6 +151,28 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getAllReferralList: builder.query({
+      query: (id) => {
+        return {
+          url: `/users/${id}/referral-details`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
+    getLevelProgressPosition: builder.query({
+      query: () => {
+        return {
+          url: `/users/level-position-progress`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     transferFund: builder.mutation<any, any>({
       query: (data) => ({
         url: `/transfers/process`,
@@ -237,6 +259,8 @@ export const {
   useGetReportsQuery,
   useGetPublicSettingsQuery,
   useGetStageDataQuery,
+  useGetAllReferralListQuery,
+  useGetLevelProgressPositionQuery,
   useTransferFundMutation,
   useMakeDonationMutation,
   useRequestWithdrawMutation,

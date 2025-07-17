@@ -23,6 +23,7 @@ import AuthLayout from "../layouts/AuthLayout/AuthLayout";
 import LevelDetails from "../pages/Dashboard/Levels/LevelDetails";
 import Earn from "../pages/Dashboard/Earn/Earn";
 import ReferralDetails from "../pages/ReferralDetails/ReferralDetails";
+import Home from "../pages/Home/Home";
 
 export const router = createBrowserRouter([
   {
@@ -30,13 +31,9 @@ export const router = createBrowserRouter([
     element: <MainLayout />,
     errorElement: <NotFound />,
     children: [
-      //  {
-      //   path: "/",
-      //   element: <Home />,
-      // },
-      {
+       {
         path: "/",
-        element: <SignIn />,
+        element: <Home />,
       },
     ],
   },
@@ -117,7 +114,7 @@ export const router = createBrowserRouter([
         element: <LevelDetails />,
       },
       {
-        path: "referral-details/:name/:id",
+        path: "referral-details/:id",
         element: <ReferralDetails />,
       },
       {

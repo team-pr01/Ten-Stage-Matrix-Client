@@ -1,7 +1,10 @@
 import { Link } from "react-router-dom";
 import { ICONS } from "../../../assets";
+import { useGetLevelProgressPositionQuery } from "../../../redux/Features/User/userApi";
 
 const Levels = () => {
+  const {data} = useGetLevelProgressPositionQuery({});
+  console.log(data);
   return (
     <div className="font-Outfit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-h-screen">
       <Link
