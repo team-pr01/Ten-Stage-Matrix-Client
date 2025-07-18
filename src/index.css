@@ -64,6 +64,7 @@
   --shadow-custom-dropdown: 0px 0px 11.6px 0px rgba(255, 255, 255, 0.15) inset;
   --shadow-custom-hero: 0px 4px 250px 16px #A276FA;
   --shadow-custom-button: 0px -2px 2px 0px rgba(255, 255, 255, 0.05) inset, 0px 12px 45px 0px rgba(137, 81, 246, 0.35);
+  --shadow-home-card: 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20) inset;
 
   /* Gradients */
   --bg-gradient-primary: linear-gradient(180deg, #8C52FF 0%, #A276FA 100%);

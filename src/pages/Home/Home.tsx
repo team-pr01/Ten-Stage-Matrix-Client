@@ -15,7 +15,7 @@ import Navbar from "../../components/Shared/Navbar/Navbar";
 
 const Home = () => {
   return (
-    <div className="h-screen">
+    <div className="">
       <Navbar/>
        <FindNextOpportunity/>
             {/*<SecurelyBuySell/>

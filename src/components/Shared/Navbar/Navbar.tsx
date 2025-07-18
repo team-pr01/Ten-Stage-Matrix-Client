@@ -23,7 +23,7 @@ const Navbar = () => {
   };
 
   return (
-    <div className="font-Outfit relative overflow-hidden h-full">
+    <div className="font-Outfit overflow-hidden">
         <img src={IMAGES.heroGradient} alt="" className="absolute top-0 mx-auto w-full" />
       <div className="py-[15px] z-50 relative">
         <Container>

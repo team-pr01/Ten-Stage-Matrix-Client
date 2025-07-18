@@ -3,8 +3,9 @@ import { IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
 
 const Hero = () => {
+  
   return (
-    <div className="h-full">
+    <div className="">
      
       <Container>
           <div className="z-10 py-20 flex flex-col items-center justify-center">

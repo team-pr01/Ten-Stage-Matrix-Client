@@ -21,6 +21,12 @@ import referralCodeBg from "./images/referal-code-bg.png";
 import lock from "./images/lock.png";
 import heroImg from "./images/hero-img.png";
 import heroGradient from "./images/hero-gradient.png";
+import assetsSecured from "./images/assets-secured.png";
+import unite from "./images/unite.png";
+import support from "./images/support.png";
+import trustedSecure from "./images/trusted-secure.png";
+import startEarning from "./images/start-earning.png";
+import startEarningGrdietent from "./images/start-earning-gradient.png";
 
 
 
@@ -119,6 +125,12 @@ export const IMAGES = {
     referralCodeBg,
     lock,
     heroGradient,
+    assetsSecured,
+    unite,
+    support,
+    trustedSecure,
+    startEarning,
+    startEarningGrdietent,
 };
 
 export const ICONS = {
