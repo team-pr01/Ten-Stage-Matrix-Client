@@ -129,7 +129,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="hidden xl:block absolute top-40 right-0 z-0">
+      <div className="hidden lg:block absolute top-40 right-0 z-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"
@@ -377,7 +377,7 @@ const Hero = () => {
         </svg>
       </div>
       <Container>
-        <div className="z-10 py-20 flex flex-col items-center justify-center">
+        <div className="z-10 py-20 flex flex-col items-center justify-center relative">
           <h1 className="text-3xl lg:text-[64px] font-semibold text-white max-w-full xl:max-w-[800px] text-center mx-auto">
             Every Contribution Matters On{" "}
             <span className="gradient-text">Ten Stage Matrix</span>

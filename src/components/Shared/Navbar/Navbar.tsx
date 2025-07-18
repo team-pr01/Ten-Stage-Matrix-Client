@@ -31,7 +31,7 @@ const Navbar = () => {
       />
       
       <div className="py-[15px] z-50 relative">
-        <div className="absolute top-0 right-[750px]">
+        <div className="block lg:hidden xl:block absolute top-0 right-[750px]">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="153"
