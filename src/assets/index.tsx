@@ -27,6 +27,8 @@ import support from "./images/support.png";
 import trustedSecure from "./images/trusted-secure.png";
 import startEarning from "./images/start-earning.png";
 import startEarningGrdietent from "./images/start-earning-gradient.png";
+import getStartedGradient from "./images/get-started-gradient.png";
+import line2 from "./images/line.png";
 
 
 
@@ -131,6 +133,8 @@ export const IMAGES = {
     trustedSecure,
     startEarning,
     startEarningGrdietent,
+    getStartedGradient,
+    line2,
 };
 
 export const ICONS = {

@@ -9,6 +9,7 @@
 // import Navbar from "../../components/Shared/Navbar/Navbar";
 
 import FindNextOpportunity from "../../components/HomePage/FindNextOpportunity/FindNextOpportunity";
+import GetStarted from "../../components/HomePage/GetStarted/GetStarted";
 import Navbar from "../../components/Shared/Navbar/Navbar";
 
 // The complete tree data from the image
@@ -18,6 +19,7 @@ const Home = () => {
     <div className="">
       <Navbar/>
        <FindNextOpportunity/>
+       <GetStarted/>
             {/*<SecurelyBuySell/>
             <HighPerformance/>
             <StepsToGetStarted/>
