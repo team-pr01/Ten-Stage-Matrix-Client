@@ -5,7 +5,7 @@ import Container from "../../Reusable/Container/Container";
 const Hero = () => {
   return (
     <div className="relative">
-      <div className="absolute top-40 left-32 z-0">
+      <div className="hidden xl:block absolute top-40 left-32 z-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="71"
@@ -129,7 +129,7 @@ const Hero = () => {
         </svg>
       </div>
 
-      <div className="absolute top-40 right-0 z-0">
+      <div className="hidden xl:block absolute top-40 right-0 z-0">
         <svg
           xmlns="http://www.w3.org/2000/svg"
           width="100"

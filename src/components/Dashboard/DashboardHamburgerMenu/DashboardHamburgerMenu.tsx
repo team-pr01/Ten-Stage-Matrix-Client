@@ -65,7 +65,7 @@ const DashboardHamburgerMenu: React.FC = () => {
 
       {/* Side Menu */}
       <div
-        className={`bg-neutral-20 py-8 px-6 border border-primary-50  fixed inset-y-0 right-0 z-50 w-[270px] overflow-y-auto transition-all duration-300 transform flex flex-col gap-8 ${
+        className={`bg-neutral-20 py-8 px-6 border border-primary-50 fixed inset-y-0 right-0 z-50 w-[270px] overflow-y-auto transition-all duration-300 transform flex flex-col gap-8 ${
           isHamburgerOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
