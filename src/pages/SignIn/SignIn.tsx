@@ -65,7 +65,7 @@ const SignIn = () => {
   return (
     <div className="flex flex-col gap-[60px] items-center justify-center w-full">
       <div className="relative flex flex-col gap-3 justify-center w-full">
-        <Link to={"https://tenstagematrix.com"} className="mx-auto">
+        <Link to={"/"} className="mx-auto">
           <img
             src={IMAGES.logoGif}
             alt="logo"
