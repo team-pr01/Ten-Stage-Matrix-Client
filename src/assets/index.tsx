@@ -19,7 +19,7 @@ import authBg from "./images/auth-bg.png";
 import avatar3 from "./images/avatar.png";
 import referralCodeBg from "./images/referal-code-bg.png";
 import lock from "./images/lock.png";
-import heroImg from "./images/hero-img.png";
+import heroImg from "./images/hero-gif.gif";
 import heroGradient from "./images/hero-gradient.png";
 import assetsSecured from "./images/assets-secured.png";
 import unite from "./images/unite.png";
