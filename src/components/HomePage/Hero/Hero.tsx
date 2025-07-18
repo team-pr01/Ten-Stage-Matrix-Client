@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
+import { useSelector } from "react-redux";
+import { useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 
 const Hero = () => {
+  const user = useSelector(useCurrentUser);
   return (
     <div className="relative">
       <div className="hidden xl:block absolute top-40 left-32 z-0">
@@ -387,6 +390,19 @@ const Hero = () => {
             community-driven donations, ensuring security, and efficient
             resource distribution for sustainable impact.
           </p>
+          {
+            user ?
+            <Link
+            to={"/dashboard"}
+            style={{
+              boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
+              backdropFilter: "blur(8.050000190734863px)",
+            }}
+            className="rounded-xl border border-neutral-90 bg-primary-50 text-white px-10 py-3 font-semibold hover:bg-primary-10 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+          >
+            Dashboard
+          </Link>
+          :
           <Link
             to={"/auth/signin"}
             style={{
@@ -397,6 +413,7 @@ const Hero = () => {
           >
             Sign In
           </Link>
+          }
           <img src={IMAGES.heroImg} alt="" className="mt-10 mx-auto" />
         </div>
       </Container>

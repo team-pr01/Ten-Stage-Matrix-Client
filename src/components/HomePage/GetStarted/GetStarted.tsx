@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
+import { useSelector } from "react-redux";
+import { useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 
 const GetStarted = () => {
+  const user = useSelector(useCurrentUser);
   const steps = [
     {
       title: "Create account",
@@ -71,14 +74,18 @@ const GetStarted = () => {
 
                 {index === 0 && (
                   <Link
-                    to={"/signup"}
+                    to={user ? "/dashboard" : "/auth/signup"}
                     style={{
                       boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
                       backdropFilter: "blur(8.050000190734863px)",
                     }}
-                    className="rounded-xl border border-neutral-90 bg-primary-50 text-white px-7 py-3 font-semibold hover:bg-primary-10 transition duration-300"
+                    className="rounded-xl border border-neutral-90 bg-primary-50 text-white px-7 py-3 font-semibold hover:bg-primary-10 transition duration-300 relative"
                   >
-                    Register Now
+                    {
+                      user
+                        ? "Dashboard"
+                        : "Register Now"
+                    }
                   </Link>
                 )}
 

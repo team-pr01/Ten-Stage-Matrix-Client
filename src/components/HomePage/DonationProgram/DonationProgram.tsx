@@ -1,8 +1,11 @@
 import { Link } from "react-router-dom";
 import { ICONS, IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
+import { useSelector } from "react-redux";
+import { useCurrentUser } from "../../../redux/Features/Auth/authSlice";
 
 const DonationProgram = () => {
+  const user = useSelector(useCurrentUser);
   return (
     <div className="relative mt-[350px] md:mt-[600px] lg:mt-0">
       <img
@@ -32,14 +35,16 @@ const DonationProgram = () => {
             >
               <div className="text-center md:text-start">
                 <h1 className="text-base lg:text-2xl font-medium text-white">
-                  Sign Up
+                  {user ? "Welcome Back" : "Sign Up"}
                 </h1>
                 <p className="text-sm lg:text-base font-medium text-neutral-160 mt-3 md:mt-5">
-                  Sign Up and Step Into Financial Freedom
+                  {user
+                    ? "Go to dashboard to start donating"
+                    : "Sign Up and Step Into Financial Freedom  "}
                 </p>
               </div>
               <Link
-                to={"/signup"}
+                to={user ? "/dashboard" : "/auth/signup"}
                 className="px-10 py-[15px] rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 w-fit"
                 style={{
                   boxShadow: `
@@ -50,7 +55,7 @@ const DonationProgram = () => {
                   `,
                 }}
               >
-                Sign Up
+                {user ? "Dashboard" : "Sign Up"}
               </Link>
             </div>
           </div>
