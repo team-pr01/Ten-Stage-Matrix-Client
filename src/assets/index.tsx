@@ -29,6 +29,8 @@ import startEarning from "./images/start-earning.png";
 import startEarningGrdietent from "./images/start-earning-gradient.png";
 import getStartedGradient from "./images/get-started-gradient.png";
 import line2 from "./images/line.png";
+import earnFlexibly from "./images/earn-flexibily.png";
+import verticleLine from "./images/verticle-line.png";
 
 
 
@@ -101,6 +103,8 @@ import earningThreshold from "./icons/earning-threshold.png";
 import userLevel from "./icons/user-level.svg";
 import borderGradient from "./icons/Frame 10.svg";
 import position from "./icons/position.svg";
+import circle from "./icons/circle.svg";
+
 
 
 export const IMAGES = {
@@ -135,6 +139,8 @@ export const IMAGES = {
     startEarningGrdietent,
     getStartedGradient,
     line2,
+    earnFlexibly,
+    verticleLine,
 };
 
 export const ICONS = {
@@ -208,4 +214,5 @@ export const ICONS = {
     userLevel,
     borderGradient,
     position,
+    circle,
 }

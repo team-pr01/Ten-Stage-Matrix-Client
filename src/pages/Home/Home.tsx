@@ -8,6 +8,7 @@
 // import Footer from "../../components/Shared/Footer/Footer";
 // import Navbar from "../../components/Shared/Navbar/Navbar";
 
+import EarnFlexibly from "../../components/HomePage/EarnFlexibly/EarnFlexibly";
 import FindNextOpportunity from "../../components/HomePage/FindNextOpportunity/FindNextOpportunity";
 import GetStarted from "../../components/HomePage/GetStarted/GetStarted";
 import Navbar from "../../components/Shared/Navbar/Navbar";
@@ -20,6 +21,7 @@ const Home = () => {
       <Navbar/>
        <FindNextOpportunity/>
        <GetStarted/>
+       <EarnFlexibly/>
             {/*<SecurelyBuySell/>
             <HighPerformance/>
             <StepsToGetStarted/>
