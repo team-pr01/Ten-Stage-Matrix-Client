@@ -57,7 +57,7 @@ export const dashboardSidebarLinks = [
     },
     {
       icon: <MdOutlineSettings />,
-      label: "Setting",
+      label: "Settings",
       path: "/dashboard/setting",
     },
   ];

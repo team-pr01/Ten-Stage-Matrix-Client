@@ -17,7 +17,7 @@ declare global {
 
 const MakeDeposit = () => {
   const { data: settings } = useGetPublicSettingsQuery({});
-  const [generateWalletAddress] = useGenerateWalletAddressMutation();
+  const [generateWalletAddress, {isLoading}] = useGenerateWalletAddressMutation();
 
   const [isCopied, setIsCopied] = useState(false);
 
@@ -97,8 +97,10 @@ const MakeDeposit = () => {
   return (
     <div className="font-Outfit">
      <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit mb-8">
-       <button className="px-6 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 ">
-        Generate Wallet
+       <button onClick={handleMakeDeposit1} disabled={isLoading} className={`px-6 py-3 rounded-xl bg-neutral-10 text-white shadow-custom-dropdown flex items-center gap-[14px] transition-all duration-300 ease-in-out transform hover:scale-105 ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}>
+        {
+          isLoading ? "Generating..." : "Generate Wallet"
+        }
       </button>
      </div>
       {/* Conditionally render QR code */}

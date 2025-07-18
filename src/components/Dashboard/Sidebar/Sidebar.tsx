@@ -56,29 +56,21 @@ const Sidebar = () => {
           ))}
         </div>
       </div>
-
-      {/* <div className="border border-primary-50 bg-neutral-150 shadow-custom rounded-[28px] px-4 py-7 text-center"> */}
-        {/* <h1 className="font-semibold leading-6 text-white">
-          Earn crypto flexibly!
-        </h1>
-        <p className="font-medium text-xs leading-5 mt-[6px] text-neutral-145">
-          Creating or adding new tasks couldn't be easier
-        </p> */}
-        <button
-          onClick={handleLogout}
-          className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
-          style={{
-            boxShadow: `
+      <button
+        onClick={handleLogout}
+        className="px-6 py-3 w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+        style={{
+          boxShadow: `
                     inset 0px 2px 2px 0px #D26407,
                     inset 0px -4px 4px 0px rgba(0, 0, 0, 0.35),
                     inset 0px 4px 4px 0px rgba(255, 255, 255, 0.40),
                     0px 4px 24px 0px rgba(168, 82, 5, 0.50)
                   `,
-          }}
-        >
-          <img src={ICONS.logout} alt="" className="size-6" />
-          Logout
-        </button>
+        }}
+      >
+        <img src={ICONS.logout} alt="" className="size-6" />
+        Logout
+      </button>
       {/* </div> */}
     </div>
   );

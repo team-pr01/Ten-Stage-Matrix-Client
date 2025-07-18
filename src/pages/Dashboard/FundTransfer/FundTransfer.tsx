@@ -25,24 +25,6 @@ const FundTransfer = () => {
   const [transferData, setTransferData] = useState<string>("");
   const [transferFund, { isLoading }] = useTransferFundMutation();
 
-  const handleSendFund = async (data: any) => {
-    try {
-      const payload = {
-        amount: Number(data.amount),
-        recipient_id: data.recipient_id,
-      };
-      const response = await transferFund(payload).unwrap();
-      if (response?.success) {
-        setTransferData(response?.data);
-        setActiveTab("Success");
-      }
-      console.log(response);
-    } catch (error) {
-      toast.error((error as any)?.data?.message || "Something went wrong");
-      console.error("Error sending funds:", error);
-    }
-  };
-
   const [selectedMethod, setSelectedMethod] = useState<string>("Select Wallet");
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
@@ -59,6 +41,25 @@ const FundTransfer = () => {
       document.removeEventListener("mousedown", close);
     };
   }, []);
+
+  const handleSendFund = async (data: any) => {
+    try {
+      const payload = {
+        amount: Number(data.amount),
+        recipient_id: data.recipient_id,
+        balance_type : selectedMethod === "Withdrawable Balance" ? "deposit" : "balance",
+      };
+      const response = await transferFund(payload).unwrap();
+      if (response?.success) {
+        setTransferData(response?.data);
+        setActiveTab("Success");
+      }
+      console.log(response);
+    } catch (error) {
+      toast.error((error as any)?.data?.message || "Something went wrong");
+      console.error("Error sending funds:", error);
+    }
+  };
 
   return (
     <div className="font-Outfit min-h-screen">
@@ -121,10 +122,8 @@ const FundTransfer = () => {
                     setOpen(false);
                   }}
                   className={`bg-border-gradient2 p-[1px] rounded-sm ${
-                      open
-                        ? "opacity-100 duration-500"
-                        : "opacity-0 duration-150"
-                    }`}
+                    open ? "opacity-100 duration-500" : "opacity-0 duration-150"
+                  }`}
                 >
                   <li
                     className={`rounded-sm bg-neutral-10 text-white shadow-custom-dropdown p-2 text-nowrap  hover:bg-primary-10 cursor-pointer`}

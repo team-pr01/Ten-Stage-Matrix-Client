@@ -28,29 +28,7 @@ const RequestWithdraw = () => {
   const { data: settings } = useGetPublicSettingsQuery({});
   const { data } = useGetUserProfileQuery({});
 
-  // Function to deposit
-  const handleRequestWithdraw = async (data: TFormValues) => {
-    try {
-      const payload = {
-        amount: Number(data.amount),
-        // wallet_address: data?.wallet_address,
-        withdrawal_address: data?.withdrawal_address,
-        network: "BSC",
-        payment_method: "blockchain",
-        type: "Withdrawal",
-      };
-
-      const response = await requestWithdraw(payload).unwrap();
-      if (response?.message) {
-        toast.success(response?.message || "Withdraw successful!");
-      }
-    } catch (error: any) {
-      toast.error(error?.data?.error || "An error occurred");
-      console.log(error);
-    }
-  };
-
-  const [selectedMethod, setSelectedMethod] = useState<string>("Select Wallet");
+    const [selectedMethod, setSelectedMethod] = useState<string>("Select Wallet");
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const items = ["Withdrawable Balance", "Impact Balance"];
@@ -66,6 +44,31 @@ const RequestWithdraw = () => {
       document.removeEventListener("mousedown", close);
     };
   }, []);
+
+  // Function to withdraw
+  const handleRequestWithdraw = async (data: TFormValues) => {
+    try {
+      const payload = {
+        amount: Number(data.amount),
+        // wallet_address: data?.wallet_address,
+        withdrawal_address: data?.withdrawal_address,
+        network: "BSC",
+        payment_method: "blockchain",
+        type: "Withdrawal",
+        balance_type : selectedMethod === "Withdrawable Balance" ? "deposit" : "balance",
+      };
+
+      const response = await requestWithdraw(payload).unwrap();
+      if (response?.message) {
+        toast.success(response?.message || "Withdraw successful!");
+      }
+    } catch (error: any) {
+      toast.error(error?.data?.error || "An error occurred");
+      console.log(error);
+    }
+  };
+
+
 
   return (
     <div className="font-Outfit">
