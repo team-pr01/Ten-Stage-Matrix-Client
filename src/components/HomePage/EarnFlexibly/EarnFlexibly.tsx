@@ -4,11 +4,13 @@ import Container from "../../Reusable/Container/Container";
 const EarnFlexibly = () => {
   return (
     <div className="mt-[135px] font-Outfit relative h-[800px]">
-      <img
+      {/* <img
         src={IMAGES.startEarningGrdietent}
         alt=""
         className="absolute top-0 w-[1900px] h-[800px] right-0"
-      />
+      /> */}
+      <div className="bg-[#fda15333] w-[800px] h-[800px] blur-[290px] rounded-full absolute right-0 left-0 mx-auto rotate-[30deg] transform"></div>
+
       <img src={ICONS.circle} alt="" className="absolute -top-12 left-0 z-0" />
       <Container>
         <div className="relative">

@@ -29,11 +29,7 @@ const FindNextOpportunity = () => {
   ];
   return (
     <div className="relative">
-      <img
-        src={IMAGES.startEarningGrdietent}
-        alt=""
-        className="absolute top-0 w-[1400px] h-[900px]"
-      />
+      <div className="bg-[#fda15333] w-[1100px] h-[500px] blur-[280px] rounded-full absolute bottom-10 right-0 left-0 mx-auto rotate-[30deg] transform"></div>
       <Container>
         <div className="font-Outfit">
           <div className="flex flex-col xl:flex-row gap-5 xl:gap-0 justify-between">

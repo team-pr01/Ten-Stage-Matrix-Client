@@ -1,191 +1,108 @@
 import { Link } from "react-router-dom";
-import { ICONS, IMAGES } from "../../../assets";
 import Container from "../../Reusable/Container/Container";
-import { FaFacebook, FaInstagram } from "react-icons/fa";
-import { TfiSkype } from "react-icons/tfi";
-import { LiaFacebookMessenger } from "react-icons/lia";
+import { RiSendPlaneFill } from "react-icons/ri";
 
 const Footer = () => {
-  const socialLinks = [
-    {
-      name: "Facebook",
-      link: "https://www.facebook.com/prtechsolutions/",
-      icon: (
-        <FaFacebook className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
-      ),
-    },
-    {
-      name: "Instagram",
-      link: "https://www.facebook.com/prtechsolutions/",
-      icon: (
-        <FaInstagram className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
-      ),
-    },
-    {
-      name: "Linkedin",
-      link: "https://www.facebook.com/prtechsolutions/",
-      icon: (
-        <TfiSkype className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
-      ),
-    },
-    {
-      name: "WhatsApp",
-      link: "https://www.facebook.com/prtechsolutions/",
-      icon: (
-        <LiaFacebookMessenger className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
-      ),
-    },
-  ];
+  // const socialLinks = [
+  //   {
+  //     name: "Facebook",
+  //     link: "https://www.facebook.com/prtechsolutions/",
+  //     icon: (
+  //       <FaFacebook className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
+  //     ),
+  //   },
+  //   {
+  //     name: "Instagram",
+  //     link: "https://www.facebook.com/prtechsolutions/",
+  //     icon: (
+  //       <FaInstagram className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
+  //     ),
+  //   },
+  //   {
+  //     name: "Linkedin",
+  //     link: "https://www.facebook.com/prtechsolutions/",
+  //     icon: (
+  //       <TfiSkype className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
+  //     ),
+  //   },
+  //   {
+  //     name: "WhatsApp",
+  //     link: "https://www.facebook.com/prtechsolutions/",
+  //     icon: (
+  //       <LiaFacebookMessenger className=" text-neutral-10 group-hover:text-white transition duration-300 text-[22px]" />
+  //     ),
+  //   },
+  // ];
   return (
-    <div className="bg-primary-40 py-20 font-Outfit z-10 relative">
+    <div className="relative h-[500px]">
+      <div className="bg-[#fda15333] w-[800px] h-[300px] blur-[230px] rounded-full absolute right-0 left-0 rotate-[19.881deg] transform mx-auto"></div>
       <Container>
-        <h1 className="text-3xl lg:text-[40px] font-medium text-white capitalize text-center">
-          Join us today!
-        </h1>
-        <p className="text-sm lg:text-base text-neutral-60 mt-[14px] max-w-full md:max-w-[519px] text-center mx-auto">
-          Ten Stage Matrix is built by a decentralized community of scientists,
-          engineers, and thought leaders united in a common purpose.
-        </p>
-
-        {/* Input field */}
-        <div className="py-1 text-base rounded-md bg-white shadow-secondary-button text-neutral-700 leading-6 cursor-pointer transition-all duration-300 ease-in-out transform active:scale-95 text-nowrap flex gap-2 justify-between items-center w-full md:w-[461px] mx-auto mt-8">
-          <input
-            // value={keyword}
-            // onChange={(e) => {
-            //   setKeyword(e.target.value);
-            // }}
-            type="text"
-            placeholder={`Enter your email`}
-            className="bg-white focus:outline-none pl-4"
-          />
-          <button className="bg-primary-10 py-3 px-[10px] rounded-xl mr-[14px] text-white font-medium">
-            Get Started
-          </button>
-        </div>
-
-        <div className="flex flex-col lg:flex-row gap-10 lg:gap-0 justify-between mt-[119px]">
-          <div>
-            <img src={IMAGES.logoGif} alt="logo" className="z-10" />
-            <p className="text-neutral-60 max-w-[292px]">
-              Begin your fitness journey now! Join us to achieve your health
-              goalswith experientialnd supportive comm
+        <div className="border border-primary-50 rounded-[28px] font-Outfit z-10 flex justify-between mt-[160px]">
+          <div
+            style={{ backdropFilter: "blur(5.050000190734863px)" }}
+            className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 lg:p-10"
+          >
+            <h1 className="text-3xl lg:text-[48px] font-semibold text-white text-center">
+              Contact Us
+            </h1>
+            <p className="text-sm lg:text-base text-neutral-160 mt-4 text-center max-w-[450px] mx-auto">
+              Welcome to Ten Stage Matrix your gateway to the world Of Web3
+              trading! Our user— friendly platform
             </p>
-            <div className="flex items-center gap-3 mt-[29px]">
-              {socialLinks?.map((item) => (
-                <a
-                  href={item?.link}
-                  key={item?.name}
-                  className="size-[40px] rounded-full hover:bg-primary-10 group bg-white transition-all duration-300 cursor-pointer flex items-center justify-center group"
-                >
-                  {item?.icon}
-                </a>
-              ))}
+            <div className="relative border border-primary-50 px-6 py-4 rounded-[10px] mt-[50px]">
+              <input
+                type="text"
+                name=""
+                id=""
+                placeholder="Type massage here...."
+                className="text-neutral-40 focus:outline-none "
+              />
+              <RiSendPlaneFill className="text-white text-2xl absolute top-4 right-4 cursor-pointer" />
             </div>
           </div>
 
-          <div>
-            <h1 className="text-[22px] font-bold text-white">Quick Link</h1>
-            <div className="flex flex-col gap-3 mt-[15px]">
-              <Link
-                to={"/"}
-                className="text-neutral-65 font-medium hover:underline"
-              >
-                Home
+          <div className="pt-[56px]">
+            <h1 className="font-semibold text-white">Connect with Us Now</h1>
+            <div className="flex flex-col gap-4 mt-6 text-neutral-160 text-sm">
+              <Link to={"/"} className="hover:underline">
+                Discord
               </Link>
-              <Link
-                to={"/"}
-                className="text-neutral-65 font-medium hover:underline"
-              >
-                About Us
+              <Link to={"/"} className="hover:underline">
+                Telegram
               </Link>
-              <Link
-                to={"/"}
-                className="text-neutral-65 font-medium hover:underline"
-              >
-                Store
+              <Link to={"/"} className="hover:underline">
+                Twitter
               </Link>
-              <Link
-                to={"/"}
-                className="text-neutral-65 font-medium hover:underline"
-              >
-                Team
-              </Link>
-              <Link
-                to={"/"}
-                className="text-neutral-65 font-medium hover:underline"
-              >
-                Contact
+              <Link to={"/"} className="hover:underline">
+                YouTube
               </Link>
             </div>
           </div>
 
-          <div>
-            <h1 className="text-[22px] font-bold text-white">Instagram</h1>
-            <div className="grid grid-cols-3 gap-3 mt-[15px]">
-              <img
-                src={IMAGES.instagram1}
-                alt=""
-                className="w-[81px] h-[78px]"
-              />
-              <img
-                src={IMAGES.instagram2}
-                alt=""
-                className="w-[81px] h-[78px]"
-              />
-              <img
-                src={IMAGES.instagram3}
-                alt=""
-                className="w-[81px] h-[78px]"
-              />
-              <img
-                src={IMAGES.instagram4}
-                alt=""
-                className="w-[81px] h-[78px]"
-              />
-              <img
-                src={IMAGES.instagram5}
-                alt=""
-                className="w-[81px] h-[78px]"
-              />
-              <img
-                src={IMAGES.instagram6}
-                alt=""
-                className="w-[81px] h-[78px]"
-              />
+          <div className="h-[320px] w-[1px] bg-primary-50 text-white"></div>
+
+          <div className="pt-[56px] mr-[140px]">
+            <h1 className="font-semibold text-white">Follow Us</h1>
+            <div className="flex flex-col gap-4 mt-6 text-neutral-160 text-sm">
+              <Link to={"/"} className="hover:underline">
+                Facebook
+              </Link>
+              <Link to={"/"} className="hover:underline">
+                X
+              </Link>
+              <Link to={"/"} className="hover:underline">
+                LinkedIn
+              </Link>
+              <Link to={"/"} className="hover:underline">
+                WhatsApp
+              </Link>
             </div>
           </div>
-
-          <div>
-            <h1 className="text-[22px] font-bold text-white">Contact Us</h1>
-            <p className="text-neutral-60 max-w-[256px] mt-[15px]">
-              England main City B block Raight Side 1st Building
-            </p>
-            <div className="flex  flex-col gap-3 mt-[15px]">
-              <a
-                href="tel:+62 81 2945 1234"
-                className="flex items-center gap-5 text-white font-medium hover:underline"
-              >
-                <img src={ICONS.phone} alt="" className="size-5" />
-                <p>(+62) 81 2945 1234</p>
-              </a>
-              <a
-                href="mailto:asufy@gmail.com"
-                className="flex items-center gap-5 text-white font-medium hover:underline"
-              >
-                <img src={ICONS.email} alt="" className="size-5" />
-                <p>asufy@gmail.com</p>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <hr className="border border-neutral-70 w-full h-[1px] mt-[31px] mb-[11px]" />
-
-        <div className="flex flex-col lg:flex-row gap-5 lg:gap-0 items-start lg:items-center justify-between text-neutral-75">
-          <a href="https://www.creativehubit.com/" target="_blank" className="hover:underline">Design and Developed by Creative Hub IT</a>
-          <p className="">Copyright (C) 2025.All right reserved</p>
         </div>
       </Container>
+      <p className="text-sm lg:text-base text-neutral-160 text-center mt-[30px]">
+          Copyright@ 2025 Ten Stage Matrix
+        </p>
     </div>
   );
 };
