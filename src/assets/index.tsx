@@ -31,6 +31,7 @@ import getStartedGradient from "./images/get-started-gradient.png";
 import line2 from "./images/line.png";
 import earnFlexibly from "./images/earn-flexibily.png";
 import verticleLine from "./images/verticle-line.png";
+import donationProgram from "./images/donation-program.png";
 
 
 
@@ -141,6 +142,7 @@ export const IMAGES = {
     line2,
     earnFlexibly,
     verticleLine,
+    donationProgram,
 };
 
 export const ICONS = {
