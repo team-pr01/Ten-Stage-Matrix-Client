@@ -9,9 +9,9 @@ const Home = () => {
   return (
     <div className="">
       <Navbar />
-      {/* <FindNextOpportunity />
+      <FindNextOpportunity />
       <GetStarted />
-      <EarnFlexibly />
+      {/* <EarnFlexibly />
       <DonationProgram/>
       <Footer/> */}
     </div>

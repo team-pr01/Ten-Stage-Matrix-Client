@@ -32,7 +32,7 @@ const GetStarted = () => {
         alt=""
         className="absolute top-0 w-[1400px] h-[500px] right-0"
       /> */}
-      <div className="bg-[#fda15333] w-[800px] h-[500px] blur-[330px] rounded-full absolute right-0 left-0 mx-auto rotate-[30deg] transform"></div>
+      <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[500px] blur-[330px] rounded-full absolute right-0 left-0 mx-auto rotate-[30deg] transform"></div>
       <Container>
         <div className="mt-[160px]">
           <h1 className="text-3xl lg:text-[48px] font-semibold text-white text-center">
@@ -42,7 +42,7 @@ const GetStarted = () => {
             Affiliate marketing offers a powerful way to earn passive income by
             promoting products or services you believe in.
           </p>
-          <img src={IMAGES.line2} alt="" className="mt-[60px]" />
+          <img src={IMAGES.line2} alt="" className="mt-[60px] w-full h-1" />
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6 mt-10">
             {steps?.map((step, index) => (
@@ -83,13 +83,15 @@ const GetStarted = () => {
                 )}
 
                 {index === 0 && (
-                  <div className="absolute bottom-0 right-0 h-fit">
+                  <div className="absolute bottom-0 right-0 h-fit rounded-br-[28px]">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="302"
                       height="309"
                       viewBox="0 0 302 309"
                       fill="none"
+                      className="rounded-br-[28px]"
+                      
                     >
                       <g opacity="0.27">
                         <g filter="url(#filter0_f_113_135)">

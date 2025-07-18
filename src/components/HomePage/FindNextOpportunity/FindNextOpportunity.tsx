@@ -29,7 +29,7 @@ const FindNextOpportunity = () => {
   ];
   return (
     <div className="relative">
-      <div className="bg-[#fda15333] w-[1100px] h-[500px] blur-[280px] rounded-full absolute bottom-10 right-0 left-0 mx-auto rotate-[30deg] transform"></div>
+      <div className="bg-[#fda15333] w-[300px] lg:w-[1100px] h-[300px] lg:h-[500px] blur-[280px] rounded-full absolute bottom-10 right-0 left-0 mx-auto rotate-[30deg] transform"></div>
       <Container>
         <div className="font-Outfit">
           <div className="flex flex-col xl:flex-row gap-5 xl:gap-0 justify-between">
@@ -48,8 +48,8 @@ const FindNextOpportunity = () => {
             </p>
           </div>
 
-          <div className="mt-[60px] grid grid-cols-3 gap-6">
-            <div className="flex flex-col gap-6">
+          <div className="mt-[60px] grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               {cardDetails?.slice(0, 2)?.map((item) => (
                 <div
                   key={item?.title}
@@ -89,7 +89,7 @@ const FindNextOpportunity = () => {
                   and equal benefits at every stage.
                 </p>
               </div>
-              <div className="flex justify-center">
+              <div className="flex justify-center mt-5 lg:mt-0">
                 <img
                   src={IMAGES.startEarning}
                   alt=""
@@ -98,7 +98,7 @@ const FindNextOpportunity = () => {
               </div>
             </div>
 
-            <div className="flex flex-col gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               {cardDetails?.slice(2, 4)?.map((item) => (
                 <div
                   key={item?.title}
