@@ -58,7 +58,15 @@ const SignupSuccess = () => {
           </div>
 
           <Link to={"/auth/signin"}
-            className="p-2 h-12 rounded-lg border border-primary-10 bg-primary-10 text-white font-medium text-center cursor-pointer"
+            className="px-6 py-3 rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 w-fit mx-auto"
+          style={{
+            boxShadow: `
+                    inset 0px 2px 2px 0px #D26407,
+                    inset 0px -4px 4px 0px rgba(0, 0, 0, 0.35),
+                    inset 0px 4px 4px 0px rgba(255, 255, 255, 0.40),
+                    0px 4px 24px 0px rgba(168, 82, 5, 0.50)
+                  `,
+          }}
           >
            Back to Sign In
           </Link>

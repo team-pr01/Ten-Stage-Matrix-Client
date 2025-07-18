@@ -43,7 +43,7 @@ const Signup = () => {
       console.log(response);
       if (response?.message) {
         toast.success(response?.message || "Signup successful!");
-        navigate("/signup-success", {
+        navigate("/auth/signup-success", {
           state: { userPrivateKey },
         });
       }

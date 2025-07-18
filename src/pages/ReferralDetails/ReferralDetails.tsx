@@ -7,64 +7,52 @@ import GraphView from "./GraphView";
 import { useGetAllReferralListQuery } from "../../redux/Features/User/userApi";
 
 const ReferralDetails = () => {
-  // const { data, isLoading } = useGetReferralListQuery({});
   const [viewMode, setViewMode] = useState("list");
   const { id } = useParams();
-  console.log(id);
-  // const data = [
-  //   {
-  //     name: "Test",
-  //     status: "Active",
-  //     stage: "1",
-  //     referralLevel: "Test",
-  //   },
-  //   {
-  //     name: "Test",
-  //     status: "Active",
-  //     stage: "2",
-  //     referralLevel: "Test",
-  //   },
-  // ];
-
-  const {data, isLoading} = useGetAllReferralListQuery(id);
-  console.log(data);
+  const { data, isLoading } = useGetAllReferralListQuery(id);
   return (
     <div className="font-Outfit min-h-screen">
       <div className="flex items-center gap-4 mb-5">
-        <button onClick={() => setViewMode("list")} className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none cursor-pointer flex items-center justify-between gap-3 w-fit">
+        <button
+          onClick={() => setViewMode("list")}
+          className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 focus:outline-none cursor-pointer flex items-center justify-between gap-3 w-fit"
+        >
           List View
         </button>
-        <Button onClick={() => setViewMode("graph")} label="Graph View" classNames="w-[176px]" />
+        <Button
+          onClick={() => setViewMode("graph")}
+          label="Graph View"
+          classNames="w-[176px]"
+        />
       </div>
       <div className="h-fit">
-        {
-          viewMode === "list" ?<Table
-          title={
-            <h1 className="text-neutral-35 text-xl lg:text-2xl font-medium">
-              Referral Details of{" "}
-              <span className="text-white font-bold">Rahul</span>
-            </h1>
-          }
-          tableHeaders={[
-            "Serial No",
-            "Name",
-            "Status",
-            "Stage",
-            "Referral Level",
-          ]}
-          data={
-            data?.map((item: any) => ({
-              name: item.name,
-              status: item.status,
-              stage: item.stage,
-              referral_level: item?.referralLevel,
-            })) || []
-          }
-          isLoading={isLoading}
-        />
-        :
-        <GraphView/>
-        }
+        {viewMode === "list" ? (
+          <Table
+            title={
+              <h1 className="text-neutral-35 text-xl lg:text-2xl font-medium">
+                Referral Details
+              </h1>
+            }
+            tableHeaders={[
+              "Serial No",
+              "Name",
+              "Status",
+              "Stage",
+              "Referral Level",
+            ]}
+            data={
+              data?.data?.map((item: any) => ({
+                name: item.name,
+                status: item.status,
+                stage: item.stage,
+                referral_level: item?.referral_level,
+              })) || []
+            }
+            isLoading={isLoading}
+          />
+        ) : (
+          <GraphView id={id ? id : ""} />
+        )}
       </div>
     </div>
   );

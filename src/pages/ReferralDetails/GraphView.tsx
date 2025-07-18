@@ -1,31 +1,31 @@
 import { useMemo } from "react";
-import { useGetReferralTreeQuery } from "../../redux/Features/User/userApi";
 import Tree from "react-d3-tree";
 import { transformToGraph } from "./transformToGraph";
+import { useGetAllReferralListQuery } from "../../redux/Features/User/userApi";
 
-const GraphView = () => {
-    const { data, isLoading, isError } = useGetReferralTreeQuery({});
-      console.log(data);
-    
-      const treeData = useMemo(() => {
-        if (!data?.data) return [];
-    
-        const transformed = transformToGraph(data.data);
-        return transformed ? [transformed] : [];
-      }, [data]);
-    
-      if (isLoading)
-        return <div className="p-10 text-center text-white">Loading...</div>;
-      if (isError)
-        return (
-          <div className="p-10 text-center text-red-500">Error loading tree</div>
-        );
-      if (treeData.length === 0)
-        return (
-          <div className="p-10 text-center text-white">No tree data available</div>
-        );
+const GraphView = ({ id }: { id: string }) => {
+  const { data, isLoading, isError } = useGetAllReferralListQuery(id);
+
+  const treeData = useMemo(() => {
+    if (!data?.data?.length) return [];
+
+    const root = data.data[0];
+    const transformed = transformToGraph(root);
+    return transformed ? [transformed] : [];
+  }, [data]);
+
+  if (isLoading)
+    return <div className="p-10 text-center text-white">Loading...</div>;
+  if (isError)
     return (
-        <div
+      <div className="p-10 text-center text-red-500">Error loading tree</div>
+    );
+  if (treeData.length === 0)
+    return (
+      <div className="p-10 text-center text-white">No tree data available</div>
+    );
+  return (
+    <div
       className="rounded-[28px] border-2 border-neutral-155 bg-neutral-155"
       style={{
         width: "100%",
@@ -43,13 +43,13 @@ const GraphView = () => {
         renderCustomNodeElement={({ nodeDatum }) => {
           const fullName = nodeDatum.attributes?.fullName || "N/A";
           const stage = nodeDatum.attributes?.stage || "N/A";
-          const position = nodeDatum.attributes?.position || "N/A";
-          const referredBy =
-            typeof nodeDatum.attributes?.referred_by === "object" &&
-            nodeDatum.attributes?.referred_by !== null
-              ? (nodeDatum.attributes?.referred_by as { name?: string }).name ||
+          const status = nodeDatum.attributes?.status || "N/A";
+          const referral_level =
+            typeof nodeDatum.attributes?.referral_level === "object" &&
+            nodeDatum.attributes?.referral_level !== null
+              ? (nodeDatum.attributes?.referral_level as { name?: string }).name ||
                 "N/A"
-              : String(nodeDatum.attributes?.referred_by ?? "N/A");
+              : String(nodeDatum.attributes?.referral_level ?? "N/A");
 
           const nodeWidth = 140;
           const nodeHeight = 120;
@@ -80,7 +80,7 @@ const GraphView = () => {
                     WebkitFontSmoothing: "antialiased",
                     MozOsxFontSmoothing: "grayscale",
                   }}
-                  title={`Name: ${fullName}\nStage: ${stage}\nPosition: ${position}\nReferred by: ${referredBy}`}
+                  title={`Name: ${fullName}\nStage: ${stage}\nstatus: ${status}\nReferred by: ${referral_level}`}
                 >
                   <div
                     style={{
@@ -95,10 +95,10 @@ const GraphView = () => {
                     Stage: {stage}
                   </div>
                   <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
-                    Position: {position}
+                    Status: {status}
                   </div>
                   <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
-                    Referred by: {referredBy}
+                    Referral Level : {referral_level}
                   </div>
                 </div>
               </foreignObject>
@@ -107,7 +107,7 @@ const GraphView = () => {
         }}
       />
     </div>
-    );
+  );
 };
 
 export default GraphView;
