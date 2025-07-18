@@ -34,10 +34,10 @@ const Footer = () => {
   //   },
   // ];
   return (
-    <div className="relative h-[500px]">
-      <div className="bg-[#fda15333] w-[800px] h-[300px] blur-[230px] rounded-full absolute right-0 left-0 rotate-[19.881deg] transform mx-auto"></div>
+    <div className="relative h-[830px] lg:h-[400px] xl:h-[500px]">
+      <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[300px] blur-[230px] rounded-full absolute right-5 lg:right-0 left-0"></div>
       <Container>
-        <div className="border border-primary-50 rounded-[28px] font-Outfit z-10 flex justify-between mt-[160px]">
+        <div className="border border-primary-50 rounded-[28px] font-Outfit z-10 flex flex-col lg:flex-row justify-between mt-[160px]">
           <div
             style={{ backdropFilter: "blur(5.050000190734863px)" }}
             className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 lg:p-10"
@@ -61,7 +61,7 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="pt-[56px]">
+          <div className="pt-[56px] pl-10 lg:pl-0">
             <h1 className="font-semibold text-white">Connect with Us Now</h1>
             <div className="flex flex-col gap-4 mt-6 text-neutral-160 text-sm">
               <Link to={"/"} className="hover:underline">
@@ -79,9 +79,11 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="h-[320px] w-[1px] bg-primary-50 text-white"></div>
+          <hr className="h-[1px] border border-primary-50 my-5" />
 
-          <div className="pt-[56px] mr-[140px]">
+          <div className="hidden lg:block h-[1px] md:h-[320px] w-[1px] bg-primary-50"></div>
+
+          <div className="pt-0 lg:pt-[56px] pl-10 lg:pl-0 mr-0 lg:mr-[140px] pb-5 lg:pb-0">
             <h1 className="font-semibold text-white">Follow Us</h1>
             <div className="flex flex-col gap-4 mt-6 text-neutral-160 text-sm">
               <Link to={"/"} className="hover:underline">

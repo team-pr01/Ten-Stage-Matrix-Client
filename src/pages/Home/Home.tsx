@@ -13,7 +13,7 @@ const Home = () => {
       <GetStarted />
       <EarnFlexibly />
       <DonationProgram/>
-      {/* <Footer/> */}
+      <Footer/>
     </div>
   );
 };
