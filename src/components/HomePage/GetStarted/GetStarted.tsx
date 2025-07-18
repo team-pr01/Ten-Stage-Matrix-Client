@@ -32,7 +32,7 @@ const GetStarted = () => {
         alt=""
         className="absolute top-0 w-[1400px] h-[500px] right-0"
       /> */}
-      <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[500px] blur-[330px] rounded-full absolute right-0 left-0 mx-auto rotate-[30deg] transform"></div>
+      <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[300px] md:h-[500px] blur-[330px] rounded-full absolute right-5 lg:right-0 left-0"></div>
       <Container>
         <div className="mt-[160px]">
           <h1 className="text-3xl lg:text-[48px] font-semibold text-white text-center">

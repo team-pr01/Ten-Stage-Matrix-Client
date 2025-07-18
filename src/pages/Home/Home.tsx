@@ -11,9 +11,9 @@ const Home = () => {
       <Navbar />
       <FindNextOpportunity />
       <GetStarted />
-      {/* <EarnFlexibly />
+      <EarnFlexibly />
       <DonationProgram/>
-      <Footer/> */}
+      {/* <Footer/> */}
     </div>
   );
 };

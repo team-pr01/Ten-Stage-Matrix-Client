@@ -9,12 +9,12 @@ const EarnFlexibly = () => {
         alt=""
         className="absolute top-0 w-[1900px] h-[800px] right-0"
       /> */}
-      <div className="bg-[#fda15333] w-[800px] h-[800px] blur-[290px] rounded-full absolute right-0 left-0 mx-auto rotate-[30deg] transform"></div>
+      <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[800px] blur-[290px] rounded-full absolute right-5 lg:right-0 left-0"></div>
 
       <img src={ICONS.circle} alt="" className="absolute -top-12 left-0 z-0" />
       <Container>
         <div className="relative">
-          <h1 className="text-3xl lg:text-[48px] font-semibold text-white max-w-full xl:max-w-[632px]">
+          <h1 className="text-3xl lg:text-[48px] font-semibold text-white max-w-full xl:max-w-[632px] text-center lg:text-start">
             Earn crypto flexibly with Ten Stage Matrix
           </h1>
 
@@ -41,7 +41,7 @@ const EarnFlexibly = () => {
                     solutions.
                   </p>
                 </div>
-                <h1 className="text-3xl lg:text-2xl font-semibold mt-[30px] text-white">
+                <h1 className="text-lg md:text-2xl font-semibold mt-[30px] text-white">
                   Stage Income: The Power of Community
                 </h1>
               </div>
@@ -49,7 +49,7 @@ const EarnFlexibly = () => {
             <img
               src={IMAGES.earnFlexibly}
               alt=""
-              className="w-full lg:w-[403px] md:h-[389px]"
+              className="w-full lg:w-[403px] lg:h-[389px]"
             />
           </div>
         </div>

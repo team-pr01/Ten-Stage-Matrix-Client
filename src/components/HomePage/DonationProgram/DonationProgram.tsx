@@ -4,37 +4,37 @@ import Container from "../../Reusable/Container/Container";
 
 const DonationProgram = () => {
   return (
-    <div className="relative">
+    <div className="relative mt-[350px] md:mt-[600px] lg:mt-0">
       <img
         src={ICONS.circle}
         alt=""
-        className="absolute -top-40 right-0 z-0 rotate-180 w-[200px]"
+        className="hidden xl:block absolute -top-40 right-0 z-0 rotate-180 w-[200px]"
       />
       <Container>
-        <div className="bg-neutral-170 shadow-donation-program rounded-[28px] font-Outfit p-6 md:p-[30px] xl:p-[56px] flex flex-col md:flex-row gap-10 items-center">
+        <div className="bg-neutral-170 shadow-donation-program rounded-[28px] font-Outfit p-6 md:p-[30px] xl:p-[56px] flex flex-col lg:flex-row gap-10 items-center">
           <img
             src={IMAGES.donationProgram}
             alt=""
-            className="w-full xl:w-[500px]"
+            className="w-full md:w-[300px] xl:w-[500px]"
           />
           <div>
-            <h1 className="text-3xl lg:text-[48px] font-semibold text-white max-w-full xl:max-w-[590px]">
+            <h1 className="text-3xl lg:text-[48px] font-semibold text-white max-w-full xl:max-w-[590px] text-center lg:text-start">
               Give Back with Our Donation Program
             </h1>
-            <p className="text-neutral-160 font-medium mt-6">
+            <p className="text-neutral-160 font-medium mt-6 text-sm sm:text-base text-center lg:text-start">
               Give a Little, Gain a Lot —{" "}
               <span className="text-white text-lg">Start with $10</span>
             </p>
 
             <div
               style={{ backdropFilter: "blur(5.050000190734863px)" }}
-              className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 flex items-center justify-between mt-10"
+              className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 flex flex-col md:flex-row gap-5 md:gap-0 items-center justify-between mt-10"
             >
-              <div>
+              <div className="text-center md:text-start">
                 <h1 className="text-base lg:text-2xl font-medium text-white">
                   Sign Up
                 </h1>
-                <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
+                <p className="text-sm lg:text-base font-medium text-neutral-160 mt-3 md:mt-5">
                   Sign Up and Step Into Financial Freedom
                 </p>
               </div>

@@ -29,7 +29,7 @@ const FindNextOpportunity = () => {
   ];
   return (
     <div className="relative">
-      <div className="bg-[#fda15333] w-[300px] lg:w-[1100px] h-[300px] lg:h-[500px] blur-[280px] rounded-full absolute bottom-10 right-0 left-0 mx-auto rotate-[30deg] transform"></div>
+      <div className="bg-[#fda15333] w-[300px] lg:w-[800px] xl:w-[1100px] h-[300px] lg:h-[500px] blur-[280px] rounded-full absolute bottom-10 right-5 lg:right-0 left-0 mx-auto rotate-[30deg] transform"></div>
       <Container>
         <div className="font-Outfit">
           <div className="flex flex-col xl:flex-row gap-5 xl:gap-0 justify-between">
