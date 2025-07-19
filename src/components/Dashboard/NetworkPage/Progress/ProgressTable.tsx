@@ -4,6 +4,7 @@ import Loader from "../../../Shared/Loader/Loader";
 import ProgressDataModal from "./ProgressDataModal";
 
 const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) => {
+  const [selectedTeamData, setSelectedTeamData] = useState<any[]>([]);
   const [isDataModalOpen, setIsDataModalOpen] = useState<boolean>(false);
   return (
     <div>
@@ -49,12 +50,6 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                   ) : (
                     Object.entries(data).map(
                       ([stage, stageData]: [string, any]) => {
-                        // const totalReferrals =
-                        //   (stageData.left || 0) +
-                        //   (stageData.center || 0) +
-                        //   (stageData.right || 0);
-                        // const status =
-                        //   totalReferrals > 0 ? "Pending" : "Completed";
 
                         return (
                           <tr
@@ -65,34 +60,34 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                // setSelectedTeam(stageData.team); // optional: to pass team to modal
+                                setSelectedTeamData(stageData?.left?.users);
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
-                              {stageData.left}
+                              {stageData?.left?.count}
                             </td>
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                // setSelectedTeam(stageData.team); // optional: to pass team to modal
+                                setSelectedTeamData(stageData?.center?.users);
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
-                              {stageData.center}
+                              {stageData.center?.count}
                             </td>
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                // setSelectedTeam(stageData.team); // optional
+                                setSelectedTeamData(stageData?.right?.users);
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
-                              {stageData.right}
+                              {stageData.right?.count}
                             </td>
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                // setSelectedTeam(stageData.team); // optional
+                                // setSelectedTeam(stageData.team);
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
@@ -113,7 +108,7 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
       <ProgressDataModal
         isDataModalOpen={isDataModalOpen}
         setIsDataModalOpen={setIsDataModalOpen}
-        data={data}
+        data={selectedTeamData}
       />
     </div>
   );

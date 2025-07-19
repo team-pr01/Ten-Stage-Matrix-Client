@@ -3,7 +3,7 @@ import ActionDetails from "../../../Reusable/ActionDetails/ActionDetails";
 const RecentDeposit = () => {
   return (
     <div className="mt-8">
-      <ActionDetails />
+      <ActionDetails title="Deposit Details" />
     </div>
   );
 };

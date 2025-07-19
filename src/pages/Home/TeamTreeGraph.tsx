@@ -66,8 +66,8 @@ export const TeamTreeGraph: React.FC = () => {
                   style={{
                     width: `${nodeWidth}px`,
                     height: `${nodeHeight}px`,
-                    backgroundColor:
-                      data?.data?.status === "active" ? "#00FF00" : "#FF0000",
+                    background:
+                      data?.data?.status !== "active" ? "linear-gradient(127deg, #7BFFC0 2.28%, #FFCF84 97.9%)" : "linear-gradient(127deg, #FF4D4D 2.28%, #FF0000	 97.9%)",
                     borderRadius: "10px",
                     display: "flex",
                     flexDirection: "column",
@@ -76,7 +76,7 @@ export const TeamTreeGraph: React.FC = () => {
                     textAlign: "center",
                     fontFamily: "Arial, sans-serif",
                     color:
-                      data?.data?.status === "active" ? "black" : "#ffffff",
+                      data?.data?.status !== "active" ? "black" : "#ffffff",
                     WebkitFontSmoothing: "antialiased",
                     MozOsxFontSmoothing: "grayscale",
                   }}

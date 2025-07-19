@@ -44,11 +44,14 @@ const ProgressDataModal = ({
               <table className="w-full text-white">
                 <thead>
                   <tr className="border-b border-neutral-90 text-left text-white font-semibold">
-                    <th className="p-3 w-1/2 whitespace-nowrap capitalize">
+                    <th className="p-3 w-1/3 whitespace-nowrap capitalize">
                       Name
                     </th>
-                    <th className="p-3 w-1/2 whitespace-nowrap capitalize">
-                      Referred By
+                    <th className="p-3 w-1/3 whitespace-nowrap capitalize">
+                      Stage
+                    </th>
+                    <th className="p-3 w-1/3 whitespace-nowrap capitalize">
+                      Status
                     </th>
                   </tr>
                 </thead>
@@ -57,22 +60,30 @@ const ProgressDataModal = ({
                   {data?.length < 1 ? (
                     <tr>
                       <td
-                        colSpan={2}
+                        colSpan={3}
                         className="text-white mt-4 p-4 text-center"
                       >
                         No data found
                       </td>
                     </tr>
                   ) : (
-                    <>
-                      <tr className="border-b border-neutral-90 text-neutral-55">
-                        <td className="p-3 w-1/2 whitespace-nowrap">Shehzad</td>
-                        <td className="p-3 w-1/2 whitespace-nowrap">
-                          <p>BDAdmin</p>
-                          <p>tenstagematrix@gmail.com</p>
+                    data?.map((item: any, index: number) => (
+                      <tr
+                        key={index}
+                        onClick={() => console.log("Row clicked:", item)}
+                        className="cursor-pointer hover:bg-neutral-800 border-b border-neutral-90 text-neutral-55 transition-colors duration-200 capitalize"
+                      >
+                        <td className="p-3 w-1/3 whitespace-nowrap">
+                          {item.name}
+                        </td>
+                        <td className="p-3 w-1/3 whitespace-nowrap">
+                          {item.stage}
+                        </td>
+                        <td className="p-3 w-1/3 whitespace-nowrap">
+                          {item.status}
                         </td>
                       </tr>
-                    </>
+                    ))
                   )}
                 </tbody>
               </table>

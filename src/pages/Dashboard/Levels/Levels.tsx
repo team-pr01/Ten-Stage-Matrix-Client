@@ -13,7 +13,7 @@ const Levels = () => {
     <div>
       {isLoading ? (
         <Loader size="size-10" />
-      ) : (
+      ) : data?.data?.level_chain?.length > 0 ? (
         <div className="font-Outfit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-h-screen">
           {data?.data?.level_chain?.map((level: any) => (
             <button
@@ -47,7 +47,12 @@ const Levels = () => {
             </button>
           ))}
         </div>
+      ) : (
+        <div className="text-center text-white font-Outfit text-xl mt-10">
+          No data found
+        </div>
       )}
+
       <LevelDataModal
         isDataModalOpen={isDataModalOpen}
         setIsDataModalOpen={setIsDataModalOpen}

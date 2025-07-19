@@ -4,7 +4,7 @@ import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/user
 import { formatDate } from "../../../utile/formatDate";
 import Table from "../Table/Table";
 
-const ActionDetails = () => {
+const ActionDetails = ({title} : {title: string}) => {
   const { data, isLoading } = useGetTransactionHistoryQuery({});
   const location = useLocation();
 
@@ -17,7 +17,7 @@ const ActionDetails = () => {
   return (
     <div>
       <Table
-        title="Deposit Details"
+        title={title}
         tableHeaders={[
           "Serial No",
           "Transaction Id",
