@@ -6,6 +6,7 @@ import ProgressDataModal from "./ProgressDataModal";
 const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) => {
   const [selectedTeamData, setSelectedTeamData] = useState<any[]>([]);
   const [isDataModalOpen, setIsDataModalOpen] = useState<boolean>(false);
+  console.log(data);
   return (
     <div>
       <div
@@ -87,7 +88,7 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                // setSelectedTeam(stageData.team);
+                                setSelectedTeamData(stageData?.active_referral_list);
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >

@@ -30,7 +30,7 @@ const ProgressDataModal = ({
       >
         {/* Header */}
         <div className="w-full flex items-center justify-between">
-          <h1 className="text-xl text-white font-medium">Level Details</h1>
+          <h1 className="text-xl text-white font-medium">Member Details</h1>
           <RxCross1
             className="text-lg text-neutral-40 rounded-full transition-all duration-300 cursor-pointer"
             onClick={() => setIsDataModalOpen(false)}
