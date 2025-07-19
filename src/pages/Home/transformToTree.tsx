@@ -19,6 +19,7 @@ export const transformToD3Tree = (node: any | null): any => {
       position: node.position ?? "",
       stage: node.stage ?? "",
       referred_by: node.referred_by,
+      status: node.status,
     },
     children: children.filter(Boolean),
   };

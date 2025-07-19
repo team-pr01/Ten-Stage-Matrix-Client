@@ -47,8 +47,8 @@ const GraphView = ({ id }: { id: string }) => {
           const referral_level =
             typeof nodeDatum.attributes?.referral_level === "object" &&
             nodeDatum.attributes?.referral_level !== null
-              ? (nodeDatum.attributes?.referral_level as { name?: string }).name ||
-                "N/A"
+              ? (nodeDatum.attributes?.referral_level as { name?: string })
+                  .name || "N/A"
               : String(nodeDatum.attributes?.referral_level ?? "N/A");
 
           const nodeWidth = 140;
@@ -67,14 +67,7 @@ const GraphView = ({ id }: { id: string }) => {
                   style={{
                     width: `${nodeWidth}px`,
                     height: `${nodeHeight}px`,
-                    background:
-                      data?.data?.status === "active"
-                        ? "linear-gradient(127deg, #7BFFC0 2.28%, #FFCF84 97.9%)"
-                        : "#1F1F1F",
-                    boxShadow: isActive
-                      ? undefined
-                      : "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
-                    backdropFilter: isActive ? undefined : "blur(5.05px)",
+                    background: isActive ? "#0BDA51" : "#C00000",
                     borderRadius: "10px",
                     display: "flex",
                     flexDirection: "column",
@@ -82,8 +75,7 @@ const GraphView = ({ id }: { id: string }) => {
                     alignItems: "center",
                     textAlign: "center",
                     fontFamily: "Arial, sans-serif",
-                    color:
-                      data?.data?.status === "active" ? "black" : "#ffffff",
+                    color: isActive ? "black" : "#ffffff",
                     WebkitFontSmoothing: "antialiased",
                     MozOsxFontSmoothing: "grayscale",
                   }}

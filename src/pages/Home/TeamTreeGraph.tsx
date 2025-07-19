@@ -5,7 +5,6 @@ import { transformToD3Tree } from "./transformToTree";
 
 export const TeamTreeGraph: React.FC = () => {
   const { data, isLoading, isError } = useGetReferralTreeQuery({});
-  console.log(data);
 
   const treeData = useMemo(() => {
     if (!data?.data) return [];
@@ -54,6 +53,7 @@ export const TeamTreeGraph: React.FC = () => {
           const nodeWidth = 140;
           const nodeHeight = 120;
           const isActive = nodeDatum.attributes?.status === "active";
+          console.log(nodeDatum.attributes);
 
           return (
             <g>
@@ -68,13 +68,9 @@ export const TeamTreeGraph: React.FC = () => {
                     width: `${nodeWidth}px`,
                     height: `${nodeHeight}px`,
                     background:
-                      data?.data?.status === "active"
-                        ? "linear-gradient(127deg, #7BFFC0 2.28%, #FFCF84 97.9%)"
-                        : "#1F1F1F",
-                    boxShadow: isActive
-                      ? undefined
-                      : "inset 4px 4px 33.2px 0px rgba(255, 255, 255, 0.20)",
-                    backdropFilter: isActive ? undefined : "blur(5.05px)",
+                      isActive
+                        ? "#0BDA51"
+                        : "#C00000",
                     borderRadius: "10px",
                     display: "flex",
                     flexDirection: "column",
@@ -82,8 +78,7 @@ export const TeamTreeGraph: React.FC = () => {
                     alignItems: "center",
                     textAlign: "center",
                     fontFamily: "Arial, sans-serif",
-                    color:
-                      data?.data?.status === "active" ? "black" : "#ffffff",
+                    color: isActive ? "black" : "#ffffff",
                     WebkitFontSmoothing: "antialiased",
                     MozOsxFontSmoothing: "grayscale",
                   }}
