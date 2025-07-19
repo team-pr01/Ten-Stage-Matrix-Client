@@ -44,10 +44,13 @@ const FundTransfer = () => {
 
   const handleSendFund = async (data: any) => {
     try {
+      if(selectedMethod === "Select Wallet"){
+        return toast.error("Please select a wallet");
+      }
       const payload = {
         amount: Number(data.amount),
         recipient_id: data.recipient_id,
-        balance_type : selectedMethod === "Withdrawable Balance" ? "deposit" : "balance",
+        balance_type : selectedMethod === "Withdrawable Balance" ? "balance" : "deposit",
       };
       const response = await transferFund(payload).unwrap();
       if (response?.success) {

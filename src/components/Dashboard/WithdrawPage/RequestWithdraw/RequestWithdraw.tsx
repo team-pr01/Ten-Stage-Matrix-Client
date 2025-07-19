@@ -28,7 +28,7 @@ const RequestWithdraw = () => {
   const { data: settings } = useGetPublicSettingsQuery({});
   const { data } = useGetUserProfileQuery({});
 
-    const [selectedMethod, setSelectedMethod] = useState<string>("Select Wallet");
+  const [selectedMethod, setSelectedMethod] = useState<string>("Select Wallet");
   const [open, setOpen] = useState(false);
   const dropDownRef = useRef<HTMLDivElement>(null);
   const items = ["Withdrawable Balance", "Impact Balance"];
@@ -48,6 +48,9 @@ const RequestWithdraw = () => {
   // Function to withdraw
   const handleRequestWithdraw = async (data: TFormValues) => {
     try {
+      if (selectedMethod === "Select Wallet") {
+        return toast.error("Please select a wallet");
+      }
       const payload = {
         amount: Number(data.amount),
         // wallet_address: data?.wallet_address,
@@ -55,7 +58,8 @@ const RequestWithdraw = () => {
         network: "BSC",
         payment_method: "blockchain",
         type: "Withdrawal",
-        balance_type : selectedMethod === "Withdrawable Balance" ? "deposit" : "balance",
+        balance_type:
+          selectedMethod === "Withdrawable Balance" ? "balance" : "deposit",
       };
 
       const response = await requestWithdraw(payload).unwrap();
@@ -67,8 +71,6 @@ const RequestWithdraw = () => {
       console.log(error);
     }
   };
-
-
 
   return (
     <div className="font-Outfit">
