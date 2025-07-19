@@ -49,74 +49,105 @@ const FindNextOpportunity = () => {
           </div>
 
           <div className="mt-[60px] grid grid-cols-1 lg:grid-cols-3 gap-6">
+            {/* Left card */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               {cardDetails?.slice(0, 2)?.map((item) => (
                 <div
                   key={item?.title}
-                  style={{ backdropFilter: "blur(5.050000190734863px)" }}
-                  className="p-[30px] rounded-[28px] border border-primary-50 shadow-home-card"
+                  className="p-[2px] rounded-2xl md:rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient"
                 >
-                  <h1 className="text-white text-2xl font-semibold">
-                    {item?.title}
-                  </h1>
-                  <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
-                    {item?.description}
-                  </p>
-                  <div className="flex justify-end mt-3">
-                    <img
-                      src={item?.image}
-                      alt=""
-                      className="w-[200px] h-[170px]"
-                    />
+                  <div className="bg-neutral-10 rounded-2xl md:rounded-[28px]">
+                    <div
+                      style={{
+                        backdropFilter: "blur(5.050000190734863px)",
+                        boxShadow:
+                          "inset 4px 4px 33.2px rgba(255, 255, 255, 0.20)",
+                      }}
+                      className="p-[30px] rounded-[28px] border border-primary-50 shadow-home-card"
+                    >
+                      <h1 className="text-white text-2xl font-semibold">
+                        {item?.title}
+                      </h1>
+                      <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
+                        {item?.description}
+                      </p>
+                      <div className="flex justify-end mt-3">
+                        <img
+                          src={item?.image}
+                          alt=""
+                          className="w-[200px] h-[170px]"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}
             </div>
 
-            <div
-              style={{ backdropFilter: "blur(5.050000190734863px)" }}
-              className="p-[30px] rounded-[28px] border border-primary-50 shadow-home-card flex flex-col justify-between"
-            >
-              <div>
-                <h1 className="text-white text-2xl font-semibold">
-                  Earnings Start from Your Donation to the Community
-                </h1>
-                <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
-                  Your donation sparks a cycle of earnings, directly benefiting
-                  everyone in the community. By contributing, you help create
-                  opportunities for all to thrive through shared growth. It's a
-                  simple, transparent system where your support ensures fairness
-                  and equal benefits at every stage.
-                </p>
-              </div>
-              <div className="flex justify-center mt-5 lg:mt-0">
-                <img
-                  src={IMAGES.startEarning}
-                  alt=""
-                  className="w-[284px] h-[217px]"
-                />
+            {/* Middle card */}
+            <div className="p-[2px] rounded-2xl md:rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient h-full">
+              <div className="bg-neutral-10 rounded-2xl md:rounded-[28px] h-full">
+                <div
+                  style={{
+                    backdropFilter: "blur(5.050000190734863px)",
+                    boxShadow: "inset 4px 4px 33.2px rgba(255, 255, 255, 0.20)",
+                  }}
+                  className="p-[30px] rounded-[28px] border border-primary-50 shadow-home-card flex flex-col justify-between h-full"
+                >
+                  <div>
+                    <h1 className="text-white text-2xl font-semibold">
+                      Earnings Start from Your Donation to the Community
+                    </h1>
+                    <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
+                      Your donation sparks a cycle of earnings, directly
+                      benefiting everyone in the community. By contributing, you
+                      help create opportunities for all to thrive through shared
+                      growth. It's a simple, transparent system where your
+                      support ensures fairness and equal benefits at every
+                      stage.
+                    </p>
+                  </div>
+                  <div className="flex justify-center mt-5 lg:mt-0">
+                    <img
+                      src={IMAGES.startEarning}
+                      alt=""
+                      className="w-[284px] h-[217px]"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
 
+            {/* Right card */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-1 gap-6">
               {cardDetails?.slice(2, 4)?.map((item) => (
                 <div
                   key={item?.title}
-                  style={{ backdropFilter: "blur(5.050000190734863px)" }}
-                  className="p-[30px] rounded-[28px] border border-primary-50 shadow-home-card"
+                  className="p-[2px] rounded-2xl md:rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient"
                 >
-                  <h1 className="text-white text-2xl font-semibold">
-                    {item?.title}
-                  </h1>
-                  <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
-                    {item?.description}
-                  </p>
-                  <div className="flex justify-end mt-3">
-                    <img
-                      src={item?.image}
-                      alt=""
-                      className="w-[200px] h-[200px]"
-                    />
+                  <div className="bg-neutral-10 rounded-2xl md:rounded-[28px]">
+                    <div
+                      style={{
+                        backdropFilter: "blur(5.050000190734863px)",
+                        boxShadow:
+                          "inset 4px 4px 33.2px rgba(255, 255, 255, 0.20)",
+                      }}
+                      className="p-[30px] rounded-[28px] border border-primary-50 shadow-home-card"
+                    >
+                      <h1 className="text-white text-2xl font-semibold">
+                        {item?.title}
+                      </h1>
+                      <p className="text-sm lg:text-base font-medium text-neutral-160 mt-5">
+                        {item?.description}
+                      </p>
+                      <div className="flex justify-end mt-3">
+                        <img
+                          src={item?.image}
+                          alt=""
+                          className="w-[200px] h-[200px]"
+                        />
+                      </div>
+                    </div>
                   </div>
                 </div>
               ))}

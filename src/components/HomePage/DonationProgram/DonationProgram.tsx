@@ -29,9 +29,11 @@ const DonationProgram = () => {
               <span className="text-white text-lg">Start with $10</span>
             </p>
 
-            <div
-              style={{ backdropFilter: "blur(5.050000190734863px)" }}
-              className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 flex flex-col md:flex-row gap-5 md:gap-0 items-center justify-between mt-10"
+            <div className="p-[2px] rounded-2xl md:rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient mt-10">
+              <div className="bg-neutral-10 rounded-2xl md:rounded-[28px]">
+                <div
+              style={{ backdropFilter: "blur(5.050000190734863px)", boxShadow: "inset 4px 4px 33.2px rgba(255, 255, 255, 0.20)", }}
+              className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 flex flex-col md:flex-row gap-5 md:gap-0 items-center justify-between"
             >
               <div className="text-center md:text-start">
                 <h1 className="text-base lg:text-2xl font-medium text-white">
@@ -57,6 +59,8 @@ const DonationProgram = () => {
               >
                 {user ? "Dashboard" : "Sign Up"}
               </Link>
+            </div>
+              </div>
             </div>
           </div>
         </div>
