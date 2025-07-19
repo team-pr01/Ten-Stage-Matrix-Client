@@ -165,13 +165,17 @@ const Navbar = () => {
               <div className="hidden lg:flex items-center gap-6 z-10">
                 <Link
                   to={"/auth/signin"}
-                  style={{
-                    boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
-                    backdropFilter: "blur(8.050000190734863px)",
-                  }}
-                  className="rounded-xl border border-neutral-90 bg-primary-50 text-white px-10 py-3 font-semibold hover:bg-primary-10 transition duration-300 w-[200px] ease-in-out transform hover:scale-105 active:scale-95"
+                  className="bg-border-gradient2 p-[1px] rounded-xl w-[200px]"
                 >
-                  Sign In
+                  <div
+                    style={{
+                      boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
+                      backdropFilter: "blur(8.050000190734863px)",
+                    }}
+                    className="rounded-xl border border-neutral-90 bg-[#251A34] text-white px-10 py-3 font-semibold hover:bg-primary-10 w-[150px] text-center transition duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+                  >
+                    Sign In
+                  </div>
                 </Link>
                 <Link
                   to={"/auth/signup"}
@@ -190,16 +194,18 @@ const Navbar = () => {
               </div>
             ) : (
               <div className="hidden lg:flex items-center gap-6 z-10">
-                <button
-                  onClick={handleLogout}
-                  style={{
-                    boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
-                    backdropFilter: "blur(8.050000190734863px)",
-                  }}
-                  className="rounded-xl border border-neutral-90 bg-primary-50 text-white px-10 py-3 font-semibold hover:bg-primary-10 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 cursor-pointer"
-                >
-                  Logout
-                </button>
+                <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit">
+                  <button
+                    onClick={handleLogout}
+                    style={{
+                      boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
+                      backdropFilter: "blur(8.050000190734863px)",
+                    }}
+                    className="rounded-xl border border-neutral-90 bg-neutral-175 text-white px-10 py-3 font-semibold hover:bg-primary-10 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 cursor-pointer"
+                  >
+                    Logout
+                  </button>
+                </div>
                 <Link
                   to={"/dashboard"}
                   className="px-10 py-[15px] w-full rounded-xl hover:bg-primary-10 bg-primary-85 text-white font-semibold text-sm text-center cursor-pointer flex justify-center items-center gap-[6px] transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"

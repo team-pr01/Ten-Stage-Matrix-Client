@@ -393,15 +393,17 @@ const Hero = () => {
           {
             user ?
             <Link
-            to={"/dashboard"}
+            to={"/dashboard"} className="bg-border-gradient2 p-[1px] rounded-xl w-fit">
+              <div
             style={{
               boxShadow: "0px 4px 24px 0px rgba(255, 255, 255, 0.15)",
               backdropFilter: "blur(8.050000190734863px)",
             }}
-            className="rounded-xl border border-neutral-90 bg-primary-50 text-white px-10 py-3 font-semibold hover:bg-primary-10 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
+            className="rounded-xl border border-neutral-90 bg-neutral-175 text-white px-10 py-3 font-semibold hover:bg-primary-10 transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95"
           >
             Dashboard
-          </Link>
+          </div>
+            </Link>
           :
           <Link
             to={"/auth/signin"}

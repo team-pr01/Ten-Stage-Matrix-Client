@@ -25,7 +25,7 @@ const EarnFlexibly = () => {
                         boxShadow:
                           "inset 4px 4px 33.2px rgba(255, 255, 255, 0.20)",
                       }}
-                      className="border border-primary-50  shadow-home-card rounded-[28px] p-[30px] relative max-w-[590px]"
+                      className="border border-primary-50 bg-[#251A34] shadow-home-card rounded-[28px] p-[30px] relative max-w-[590px]"
                     >
                       <h1 className="text-base lg:text-2xl font-semibold text-white">
                         Unlocking Passive Income Through Affiliate Marketing
