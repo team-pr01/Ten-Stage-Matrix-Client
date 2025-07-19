@@ -20,7 +20,6 @@ import SignupSuccess from "../pages/SignupSuccess/SignupSuccess";
 import ForgotPassword from "../pages/ForgotPassword/ForgotPassword";
 import ResetPassword from "../pages/ResetPassword/ResetPassword";
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
-import LevelDetails from "../pages/Dashboard/Levels/LevelDetails";
 import Earn from "../pages/Dashboard/Earn/Earn";
 import ReferralDetails from "../pages/ReferralDetails/ReferralDetails";
 import Home from "../pages/Home/Home";
@@ -108,10 +107,6 @@ export const router = createBrowserRouter([
       {
         path: "earn",
         element: <Earn />,
-      },
-      {
-        path: "level/:id",
-        element: <LevelDetails />,
       },
       {
         path: "referral-details/:id",

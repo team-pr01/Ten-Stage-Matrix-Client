@@ -1,11 +1,10 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { useState } from "react";
 import Loader from "../../../Shared/Loader/Loader";
 import ProgressDataModal from "./ProgressDataModal";
 
-const ProgressTable = () => {
+const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) => {
   const [isDataModalOpen, setIsDataModalOpen] = useState<boolean>(false);
-  const isLoading = false;
-  const data = [6];
   return (
     <div>
       <div
@@ -31,61 +30,79 @@ const ProgressTable = () => {
                     <th className="p-3 whitespace-nowrap capitalize">
                       Active Referrals
                     </th>
-                    <th className="p-3 whitespace-nowrap capitalize">
+                    {/* <th className="p-3 whitespace-nowrap capitalize">
                       Upgrade Status
-                    </th>
+                    </th> */}
                   </tr>
                 </thead>
 
                 <tbody>
-                  {data?.length < 1 ? (
+                  {Object.keys(data || {}).length === 0 ? (
                     <tr>
                       <td
-                        colSpan={7}
+                        colSpan={6}
                         className="text-white mt-4 p-4 text-center"
                       >
                         No data found
                       </td>
                     </tr>
                   ) : (
-                    <>
-                      <tr className="border-b border-neutral-90 text-neutral-55">
-                        <td className="p-3 whitespace-nowrap">Stage 1</td>
-                        <td
-                          onClick={() => {
-                            setIsDataModalOpen(true);
-                          }}
-                          className="p-3 whitespace-nowrap cursor-pointer"
-                        >
-                          2
-                        </td>
-                        <td
-                          onClick={() => {
-                            setIsDataModalOpen(true);
-                          }}
-                          className="p-3 whitespace-nowrap cursor-pointer"
-                        >
-                          3
-                        </td>
-                        <td
-                          onClick={() => {
-                            setIsDataModalOpen(true);
-                          }}
-                          className="p-3 whitespace-nowrap cursor-pointer"
-                        >
-                          0
-                        </td>
-                        <td
-                          onClick={() => {
-                            setIsDataModalOpen(true);
-                          }}
-                          className="p-3 whitespace-nowrap cursor-pointer"
-                        >
-                          5
-                        </td>
-                        <td className="p-3 whitespace-nowrap">Pending</td>
-                      </tr>
-                    </>
+                    Object.entries(data).map(
+                      ([stage, stageData]: [string, any]) => {
+                        // const totalReferrals =
+                        //   (stageData.left || 0) +
+                        //   (stageData.center || 0) +
+                        //   (stageData.right || 0);
+                        // const status =
+                        //   totalReferrals > 0 ? "Pending" : "Completed";
+
+                        return (
+                          <tr
+                            key={stage}
+                            className="border-b border-neutral-90 text-neutral-55 hover:bg-white/5 transition-all duration-200"
+                          >
+                            <td className="p-3 whitespace-nowrap">{`Stage ${stage}`}</td>
+                            <td
+                              onClick={() => {
+                                setIsDataModalOpen(true);
+                                // setSelectedTeam(stageData.team); // optional: to pass team to modal
+                              }}
+                              className="p-3 whitespace-nowrap cursor-pointer"
+                            >
+                              {stageData.left}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setIsDataModalOpen(true);
+                                // setSelectedTeam(stageData.team); // optional: to pass team to modal
+                              }}
+                              className="p-3 whitespace-nowrap cursor-pointer"
+                            >
+                              {stageData.center}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setIsDataModalOpen(true);
+                                // setSelectedTeam(stageData.team); // optional
+                              }}
+                              className="p-3 whitespace-nowrap cursor-pointer"
+                            >
+                              {stageData.right}
+                            </td>
+                            <td
+                              onClick={() => {
+                                setIsDataModalOpen(true);
+                                // setSelectedTeam(stageData.team); // optional
+                              }}
+                              className="p-3 whitespace-nowrap cursor-pointer"
+                            >
+                              {stageData.active_referral_count}
+                            </td>
+                            {/* <td className="p-3 whitespace-nowrap">{status}</td> */}
+                          </tr>
+                        );
+                      }
+                    )
                   )}
                 </tbody>
               </table>

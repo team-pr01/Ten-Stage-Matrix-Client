@@ -6,9 +6,8 @@ import { useState } from "react";
 
 const Position = () => {
   const [isDataModalOpen, setIsDataModalOpen] = useState<boolean>(false);
-  const { data, isLoading } = useGetLevelProgressPositionQuery({});
-
   const [selectedData, setSelectedData] = useState<any[]>([]);
+  const { data, isLoading } = useGetLevelProgressPositionQuery({});
 
   return (
     <div className="min-h-screen">
