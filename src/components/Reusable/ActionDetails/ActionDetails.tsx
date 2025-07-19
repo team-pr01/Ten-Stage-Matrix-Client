@@ -4,8 +4,9 @@ import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/user
 import { formatDate } from "../../../utile/formatDate";
 import Table from "../Table/Table";
 
-const ActionDetails = ({title} : {title: string}) => {
+const ActionDetails = ({ title }: { title: string }) => {
   const { data, isLoading } = useGetTransactionHistoryQuery({});
+  console.log(data);
   const location = useLocation();
 
   const filterType =
@@ -21,7 +22,7 @@ const ActionDetails = ({title} : {title: string}) => {
         tableHeaders={[
           "Serial No",
           "Transaction Id",
-          "Type",
+          "Wallet Address",
           "Date",
           "Amount",
           "Status",
@@ -30,7 +31,7 @@ const ActionDetails = ({title} : {title: string}) => {
           filteredData?.map((item: any, index: number) => ({
             serial_no: index + 1,
             transaction_id: item._id,
-            type: item.type,
+            type: item.wallet_address,
             date: formatDate(item?.created_at),
             amount: `$${item?.amount.toFixed(5)}`,
             status:
