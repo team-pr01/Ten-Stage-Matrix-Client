@@ -105,6 +105,7 @@ import userLevel from "./icons/user-level.svg";
 import borderGradient from "./icons/Frame 10.svg";
 import position from "./icons/position.svg";
 import circle from "./icons/circle.svg";
+import successIcon from "./icons/success.svg";
 
 
 
@@ -217,4 +218,5 @@ export const ICONS = {
     borderGradient,
     position,
     circle,
+    successIcon,
 }

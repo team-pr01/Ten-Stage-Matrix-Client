@@ -11,6 +11,7 @@ import TextInput from "../../../Reusable/TextInput/TextInput";
 import Button from "../../../Reusable/Button/Button";
 import { useEffect, useRef, useState } from "react";
 import { MdOutlineKeyboardArrowDown } from "react-icons/md";
+import SuccessModal from "../../../Reusable/SuccessModal/SuccessModal";
 
 type TFormValues = {
   amount: string;
@@ -22,6 +23,7 @@ const RequestWithdraw = () => {
     handleSubmit,
     formState: { errors },
   } = useForm<TFormValues>();
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
   const [requestWithdraw, { isLoading }] = useRequestWithdrawMutation();
 
@@ -64,7 +66,7 @@ const RequestWithdraw = () => {
 
       const response = await requestWithdraw(payload).unwrap();
       if (response?.message) {
-        toast.success(response?.message || "Withdraw successful!");
+        setIsSuccess(true);
       }
     } catch (error: any) {
       toast.error(error?.data?.error || "An error occurred");
@@ -167,6 +169,14 @@ const RequestWithdraw = () => {
         />
         <Button label="Confirm" isLoading={isLoading} classNames="w-[176px]" />
       </form>
+
+      {isSuccess && (
+        <SuccessModal
+          title="Withdraw Request Successful"
+          isOpenModal={isSuccess}
+          setIsModalOpen={setIsSuccess}
+        />
+      )}
     </div>
   );
 };

@@ -9,11 +9,14 @@ import {
 import { toast } from "sonner";
 import TextInput from "../../../Reusable/TextInput/TextInput";
 import Button from "../../../Reusable/Button/Button";
+import SuccessModal from "../../../Reusable/SuccessModal/SuccessModal";
+import { useState } from "react";
 
 type TFormValues = {
   amount: string;
 };
 const MakeDonation = () => {
+  const [isSuccess, setIsSuccess] = useState<boolean>(false);
   const [makeDonation, { isLoading }] = useMakeDonationMutation();
   const {
     register,
@@ -30,7 +33,7 @@ const MakeDonation = () => {
 
       const response = await makeDonation(payload).unwrap();
       if (response?.success) {
-        toast.success(response?.message || "Donation made successfully!");
+        setIsSuccess(true);
         reset();
       }
     } catch (error) {
@@ -80,6 +83,14 @@ const MakeDonation = () => {
         />
         <Button label="Submit" isLoading={isLoading} classNames="w-[176px]" />
       </form>
+
+       {isSuccess && (
+              <SuccessModal
+                title="Donation Successful!"
+                isOpenModal={isSuccess}
+                setIsModalOpen={setIsSuccess}
+              />
+            )}
     </div>
   );
 };
