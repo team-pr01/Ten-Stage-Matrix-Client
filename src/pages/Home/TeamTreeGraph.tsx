@@ -55,6 +55,14 @@ export const TeamTreeGraph: React.FC = () => {
           const isActive = nodeDatum.attributes?.status === "active";
           console.log(nodeDatum.attributes);
 
+          const position2 = position === "left"
+                      ? "Line 1"
+                      : position === "right"
+                      ? "Line 3"
+                      : position === "center"
+                      ? "Line 2"
+                      : position
+
           return (
             <g>
               <foreignObject
@@ -79,7 +87,7 @@ export const TeamTreeGraph: React.FC = () => {
                     WebkitFontSmoothing: "antialiased",
                     MozOsxFontSmoothing: "grayscale",
                   }}
-                  title={`Name: ${fullName}\nStage: ${stage}\nPosition: ${position}\nReferred by: ${referredBy}`}
+                  title={`Name: ${fullName}\nStage: ${stage}\nPosition: ${position2}\nReferred by: ${referredBy}`}
                 >
                   <div
                     style={{
