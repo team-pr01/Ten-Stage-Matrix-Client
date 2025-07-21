@@ -176,7 +176,7 @@ const userApi = baseApi.injectEndpoints({
     getEarningHistory: builder.query({
       query: () => {
         return {
-          url: `/users/commission`,
+          url: `/activities/commission`,
           method: "GET",
           credentials: "include",
         };

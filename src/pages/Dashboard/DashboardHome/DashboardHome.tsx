@@ -126,9 +126,23 @@ const DashboardHome = () => {
     },
   ];
 
+  const CustomMarquee = "marquee" as any;
+
   return (
     <div className="font-Outfit">
-      <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-5 xl:mb-[30px]">
+      <div className="p-[10px] rounded-lg bg-neutral-25/10 shadow-custom-dropdown">
+        <CustomMarquee
+          className="text-neutral-145 font-medium text-xs leading-5 text-left"
+          behavior="scroll"
+          direction="left"
+        >
+          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit expedita
+          distinctio molestiae commodi minima magnam nesciunt perferendis
+          voluptatibus deserunt suscipit. Lorem ipsum dolor sit amet,
+          consectetur adipisicing elit. Alias, perspiciatis.
+        </CustomMarquee>
+      </div>
+      <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-5 xl:mb-[30px] mt-10">
         <img src={IMAGES.referralCodeBg} alt="" className="w-full h-full" />
         <div className="text-white absolute top-2 md:top-0 left-3 md:left-12 xl:left-20 bottom-0 flex flex-col justify-center">
           <h1 className="text-xl md:text-[40px] font-bold leading-0 md:leading-[45px]">
@@ -160,7 +174,6 @@ const DashboardHome = () => {
             icon={card.icon}
             title={card.title}
             value={card.value}
-            // isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         ))}
         <div className="hidden md:grid">
@@ -174,7 +187,6 @@ const DashboardHome = () => {
                 (matchedStage?.earning_multiplier || 0) -
                 (data?.data?.balances?.stage_balance || 0)
             ).toFixed(5)}`}
-            // isCurrencyVisible={card?.isCurrencyVisible ?? true}
           />
         </div>
       </div>

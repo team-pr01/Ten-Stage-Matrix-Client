@@ -6,7 +6,6 @@ import Table from "../Table/Table";
 
 const ActionDetails = ({ title }: { title: string }) => {
   const { data, isLoading } = useGetTransactionHistoryQuery({});
-  console.log(data);
   const location = useLocation();
 
   const filterType =
@@ -31,7 +30,7 @@ const ActionDetails = ({ title }: { title: string }) => {
           filteredData?.map((item: any, index: number) => ({
             serial_no: index + 1,
             transaction_id: item._id,
-            type: item.wallet_address,
+            wallet_address: location.pathname === "/dashboard/deposit" ? item.wallet_address : item?.withdrawal_address,
             date: formatDate(item?.created_at),
             amount: `$${item?.amount.toFixed(5)}`,
             status:

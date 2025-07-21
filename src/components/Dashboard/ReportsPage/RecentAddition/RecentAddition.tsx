@@ -96,11 +96,17 @@ const RecentAddition = () => {
                       </td>
                       <td className="py-3 px-4 capitalize">{item?.status}</td>
                       <td className="py-3 px-4">{item?.referral_code}</td>
-                      <td className="py-3 px-4">Stage {item?.stage}</td>
+                      <td className="py-3 px-4 text-nowrap">Stage {item?.stage}</td>
                       <td className="py-3 px-4">{item?.level}</td>
-                      <td className="py-3 px-4 capitalize">{
-                        item?.position === "left" ? "Line 1" : item?.position === "right" ? "Line 3" : item?.position === "center" ? "Line 2" : item?.position
-                        }</td>
+                      <td className="py-3 px-4 capitalize">
+                        {item?.position === "left"
+                          ? "Line 1"
+                          : item?.position === "right"
+                          ? "Line 3"
+                          : item?.position === "center"
+                          ? "Line 2"
+                          : item?.position}
+                      </td>
                       <td className="py-3 px-4">
                         <span className="capitalize">
                           {item?.referred_by?.name}

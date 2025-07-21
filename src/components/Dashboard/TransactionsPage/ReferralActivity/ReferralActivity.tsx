@@ -30,8 +30,15 @@ const ReferralActivity = () => {
               </Link>
             ),
             email: item.email,
-            position: item.team_tree?.position,
-            status: item.status,
+            position:
+              item.team_tree?.position === "left"
+                ? "Line 1"
+                : item.team_tree?.position === "right"
+                ? "Line 3"
+                : item.team_tree?.position === "center"
+                ? "Line 2"
+                : item?.position,
+            status: (<p className="capitalize">{item.status}</p>),
             referral_code: item.referral_code,
             stage: `Stage ${item.stage}`,
           })) || []

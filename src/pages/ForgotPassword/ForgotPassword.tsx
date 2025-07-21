@@ -7,7 +7,7 @@ import TextInput from "../../components/Reusable/TextInput/TextInput";
 import Button from "../../components/Reusable/Button/Button";
 
 type TFormValues = {
-  email: string;
+  user_pk: string;
 };
 
 const ForgotPassword = () => {
@@ -21,7 +21,7 @@ const ForgotPassword = () => {
   const handleSignin = async (data: TFormValues) => {
     try {
       const payload = {
-        email: data.email,
+        user_pk: data.user_pk,
       };
       const response = await forgotPassword(payload).unwrap();
 
@@ -62,13 +62,12 @@ const ForgotPassword = () => {
               className="flex flex-col gap-5"
             >
               <TextInput
-                label="Email"
-                placeholder="Enter Email Address"
-                icon={ICONS.emailIcon}
-                error={errors.email}
-                type="email"
-                {...register("email", {
-                  required: "Email is required",
+                label="Private Key"
+                placeholder="Enter Private Key"
+                icon={ICONS.privateKey}
+                error={errors.user_pk}
+                {...register("user_pk", {
+                  required: "Private key is required",
                 })}
               />
 

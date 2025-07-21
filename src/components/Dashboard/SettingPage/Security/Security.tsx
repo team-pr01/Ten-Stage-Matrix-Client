@@ -26,10 +26,10 @@ const Security = () => {
               className={`size-[120px] md:size-[200px] mx-auto`}
             />
             <p className="text-neutral-110 text-sm mt-[3px]">
-              Set a strong password to keep your Account secure.
+              Set a strong passcode to keep your Account secure.
             </p>
             <Button
-              label="Change Password"
+              label="Change Passcode"
               classNames="w-[176px] mt-5"
               onClick={() => setIsModalOpen(!isModalOpen)}
             />
