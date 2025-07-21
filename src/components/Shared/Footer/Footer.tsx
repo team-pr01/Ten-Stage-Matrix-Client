@@ -34,7 +34,7 @@ const Footer = () => {
   //   },
   // ];
   return (
-    <div className="relative h-[830px] lg:h-[400px] xl:h-[500px]">
+    <div className="relative h-[620px] lg:h-[400px] xl:h-[400px]">
       <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[300px] blur-[230px] rounded-full absolute right-5 lg:right-0 left-0"></div>
       <Container>
         <div className=" font-Outfit z-10 flex flex-col lg:flex-row justify-center gap-10 mt-[160px]">

@@ -67,10 +67,7 @@ export const TeamTreeGraph: React.FC = () => {
                   style={{
                     width: `${nodeWidth}px`,
                     height: `${nodeHeight}px`,
-                    background:
-                      isActive
-                        ? "#0BDA51"
-                        : "#C00000",
+                    background: isActive ? "#0BDA51" : "#C00000",
                     borderRadius: "10px",
                     display: "flex",
                     flexDirection: "column",
@@ -96,8 +93,21 @@ export const TeamTreeGraph: React.FC = () => {
                   <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
                     Stage: {stage}
                   </div>
-                  <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
-                    Position: {position}
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      lineHeight: "1.4",
+                      textTransform: "capitalize",
+                    }}
+                  >
+                    Position:{" "}
+                    {position === "left"
+                      ? "Line 1"
+                      : position === "right"
+                      ? "Line 3"
+                      : position === "center"
+                      ? "Line 2"
+                      : position}
                   </div>
                   <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
                     Referred by: {referredBy}

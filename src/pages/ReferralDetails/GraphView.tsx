@@ -93,7 +93,13 @@ const GraphView = ({ id }: { id: string }) => {
                   <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
                     Stage: {stage}
                   </div>
-                  <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
+                  <div
+                    style={{
+                      fontSize: "10px",
+                      lineHeight: "1.4",
+                      textTransform: "capitalize",
+                    }}
+                  >
                     Status: {status}
                   </div>
                   <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
