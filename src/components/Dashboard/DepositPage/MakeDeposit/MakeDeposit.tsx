@@ -17,7 +17,8 @@ declare global {
 
 const MakeDeposit = () => {
   const { data: settings } = useGetPublicSettingsQuery({});
-  const [generateWalletAddress, {isLoading}] = useGenerateWalletAddressMutation();
+  const [generateWalletAddress, { isLoading }] =
+    useGenerateWalletAddressMutation();
 
   const [isCopied, setIsCopied] = useState(false);
 
@@ -96,30 +97,32 @@ const MakeDeposit = () => {
 
   return (
     <div className="font-Outfit">
-     <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit mb-8">
-       <button onClick={handleMakeDeposit1} disabled={isLoading} className={`px-6 py-3 rounded-xl bg-neutral-175 text-white shadow-custom-dropdown flex items-center gap-[14px] transition-all duration-300 ease-in-out transform hover:scale-105 ${isLoading ? "cursor-not-allowed" : "cursor-pointer"}`}>
-        {
-          isLoading ? "Generating..." : "Generate Wallet"
-        }
-      </button>
-     </div>
+      <div className="bg-border-gradient2 p-[1px] rounded-xl w-fit mb-8">
+        <button
+          onClick={handleMakeDeposit1}
+          disabled={isLoading}
+          className={`px-6 py-3 rounded-xl bg-neutral-175 text-white shadow-custom-dropdown flex items-center gap-[14px] transition-all duration-300 ease-in-out transform hover:scale-105 ${
+            isLoading ? "cursor-not-allowed" : "cursor-pointer"
+          }`}
+        >
+          {isLoading ? "Generating..." : "Generate Wallet"}
+        </button>
+      </div>
       {/* Conditionally render QR code */}
       {data?.wallet_address && (
         <div className="w-fit">
           <h2 className="text-white text-lg font-semibold mb-2">
             Your USDT BEP-20 Wallet Address
           </h2>
-          <h2 className="text-white font-semibold mb-2">
-            Scan QR to Deposit
-          </h2>
+          <h2 className="text-white font-semibold mb-2">Scan QR to Deposit</h2>
           {/* bg-white rounded-xl p-3 */}
-          <div className=""> 
+          <div className="">
             <QRCode
-            value={data?.wallet_address}
-            bgColor="#000000"
-            fgColor="#ffffff"
-            size={200}
-          />
+              value={data?.wallet_address}
+              bgColor="#000000"
+              fgColor="#ffffff"
+              size={200}
+            />
           </div>
           <div className="my-7 p-[1px] rounded-md bg-transparent hover:bg-gradient-to-r hover:from-orange-400 hover:via-green-400 hover:to-cyan-400 transition-all duration-300">
             <div
@@ -149,49 +152,6 @@ const MakeDeposit = () => {
           </p>
         </div>
       )}
-
-      {/* <form onSubmit={handleSubmit(handleMakeDeposit)}>
-        <div className="flex flex-col gap-2 mt-[22px]">
-          <label htmlFor="" className="text-neutral-125 text-lg font-medium">
-            Amount (USDT)
-          </label>
-          <div className="flex items-center justify-between max-w-[415px] relative">
-            <input
-              type="text"
-              placeholder="Enter your amount in USDT"
-              {...register("amount", {
-                required: "Amount is required",
-                min: {
-                  value: 10,
-                  message: "Minimum deposit is $10"
-                }
-              })}
-              className={`w-full p-3 rounded-[8px] border border-neutral-130 focus:outline-none focus:border-primary-10/50 transition duration-300 text-neutral-85 ${
-                errors?.amount ? "border-red-500" : "border-neutral-130"
-              }`}
-            />
-            <img
-              src={ICONS.currency}
-              alt=""
-              className="size-6 absolute right-3"
-            />
-          </div>
-          {errors?.amount && (
-            <span className="text-red-500 text-sm">
-              {errors.amount.message}
-            </span>
-          )}
-        </div>
-        <button
-          type="submit"
-          disabled={isConnecting}
-          className={`p-[10px] w-[119px] h-10 rounded-[80px] bg-primary-10 text-white font-medium text-center cursor-pointer mt-[21px] flex items-center justify-center ${
-            isConnecting ? 'opacity-50 cursor-not-allowed' : ''
-          }`}
-        >
-          {isConnecting ? 'Processing...' : 'Confirm'}
-        </button>
-      </form> */}
     </div>
   );
 };

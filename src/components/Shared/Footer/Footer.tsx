@@ -1,6 +1,6 @@
-import { Link } from "react-router-dom";
 import Container from "../../Reusable/Container/Container";
-import { RiSendPlaneFill } from "react-icons/ri";
+import { RiSendPlaneFill, RiWhatsappFill } from "react-icons/ri";
+import { SiTelegram } from "react-icons/si";
 
 const Footer = () => {
   // const socialLinks = [
@@ -37,7 +37,7 @@ const Footer = () => {
     <div className="relative h-[830px] lg:h-[400px] xl:h-[500px]">
       <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[300px] blur-[230px] rounded-full absolute right-5 lg:right-0 left-0"></div>
       <Container>
-        <div className="border border-primary-50 rounded-[28px] font-Outfit z-10 flex flex-col lg:flex-row justify-between mt-[160px]">
+        <div className=" font-Outfit z-10 flex flex-col lg:flex-row justify-center gap-10 mt-[160px]">
           <div
             style={{ backdropFilter: "blur(5.050000190734863px)" }}
             className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 lg:p-10"
@@ -61,50 +61,31 @@ const Footer = () => {
             </div>
           </div>
 
-          <div className="pt-[56px] pl-10 lg:pl-0">
-            <h1 className="font-semibold text-white">Connect with Us Now</h1>
-            <div className="flex flex-col gap-4 mt-6 text-neutral-160 text-sm">
-              <Link to={"/"} className="hover:underline">
-                Discord
-              </Link>
-              <Link to={"/"} className="hover:underline">
-                Telegram
-              </Link>
-              <Link to={"/"} className="hover:underline">
-                Twitter
-              </Link>
-              <Link to={"/"} className="hover:underline">
-                YouTube
-              </Link>
-            </div>
-          </div>
-
-          <hr className="h-[1px] border border-primary-50 my-5" />
-
-          <div className="hidden lg:block h-[1px] md:h-[320px] w-[1px] bg-primary-50"></div>
-
-          <div className="pt-0 lg:pt-[56px] pl-10 lg:pl-0 mr-0 lg:mr-[140px] pb-5 lg:pb-0">
-            <h1 className="font-semibold text-white">Follow Us</h1>
-            <div className="flex flex-col gap-4 mt-6 text-neutral-160 text-sm">
-              <Link to={"/"} className="hover:underline">
-                Facebook
-              </Link>
-              <Link to={"/"} className="hover:underline">
-                X
-              </Link>
-              <Link to={"/"} className="hover:underline">
-                LinkedIn
-              </Link>
-              <Link to={"/"} className="hover:underline">
-                WhatsApp
-              </Link>
+          <div
+            style={{ backdropFilter: "blur(5.050000190734863px)" }}
+            className="border border-primary-50 bg-neutral-155 shadow-home-card rounded-[28px] p-6 lg:p-10"
+          >
+            <h1 className="text-3xl lg:text-[48px] font-semibold text-white text-center">
+              Connect With Us
+            </h1>
+            <p className="text-sm lg:text-base text-neutral-160 mt-4 text-center max-w-[450px] mx-auto">
+              Connect with us on WhatsApp and Telegram for quick updates,
+              instant support, and easy communication anytime.
+            </p>
+            <div className="flex items-center justify-center gap-5 mt-5">
+              <a href="">
+                <RiWhatsappFill className="text-green-600 text-5xl" />
+              </a>
+              <a href="">
+                <SiTelegram className="text-[#31A5DB] text-4xl" />
+              </a>
             </div>
           </div>
         </div>
       </Container>
       <p className="text-sm lg:text-base text-neutral-160 text-center mt-[30px]">
-          Copyright@ 2025 Ten Stage Matrix
-        </p>
+        Copyright@ 2025 Ten Stage Matrix V 2.0
+      </p>
     </div>
   );
 };

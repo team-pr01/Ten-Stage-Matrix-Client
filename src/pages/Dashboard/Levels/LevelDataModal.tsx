@@ -25,7 +25,7 @@ const LevelDataModal = ({
         }}
         className={`${
           isDataModalOpen ? " scale-[1] opacity-100" : " scale-[0] opacity-0"
-        } w-[90%] sm:w-[80%] md:w-[30%] border-2 border-neutral-115/20 bg-[#ffffff08] rounded-[24px] p-4 transition-all duration-300 flex flex-col gap-6`}
+        } w-[90%] sm:w-[80%] md:w-[30%] max-h-[600px] overflow-y-auto custom-scrollbar border-2 border-neutral-115/20 bg-[#ffffff08] rounded-[24px] p-4 transition-all duration-300 flex flex-col gap-6`}
       >
         {/* Header */}
         <div className="w-full flex items-center justify-between">
@@ -67,6 +67,7 @@ const LevelDataModal = ({
                       >
                         <td className="p-3 w-1/2 whitespace-nowrap">
                           {member?.name || "N/A"}
+                          <p>{member?.email || "N/A"}</p>
                         </td>
                         <td className="p-3 w-1/2 whitespace-nowrap capitalize">
                           {member?.position || "N/A"}

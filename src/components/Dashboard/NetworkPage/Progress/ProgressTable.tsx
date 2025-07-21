@@ -6,7 +6,6 @@ import ProgressDataModal from "./ProgressDataModal";
 const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) => {
   const [selectedTeamData, setSelectedTeamData] = useState<any[]>([]);
   const [isDataModalOpen, setIsDataModalOpen] = useState<boolean>(false);
-  console.log(data);
   return (
     <div>
       <div
@@ -32,9 +31,9 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                     <th className="p-3 whitespace-nowrap capitalize">
                       Active Referrals
                     </th>
-                    {/* <th className="p-3 whitespace-nowrap capitalize">
-                      Upgrade Status
-                    </th> */}
+                    <th className="p-3 whitespace-nowrap capitalize">
+                      Status
+                    </th>
                   </tr>
                 </thead>
 
@@ -74,7 +73,7 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
-                              {stageData.center?.count}
+                              {stageData?.center?.count}
                             </td>
                             <td
                               onClick={() => {
@@ -83,7 +82,7 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
-                              {stageData.right?.count}
+                              {stageData?.right?.count}
                             </td>
                             <td
                               onClick={() => {
@@ -92,9 +91,17 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
-                              {stageData.active_referral_count}
+                              {stageData?.active_referral_count}
                             </td>
-                            {/* <td className="p-3 whitespace-nowrap">{status}</td> */}
+                            <td
+                              onClick={() => {
+                                setIsDataModalOpen(true);
+                                setSelectedTeamData(stageData?.active_referral_list);
+                              }}
+                              className="p-3 whitespace-nowrap cursor-pointer"
+                            >
+                              {stageData?.progressing_msg}
+                            </td>
                           </tr>
                         );
                       }
@@ -110,6 +117,7 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
         isDataModalOpen={isDataModalOpen}
         setIsDataModalOpen={setIsDataModalOpen}
         data={selectedTeamData}
+        isLoading={isLoading}
       />
     </div>
   );

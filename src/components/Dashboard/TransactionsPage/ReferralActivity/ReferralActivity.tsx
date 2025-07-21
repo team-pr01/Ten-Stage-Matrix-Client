@@ -5,6 +5,7 @@ import Table from "../../../Reusable/Table/Table";
 
 const ReferralActivity = () => {
   const { data, isLoading } = useGetReferralListQuery({});
+  console.log(data);
   return (
     <div>
       <Table

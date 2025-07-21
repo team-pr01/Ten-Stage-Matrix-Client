@@ -10,21 +10,21 @@ const Levels = () => {
   const [selectedData, setSelectedData] = useState<any[]>([]);
   const { data, isLoading } = useGetLevelProgressPositionQuery({});
   return (
-    <div>
+    <div className="font-Outfit min-h-screen">
       {isLoading ? (
         <Loader size="size-10" />
-      ) : data?.data?.level_chain?.length > 0 ? (
-        <div className="font-Outfit grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 min-h-screen">
-          {data?.data?.level_chain?.map((level: any) => (
+      ) : data?.data?.levels?.length > 0 ? (
+        <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          {data?.data?.levels?.map((level: any) => (
             <button
               key={level?.level}
               onClick={() => {
-                setSelectedData(level?.team);
+                setSelectedData(level?.users);
                 setIsDataModalOpen(true);
               }}
               className="p-[2px] rounded-[28px] hover:scale-105 transition-all duration-300 ease-in-out bg-border-gradient2 h-fit cursor-pointer"
             >
-              <div className="bg-neutral-10 rounded-[28px]">
+              <div className="bg-neutral-10 rounded-[28px] h-fit">
                 <div
                   style={{
                     boxShadow:
@@ -39,7 +39,10 @@ const Levels = () => {
                       Level {level?.level}
                     </h1>
                     <h1 className="text-neutral-160">
-                      Network Size: {level?.team?.length}
+                      Network Size: {level?.count}
+                    </h1>
+                    <h1 className="text-neutral-160 text-sm">
+                      Active Referrals: {level?.active_referrals}
                     </h1>
                   </div>
                 </div>

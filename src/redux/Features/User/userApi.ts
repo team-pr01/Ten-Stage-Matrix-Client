@@ -173,6 +173,17 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+    getEarningHistory: builder.query({
+      query: () => {
+        return {
+          url: `/users/commission`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     transferFund: builder.mutation<any, any>({
       query: (data) => ({
         url: `/transfers/process`,
@@ -261,6 +272,7 @@ export const {
   useGetStageDataQuery,
   useGetAllReferralListQuery,
   useGetLevelProgressPositionQuery,
+  useGetEarningHistoryQuery,
   useTransferFundMutation,
   useMakeDonationMutation,
   useRequestWithdrawMutation,

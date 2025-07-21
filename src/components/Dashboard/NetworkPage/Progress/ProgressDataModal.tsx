@@ -7,13 +7,13 @@ const ProgressDataModal = ({
   isDataModalOpen,
   setIsDataModalOpen,
   data,
+  isLoading,
 }: {
   isDataModalOpen: boolean;
   setIsDataModalOpen: React.Dispatch<React.SetStateAction<boolean>>;
   data: any;
+  isLoading: boolean;
 }) => {
-  console.log(data);
-  const isLoading = false;
   return (
     <div
       className={`${
@@ -26,7 +26,7 @@ const ProgressDataModal = ({
         }}
         className={`${
           isDataModalOpen ? " scale-[1] opacity-100" : " scale-[0] opacity-0"
-        } w-[90%] sm:w-[80%] md:w-[30%] border-2 border-neutral-115/20 bg-[#ffffff08] rounded-[24px] p-4 transition-all duration-300 flex flex-col gap-6`}
+        } w-[90%] sm:w-[80%] md:w-[30%] max-h-[600px] overflow-y-auto custom-scrollbar border-2 border-neutral-115/20 bg-[#ffffff08] rounded-[24px] p-4 transition-all duration-300 flex flex-col gap-6`}
       >
         {/* Header */}
         <div className="w-full flex items-center justify-between">
@@ -75,6 +75,7 @@ const ProgressDataModal = ({
                       >
                         <td className="p-3 w-1/3 whitespace-nowrap">
                           {item.name}
+                          <p>{item?.email}</p>
                         </td>
                         <td className="p-3 w-1/3 whitespace-nowrap">
                           {item.stage}
