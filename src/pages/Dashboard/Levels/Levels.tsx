@@ -42,7 +42,7 @@ const Levels = () => {
                       Network Size: {level?.count}
                     </h1>
                     <h1 className="text-neutral-160 text-sm">
-                      Active Referrals: {level?.active_referrals}
+                      Active Members: {level?.active_referrals}
                     </h1>
                   </div>
                 </div>

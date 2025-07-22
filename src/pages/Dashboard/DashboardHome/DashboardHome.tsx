@@ -3,6 +3,7 @@ import { useState } from "react";
 import { ICONS, IMAGES } from "../../../assets";
 import DashboardCard from "../../../components/Reusable/DashboardCard/DashboardCard";
 import {
+  useGetPublicSettingsQuery,
   useGetStageDataQuery,
   useGetTeamTreeQuery,
   useGetUserProfileQuery,
@@ -126,6 +127,8 @@ const DashboardHome = () => {
     },
   ];
 
+  const { data: settings } = useGetPublicSettingsQuery({});
+
   const CustomMarquee = "marquee" as any;
 
   return (
@@ -136,10 +139,7 @@ const DashboardHome = () => {
           behavior="scroll"
           direction="left"
         >
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Sit expedita
-          distinctio molestiae commodi minima magnam nesciunt perferendis
-          voluptatibus deserunt suscipit. Lorem ipsum dolor sit amet,
-          consectetur adipisicing elit. Alias, perspiciatis.
+          {settings?.data?.notice || "Loading..."}
         </CustomMarquee>
       </div>
       <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-5 xl:mb-[30px] mt-10">

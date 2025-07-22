@@ -4,12 +4,13 @@ import Table from "../../components/Reusable/Table/Table";
 import Button from "../../components/Reusable/Button/Button";
 import { useState } from "react";
 import GraphView from "./GraphView";
-import { useGetAllReferralListQuery } from "../../redux/Features/User/userApi";
+import {useGetTeamTreeByIdQuery } from "../../redux/Features/User/userApi";
 
 const ReferralDetails = () => {
   const [viewMode, setViewMode] = useState("list");
   const { id } = useParams();
-  const { data, isLoading } = useGetAllReferralListQuery(id);
+  const { data, isLoading } = useGetTeamTreeByIdQuery(id);
+  console.log(data);
   return (
     <div className="font-Outfit min-h-screen">
       <div className="flex items-center gap-4 mb-5">
@@ -45,7 +46,7 @@ const ReferralDetails = () => {
                 name: item.name,
                 status: item.status,
                 stage: item.stage,
-                referral_level: item?.referral_level,
+                referral_level: item?.level,
               })) || []
             }
             isLoading={isLoading}

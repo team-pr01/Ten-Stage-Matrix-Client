@@ -3,7 +3,13 @@ import { useState } from "react";
 import Loader from "../../../Shared/Loader/Loader";
 import ProgressDataModal from "./ProgressDataModal";
 
-const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) => {
+const ProgressTable = ({
+  data,
+  isLoading,
+}: {
+  data: any;
+  isLoading: boolean;
+}) => {
   const [selectedTeamData, setSelectedTeamData] = useState<any[]>([]);
   const [isDataModalOpen, setIsDataModalOpen] = useState<boolean>(false);
   return (
@@ -31,9 +37,7 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                     <th className="p-3 whitespace-nowrap capitalize">
                       Active Referrals
                     </th>
-                    <th className="p-3 whitespace-nowrap capitalize">
-                      Status
-                    </th>
+                    <th className="p-3 whitespace-nowrap capitalize">Status</th>
                   </tr>
                 </thead>
 
@@ -50,11 +54,10 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                   ) : (
                     Object.entries(data).map(
                       ([stage, stageData]: [string, any]) => {
-
                         return (
                           <tr
                             key={stage}
-                            className="border-b border-neutral-90 text-neutral-55 hover:bg-white/5 transition-all duration-200"
+                            className="border-b border-neutral-90 text-neutral-55 hover:bg-white/5 transition-all duration-200 w-full"
                           >
                             <td className="p-3 whitespace-nowrap">{`Stage ${stage}`}</td>
                             <td
@@ -87,7 +90,9 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                setSelectedTeamData(stageData?.active_referral_list);
+                                setSelectedTeamData(
+                                  stageData?.active_referral_list
+                                );
                               }}
                               className="p-3 whitespace-nowrap cursor-pointer"
                             >
@@ -96,9 +101,11 @@ const ProgressTable = ({ data, isLoading }: { data: any, isLoading: boolean }) =
                             <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
-                                setSelectedTeamData(stageData?.active_referral_list);
+                                setSelectedTeamData(
+                                  stageData?.active_referral_list
+                                );
                               }}
-                              className="p-3 whitespace-nowrap cursor-pointer"
+                              className="p-3 cursor-pointer max-w-full xl:max-w-[450px] break-words line-clamp-none xl:line-clamp-2"
                             >
                               {stageData?.progressing_msg}
                             </td>

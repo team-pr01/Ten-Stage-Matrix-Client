@@ -17,21 +17,39 @@ import Tab from "../../../components/Reusable/Tab/Tab";
 const Reports = () => {
   const { data } = useGetUserDetailsQuery({});
   const { data: referrals } = useGetReferralListQuery({});
-  const {data:teamTree} = useGetTeamTreeQuery({});
+  const { data: teamTree } = useGetTeamTreeQuery({});
   console.log(teamTree);
 
   const activeReferrals = referrals?.data?.referrals?.filter(
     (referral: any) => referral?.status === "active"
   );
 
-  const [activeTab, setActiveTab] = useState<"Direct Referrals" | "Earning" | "Performance" | "Team Tree" | "Team Tree Graph">("Direct Referrals");
-  const tabButtons: Array<"Direct Referrals" | "Earning" | "Performance" | "Team Tree" | "Team Tree Graph"> = ["Direct Referrals", "Earning", "Performance", "Team Tree", "Team Tree Graph"];
+  const [activeTab, setActiveTab] = useState<
+    | "Direct Referrals"
+    | "Earning"
+    | "Performance"
+    | "Team Tree"
+    | "Team Tree Graph"
+  >("Direct Referrals");
+  const tabButtons: Array<
+    | "Direct Referrals"
+    | "Earning"
+    | "Performance"
+    | "Team Tree"
+    | "Team Tree Graph"
+  > = [
+    "Direct Referrals",
+    "Earning",
+    "Performance",
+    "Team Tree",
+    "Team Tree Graph",
+  ];
 
   const earningTrends = [
     {
       icon: ICONS.totalReferral,
       title: "Total Referrals",
-      description : "Total referrals in your team",
+      description: "Total referrals in your team",
       value: `${data?.data?.team?.total_referrals || 0}`,
     },
     {
@@ -43,8 +61,7 @@ const Reports = () => {
   ];
   return (
     <div className="min-h-screen">
-
-       {/* Tab buttons */}
+      {/* Tab buttons */}
       <Tab
         tabs={tabButtons}
         activeTab={activeTab}
@@ -61,9 +78,11 @@ const Reports = () => {
       {activeTab === "Earning" && <TeamSummary />}
       {activeTab === "Performance" && <PerformanceTab />}
       {activeTab === "Team Tree" && <ReferralTree />}
-      {activeTab === "Team Tree Graph" && <div className="overflow-x-auto mt-10">
-        <TeamTreeGraph />
-      </div>}
+      {activeTab === "Team Tree Graph" && (
+        <div className="overflow-x-auto mt-10">
+          <TeamTreeGraph />
+        </div>
+      )}
     </div>
   );
 };

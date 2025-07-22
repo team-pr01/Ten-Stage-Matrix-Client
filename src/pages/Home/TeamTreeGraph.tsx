@@ -5,6 +5,7 @@ import { transformToD3Tree } from "./transformToTree";
 
 export const TeamTreeGraph: React.FC = () => {
   const { data, isLoading, isError } = useGetReferralTreeQuery({});
+  console.log(data);
 
   const treeData = useMemo(() => {
     if (!data?.data) return [];
@@ -53,7 +54,6 @@ export const TeamTreeGraph: React.FC = () => {
           const nodeWidth = 140;
           const nodeHeight = 120;
           const isActive = nodeDatum.attributes?.status === "active";
-          console.log(nodeDatum.attributes);
 
           const position2 = position === "left"
                       ? "Line 1"

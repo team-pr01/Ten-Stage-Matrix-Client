@@ -18,12 +18,9 @@ const Network = () => {
   const [activeTab, setActiveTab] = useState<
     "Network Activity" | "Levels" | "Position" | "Progress"
   >("Network Activity");
-  const tabButtons: Array<"Network Activity" | "Levels" | "Position" | "Progress"> = [
-    "Network Activity",
-    "Levels",
-    "Position",
-    "Progress",
-  ];
+  const tabButtons: Array<
+    "Network Activity" | "Levels" | "Position" | "Progress"
+  > = ["Network Activity", "Levels", "Position", "Progress"];
 
   return (
     <div className="font-Outfit">
@@ -45,7 +42,7 @@ const Network = () => {
                   referralCode={userDetails?.data?.profile?.referral_code}
                 />
               </div>
-              <div className="w-full xl:w-full 2xl:w-[700px] max-h-[500px]">
+              <div className="w-full xl:w-full 2xl:w-[700px] max-h-[420px] overflow-y-auto custom-scrollbar rounded-[28px]">
                 <ReferralActivity />
               </div>
             </div>

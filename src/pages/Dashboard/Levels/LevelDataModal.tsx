@@ -47,9 +47,6 @@ const LevelDataModal = ({
                       Name
                     </th>
                     <th className="p-3 w-1/2 whitespace-nowrap capitalize">
-                      Position
-                    </th>
-                    <th className="p-3 w-1/2 whitespace-nowrap capitalize">
                       Stage
                     </th>
                     <th className="p-3 w-1/2 whitespace-nowrap capitalize">
@@ -68,9 +65,6 @@ const LevelDataModal = ({
                         <td className="p-3 w-1/2 whitespace-nowrap">
                           {member?.name || "N/A"}
                           <p>{member?.email || "N/A"}</p>
-                        </td>
-                        <td className="p-3 w-1/2 whitespace-nowrap capitalize">
-                          {member?.position || "N/A"}
                         </td>
                         <td className="p-3 w-1/2 whitespace-nowrap">
                           {member?.stage ?? "N/A"}

@@ -24,11 +24,11 @@ const RecentAddition = () => {
       <div className="flex flex-col lg:flex-row justify-between items-center gap-5 lg:gap-0">
         <h1 className="text-2xl font-medium text-white">Total Team Tree</h1>
 
-        <div className="flex flex-col md:flex-row justify-end items-center gap-4 w-full md:w-fit">
+        <div className="flex justify-end items-center gap-4 w-full md:w-fit">
           <select
             value={selectedStage}
             onChange={(e) => setSelectedStage(e.target.value)}
-            className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105"
+            className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105"
           >
             <option value="" className="text-white">
               All Stages
@@ -43,7 +43,7 @@ const RecentAddition = () => {
           <select
             value={selectedStatus}
             onChange={(e) => setSelectedStatus(e.target.value)}
-            className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown hidden md:flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105"
+            className="px-5 py-3 rounded-xl bg-neutral-25/10 text-white shadow-custom-dropdown flex items-center gap-[14px] cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105"
           >
             <option value="" className="text-white">
               All Status

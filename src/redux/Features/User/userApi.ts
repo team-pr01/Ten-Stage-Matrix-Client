@@ -107,6 +107,17 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
+     getTeamTreeById: builder.query({
+      query: (id) => {
+        return {
+          url: `/users/team-tree/${id}`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
     getTransferHistory: builder.query({
       query: () => {
         return {
@@ -266,6 +277,7 @@ export const {
   useGetDonationHistoryQuery,
   useGetTeamTreeQuery,
   useGetReferralTreeQuery,
+  useGetTeamTreeByIdQuery,
   useGetTransferHistoryQuery,
   useGetReportsQuery,
   useGetPublicSettingsQuery,
