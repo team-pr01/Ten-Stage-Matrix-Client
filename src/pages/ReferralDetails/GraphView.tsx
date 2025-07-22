@@ -1,18 +1,18 @@
 import { useMemo } from "react";
 import Tree from "react-d3-tree";
 import { transformToGraph } from "./transformToGraph";
-import { useGetAllReferralListQuery } from "../../redux/Features/User/userApi";
+import { useGetTeamTreeByIdQuery } from "../../redux/Features/User/userApi";
 
 const GraphView = ({ id }: { id: string }) => {
-  const { data, isLoading, isError } = useGetAllReferralListQuery(id);
+  const { data, isLoading, isError } = useGetTeamTreeByIdQuery(id);
 
   const treeData = useMemo(() => {
-    if (!data?.data?.length) return [];
+  if (!data?.data || typeof data.data !== "object") return [];
 
-    const root = data.data[0];
-    const transformed = transformToGraph(root);
-    return transformed ? [transformed] : [];
-  }, [data]);
+  const transformed = transformToGraph(data.data);
+  return transformed ? [transformed] : [];
+}, [data]);
+
 
   if (isLoading)
     return <div className="p-10 text-center text-white">Loading...</div>;

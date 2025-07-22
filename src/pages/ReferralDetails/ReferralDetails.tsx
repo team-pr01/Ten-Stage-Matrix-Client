@@ -4,13 +4,12 @@ import Table from "../../components/Reusable/Table/Table";
 import Button from "../../components/Reusable/Button/Button";
 import { useState } from "react";
 import GraphView from "./GraphView";
-import {useGetTeamTreeByIdQuery } from "../../redux/Features/User/userApi";
+import {useGetTeamTreeByIdListQuery } from "../../redux/Features/User/userApi";
 
 const ReferralDetails = () => {
   const [viewMode, setViewMode] = useState("list");
   const { id } = useParams();
-  const { data, isLoading } = useGetTeamTreeByIdQuery(id);
-  console.log(data);
+  const { data, isLoading } = useGetTeamTreeByIdListQuery(id);
   return (
     <div className="font-Outfit min-h-screen">
       <div className="flex items-center gap-4 mb-5">
