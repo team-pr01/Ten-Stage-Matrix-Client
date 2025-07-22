@@ -133,15 +133,18 @@ const DashboardHome = () => {
 
   return (
     <div className="font-Outfit">
-      <div className="p-[10px] rounded-lg bg-neutral-25/10 shadow-custom-dropdown">
+      {
+        settings?.data?.notice?.enabled &&
+        <div className="p-[10px] rounded-lg bg-neutral-25/10 shadow-custom-dropdown">
         <CustomMarquee
           className="text-neutral-145 font-medium text-xs leading-5 text-left"
           behavior="scroll"
           direction="left"
         >
-          {settings?.data?.notice || "Loading..."}
+          {settings?.data?.notice?.message || "Loading..."}
         </CustomMarquee>
       </div>
+      }
       <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-5 xl:mb-[30px] mt-10">
         <img src={IMAGES.referralCodeBg} alt="" className="w-full h-full" />
         <div className="text-white absolute top-2 md:top-0 left-3 md:left-12 xl:left-20 bottom-0 flex flex-col justify-center">
