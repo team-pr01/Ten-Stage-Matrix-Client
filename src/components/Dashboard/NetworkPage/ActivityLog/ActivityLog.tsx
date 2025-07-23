@@ -10,12 +10,11 @@ const ActivityLog = () => {
     <div>
       <Table
         title="Activity Log"
-        tableHeaders={["Date", "Description", "Activity Type", "Amount"]}
+        tableHeaders={["Date", "Description", "Amount"]}
         data={
           data?.data?.activities?.map((item: any) => ({
             date: formatDate(item?.created_at),
             description: item.description,
-            activity_type: item.type,
             amount: `$${(item?.metadata?.amount || 0).toFixed(5)}`,
           })) || []
         }

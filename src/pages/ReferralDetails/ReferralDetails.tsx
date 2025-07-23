@@ -10,6 +10,7 @@ const ReferralDetails = () => {
   const [viewMode, setViewMode] = useState("list");
   const { id } = useParams();
   const { data, isLoading } = useGetTeamTreeByIdListQuery(id);
+  console.log(data);
   return (
     <div className="font-Outfit min-h-screen">
       <div className="flex items-center gap-4 mb-5">
