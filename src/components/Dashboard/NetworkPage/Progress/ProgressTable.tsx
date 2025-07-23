@@ -52,7 +52,7 @@ const ProgressTable = ({
                       </td>
                     </tr>
                   ) : (
-                    Object.entries(data).map(
+                    Object.entries(data)?.slice(0,10)?.map(
                       ([stage, stageData]: [string, any]) => {
                         return (
                           <tr
