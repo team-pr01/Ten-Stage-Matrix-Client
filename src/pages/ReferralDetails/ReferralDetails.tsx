@@ -39,14 +39,12 @@ const ReferralDetails = () => {
               "Name",
               "Status",
               "Stage",
-              "Referral Level",
             ]}
             data={
               data?.data?.map((item: any) => ({
                 name: item.name,
                 status: item.status,
                 stage: item.stage,
-                referral_level: item?.level,
               })) || []
             }
             isLoading={isLoading}
