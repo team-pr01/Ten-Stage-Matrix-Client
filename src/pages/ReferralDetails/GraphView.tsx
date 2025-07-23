@@ -44,12 +44,6 @@ const GraphView = ({ id }: { id: string }) => {
           const fullName = nodeDatum.attributes?.fullName || "N/A";
           const stage = nodeDatum.attributes?.stage || "N/A";
           const status = nodeDatum.attributes?.status || "N/A";
-          const referral_level =
-            typeof nodeDatum.attributes?.referral_level === "object" &&
-            nodeDatum.attributes?.referral_level !== null
-              ? (nodeDatum.attributes?.referral_level as { name?: string })
-                  .name || "N/A"
-              : String(nodeDatum.attributes?.referral_level ?? "N/A");
 
           const nodeWidth = 140;
           const nodeHeight = 120;
@@ -79,7 +73,7 @@ const GraphView = ({ id }: { id: string }) => {
                     WebkitFontSmoothing: "antialiased",
                     MozOsxFontSmoothing: "grayscale",
                   }}
-                  title={`Name: ${fullName}\nStage: ${stage}\nstatus: ${status}\nReferred by: ${referral_level}`}
+                  title={`Name: ${fullName}\nStage: ${stage}\nstatus: ${status}`}
                 >
                   <div
                     style={{
@@ -101,9 +95,6 @@ const GraphView = ({ id }: { id: string }) => {
                     }}
                   >
                     Status: {status}
-                  </div>
-                  <div style={{ fontSize: "10px", lineHeight: "1.4" }}>
-                    Referral Level : {referral_level}
                   </div>
                 </div>
               </foreignObject>

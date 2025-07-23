@@ -43,7 +43,7 @@ const ReferralDetails = () => {
             data={
               data?.data?.map((item: any) => ({
                 name: item.name,
-                status: item.status,
+                status: (<p className="capitalize">{item.status}</p>),
                 stage: item.stage,
               })) || []
             }

@@ -18,7 +18,6 @@ export const transformToGraph = (node: any | null): any => {
       fullName: node.name ?? "Unknown",
       status: node.status ?? "",
       stage: node.stage ?? "",
-      referral_level: node.referral_level,
     },
     children: children.filter(Boolean),
   };
