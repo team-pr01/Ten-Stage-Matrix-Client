@@ -17,7 +17,6 @@ declare global {
 
 const MakeDeposit = () => {
   const { data: generatedWalletAddresses } = useGetGeneratedWalletQuery({});
-  console.log(generatedWalletAddresses);
   const [generateWalletAddress, { isLoading }] =
     useGenerateWalletAddressMutation();
 

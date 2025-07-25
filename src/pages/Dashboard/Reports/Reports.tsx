@@ -8,7 +8,6 @@ import ReferralTree from "../../../components/Dashboard/ReportsPage/ReferralTree
 import ReferralActivity from "../../../components/Dashboard/TransactionsPage/ReferralActivity/ReferralActivity";
 import {
   useGetReferralListQuery,
-  useGetTeamTreeQuery,
   useGetUserDetailsQuery,
 } from "../../../redux/Features/User/userApi";
 import { TeamTreeGraph } from "../../Home/TeamTreeGraph";
@@ -17,8 +16,7 @@ import Tab from "../../../components/Reusable/Tab/Tab";
 const Reports = () => {
   const { data } = useGetUserDetailsQuery({});
   const { data: referrals } = useGetReferralListQuery({});
-  const { data: teamTree } = useGetTeamTreeQuery({});
-  console.log(teamTree);
+  // const { data: teamTree } = useGetTeamTreeQuery({});
 
   const activeReferrals = referrals?.data?.referrals?.filter(
     (referral: any) => referral?.status === "active"

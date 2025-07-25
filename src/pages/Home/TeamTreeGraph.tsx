@@ -5,7 +5,6 @@ import { transformToD3Tree } from "./transformToTree";
 
 export const TeamTreeGraph: React.FC = () => {
   const { data, isLoading, isError } = useGetReferralTreeQuery({});
-  console.log(data);
 
   const treeData = useMemo(() => {
     if (!data?.data) return [];

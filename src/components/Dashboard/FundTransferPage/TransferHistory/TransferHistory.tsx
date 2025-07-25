@@ -12,8 +12,6 @@ const TransferHistory = () => {
     limit,
   });
 
-  console.log(data);
-
   const tableHeaders = [
     "Serial No",
     "Transfer Id",

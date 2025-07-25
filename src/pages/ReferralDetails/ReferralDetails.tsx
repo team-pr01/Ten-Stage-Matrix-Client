@@ -4,15 +4,24 @@ import Table from "../../components/Reusable/Table/Table";
 import Button from "../../components/Reusable/Button/Button";
 import { useState } from "react";
 import GraphView from "./GraphView";
-import {useGetTeamTreeByIdListQuery } from "../../redux/Features/User/userApi";
+import { useGetTeamTreeByIdListQuery } from "../../redux/Features/User/userApi";
 
 const ReferralDetails = () => {
   const [viewMode, setViewMode] = useState("list");
   const { id } = useParams();
   const [page, setPage] = useState(1);
-    const [limit] = useState(10);
-  const { data, isLoading, isFetching } = useGetTeamTreeByIdListQuery({ id, page: 1, limit: 20 });
-  console.log(data);
+  const [limit] = useState(10);
+  const { data, isLoading, isFetching } = useGetTeamTreeByIdListQuery({
+    id,
+    page,
+    limit,
+  });
+
+  const allData = {
+    data: {
+      pagination: data?.pagination,
+    },
+  };
   return (
     <div className="font-Outfit min-h-screen">
       <div className="flex items-center gap-4 mb-5">
@@ -36,17 +45,12 @@ const ReferralDetails = () => {
                 Referral Details
               </h1>
             }
-            tableHeaders={[
-              "Serial No",
-              "Name",
-              "Status",
-              "Stage",
-            ]}
+            tableHeaders={["Serial No", "Name", "Status", "Stage"]}
             data={
               data?.data?.map((item: any, index: number) => ({
                 serial_no: (page - 1) * limit + index + 1,
                 name: item.name,
-                status: (<p className="capitalize">{item.status}</p>),
+                status: <p className="capitalize">{item.status}</p>,
                 stage: item.stage,
               })) || []
             }
@@ -54,7 +58,7 @@ const ReferralDetails = () => {
             isFetching={isFetching}
             page={page}
             setPage={setPage}
-            AllData={data}
+            AllData={allData}
           />
         ) : (
           <GraphView id={id ? id : ""} />

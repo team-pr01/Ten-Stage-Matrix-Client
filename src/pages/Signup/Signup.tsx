@@ -40,7 +40,6 @@ const Signup = () => {
       const response = await signup(payload).unwrap();
 
       const userPrivateKey = response?.user?.user_pk;
-      console.log(response);
       if (response?.message) {
         toast.success(response?.message || "Signup successful!");
         navigate("/auth/signup-success", {

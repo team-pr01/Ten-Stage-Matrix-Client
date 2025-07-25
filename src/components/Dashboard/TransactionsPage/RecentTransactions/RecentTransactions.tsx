@@ -11,7 +11,6 @@ const RecentTransactions = () => {
     page,
     limit,
   });
-  console.log(data);
 
   return (
     <div>

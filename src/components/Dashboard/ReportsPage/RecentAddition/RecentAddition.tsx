@@ -137,7 +137,7 @@ const RecentAddition = () => {
                 <button
                   onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
                   disabled={page === 1}
-                  className="px-3 py-1 bg-neutral-25/10 shadow-custom-dropdown cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 text-white rounded disabled:opacity-50"
+                  className="px-3 py-1 bg-neutral-25/10 shadow-custom-dropdown cursor-pointer text-white rounded disabled:opacity-50"
                 >
                   Previous
                 </button>
@@ -163,7 +163,7 @@ const RecentAddition = () => {
                     )
                   }
                   disabled={page === data?.stats?.totalPages}
-                  className="px-3 py-1 bg-neutral-25/10 shadow-custom-dropdown cursor-pointer transition-all duration-300 ease-in-out transform hover:scale-105 active:scale-95 text-white rounded disabled:opacity-50"
+                  className="px-3 py-1 bg-neutral-25/10 shadow-custom-dropdown cursor-pointer text-white rounded disabled:opacity-50"
                 >
                   Next
                 </button>

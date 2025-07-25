@@ -57,7 +57,6 @@ const FundTransfer = () => {
         setTransferData(response?.data);
         setActiveTab("Success");
       }
-      console.log(response);
     } catch (error) {
       toast.error((error as any)?.data?.message || "Something went wrong");
       console.error("Error sending funds:", error);

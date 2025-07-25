@@ -53,7 +53,6 @@ const MakeDonation = () => {
   const { data: userProfile } = useGetUserProfileQuery({});
 
   const userStage = userProfile?.data?.profile?.stage;
-  console.log(userStage);
 
   // Find the matching stage object
   const matchedStage = stages?.find((stage: any) => {

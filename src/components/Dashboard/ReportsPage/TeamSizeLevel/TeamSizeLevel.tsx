@@ -11,7 +11,6 @@ const TeamSizeLevel = () => {
     page,
     limit,
   });
-  console.log(data);
   return (
     <div className="font-Outfit mt-10">
       <Table
