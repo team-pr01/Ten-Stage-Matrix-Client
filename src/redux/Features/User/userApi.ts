@@ -125,16 +125,15 @@ const userApi = baseApi.injectEndpoints({
     }),
 
     getTeamTreeByIdList: builder.query({
-  query: ({ id, page = 1, limit = 10 }) => {
-    return {
-      url: `/users/team-tree/${id}?page=${page}&limit=${limit}`,
-      method: "GET",
-      credentials: "include",
-    };
-  },
-  providesTags: ["user"],
-}),
-
+      query: ({ id, page = 1, limit = 10 }) => {
+        return {
+          url: `/users/team-tree/${id}?page=${page}&limit=${limit}`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
 
     getTransferHistory: builder.query({
       query: ({ page = 1, limit = 10 }) => {
@@ -206,6 +205,17 @@ const userApi = baseApi.injectEndpoints({
       query: ({ page = 1, limit = 10 }) => {
         return {
           url: `/activities/commission?page=${page}&limit=${limit}`,
+          method: "GET",
+          credentials: "include",
+        };
+      },
+      providesTags: ["user"],
+    }),
+
+    getGeneratedWallet: builder.query({
+      query: () => {
+        return {
+          url: `/wallet/last`,
           method: "GET",
           credentials: "include",
         };
@@ -303,6 +313,7 @@ export const {
   useGetAllReferralListQuery,
   useGetLevelProgressPositionQuery,
   useGetEarningHistoryQuery,
+  useGetGeneratedWalletQuery,
   useTransferFundMutation,
   useMakeDonationMutation,
   useRequestWithdrawMutation,

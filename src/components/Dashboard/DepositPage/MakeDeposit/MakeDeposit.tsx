@@ -1,8 +1,8 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import {
   useGenerateWalletAddressMutation,
-  useGetPublicSettingsQuery,
+  useGetGeneratedWalletQuery,
 } from "../../../../redux/Features/User/userApi";
 import QRCode from "react-qr-code";
 import { GoCopy } from "react-icons/go";
@@ -16,8 +16,10 @@ declare global {
 }
 
 const MakeDeposit = () => {
-  const { data: settings } = useGetPublicSettingsQuery({});
-  const [generateWalletAddress, { isLoading }] = useGenerateWalletAddressMutation();
+  const { data: generatedWalletAddresses } = useGetGeneratedWalletQuery({});
+  console.log(generatedWalletAddresses);
+  const [generateWalletAddress, { isLoading }] =
+    useGenerateWalletAddressMutation();
 
   const [isCopied, setIsCopied] = useState(false);
 
@@ -31,68 +33,51 @@ const MakeDeposit = () => {
     }
   };
 
-  const [data, setData] = useState<any>(null);
+  // const [data, setData] = useState<any>(null);
 
   const handleMakeDeposit1 = async () => {
     try {
-      const response = await generateWalletAddress({}).unwrap();
-      if (response?.success) {
-        const currentTime = new Date().getTime();
-        const expiryTime = currentTime + 60 * 60 * 1000; // 1 hour
-
-        const dataWithExpiry = {
-          data: response.data,
-          expiry: expiryTime,
-        };
-
-        localStorage.setItem("walletData", JSON.stringify(dataWithExpiry));
-        setData(response?.data);
-      }
+      await generateWalletAddress({}).unwrap();
     } catch (error) {
       console.log(error);
     }
   };
 
-  useEffect(() => {
-    const checkAndGenerateWallet = async () => {
-      const stored = localStorage.getItem("walletData");
-      const currentTime = new Date().getTime();
+  // useEffect(() => {
+  //   const checkAndGenerateWallet = async () => {
+  //     const stored = localStorage.getItem("walletData");
+  //     const currentTime = new Date().getTime();
 
-      if (stored) {
-        const { data, expiry } = JSON.parse(stored);
-        if (currentTime < expiry) {
-          // Data still valid
-          setData(data);
-          return;
-        } else {
-          // Expired, remove it
-          localStorage.removeItem("walletData");
-        }
-      }
+  //     if (stored) {
+  //       const { data, expiry } = JSON.parse(stored);
+  //       if (currentTime < expiry) {
+  //         setData(data);
+  //         return;
+  //       } else {
+  //         localStorage.removeItem("walletData");
+  //       }
+  //     }
 
-      // No valid data found — call the function
-      await handleMakeDeposit1();
-    };
+  //     await handleMakeDeposit1();
+  //   };
 
-    checkAndGenerateWallet();
-  }, []);
+  //   checkAndGenerateWallet();
+  // }, []);
 
   // Load data from localStorage if still valid
-  useEffect(() => {
-    const stored = localStorage.getItem("walletData");
-    if (stored) {
-      const { data, expiry } = JSON.parse(stored);
-      const currentTime = new Date().getTime();
+  // useEffect(() => {
+  //   const stored = localStorage.getItem("walletData");
+  //   if (stored) {
+  //     const { data, expiry } = JSON.parse(stored);
+  //     const currentTime = new Date().getTime();
 
-      if (currentTime < expiry) {
-        setData(data);
-      } else {
-        localStorage.removeItem("walletData");
-      }
-    }
-  }, []);
-
-  console.log(settings);
+  //     if (currentTime < expiry) {
+  //       setData(data);
+  //     } else {
+  //       localStorage.removeItem("walletData");
+  //     }
+  //   }
+  // }, []);
 
   return (
     <div className="font-Outfit">
@@ -108,7 +93,7 @@ const MakeDeposit = () => {
         </button>
       </div>
       {/* Conditionally render QR code */}
-      {data?.wallet_address && (
+      {generatedWalletAddresses?.data?.wallet_address && (
         <div className="w-fit">
           <h2 className="text-white text-lg font-semibold mb-2">
             Your USDT BEP-20 Wallet Address
@@ -117,7 +102,7 @@ const MakeDeposit = () => {
           {/* bg-white rounded-xl p-3 */}
           <div className="">
             <QRCode
-              value={data?.wallet_address}
+              value={generatedWalletAddresses?.data?.wallet_address}
               bgColor="#000000"
               fgColor="#ffffff"
               size={200}
@@ -130,9 +115,11 @@ const MakeDeposit = () => {
               }}
               className="bg-neutral-140 text-white font-medium rounded-md py-4 px-6 tracking-wider font-mono flex items-center justify-between gap-4 text-[8px] md:text-base w-full h-full"
             >
-              {data?.wallet_address}
+              {generatedWalletAddresses?.data?.wallet_address}
               <GoCopy
-                onClick={() => handleCopy(data?.wallet_address)}
+                onClick={() =>
+                  handleCopy(generatedWalletAddresses?.data?.wallet_address)
+                }
                 className={`${
                   isCopied ? "opacity-0 hidden" : "opacity-100 flex"
                 } transition-all duration-300 cursor-pointer`}
@@ -146,8 +133,15 @@ const MakeDeposit = () => {
           </div>
 
           <p className="text-red-500">
-            This wallet address will be expired in {data?.expires_in}. Please
-            make sure to deposit within the time limit.
+            This wallet address will be expired at{" "}
+            {new Date(
+              generatedWalletAddresses?.data?.expired_at
+            ).toLocaleTimeString("en-US", {
+              hour: "numeric",
+              minute: "2-digit",
+              hour12: true,
+            })}
+            . Please make sure to deposit within the time limit.
           </p>
         </div>
       )}
