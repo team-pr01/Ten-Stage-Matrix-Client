@@ -9,7 +9,9 @@ import {useGetTeamTreeByIdListQuery } from "../../redux/Features/User/userApi";
 const ReferralDetails = () => {
   const [viewMode, setViewMode] = useState("list");
   const { id } = useParams();
-  const { data, isLoading } = useGetTeamTreeByIdListQuery(id);
+  const [page, setPage] = useState(1);
+    const [limit] = useState(10);
+  const { data, isLoading, isFetching } = useGetTeamTreeByIdListQuery({ id, page: 1, limit: 20 });
   console.log(data);
   return (
     <div className="font-Outfit min-h-screen">
@@ -41,13 +43,18 @@ const ReferralDetails = () => {
               "Stage",
             ]}
             data={
-              data?.data?.map((item: any) => ({
+              data?.data?.map((item: any, index: number) => ({
+                serial_no: (page - 1) * limit + index + 1,
                 name: item.name,
                 status: (<p className="capitalize">{item.status}</p>),
                 stage: item.stage,
               })) || []
             }
             isLoading={isLoading}
+            isFetching={isFetching}
+            page={page}
+            setPage={setPage}
+            AllData={data}
           />
         ) : (
           <GraphView id={id ? id : ""} />

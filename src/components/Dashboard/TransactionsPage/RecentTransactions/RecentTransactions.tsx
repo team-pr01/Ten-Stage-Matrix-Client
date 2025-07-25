@@ -1,10 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
+import { useState } from "react";
 import { useGetTransactionHistoryQuery } from "../../../../redux/Features/User/userApi";
 import { formatDate } from "../../../../utile/formatDate";
 import Table from "../../../Reusable/Table/Table";
 
 const RecentTransactions = () => {
-  const { data, isLoading } = useGetTransactionHistoryQuery({});
+  const [page, setPage] = useState(1);
+  const [limit] = useState(10);
+  const { data, isLoading, isFetching } = useGetTransactionHistoryQuery({
+    page,
+    limit,
+  });
+  console.log(data);
 
   return (
     <div>
@@ -29,6 +36,10 @@ const RecentTransactions = () => {
           })) || []
         }
         isLoading={isLoading}
+        isFetching={isFetching}
+        AllData={data}
+        page={page}
+        setPage={setPage}
       />
     </div>
   );

@@ -4,7 +4,7 @@ import { formatDate } from "../../../../utile/formatDate";
 import Table from "../../../Reusable/Table/Table";
 
 const RecentActivity = () => {
-  const { data, isLoading } = useGetActivityHistoryQuery({});
+  const { data, isLoading, isFetching } = useGetActivityHistoryQuery({});
 
   return (
     <div className="mt-6">
@@ -22,6 +22,10 @@ const RecentActivity = () => {
           })) || []
         }
         isLoading={isLoading}
+        isFetching={isFetching}
+        AllData={data}
+        page={1}
+        setPage={() => {}}
       />
     </div>
   );

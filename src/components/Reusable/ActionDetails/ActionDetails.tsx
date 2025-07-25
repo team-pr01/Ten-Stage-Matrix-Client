@@ -3,9 +3,15 @@ import { useLocation } from "react-router-dom";
 import { useGetTransactionHistoryQuery } from "../../../redux/Features/User/userApi";
 import { formatDate } from "../../../utile/formatDate";
 import Table from "../Table/Table";
+import { useState } from "react";
 
 const ActionDetails = ({ title }: { title: string }) => {
-  const { data, isLoading } = useGetTransactionHistoryQuery({});
+  const [page, setPage] = useState(1);
+  const [limit] = useState(10);
+  const { data, isLoading, isFetching } = useGetTransactionHistoryQuery({
+    page,
+    limit,
+  });
   const location = useLocation();
 
   const filterType =
@@ -28,9 +34,12 @@ const ActionDetails = ({ title }: { title: string }) => {
         ]}
         data={
           filteredData?.map((item: any, index: number) => ({
-            serial_no: index + 1,
+            serial_no: (page - 1) * limit + index + 1,
             transaction_id: item._id,
-            wallet_address: location.pathname === "/dashboard/deposit" ? item.wallet_address : item?.withdrawal_address,
+            wallet_address:
+              location.pathname === "/dashboard/deposit"
+                ? item.wallet_address
+                : item?.withdrawal_address,
             date: formatDate(item?.created_at),
             amount: `$${item?.amount.toFixed(5)}`,
             status:
@@ -46,6 +55,10 @@ const ActionDetails = ({ title }: { title: string }) => {
           })) || []
         }
         isLoading={isLoading}
+        isFetching={isFetching}
+        AllData={data}
+        page={page}
+        setPage={setPage}
       />
     </div>
   );

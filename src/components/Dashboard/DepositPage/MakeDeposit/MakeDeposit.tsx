@@ -17,8 +17,7 @@ declare global {
 
 const MakeDeposit = () => {
   const { data: settings } = useGetPublicSettingsQuery({});
-  const [generateWalletAddress, { isLoading }] =
-    useGenerateWalletAddressMutation();
+  const [generateWalletAddress, { isLoading }] = useGenerateWalletAddressMutation();
 
   const [isCopied, setIsCopied] = useState(false);
 

@@ -25,10 +25,14 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
-    getReferralList: builder.query({
-      query: () => {
+    getReferralList: builder.query<any, { page?: number; limit?: number }>({
+      query: ({ page = 1, limit = 10 } = {}) => {
+        const params = new URLSearchParams();
+        params.append("page", page.toString());
+        params.append("limit", limit.toString());
+
         return {
-          url: `/users/referrals`,
+          url: `/users/referrals?${params.toString()}`,
           method: "GET",
           credentials: "include",
         };
@@ -48,9 +52,9 @@ const userApi = baseApi.injectEndpoints({
     }),
 
     getActivityHistory: builder.query({
-      query: () => {
+      query: ({ page = 1, limit = 10 }) => {
         return {
-          url: `/activities/history`,
+          url: `/activities/history?page=${page}&limit=${limit}`,
           method: "GET",
           credentials: "include",
         };
@@ -59,9 +63,9 @@ const userApi = baseApi.injectEndpoints({
     }),
 
     getTransactionHistory: builder.query({
-      query: () => {
+      query: ({ page = 1, limit = 10 }) => {
         return {
-          url: `/transactions/history`,
+          url: `/transactions/history?page=${page}&limit=${limit}`,
           method: "GET",
           credentials: "include",
         };
@@ -70,9 +74,9 @@ const userApi = baseApi.injectEndpoints({
     }),
 
     getDonationHistory: builder.query({
-      query: () => {
+      query: ({ page = 1, limit = 10 }) => {
         return {
-          url: `/donations/history`,
+          url: `/donations/history?page=${page}&limit=${limit}`,
           method: "GET",
           credentials: "include",
         };
@@ -80,12 +84,14 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
-     getTeamTree: builder.query({
-      query: ({ stage, status }) => {
+    getTeamTree: builder.query({
+      query: ({ stage, status, page = 1, limit = 10 }) => {
         const params = new URLSearchParams();
 
         if (stage && stage !== "All Stages") params.append("stage", stage);
         if (status && status !== "All Status") params.append("status", status);
+        params.append("page", page.toString());
+        params.append("limit", limit.toString());
 
         return {
           url: `/users/team-tree?${params.toString()}`,
@@ -96,7 +102,7 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
-     getReferralTree: builder.query({
+    getReferralTree: builder.query({
       query: () => {
         return {
           url: `/users/team-tree-chain`,
@@ -118,21 +124,22 @@ const userApi = baseApi.injectEndpoints({
       providesTags: ["user"],
     }),
 
-     getTeamTreeByIdList: builder.query({
-      query: (id) => {
-        return {
-          url: `/users/team-tree/${id}`,
-          method: "GET",
-          credentials: "include",
-        };
-      },
-      providesTags: ["user"],
-    }),
+    getTeamTreeByIdList: builder.query({
+  query: ({ id, page = 1, limit = 10 }) => {
+    return {
+      url: `/users/team-tree/${id}?page=${page}&limit=${limit}`,
+      method: "GET",
+      credentials: "include",
+    };
+  },
+  providesTags: ["user"],
+}),
+
 
     getTransferHistory: builder.query({
-      query: () => {
+      query: ({ page = 1, limit = 10 }) => {
         return {
-          url: `/transfers/history`,
+          url: `/transfers/history?page=${page}&limit=${limit}`,
           method: "GET",
           credentials: "include",
         };
@@ -196,9 +203,9 @@ const userApi = baseApi.injectEndpoints({
     }),
 
     getEarningHistory: builder.query({
-      query: () => {
+      query: ({ page = 1, limit = 10 }) => {
         return {
-          url: `/activities/commission`,
+          url: `/activities/commission?page=${page}&limit=${limit}`,
           method: "GET",
           credentials: "include",
         };
@@ -236,8 +243,7 @@ const userApi = baseApi.injectEndpoints({
       invalidatesTags: ["user"],
     }),
 
-
-     updateProfile: builder.mutation({
+    updateProfile: builder.mutation({
       query: (data) => ({
         url: "/users/profile",
         method: "PUT",
@@ -247,7 +253,7 @@ const userApi = baseApi.injectEndpoints({
       invalidatesTags: ["user"],
     }),
 
-     updateWalletAddress: builder.mutation({
+    updateWalletAddress: builder.mutation({
       query: (data) => ({
         url: "/users/wallet",
         method: "PUT",
@@ -257,7 +263,7 @@ const userApi = baseApi.injectEndpoints({
       invalidatesTags: ["user"],
     }),
 
-     changePassword: builder.mutation({
+    changePassword: builder.mutation({
       query: (data) => ({
         url: "/users/profile",
         method: "PUT",
@@ -267,7 +273,7 @@ const userApi = baseApi.injectEndpoints({
       invalidatesTags: ["user"],
     }),
 
-     generateWalletAddress: builder.mutation({
+    generateWalletAddress: builder.mutation({
       query: () => ({
         url: "/wallet/generate",
         method: "POST",

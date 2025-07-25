@@ -2,9 +2,15 @@
 import { Link } from "react-router-dom";
 import { useGetReferralListQuery } from "../../../../redux/Features/User/userApi";
 import Table from "../../../Reusable/Table/Table";
+import { useState } from "react";
 
 const ReferralActivity = () => {
-  const { data, isLoading } = useGetReferralListQuery({});
+  const [page, setPage] = useState(1);
+    const [limit] = useState(10);
+  const { data:referralList, isLoading, isFetching } = useGetReferralListQuery({
+    page,
+    limit,
+  });
   
   return (
     <div>
@@ -20,7 +26,8 @@ const ReferralActivity = () => {
           "Stage",
         ]}
         data={
-          data?.data?.referrals?.map((item: any) => ({
+          referralList?.data?.referrals?.map((item: any, index: number) => ({
+            serial_no: (page - 1) * limit + index + 1,
             name: (
               <Link
                 to={`/dashboard/referral-details/${item?._id}`}
@@ -44,6 +51,10 @@ const ReferralActivity = () => {
           })) || []
         }
         isLoading={isLoading}
+        isFetching={isFetching}
+        AllData={referralList}
+        page={page}
+        setPage={setPage}
       />
     </div>
   );
