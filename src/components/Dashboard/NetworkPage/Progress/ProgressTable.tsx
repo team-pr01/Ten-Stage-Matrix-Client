@@ -37,7 +37,7 @@ const ProgressTable = ({
                     <th className="p-3 whitespace-nowrap capitalize">
                       Active Referrals
                     </th>
-                    <th className="p-3 whitespace-nowrap capitalize">Status</th>
+                    {/* <th className="p-3 whitespace-nowrap capitalize">Status</th> */}
                   </tr>
                 </thead>
 
@@ -98,7 +98,7 @@ const ProgressTable = ({
                             >
                               {stageData?.active_referral_count}
                             </td>
-                            <td
+                            {/* <td
                               onClick={() => {
                                 setIsDataModalOpen(true);
                                 setSelectedTeamData(
@@ -108,7 +108,7 @@ const ProgressTable = ({
                               className="p-3 cursor-pointer max-w-full xl:max-w-[450px] break-words line-clamp-none xl:line-clamp-2"
                             >
                               {stageData?.progressing_msg}
-                            </td>
+                            </td> */}
                           </tr>
                         );
                       }
