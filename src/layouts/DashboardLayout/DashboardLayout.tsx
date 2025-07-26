@@ -25,9 +25,9 @@ const DashboardLayout = () => {
           </Link>
           <DashboardHamburgerMenu />
         </div>
-        <div className="flex gap-[30px] z-10 relative px-5 py-[30px]">
+        <div className="flex gap-[30px] z-10 relative px-5 py-4 lg:py-[30px]">
           <Sidebar />
-          <div className="w-full flex flex-col gap-8">
+          <div className="w-full flex flex-col gap-5 lg:gap-8">
             <DashboardHeader />
             <Outlet />
           </div>
