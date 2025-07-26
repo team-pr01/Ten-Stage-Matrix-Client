@@ -91,6 +91,8 @@ const MakeDeposit = () => {
           {isLoading ? "Generating..." : "Generate Wallet"}
         </button>
       </div>
+
+      <p className="text-primary-10">{!generatedWalletAddresses?.data?.wallet_address && "Please Generate Wallet to Deposit"}</p>
       {/* Conditionally render QR code */}
       {generatedWalletAddresses?.data?.wallet_address && (
         <div className="w-fit">
