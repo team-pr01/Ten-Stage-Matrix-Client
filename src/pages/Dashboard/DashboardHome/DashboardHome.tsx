@@ -127,22 +127,34 @@ const DashboardHome = () => {
     },
   ];
 
-  const { data: settings } = useGetPublicSettingsQuery({});
+  const { data: settings, isLoading } = useGetPublicSettingsQuery({});
 
   const CustomMarquee = "marquee" as any;
 
   return (
     <div className="font-Outfit">
-      {settings?.data?.notice?.enabled && (
-        <div className="p-[10px] rounded-lg bg-neutral-25/10 shadow-custom-dropdown">
+      {isLoading ? (
+        <div className="p-[10px] rounded-lg bg-neutral-25/10 shadow-custom-dropdown animate-pulse">
           <CustomMarquee
             className="text-neutral-145 font-medium text-xs leading-5 text-left flex items-center justify-center"
             behavior="scroll"
             direction="left"
           >
-            {settings?.data?.notice?.message || "Loading..."}
+            Please wait...
           </CustomMarquee>
         </div>
+      ) : (
+        settings?.data?.notice?.enabled && (
+          <div className="p-[10px] rounded-lg bg-neutral-25/10 shadow-custom-dropdown">
+            <CustomMarquee
+              className="text-neutral-145 font-medium text-xs leading-5 text-left flex items-center justify-center"
+              behavior="scroll"
+              direction="left"
+            >
+              {settings?.data?.notice?.message}
+            </CustomMarquee>
+          </div>
+        )
       )}
       <div className="w-full max-h-[334px] 2xl:max-h-[500px] relative mb-5 xl:mb-[30px] mt-5">
         <img src={IMAGES.referralCodeBg} alt="" className="w-full h-full" />
