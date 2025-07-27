@@ -110,7 +110,7 @@ const DashboardHome = () => {
     {
       icon: ICONS.networkSize,
       title: "Network size",
-      value: `${teamTree?.data?.length || 0} Members`,
+      value: `${teamTree?.stats?.total_members || 0} Members`,
       isCurrencyVisible: false,
     },
     {
@@ -139,8 +139,6 @@ const DashboardHome = () => {
             className="text-neutral-145 font-medium text-xs leading-5 text-left flex items-center justify-center"
             behavior="scroll"
             direction="left"
-            scrollamount={3}
-            scrolldelay={40}
           >
             {settings?.data?.notice?.message || "Loading..."}
           </CustomMarquee>
