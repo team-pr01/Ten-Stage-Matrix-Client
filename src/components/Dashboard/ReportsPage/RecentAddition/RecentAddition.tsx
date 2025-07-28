@@ -86,9 +86,9 @@ const RecentAddition = () => {
                 </tr>
               </thead>
               <tbody>
-                {data?.data?.length < 1 ? (
+                {data?.data?.length < 1 || data?.data === undefined ? (
                   <tr>
-                    <td colSpan={9} className="text-center py-4 text-white">
+                    <td colSpan={8} className="py-6 text-center text-white">
                       No data found
                     </td>
                   </tr>

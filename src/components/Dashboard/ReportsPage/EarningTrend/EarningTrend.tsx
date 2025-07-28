@@ -13,7 +13,7 @@ const EarningTrend = ({ data }: { data: any }) => {
             icon={item.icon}
             title={item.title}
             description={item.description}
-            value={item.value}
+            value={item.value || 0}
             isCurrencyVisible={false}
           />
         ))}

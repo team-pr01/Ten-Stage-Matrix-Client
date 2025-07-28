@@ -24,18 +24,30 @@ const TeamSummary = () => {
     }
   });
 
-  const earningTrends = [ 
+  const earningTrends = [
+    // {
+    //   icon: ICONS.earning,
+    //   title: "Remaining Balance",
+    //   value: `$${Math.max(
+    //     0,
+    //     data?.data?.profile?.last_donation * matchedStage?.earning_multiplier -
+    //       data?.data?.balances?.stage_balance
+    //   ).toFixed(5)}`,
+    //   description: "Current active earning",
+    // },
     {
       icon: ICONS.earning,
       title: "Remaining Balance",
       value: `$${Math.max(
         0,
-        data?.data?.profile?.last_donation * matchedStage?.earning_multiplier -
-          data?.data?.balances?.stage_balance
+        (Number(data?.data?.profile?.last_donation) || 0) *
+          (matchedStage?.earning_multiplier || 0) -
+          (Number(data?.data?.balances?.stage_balance) || 0)
       ).toFixed(5)}`,
       description: "Current active earning",
     },
   ];
+  
   return (
     <div>
       <EarningTrend data={earningTrends} />

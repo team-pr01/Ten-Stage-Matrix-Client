@@ -31,11 +31,11 @@ const Position = () => {
               <div className="space-y-[6px]">
                 <h1 className="text-xl font-medium text-white">Line 1</h1>
                 <h1 className="text-neutral-160">
-                  Network Size: {data?.data?.position?.left?.team_count}
+                  Network Size: {data?.data?.position?.left?.team_count || 0}
                 </h1>
                 <p className="text-neutral-160">
                   Active members:{" "}
-                  {data?.data?.position?.left?.active_referral_count}
+                  {data?.data?.position?.left?.active_referral_count || 0}
                 </p>
               </div>
             </div>
@@ -60,11 +60,11 @@ const Position = () => {
               <div className="space-y-[6px]">
                 <h1 className="text-xl font-medium text-white">Line 2</h1>
                 <h1 className="text-neutral-160">
-                  Network Size: {data?.data?.position?.center?.team_count}
+                  Network Size: {data?.data?.position?.center?.team_count || 0}
                 </h1>
                 <p className="text-neutral-160">
                   Active members:{" "}
-                  {data?.data?.position?.center?.active_referral_count}
+                  {data?.data?.position?.center?.active_referral_count || 0}
                 </p>
               </div>
             </div>
@@ -89,11 +89,11 @@ const Position = () => {
               <div className="space-y-[6px]">
                 <h1 className="text-xl font-medium text-white">Line 3</h1>
                 <h1 className="text-neutral-160">
-                  Network Size: {data?.data?.position?.right?.team_count}
+                  Network Size: {data?.data?.position?.right?.team_count || 0}
                 </h1>
                 <p className="text-neutral-160">
                   Active members:{" "}
-                  {data?.data?.position?.right?.active_referral_count}
+                  {data?.data?.position?.right?.active_referral_count || 0}
                 </p>
               </div>
             </div>
