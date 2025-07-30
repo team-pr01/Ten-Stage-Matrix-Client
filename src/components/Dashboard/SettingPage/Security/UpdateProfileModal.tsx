@@ -88,7 +88,7 @@ const UpdateProfileModal = ({
             label="Name"
             placeholder="Enter Name"
             icon={ICONS.userName}
-            error={errors.name}
+            error={errors.name?.message}
             {...register("name", {
               required: "Name is required",
             })}
@@ -97,7 +97,7 @@ const UpdateProfileModal = ({
             label="Email"
             placeholder="Enter Email"
             icon={ICONS.emailIcon}
-            error={errors.email}
+            error={errors.email?.message}
             {...register("email", {
               required: "Email is required",
             })}
@@ -106,7 +106,7 @@ const UpdateProfileModal = ({
             label=" Wallet Address"
             placeholder="Enter  Wallet Address"
             icon={ICONS.privateKey}
-            error={errors.wallet_address}
+            error={errors.wallet_address?.message}
             {...register("wallet_address", {
               required: " Wallet address is required",
             })}

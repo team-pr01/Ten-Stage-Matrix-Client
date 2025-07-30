@@ -153,7 +153,7 @@ const RequestWithdraw = () => {
           label="Amount"
           placeholder="Enter Amount"
           icon={ICONS.dollar}
-          error={errors.amount}
+          error={errors.amount?.message}
           {...register("amount", {
             required: "Amount is required",
           })}
@@ -162,9 +162,9 @@ const RequestWithdraw = () => {
           label="USDT BEP-20 Wallet Address."
           placeholder="Enter USDT BEP-20 Wallet Address."
           icon={ICONS.privateKey}
-          error={errors.withdrawal_address}
+          error={errors.withdrawal_address?.message}
           {...register("withdrawal_address", {
-            required: "Your USDT BEP-20 Wallet Address. is required",
+            required: "Your USDT BEP-20 Wallet Address is required",
           })}
         />
         <Button label="Confirm" isLoading={isLoading} classNames="w-[176px]" />

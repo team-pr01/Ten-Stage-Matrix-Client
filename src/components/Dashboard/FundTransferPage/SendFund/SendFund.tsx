@@ -29,7 +29,7 @@ const SendFund = ({
         label="Private Key"
         placeholder="Enter Private key"
         icon={ICONS.privateKey}
-        error={errors.recipient_id}
+        error={errors.recipient_id?.message}
         {...register("recipient_id", {
           required: "Private key is required",
         })}
@@ -39,7 +39,7 @@ const SendFund = ({
         label="Amount"
         placeholder="Enter Amount"
         icon={ICONS.dollar}
-        error={errors.amount}
+        error={errors.amount?.message}
         {...register("amount", {
           required: "Amount is required",
         })}

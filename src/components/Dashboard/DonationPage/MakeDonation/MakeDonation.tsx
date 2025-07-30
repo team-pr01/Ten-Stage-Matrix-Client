@@ -75,7 +75,7 @@ const MakeDonation = () => {
           label="Amount"
           placeholder="Enter Amount"
           icon={ICONS.dollar}
-          error={errors.amount}
+          error={errors.amount?.message}
           {...register("amount", {
             required: "Amount is required",
           })}

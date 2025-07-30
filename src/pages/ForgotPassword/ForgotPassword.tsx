@@ -65,7 +65,7 @@ const ForgotPassword = () => {
                 label="Private Key"
                 placeholder="Enter Private Key"
                 icon={ICONS.privateKey}
-                error={errors.user_pk}
+                error={errors.user_pk?.message}
                 {...register("user_pk", {
                   required: "Private key is required",
                 })}

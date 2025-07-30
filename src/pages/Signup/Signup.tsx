@@ -78,7 +78,7 @@ const Signup = () => {
                 label="Name"
                 placeholder="Enter Name"
                 icon={ICONS.userName}
-                error={errors.name}
+                error={errors.name?.message}
                 {...register("name", {
                   required: "Name is required",
                 })}
@@ -88,7 +88,7 @@ const Signup = () => {
                 label="Email"
                 placeholder="Enter Email Address"
                 icon={ICONS.emailIcon}
-                error={errors.email}
+                error={errors.email?.message}
                 type="email"
                 {...register("email", {
                   required: "Email is required",
@@ -197,7 +197,7 @@ const Signup = () => {
                 label="Referral Code"
                 placeholder="Enter Referral Code"
                 icon={ICONS.referralCodeIcon}
-                error={errors.referral_code}
+                error={errors.referral_code?.message}
                 {...register("referral_code", {
                   required: "Referral code is required",
                 })}
