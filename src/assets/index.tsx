@@ -1,21 +1,21 @@
 import logo from "./images/logo.png";
-import logoGif from "./images/logo.gif";
+import logoGif from "./images/logo.webp";
 import securelyBuySell from "./images/securly-buy-sell.svg";
-import cryptoIcons from "./images/crypto-icons.svg";
+
 import imagePlaceholder from "./images/image-placeholder.jpg";
 import authBg from "./images/auth-bg.webp";
 import avatar3 from "./images/avatar.png";
 import referralCodeBg from "./images/referal-code-bg.webp";
 import lock from "./images/lock.webp";
-import heroImg from "./images/hero-gif.gif";
+import heroImg from "./images/hero.webm";
 import heroGradient from "./images/hero-gradient.webp";
 import assetsSecured from "./images/assets-secured.webp";
 import unite from "./images/unite.webp";
 import support from "./images/support.webp";
 import trustedSecure from "./images/trusted-secure.webp";
 import startEarning from "./images/start-earning.webp";
-import startEarningGrdietent from "./images/start-earning-gradient.webp";
-import getStartedGradient from "./images/get-started-gradient.webp";
+
+
 import line2 from "./images/line.png";
 import earnFlexibly from "./images/earn-flexibily.webp";
 import verticleLine from "./images/verticle-line.png";
@@ -81,7 +81,7 @@ export const IMAGES = {
     logoGif,
     heroImg,
     securelyBuySell,
-    cryptoIcons,
+   
     imagePlaceholder,
     authBg,
     avatar3,
@@ -93,8 +93,8 @@ export const IMAGES = {
     support,
     trustedSecure,
     startEarning,
-    startEarningGrdietent,
-    getStartedGradient,
+  
+   
     line2,
     earnFlexibly,
     verticleLine,

@@ -416,7 +416,16 @@ const Hero = () => {
             Sign In
           </Link>
           }
-          <img src={IMAGES.heroImg} alt="" className="mt-10 mx-auto" />
+          {/* <img src={IMAGES.heroImg} alt="" className="mt-10 mx-auto" /> */}
+          <video
+            autoPlay
+            loop
+            muted
+            className="mt-10 mx-auto rounded-lg"
+            src={IMAGES.heroImg}
+          
+           
+          />
         </div>
       </Container>
     </div>

@@ -89,9 +89,9 @@ const SignIn = () => {
                 label="Private Key"
                 placeholder="Enter Private key"
                 icon={ICONS.privateKey}
-                error={errors.identifier}
+                error={errors.identifier?.message}
                 {...register("identifier", {
-                  required: "Identifier is required",
+                  required: "Private key is required",
                 })}
               />
 

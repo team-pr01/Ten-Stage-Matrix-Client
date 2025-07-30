@@ -30,11 +30,7 @@ const GetStarted = () => {
 
   return (
     <div className="font-Outfit relative">
-      {/* <img
-        src={IMAGES.startEarningGrdietent}
-        alt=""
-        className="absolute top-0 w-[1400px] h-[500px] right-0"
-      /> */}
+     
       <div className="bg-[#fda15333] w-[300px] lg:w-[800px] h-[300px] md:h-[500px] blur-[330px] rounded-full absolute right-5 lg:right-0 left-0"></div>
       <Container>
         <div className="mt-[160px]">

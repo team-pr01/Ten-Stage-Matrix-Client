@@ -32,7 +32,7 @@ const baseQueryWithRefreshToken: BaseQueryFn<
 
   if (result.error?.status === 401) {
     const res = await fetch(
-      "https://test.adamocorporationltd.com/api/v1/auth/refresh-token",
+      "https://api.tsmnews.com/api/v1/auth/refresh-token",
       {
         credentials: "include",
       }
